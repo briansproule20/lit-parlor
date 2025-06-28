@@ -33,7 +33,7 @@ export default function Home() {
               📚 The Literary Parlor
             </h1>
             <p className="text-xl text-amber-800 max-w-3xl mx-auto leading-relaxed font-serif">
-              A cozy corner where great stories come alive. Making long form narratives available in contemporary formats. We are a project still in development.
+              A cozy corner where great stories come alive. Making long form narratives available in contemporary short forms. We are a project still in development.
             </p>
             <div className="mt-4 text-amber-700 font-serif italic">
               "A room without books is like a body without a soul" — Cicero
