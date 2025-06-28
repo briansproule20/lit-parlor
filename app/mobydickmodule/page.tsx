@@ -32,7 +32,7 @@ export default function MobyDickModule() {
         
         {/* Captain's Log Header */}
         <div className="text-center mb-12">
-          <div className="inline-block p-8 shadow-2xl transform -rotate-1 relative overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-3xl hover:-rotate-2 cursor-pointer" style={{
+          <div className="inline-block p-8 shadow-2xl transform -rotate-1 relative overflow-visible transition-all duration-300 hover:scale-105 hover:shadow-3xl hover:-rotate-2 cursor-pointer" style={{
             border: '4px solid #8B4513',
             borderRadius: '12px',
             boxShadow: `
@@ -51,20 +51,23 @@ export default function MobyDickModule() {
               `
             }}></div>
             
-            {/* Captain's seal */}
-            <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 rounded-full shadow-2xl z-10" style={{
+            {/* Captain's seal - pinning the notice to background */}
+            <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 w-16 h-16 rounded-full shadow-2xl z-20" style={{
               background: `
-                radial-gradient(circle at 30% 30%, rgba(220, 20, 60, 0.9) 0%, transparent 40%),
-                radial-gradient(circle at 70% 70%, rgba(139, 0, 0, 0.8) 0%, transparent 50%),
-                linear-gradient(135deg, #DC143C 0%, #8B0000 50%, #A0522D 100%)
+                radial-gradient(circle at 30% 30%, rgba(220, 20, 60, 0.95) 0%, transparent 50%),
+                radial-gradient(circle at 70% 70%, rgba(139, 0, 0, 0.9) 0%, transparent 60%),
+                radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 0.3) 0%, transparent 30%),
+                linear-gradient(135deg, #DC143C 0%, #8B0000 30%, #A0522D 60%, #8B0000 100%)
               `,
               border: '3px solid #8B4513',
               boxShadow: `
-                0 6px 16px rgba(0, 0, 0, 0.7),
-                inset 0 2px 4px rgba(255, 255, 255, 0.4)
+                0 8px 20px rgba(0, 0, 0, 0.8),
+                0 4px 12px rgba(139, 69, 19, 0.6),
+                inset 0 3px 6px rgba(255, 255, 255, 0.4),
+                inset 0 -3px 6px rgba(139, 0, 0, 0.8)
               `
             }}>
-              <div className="absolute inset-2 text-center text-white font-bold text-lg">⚓</div>
+              <div className="absolute inset-2 text-center text-white font-bold text-xl flex items-center justify-center">⚓</div>
             </div>
             
             <div className="relative z-10">
@@ -72,7 +75,7 @@ export default function MobyDickModule() {
                 textShadow: '3px 3px 6px rgba(0,0,0,0.4)',
                 letterSpacing: '0.05em'
               }}>
-                CAPTAIN'S MODULE
+                CAPTAIN'S NOTICE
               </h1>
               <div className="w-full h-2 bg-amber-700 mb-4"></div>
               <p className="text-2xl text-amber-800 font-serif leading-relaxed">
@@ -85,8 +88,31 @@ export default function MobyDickModule() {
           </div>
         </div>
 
-        {/* Ship's Deck Grid */}
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8 mb-12">
+        {/* Call to Adventure - Moved to Center */}
+        <div className="text-center mb-12">
+          <div className="inline-block p-8 bg-gradient-to-r from-blue-900/90 to-slate-800/90 border-4 border-blue-400 rounded-2xl shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl">
+            <h2 className="text-3xl font-bold text-white mb-4 font-serif">
+              Ready to Navigate These Waters?
+            </h2>
+            <p className="text-blue-200 text-lg mb-6 font-serif">
+              Choose your course through Melville's maritime masterpiece
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link href="/mobydickmodule/journey" className="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 inline-block">
+                🧭 Start Journey
+              </Link>
+              <Link href="/mobydickmodule/study-guide" className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 inline-block">
+                📚 Study Guide
+              </Link>
+              <Link href="/mobydickmodule/quiz" className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 inline-block">
+                🎯 Quick Quiz
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Ship's Deck Grid - Moved Below */}
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
           
           {/* Interactive Analysis */}
           <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-6 shadow-2xl transform rotate-1 transition-all duration-300 hover:scale-105 hover:rotate-2 hover:shadow-3xl cursor-pointer">
@@ -181,29 +207,6 @@ export default function MobyDickModule() {
             </div>
           </div>
 
-        </div>
-
-        {/* Call to Adventure */}
-        <div className="text-center">
-          <div className="inline-block p-8 bg-gradient-to-r from-blue-900/90 to-slate-800/90 border-4 border-blue-400 rounded-2xl shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl">
-            <h2 className="text-3xl font-bold text-white mb-4 font-serif">
-              Ready to Navigate These Waters?
-            </h2>
-            <p className="text-blue-200 text-lg mb-6 font-serif">
-              Choose your course through Melville's maritime masterpiece
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <button className="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105">
-                🧭 Start Journey
-              </button>
-              <button className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105">
-                📚 Study Guide
-              </button>
-              <button className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105">
-                🎯 Quick Quiz
-              </button>
-            </div>
-          </div>
         </div>
 
       </div>
