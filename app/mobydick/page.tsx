@@ -31,9 +31,9 @@ export default function MobyDick() {
       <div className="max-w-5xl mx-auto relative">
         
         {/* Harbor Sign */}
-        <div className="flex justify-center -mb-8 relative">
+        <div className="flex justify-center -mb-20 relative">
           <div 
-            className="inline-block p-6 shadow-xl transform rotate-1 relative overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:rotate-2 cursor-pointer" 
+            className="inline-block p-6 shadow-xl transform rotate-0 relative overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:rotate-1 cursor-pointer" 
             onClick={() => {
               setSelectedSetting(selectedSetting === 'nantucket' ? null : 'nantucket');
               setSelectedCharacter(null);
