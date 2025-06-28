@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 export default function Home() {
   return (
@@ -9,8 +10,8 @@ export default function Home() {
             Narrative Exploration
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Transform long-form narratives into digestible quotes, visuals, and structural elements. 
-            Perfect for teaching and learning in bite-sized formats.
+            Transform long-form narrative into digestible quotes, visuals, stylistic, and structural elements. 
+            Perfect for teaching long narratives and learning in abbreviated formats.
           </p>
         </div>
         
@@ -49,6 +50,33 @@ export default function Home() {
               </h3>
               <p className="text-orange-700">
                 Create short-form teaching materials from complex narratives.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-6">
+            Explore Classic Literature
+          </h2>
+          <div className="grid md:grid-cols-2 gap-4">
+            <Link 
+              href="/mobydick" 
+              className="block p-4 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group"
+            >
+              <h3 className="text-lg font-medium text-gray-900 group-hover:text-indigo-600 mb-2">
+                🐋 Moby Dick
+              </h3>
+              <p className="text-gray-600">
+                Explore Herman Melville's epic tale of obsession and the white whale.
+              </p>
+            </Link>
+            <div className="p-4 bg-gray-50 rounded-lg opacity-60">
+              <h3 className="text-lg font-medium text-gray-500 mb-2">
+                📚 More Coming Soon
+              </h3>
+              <p className="text-gray-400">
+                Additional classic literature explorations will be added here.
               </p>
             </div>
           </div>
