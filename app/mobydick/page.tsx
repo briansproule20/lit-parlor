@@ -1,7 +1,14 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
 import Link from 'next/link'
 
 export default function MobyDick() {
+  const [selectedCharacter, setSelectedCharacter] = useState<string | null>(null);
+  const [selectedThemeItem, setSelectedThemeItem] = useState<string | null>(null);
+  const [selectedStructureItem, setSelectedStructureItem] = useState<string | null>(null);
+  const [selectedSymbolismItem, setSelectedSymbolismItem] = useState<string | null>(null);
+  const [selectedAuthor, setSelectedAuthor] = useState<string | null>(null);
+  const [selectedSetting, setSelectedSetting] = useState<string | null>(null);
   return (
     <main className="min-h-screen py-8 px-4 relative" style={{
         backgroundImage: 'url(/images/ship-storm.png)',
@@ -24,8 +31,18 @@ export default function MobyDick() {
       <div className="max-w-5xl mx-auto relative">
         
         {/* Harbor Sign */}
-        <div className="text-center -mb-8 relative">
-          <div className="inline-block p-6 shadow-xl transform rotate-1 relative overflow-hidden" style={{
+        <div className="flex justify-center -mb-8 relative">
+          <div 
+            className="inline-block p-6 shadow-xl transform rotate-1 relative overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:rotate-2 cursor-pointer" 
+            onClick={() => {
+              setSelectedSetting(selectedSetting === 'nantucket' ? null : 'nantucket');
+              setSelectedCharacter(null);
+              setSelectedThemeItem(null);
+              setSelectedStructureItem(null);
+              setSelectedSymbolismItem(null);
+              setSelectedAuthor(null);
+            }}
+            style={{
             border: '3px solid #8B4513',
             borderRadius: '8px',
             boxShadow: `
@@ -73,7 +90,7 @@ export default function MobyDick() {
               `
             }}></div>
             
-            <div className="relative z-10">
+            <div className="relative z-10 text-center">
               <h2 className="text-3xl font-bold text-amber-100 mb-2 font-serif" style={{
                 textShadow: '3px 3px 6px rgba(0,0,0,0.8)',
                 letterSpacing: '0.1em'
@@ -93,9 +110,9 @@ export default function MobyDick() {
         {/* Rope Border Frame */}
         <div className="relative mx-auto" style={{
           width: '1000px',
-          height: '1000px',
+          height: '1200px',
           maxWidth: '95vw',
-          maxHeight: '95vw'
+          maxHeight: 'none'
         }}>
           {/* Rope border overlay - underneath */}
           <div className="absolute inset-0 z-1 pointer-events-none" style={{
@@ -104,7 +121,7 @@ export default function MobyDick() {
             backgroundRepeat: 'no-repeat'
           }}></div>
           {/* Bulletin board inside rope border */}
-          <div className="absolute top-[14%] left-[10%] right-[10%] bottom-[14%] border-4 border-amber-800 shadow-2xl overflow-hidden rounded-lg z-10">
+          <div className="absolute top-[14%] left-[10%] right-[10%] bottom-[14%] border-4 border-amber-800 shadow-2xl overflow-visible rounded-lg z-10">
             {/* Wood background */}
             <div className="absolute inset-0" style={{
               backgroundImage: 'url(/images/wood-texture.jpg)',
@@ -194,7 +211,17 @@ export default function MobyDick() {
             <div className="p-6 relative z-10">
               {/* Title notice */}
                               <div className="text-center mb-8 relative">
-                <div className="inline-block p-6 shadow-lg transform -rotate-1 relative" style={{
+                <div 
+                  className="inline-block p-6 shadow-lg transform -rotate-1 relative transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:-rotate-2 cursor-pointer" 
+                  onClick={() => {
+                    setSelectedAuthor(selectedAuthor === 'melville' ? null : 'melville');
+                    setSelectedCharacter(null);
+                    setSelectedThemeItem(null);
+                    setSelectedStructureItem(null);
+                    setSelectedSymbolismItem(null);
+                    setSelectedSetting(null);
+                  }}
+                  style={{
                   background: `
                     radial-gradient(circle at 25% 20%, rgba(252, 248, 227, 0.9) 0%, transparent 60%),
                     radial-gradient(circle at 75% 80%, rgba(245, 222, 179, 0.8) 0%, transparent 60%),
@@ -235,15 +262,15 @@ export default function MobyDick() {
                   </h1>
                   <div className="w-full h-1 bg-amber-700 mb-3"></div>
                   <p className="text-lg text-amber-800 font-serif leading-relaxed">
-                    "Call me Ishmael" - A Maritime Analysis
+                    Or, The Whale. By Herman Melville.
                   </p>
                 </div>
               </div>
               
               {/* Posted notices grid */}
-              <div className="grid md:grid-cols-2 gap-4 mb-8">
+              <div className="grid md:grid-cols-2 gap-4 mb-8 items-start">
                 {/* Themes notice */}
-                <div className="p-4 shadow-lg transform rotate-1 relative bg-amber-50 border-2 border-amber-600 rounded">
+                <div className="p-3 shadow-lg transform rotate-1 relative bg-amber-50 border-2 border-amber-600 rounded transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:rotate-2">
                   {/* Notice pin */}
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 w-5 h-5 rounded-full shadow-xl z-10" style={{
                     background: `
@@ -268,16 +295,46 @@ export default function MobyDick() {
                     <h3 className="text-2xl font-bold text-amber-900 font-serif">THEMES</h3>
                     <div className="text-sm text-amber-700 font-serif">~ HARBOR MASTER ~</div>
                   </div>
-                  <div className="space-y-3 text-amber-800 font-serif">
-                    <div className="flex items-start gap-2">
+                  <div className="space-y-1 text-amber-800 font-serif">
+                    <div 
+                      className="flex items-start gap-2 cursor-pointer hover:bg-amber-100 p-2 rounded transition-colors"
+                      onClick={() => {
+                        setSelectedThemeItem(selectedThemeItem === 'obsession' ? null : 'obsession');
+                        setSelectedCharacter(null);
+                        setSelectedStructureItem(null);
+                        setSelectedSymbolismItem(null);
+                        setSelectedAuthor(null);
+                        setSelectedSetting(null);
+                      }}
+                    >
                       <span className="text-amber-600">⚔️</span>
                       <span>Obsession & Revenge</span>
                     </div>
-                    <div className="flex items-start gap-2">
+                    <div 
+                      className="flex items-start gap-2 cursor-pointer hover:bg-amber-100 p-2 rounded transition-colors"
+                      onClick={() => {
+                        setSelectedThemeItem(selectedThemeItem === 'nature' ? null : 'nature');
+                        setSelectedCharacter(null);
+                        setSelectedStructureItem(null);
+                        setSelectedSymbolismItem(null);
+                        setSelectedAuthor(null);
+                        setSelectedSetting(null);
+                      }}
+                    >
                       <span className="text-amber-600">🌊</span>
                       <span>Man vs. Nature</span>
                     </div>
-                    <div className="flex items-start gap-2">
+                    <div 
+                      className="flex items-start gap-2 cursor-pointer hover:bg-amber-100 p-2 rounded transition-colors"
+                      onClick={() => {
+                        setSelectedThemeItem(selectedThemeItem === 'fate' ? null : 'fate');
+                        setSelectedCharacter(null);
+                        setSelectedStructureItem(null);
+                        setSelectedSymbolismItem(null);
+                        setSelectedAuthor(null);
+                        setSelectedSetting(null);
+                      }}
+                    >
                       <span className="text-amber-600">⚖️</span>
                       <span>Fate & Free Will</span>
                     </div>
@@ -285,7 +342,7 @@ export default function MobyDick() {
                 </div>
 
                 {/* Characters notice */}
-                <div className="p-4 shadow-lg transform -rotate-1 relative bg-amber-50 border-2 border-amber-600 rounded">
+                <div className="p-3 shadow-lg transform -rotate-1 relative bg-amber-50 border-2 border-amber-600 rounded transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:-rotate-2">
                   {/* Notice pin */}
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 w-5 h-5 rounded-full shadow-xl z-30" style={{
                     background: `
@@ -310,24 +367,96 @@ export default function MobyDick() {
                     <h3 className="text-2xl font-bold text-amber-900 font-serif">CREW MANIFEST</h3>
                     <div className="text-sm text-amber-700 font-serif">~ PEQUOD SHIPPING ~</div>
                   </div>
-                  <div className="space-y-3 text-amber-800 font-serif">
-                    <div className="flex items-start gap-2">
+                  <div className="space-y-1 text-amber-800 font-serif">
+                    <div 
+                      className="flex items-start gap-2 cursor-pointer hover:bg-amber-100 p-2 rounded transition-colors"
+                      onClick={() => {
+                        setSelectedCharacter(selectedCharacter === 'ahab' ? null : 'ahab');
+                        setSelectedThemeItem(null);
+                        setSelectedStructureItem(null);
+                        setSelectedSymbolismItem(null);
+                        setSelectedAuthor(null);
+                        setSelectedSetting(null);
+                      }}
+                    >
                       <span className="text-amber-600">👨‍✈️</span>
                       <span>Captain Ahab</span>
                     </div>
-                    <div className="flex items-start gap-2">
+                    <div 
+                      className="flex items-start gap-2 cursor-pointer hover:bg-amber-100 p-2 rounded transition-colors"
+                      onClick={() => {
+                        setSelectedCharacter(selectedCharacter === 'ishmael' ? null : 'ishmael');
+                        setSelectedThemeItem(null);
+                        setSelectedStructureItem(null);
+                        setSelectedSymbolismItem(null);
+                        setSelectedAuthor(null);
+                        setSelectedSetting(null);
+                      }}
+                    >
                       <span className="text-amber-600">📝</span>
                       <span>Ishmael</span>
                     </div>
-                    <div className="flex items-start gap-2">
+                    <div 
+                      className="flex items-start gap-2 cursor-pointer hover:bg-amber-100 p-2 rounded transition-colors"
+                      onClick={() => {
+                        setSelectedCharacter(selectedCharacter === 'queequeg' ? null : 'queequeg');
+                        setSelectedThemeItem(null);
+                        setSelectedStructureItem(null);
+                        setSelectedSymbolismItem(null);
+                        setSelectedAuthor(null);
+                        setSelectedSetting(null);
+                      }}
+                    >
                       <span className="text-amber-600">🗡️</span>
                       <span>Queequeg</span>
+                    </div>
+                    <div 
+                      className="flex items-start gap-2 cursor-pointer hover:bg-amber-100 p-2 rounded transition-colors"
+                      onClick={() => {
+                        setSelectedCharacter(selectedCharacter === 'starbuck' ? null : 'starbuck');
+                        setSelectedThemeItem(null);
+                        setSelectedStructureItem(null);
+                        setSelectedSymbolismItem(null);
+                        setSelectedAuthor(null);
+                        setSelectedSetting(null);
+                      }}
+                    >
+                      <span className="text-amber-600">🏹</span>
+                      <span>Starbuck</span>
+                    </div>
+                    <div 
+                      className="flex items-start gap-2 cursor-pointer hover:bg-amber-100 p-2 rounded transition-colors"
+                      onClick={() => {
+                        setSelectedCharacter(selectedCharacter === 'stubb' ? null : 'stubb');
+                        setSelectedThemeItem(null);
+                        setSelectedStructureItem(null);
+                        setSelectedSymbolismItem(null);
+                        setSelectedAuthor(null);
+                        setSelectedSetting(null);
+                      }}
+                    >
+                      <span className="text-amber-600">😄</span>
+                      <span>Stubb</span>
+                    </div>
+                    <div 
+                      className="flex items-start gap-2 cursor-pointer hover:bg-amber-100 p-2 rounded transition-colors"
+                      onClick={() => {
+                        setSelectedCharacter(selectedCharacter === 'moby-dick' ? null : 'moby-dick');
+                        setSelectedThemeItem(null);
+                        setSelectedStructureItem(null);
+                        setSelectedSymbolismItem(null);
+                        setSelectedAuthor(null);
+                        setSelectedSetting(null);
+                      }}
+                    >
+                      <span className="text-amber-600">🐋</span>
+                      <span>Moby-Dick</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Structure notice */}
-                <div className="p-4 shadow-lg transform rotate-2 relative bg-amber-50 border-2 border-amber-600 rounded">
+                <div className="p-3 shadow-lg transform rotate-2 relative bg-amber-50 border-2 border-amber-600 rounded transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:rotate-3">
                   {/* Notice pin */}
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 w-5 h-5 rounded-full shadow-xl z-30" style={{
                     background: `
@@ -352,16 +481,46 @@ export default function MobyDick() {
                     <h3 className="text-2xl font-bold text-amber-900 font-serif">STRUCTURE</h3>
                     <div className="text-sm text-amber-700 font-serif">~ NAVIGATION CHART ~</div>
                   </div>
-                  <div className="space-y-3 text-amber-800 font-serif">
-                    <div className="flex items-start gap-2">
+                  <div className="space-y-1 text-amber-800 font-serif">
+                    <div 
+                      className="flex items-start gap-2 cursor-pointer hover:bg-amber-100 p-2 rounded transition-colors"
+                      onClick={() => {
+                        setSelectedStructureItem(selectedStructureItem === 'journey' ? null : 'journey');
+                        setSelectedCharacter(null);
+                        setSelectedThemeItem(null);
+                        setSelectedSymbolismItem(null);
+                        setSelectedAuthor(null);
+                        setSelectedSetting(null);
+                      }}
+                    >
                       <span className="text-amber-600">🧭</span>
                       <span>Epic Journey</span>
                     </div>
-                    <div className="flex items-start gap-2">
+                    <div 
+                      className="flex items-start gap-2 cursor-pointer hover:bg-amber-100 p-2 rounded transition-colors"
+                      onClick={() => {
+                        setSelectedStructureItem(selectedStructureItem === 'chapters' ? null : 'chapters');
+                        setSelectedCharacter(null);
+                        setSelectedThemeItem(null);
+                        setSelectedSymbolismItem(null);
+                        setSelectedAuthor(null);
+                        setSelectedSetting(null);
+                      }}
+                    >
                       <span className="text-amber-600">📖</span>
                       <span>Episodic Chapters</span>
                     </div>
-                    <div className="flex items-start gap-2">
+                    <div 
+                      className="flex items-start gap-2 cursor-pointer hover:bg-amber-100 p-2 rounded transition-colors"
+                      onClick={() => {
+                        setSelectedStructureItem(selectedStructureItem === 'perspectives' ? null : 'perspectives');
+                        setSelectedCharacter(null);
+                        setSelectedThemeItem(null);
+                        setSelectedSymbolismItem(null);
+                        setSelectedAuthor(null);
+                        setSelectedSetting(null);
+                      }}
+                    >
                       <span className="text-amber-600">🎭</span>
                       <span>Multiple Perspectives</span>
                     </div>
@@ -369,7 +528,7 @@ export default function MobyDick() {
                 </div>
 
                 {/* Symbolism notice */}
-                <div className="p-4 shadow-lg transform -rotate-2 relative bg-amber-50 border-2 border-amber-600 rounded">
+                <div className="p-4 shadow-lg transform -rotate-2 relative bg-amber-50 border-2 border-amber-600 rounded transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:-rotate-3">
                   {/* Notice pin */}
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 w-5 h-5 rounded-full shadow-xl z-30" style={{
                     background: `
@@ -394,16 +553,46 @@ export default function MobyDick() {
                     <h3 className="text-2xl font-bold text-amber-900 font-serif">SYMBOLISM</h3>
                     <div className="text-sm text-amber-700 font-serif">~ SCHOLAR'S NOTES ~</div>
                   </div>
-                  <div className="space-y-3 text-amber-800 font-serif">
-                    <div className="flex items-start gap-2">
+                  <div className="space-y-1 text-amber-800 font-serif">
+                    <div 
+                      className="flex items-start gap-2 cursor-pointer hover:bg-amber-100 p-2 rounded transition-colors"
+                      onClick={() => {
+                        setSelectedSymbolismItem(selectedSymbolismItem === 'whale' ? null : 'whale');
+                        setSelectedCharacter(null);
+                        setSelectedThemeItem(null);
+                        setSelectedStructureItem(null);
+                        setSelectedAuthor(null);
+                        setSelectedSetting(null);
+                      }}
+                    >
                       <span className="text-amber-600">🐋</span>
                       <span>The White Whale</span>
                     </div>
-                    <div className="flex items-start gap-2">
+                    <div 
+                      className="flex items-start gap-2 cursor-pointer hover:bg-amber-100 p-2 rounded transition-colors"
+                      onClick={() => {
+                        setSelectedSymbolismItem(selectedSymbolismItem === 'ocean' ? null : 'ocean');
+                        setSelectedCharacter(null);
+                        setSelectedThemeItem(null);
+                        setSelectedStructureItem(null);
+                        setSelectedAuthor(null);
+                        setSelectedSetting(null);
+                      }}
+                    >
                       <span className="text-amber-600">🌊</span>
                       <span>The Ocean</span>
                     </div>
-                    <div className="flex items-start gap-2">
+                    <div 
+                      className="flex items-start gap-2 cursor-pointer hover:bg-amber-100 p-2 rounded transition-colors"
+                      onClick={() => {
+                        setSelectedSymbolismItem(selectedSymbolismItem === 'coffin' ? null : 'coffin');
+                        setSelectedCharacter(null);
+                        setSelectedThemeItem(null);
+                        setSelectedStructureItem(null);
+                        setSelectedAuthor(null);
+                        setSelectedSetting(null);
+                      }}
+                    >
                       <span className="text-amber-600">⚰️</span>
                       <span>Queequeg's Coffin</span>
                     </div>
@@ -414,7 +603,366 @@ export default function MobyDick() {
             </div>
           </div>
         </div> {/* Close bulletin board container */}
+        
+        {/* Set Sail Button */}
+        <div className="text-center mt-0">
+          <Link 
+            href="/mobydickmodule" 
+            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-amber-700 to-amber-900 text-amber-50 font-bold text-xl rounded-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-amber-800 font-serif hover:from-amber-800 hover:to-amber-950"
+          >
+            ⛵ Set Sail for Deep Waters
+          </Link>
+        </div>
       </div>
+
+      {/* Interactive Popups */}
+      {selectedSetting === 'nantucket' && (
+        <div className="fixed top-1/2 left-8 transform -translate-y-1/2 z-50 slide-in-left">
+          <div className="bg-amber-50 p-8 rounded-lg shadow-2xl max-w-md border-2 border-amber-600 font-serif">
+            <div className="flex justify-between items-start mb-6">
+              <h3 className="text-2xl font-bold text-amber-900">🏛️ Nantucket Harbor, 1851</h3>
+              <button onClick={() => setSelectedSetting(null)} className="text-amber-600 hover:text-amber-800 text-2xl">&times;</button>
+            </div>
+            
+            <div className="mb-6 p-4 bg-amber-100 rounded-lg border-l-4 border-amber-600">
+              <p className="text-amber-800 italic text-lg leading-relaxed">
+                "Nantucket! Take out your map and look at it... What do you see? — Nothing but a plain of sand. But what do you see? — Nothing but waves."
+              </p>
+              <p className="text-amber-700 text-sm mt-2 text-right">— Herman Melville</p>
+            </div>
+
+            <div className="space-y-5 text-amber-800">
+              <div>
+                <h4 className="font-bold text-lg mb-2 text-amber-900">⚓ The Whaling Capital</h4>
+                <p className="text-sm leading-relaxed">In 1851, this small island 30 miles south of Cape Cod commanded the world's whaling industry. Over 70 vessels called Nantucket home, their holds filled with precious sperm oil that illuminated the civilized world.</p>
+              </div>
+              
+              <div>
+                <h4 className="font-bold text-lg mb-2 text-amber-900">🌊 Maritime Heritage</h4>
+                <p className="text-sm leading-relaxed">For generations, Nantucket families sent their sons to sea. The island's Quaker population built a maritime empire through skill, determination, and intimate knowledge of the whale's domain.</p>
+              </div>
+              
+              <div>
+                <h4 className="font-bold text-lg mb-2 text-amber-900">🗺️ Global Reach</h4>
+                <p className="text-sm leading-relaxed">From this remote harbor, ships sailed to the Pacific, the Indian Ocean, and the Arctic, making Nantucket one of the wealthiest communities in America despite its isolation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {selectedAuthor === 'melville' && (
+        <div className="fixed top-1/2 right-8 transform -translate-y-1/2 z-50 slide-in-right">
+          <div className="bg-amber-50 p-8 rounded-lg shadow-2xl max-w-md border-2 border-amber-600 font-serif">
+            <div className="flex justify-between items-start mb-6">
+              <h3 className="text-2xl font-bold text-amber-900">📚 Herman Melville</h3>
+              <button onClick={() => setSelectedAuthor(null)} className="text-amber-600 hover:text-amber-800 text-2xl">&times;</button>
+            </div>
+            
+            <div className="mb-6 p-4 bg-amber-100 rounded-lg border-l-4 border-amber-600">
+              <p className="text-amber-800 italic text-lg leading-relaxed">
+                "I try all things, I achieve what I can."
+              </p>
+              <p className="text-amber-700 text-sm mt-2 text-right">— Herman Melville</p>
+            </div>
+
+            <div className="space-y-5 text-amber-800">
+              <div>
+                <h4 className="font-bold text-lg mb-2 text-amber-900">🌊 Life at Sea (1819-1891)</h4>
+                <p className="text-sm leading-relaxed">Born to a prosperous New York merchant family that fell into ruin, Melville turned to the sea at 19. His experiences aboard merchant ships and whaling vessels provided the authentic maritime detail that makes <em>Moby Dick</em> so vivid.</p>
+              </div>
+              
+              <div>
+                <h4 className="font-bold text-lg mb-2 text-amber-900">📖 Literary Journey</h4>
+                <p className="text-sm leading-relaxed">Initially celebrated for his South Seas adventures <em>Typee</em> and <em>Omoo</em>, Melville's increasingly complex works puzzled contemporary readers. <em>Moby Dick</em> sold poorly during his lifetime, only achieving recognition in the 20th century.</p>
+              </div>
+              
+              <div>
+                <h4 className="font-bold text-lg mb-2 text-amber-900">⚡ Philosophical Vision</h4>
+                <p className="text-sm leading-relaxed">Influenced by Shakespeare, the Bible, and contemporary philosophy, Melville created works that grappled with humanity's place in an often incomprehensible universe. His writing anticipated modernist themes by decades.</p>
+              </div>
+            </div>
+
+            <div className="mt-6 p-3 bg-amber-200 rounded italic text-center text-amber-900 text-sm">
+              "Call me Ishmael." — The most famous opening line in American literature
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Individual Theme Popups - Left Side (NO background overlay) */}
+      {selectedThemeItem === 'obsession' && (
+        <div className="fixed top-1/2 left-8 transform -translate-y-1/2 z-50 slide-in-left">
+          <div className="bg-amber-50 p-6 rounded-lg shadow-2xl max-w-sm border-2 border-amber-600 font-serif">
+            <div className="flex justify-between items-start mb-4">
+              <h3 className="text-xl font-bold text-amber-900">⚔️ Obsession & Revenge</h3>
+              <button onClick={() => setSelectedThemeItem(null)} className="text-amber-600 hover:text-amber-800 text-xl">&times;</button>
+            </div>
+            <p className="text-amber-800 text-sm">Ahab's consuming quest for vengeance against the white whale drives the entire narrative, showing how obsession can destroy both the individual and those around them. His monomaniacal pursuit becomes a cautionary tale about the dangers of unchecked passion.</p>
+          </div>
+        </div>
+      )}
+
+      {selectedThemeItem === 'nature' && (
+        <div className="fixed top-1/2 left-8 transform -translate-y-1/2 z-50 slide-in-left">
+          <div className="bg-amber-50 p-6 rounded-lg shadow-2xl max-w-sm border-2 border-amber-600 font-serif">
+            <div className="flex justify-between items-start mb-4">
+              <h3 className="text-xl font-bold text-amber-900">🌊 Man vs. Nature</h3>
+              <button onClick={() => setSelectedThemeItem(null)} className="text-amber-600 hover:text-amber-800 text-xl">&times;</button>
+            </div>
+            <p className="text-amber-800 text-sm">The eternal struggle between humanity and the natural world, with the ocean representing both life's sustenance and its ultimate mystery and danger. The sea is both provider and destroyer, reflecting nature's dual character.</p>
+          </div>
+        </div>
+      )}
+
+      {selectedThemeItem === 'fate' && (
+        <div className="fixed top-1/2 left-8 transform -translate-y-1/2 z-50 slide-in-left">
+          <div className="bg-amber-50 p-6 rounded-lg shadow-2xl max-w-sm border-2 border-amber-600 font-serif">
+            <div className="flex justify-between items-start mb-4">
+              <h3 className="text-xl font-bold text-amber-900">⚖️ Fate & Free Will</h3>
+              <button onClick={() => setSelectedThemeItem(null)} className="text-amber-600 hover:text-amber-800 text-xl">&times;</button>
+            </div>
+            <p className="text-amber-800 text-sm">Questions whether our destinies are predetermined or if we have the power to shape our own paths, explored through the crew's various responses to their voyage. Each character represents different philosophies about human agency.</p>
+          </div>
+        </div>
+      )}
+
+      {/* Individual Character Popups - Right Side (NO background overlay) */}
+      {selectedCharacter === 'ahab' && (
+        <div className="fixed top-1/2 right-8 transform -translate-y-1/2 z-50 slide-in-right">
+          <div className="bg-amber-50 p-4 rounded-lg shadow-2xl w-80 border-2 border-amber-600 font-serif">
+            <div className="flex justify-between items-start mb-4">
+              <h3 className="text-xl font-bold text-amber-900">👨‍✈️ Captain Ahab</h3>
+              <button onClick={() => setSelectedCharacter(null)} className="text-amber-600 hover:text-amber-800 text-xl">&times;</button>
+            </div>
+            <p className="text-amber-800 text-sm">The monomaniacal captain driven by his obsession to kill the white whale that took his leg. Represents the destructive nature of obsession and the dangers of unchecked authority. His charismatic leadership masks a profound spiritual wound.</p>
+          </div>
+        </div>
+      )}
+
+      {selectedCharacter === 'ishmael' && (
+        <div className="fixed top-1/2 right-8 transform -translate-y-1/2 z-50 slide-in-right">
+          <div className="bg-amber-50 p-4 rounded-lg shadow-2xl w-80 border-2 border-amber-600 font-serif">
+            <div className="flex justify-between items-start mb-4">
+              <h3 className="text-xl font-bold text-amber-900">📝 Ishmael</h3>
+              <button onClick={() => setSelectedCharacter(null)} className="text-amber-600 hover:text-amber-800 text-xl">&times;</button>
+            </div>
+            <p className="text-amber-800 text-sm">The story's narrator and philosophical observer. A young man seeking adventure and meaning who becomes our guide through the maritime world and its deeper mysteries. His survival allows him to tell the tale of the Pequod.</p>
+          </div>
+        </div>
+      )}
+
+      {selectedCharacter === 'queequeg' && (
+        <div className="fixed top-1/2 right-8 transform -translate-y-1/2 z-50 slide-in-right">
+          <div className="bg-amber-50 p-4 rounded-lg shadow-2xl w-80 border-2 border-amber-600 font-serif">
+            <div className="flex justify-between items-start mb-4">
+              <h3 className="text-xl font-bold text-amber-900">🗡️ Queequeg</h3>
+              <button onClick={() => setSelectedCharacter(null)} className="text-amber-600 hover:text-amber-800 text-xl">&times;</button>
+            </div>
+            <p className="text-amber-800 text-sm">Ishmael's loyal friend and skilled harpooner from the South Pacific. Represents noble savagery and challenges contemporary notions of civilization and barbarism. His friendship with Ishmael transcends cultural boundaries.</p>
+          </div>
+        </div>
+      )}
+
+      {selectedCharacter === 'starbuck' && (
+        <div className="fixed top-1/2 right-8 transform -translate-y-1/2 z-50 slide-in-right">
+          <div className="bg-amber-50 p-4 rounded-lg shadow-2xl w-80 border-2 border-amber-600 font-serif">
+            <div className="flex justify-between items-start mb-4">
+              <h3 className="text-xl font-bold text-amber-900">🏹 Starbuck</h3>
+              <button onClick={() => setSelectedCharacter(null)} className="text-amber-600 hover:text-amber-800 text-xl">&times;</button>
+            </div>
+            <p className="text-amber-800 text-sm">The thoughtful first mate who represents moral conscience and rational thinking, often in conflict with Ahab's mad quest. A Quaker from Nantucket, he embodies prudence and responsibility but is ultimately powerless against his captain's obsession.</p>
+          </div>
+        </div>
+      )}
+
+      {selectedCharacter === 'stubb' && (
+        <div className="fixed top-1/2 right-8 transform -translate-y-1/2 z-50 slide-in-right">
+          <div className="bg-amber-50 p-4 rounded-lg shadow-2xl w-80 border-2 border-amber-600 font-serif">
+            <div className="flex justify-between items-start mb-4">
+              <h3 className="text-xl font-bold text-amber-900">😄 Stubb</h3>
+              <button onClick={() => setSelectedCharacter(null)} className="text-amber-600 hover:text-amber-800 text-xl">&times;</button>
+            </div>
+            <p className="text-amber-800 text-sm">The cheerful second mate who faces danger with humor and philosophy. His optimistic nature and casual approach to life's perils provides comic relief while masking deeper questions about mortality and meaning in an indifferent universe.</p>
+          </div>
+        </div>
+      )}
+
+      {selectedCharacter === 'moby-dick' && (
+        <div className="fixed top-1/2 right-8 transform -translate-y-1/2 z-50 slide-in-right">
+          <div className="bg-amber-50 p-4 rounded-lg shadow-2xl w-80 border-2 border-amber-600 font-serif">
+            <div className="flex justify-between items-start mb-4">
+              <h3 className="text-xl font-bold text-amber-900">🐋 Moby-Dick</h3>
+              <button onClick={() => setSelectedCharacter(null)} className="text-amber-600 hover:text-amber-800 text-xl">&times;</button>
+            </div>
+            <p className="text-amber-800 text-sm">The legendary white sperm whale, both character and symbol. Ancient, scarred, and seemingly malevolent, he represents nature's sublime power and inscrutability. His whiteness suggests both purity and the terrifying blank of the unknown.</p>
+          </div>
+        </div>
+      )}
+
+      {/* Individual Structure Popups - Left Side (NO background overlay) */}
+      {selectedStructureItem === 'journey' && (
+        <div className="fixed top-1/2 left-8 transform -translate-y-1/2 z-50 slide-in-left">
+          <div className="bg-amber-50 p-6 rounded-lg shadow-2xl max-w-sm border-2 border-amber-600 font-serif">
+            <div className="flex justify-between items-start mb-4">
+              <h3 className="text-xl font-bold text-amber-900">🧭 Epic Journey</h3>
+              <button onClick={() => setSelectedStructureItem(null)} className="text-amber-600 hover:text-amber-800 text-xl">&times;</button>
+            </div>
+            <p className="text-amber-800 text-sm">Follows the classical structure of an epic voyage, with departure, trials at sea, and ultimate confrontation. The journey serves as both literal adventure and metaphysical quest for meaning and understanding.</p>
+          </div>
+        </div>
+      )}
+
+      {selectedStructureItem === 'chapters' && (
+        <div className="fixed top-1/2 left-8 transform -translate-y-1/2 z-50 slide-in-left">
+          <div className="bg-amber-50 p-6 rounded-lg shadow-2xl max-w-sm border-2 border-amber-600 font-serif">
+            <div className="flex justify-between items-start mb-4">
+              <h3 className="text-xl font-bold text-amber-900">📖 Episodic Chapters</h3>
+              <button onClick={() => setSelectedStructureItem(null)} className="text-amber-600 hover:text-amber-800 text-xl">&times;</button>
+            </div>
+            <p className="text-amber-800 text-sm">135 chapters vary wildly in style and content - from dramatic dialogue to scientific treatises on whales, creating an encyclopedic approach to storytelling that mirrors the complexity of life itself.</p>
+          </div>
+        </div>
+      )}
+
+      {selectedStructureItem === 'perspectives' && (
+        <div className="fixed top-1/2 left-8 transform -translate-y-1/2 z-50 slide-in-left">
+          <div className="bg-amber-50 p-6 rounded-lg shadow-2xl max-w-sm border-2 border-amber-600 font-serif">
+            <div className="flex justify-between items-start mb-4">
+              <h3 className="text-xl font-bold text-amber-900">🎭 Multiple Perspectives</h3>
+              <button onClick={() => setSelectedStructureItem(null)} className="text-amber-600 hover:text-amber-800 text-xl">&times;</button>
+            </div>
+            <p className="text-amber-800 text-sm">Shifts between Ishmael's first-person narration and omniscient third-person accounts, allowing for both intimate personal reflection and broader dramatic scope that encompasses the entire crew's experience.</p>
+          </div>
+        </div>
+      )}
+
+      {/* Individual Symbolism Popups - Right Side (NO background overlay) */}
+      {selectedSymbolismItem === 'whale' && (
+        <div className="fixed top-1/2 right-8 transform -translate-y-1/2 z-50 slide-in-right">
+          <div className="bg-amber-50 p-6 rounded-lg shadow-2xl max-w-sm border-2 border-amber-600 font-serif">
+            <div className="flex justify-between items-start mb-4">
+              <h3 className="text-xl font-bold text-amber-900">🐋 The White Whale</h3>
+              <button onClick={() => setSelectedSymbolismItem(null)} className="text-amber-600 hover:text-amber-800 text-xl">&times;</button>
+            </div>
+            <p className="text-amber-800 text-sm">Represents the unknowable, the sublime in nature, and the ultimate object of human obsession. Can symbolize God, nature's power, or the blank meaninglessness of existence - its interpretation depends on the observer.</p>
+          </div>
+        </div>
+      )}
+
+      {selectedSymbolismItem === 'ocean' && (
+        <div className="fixed top-1/2 right-8 transform -translate-y-1/2 z-50 slide-in-right">
+          <div className="bg-amber-50 p-6 rounded-lg shadow-2xl max-w-sm border-2 border-amber-600 font-serif">
+            <div className="flex justify-between items-start mb-4">
+              <h3 className="text-xl font-bold text-amber-900">🌊 The Ocean</h3>
+              <button onClick={() => setSelectedSymbolismItem(null)} className="text-amber-600 hover:text-amber-800 text-xl">&times;</button>
+            </div>
+            <p className="text-amber-800 text-sm">The vast, mysterious sea represents the unconscious mind, the source of life, and the ultimate frontier of human knowledge and experience. It is both womb and tomb, creator and destroyer.</p>
+          </div>
+        </div>
+      )}
+
+      {selectedSymbolismItem === 'coffin' && (
+        <div className="fixed top-1/2 right-8 transform -translate-y-1/2 z-50 slide-in-right">
+          <div className="bg-amber-50 p-6 rounded-lg shadow-2xl max-w-sm border-2 border-amber-600 font-serif">
+            <div className="flex justify-between items-start mb-4">
+              <h3 className="text-xl font-bold text-amber-900">⚰️ Queequeg's Coffin</h3>
+              <button onClick={() => setSelectedSymbolismItem(null)} className="text-amber-600 hover:text-amber-800 text-xl">&times;</button>
+            </div>
+            <p className="text-amber-800 text-sm">Transforms from a symbol of death into one of salvation, representing the cyclical nature of life and death and the power of friendship to transcend mortality. What was meant for burial becomes the means of rescue.</p>
+          </div>
+        </div>
+      )}
+
+      {/* Structure Popup - LEFT SIDE */}
+      {selectedStructureItem === 'structure' && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-start z-50" onClick={() => setSelectedStructureItem(null)}>
+          <div className="bg-amber-50 p-8 rounded-lg shadow-2xl max-w-md mx-4 ml-8 transform transition-all duration-300 slide-in-left font-serif" onClick={(e) => e.stopPropagation()}>
+            <div className="flex justify-between items-start mb-6">
+              <h3 className="text-2xl font-bold text-amber-900 font-serif">Narrative Structure</h3>
+              <button onClick={() => setSelectedStructureItem(null)} className="text-amber-600 hover:text-amber-800 text-2xl">&times;</button>
+            </div>
+            <div className="space-y-4 text-amber-800">
+              <div>
+                <h4 className="font-bold text-base mb-1">🧭 Epic Journey</h4>
+                <p className="text-sm">Follows the classical structure of an epic voyage, with departure, trials at sea, and ultimate confrontation. The journey serves as both literal adventure and metaphysical quest.</p>
+              </div>
+              <div>
+                <h4 className="font-bold text-base mb-1">📖 Episodic Chapters</h4>
+                <p className="text-sm">135 chapters vary wildly in style and content - from dramatic dialogue to scientific treatises on whales, creating a encyclopedic approach to storytelling.</p>
+              </div>
+              <div>
+                <h4 className="font-bold text-base mb-1">🎭 Multiple Perspectives</h4>
+                <p className="text-sm">Shifts between Ishmael's first-person narration and omniscient third-person accounts, allowing for both intimate personal reflection and broader dramatic scope.</p>
+              </div>
+              <div>
+                <h4 className="font-bold text-base mb-1">🌊 Cyclical Patterns</h4>
+                <p className="text-sm">Repetitive motifs of departure and return, hunting and being hunted, create a sense of fate and inevitability leading to the final confrontation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Characters Popup - RIGHT SIDE */}
+      {selectedCharacter === 'characters' && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-end z-50" onClick={() => setSelectedCharacter(null)}>
+          <div className="bg-amber-50 p-8 rounded-lg shadow-2xl max-w-md mx-4 mr-8 transform transition-all duration-300 slide-in-right font-serif" onClick={(e) => e.stopPropagation()}>
+            <div className="flex justify-between items-start mb-6">
+              <h3 className="text-2xl font-bold text-amber-900 font-serif">The Crew of the Pequod</h3>
+              <button onClick={() => setSelectedCharacter(null)} className="text-amber-600 hover:text-amber-800 text-2xl">&times;</button>
+            </div>
+            <div className="space-y-4 text-amber-800">
+              <div>
+                <h4 className="font-bold text-base mb-1">👨‍✈️ Captain Ahab</h4>
+                <p className="text-sm">The monomaniacal captain driven by his obsession to kill the white whale that took his leg. Represents the destructive nature of obsession and the dangers of unchecked authority.</p>
+              </div>
+              <div>
+                <h4 className="font-bold text-base mb-1">📝 Ishmael</h4>
+                <p className="text-sm">The story's narrator and philosophical observer. A young man seeking adventure and meaning who becomes our guide through the maritime world and its deeper mysteries.</p>
+              </div>
+              <div>
+                <h4 className="font-bold text-base mb-1">🗡️ Queequeg</h4>
+                <p className="text-sm">Ishmael's loyal friend and skilled harpooner from the South Pacific. Represents noble savagery and challenges contemporary notions of civilization and barbarism.</p>
+              </div>
+              <div>
+                <h4 className="font-bold text-base mb-1">🏹 Starbuck</h4>
+                <p className="text-sm">The thoughtful first mate who represents moral conscience and rational thinking, often in conflict with Ahab's mad quest.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Symbolism Popup - RIGHT SIDE */}
+      {selectedSymbolismItem === 'symbolism' && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-end z-50" onClick={() => setSelectedSymbolismItem(null)}>
+          <div className="bg-amber-50 p-8 rounded-lg shadow-2xl max-w-md mx-4 mr-8 transform transition-all duration-300 slide-in-right font-serif" onClick={(e) => e.stopPropagation()}>
+            <div className="flex justify-between items-start mb-6">
+              <h3 className="text-2xl font-bold text-amber-900 font-serif">Key Symbols</h3>
+              <button onClick={() => setSelectedSymbolismItem(null)} className="text-amber-600 hover:text-amber-800 text-2xl">&times;</button>
+            </div>
+            <div className="space-y-4 text-amber-800">
+              <div>
+                <h4 className="font-bold text-base mb-1">🐋 The White Whale (Moby Dick)</h4>
+                <p className="text-sm">Represents the unknowable, the sublime in nature, and the ultimate object of human obsession. Can symbolize God, nature's power, or the blank meaninglessness of existence.</p>
+              </div>
+              <div>
+                <h4 className="font-bold text-base mb-1">🌊 The Ocean</h4>
+                <p className="text-sm">The vast, mysterious sea represents the unconscious mind, the source of life, and the ultimate frontier of human knowledge and experience.</p>
+              </div>
+              <div>
+                <h4 className="font-bold text-base mb-1">⚰️ Queequeg's Coffin</h4>
+                <p className="text-sm">Transforms from a symbol of death into one of salvation, representing the cyclical nature of life and death and the power of friendship to transcend mortality.</p>
+              </div>
+              <div>
+                <h4 className="font-bold text-base mb-1">⚡ The Doubloon</h4>
+                <p className="text-sm">The gold coin nailed to the mast represents different things to different characters, showing how meaning is subjective and personal interpretation shapes reality.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   )
 } 

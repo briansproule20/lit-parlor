@@ -12,6 +12,8 @@ export default function Home() {
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Transform long-form narrative into digestible quotes, visuals, stylistic, and structural elements. 
             Perfect for teaching long narratives and learning in abbreviated formats.
+            <br /> <br />
+            PROJECT STILL IN DEVELOPMENT
           </p>
         </div>
         
