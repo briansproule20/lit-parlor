@@ -33,8 +33,7 @@ export default function Home() {
               📚 The Literary Parlor
             </h1>
             <p className="text-xl text-amber-800 max-w-3xl mx-auto leading-relaxed font-serif">
-              A cozy corner where great stories come alive. Browse our carefully curated collection 
-              and dive deep into the worlds that have shaped literature.
+              A cozy corner where great stories come alive. Making long form narratives available in contemporary formats. We are a project still in development.
             </p>
             <div className="mt-4 text-amber-700 font-serif italic">
               "A room without books is like a body without a soul" — Cicero
@@ -192,6 +191,16 @@ export default function Home() {
               Happy reading! 📖✨
             </div>
           </div>
+        </div>
+
+        {/* Credit */}
+        <div className="text-center mt-8">
+          <p className="text-amber-200/80 text-xs font-serif">
+            Ideas, Layout, and Build by Brian Sproule
+          </p>
+          <p className="text-amber-200/70 text-xs font-serif mt-1">
+            Please reach out if you are interested in making use of our resources in your classroom.
+          </p>
         </div>
 
       </div>
