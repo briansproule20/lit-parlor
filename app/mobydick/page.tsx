@@ -648,7 +648,7 @@ export default function MobyDick() {
         </div> {/* Close bulletin board container */}
         
         {/* Set Sail Button */}
-        <div className="text-center mt-0">
+        <div className="text-center -mt-8">
           <Link 
             href="/mobydickmodule" 
             className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-amber-700 to-amber-900 text-amber-50 font-bold text-xl rounded-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-amber-800 font-serif hover:from-amber-800 hover:to-amber-950"
