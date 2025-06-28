@@ -84,7 +84,7 @@ export default function Home() {
         
         <div className="text-center">
           <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-8 rounded-lg transition-colors">
-            Start Exploring
+            Random Module
           </button>
         </div>
       </div>
