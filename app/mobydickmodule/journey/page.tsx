@@ -281,6 +281,21 @@ export default function Journey() {
             </div>
           ))}
         </div>
+        {/* Add study guide and quiz buttons at the bottom */}
+        <div className="flex flex-wrap gap-4 justify-center mt-12">
+          <Link 
+            href="/mobydickmodule/study-guide"
+            className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105"
+          >
+            📚 Deepen Your Study
+          </Link>
+          <Link 
+            href="/mobydickmodule/quiz"
+            className="inline-block bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105"
+          >
+            🎯 Test Your Knowledge
+          </Link>
+        </div>
 
       </div>
 
