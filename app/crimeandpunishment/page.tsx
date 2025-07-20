@@ -1,0 +1,80 @@
+import React from 'react'
+import Link from 'next/link'
+
+export default function CrimeAndPunishmentPage() {
+  return (
+    <main className="min-h-screen py-8 px-4 relative" style={{
+      backgroundImage: 'linear-gradient(135deg, #4C1D95 0%, #5B21B6 25%, #7C3AED 50%, #8B5CF6 75%, #4C1D95 100%)',
+      backgroundAttachment: 'fixed'
+    }}>
+      {/* Atmospheric overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-purple-50/10 via-transparent to-purple-950/40 pointer-events-none"></div>
+      
+      <div className="max-w-4xl mx-auto relative">
+        
+        {/* Navigation */}
+        <div className="mb-8">
+          <Link href="/" className="text-purple-200 hover:text-white transition-colors font-serif">
+            ← Back to Literary Parlor
+          </Link>
+        </div>
+
+        {/* Book Header */}
+        <div className="text-center mb-12">
+          <div className="inline-block p-8 rounded-xl shadow-2xl relative" style={{
+            background: `
+              radial-gradient(circle at 25% 20%, rgba(139, 92, 246, 0.2) 0%, transparent 60%),
+              radial-gradient(circle at 75% 80%, rgba(124, 58, 237, 0.3) 0%, transparent 60%),
+              linear-gradient(135deg, #1E1B4B 0%, #312E81 20%, #3730A3 40%, #4338CA 60%, #312E81 80%, #1E1B4B 100%)
+            `,
+            border: '3px solid #7C3AED',
+            boxShadow: `
+              0 8px 32px rgba(124, 58, 237, 0.4),
+              inset 0 2px 8px rgba(255, 255, 255, 0.1),
+              inset 0 -2px 4px rgba(76, 29, 149, 0.3)
+            `
+          }}>
+            <h1 className="text-4xl font-bold text-amber-100 mb-4 font-serif">
+              Crime and Punishment
+            </h1>
+            <p className="text-purple-200 text-lg mb-2 font-serif italic">
+              by Fyodor Dostoevsky
+            </p>
+            <div className="text-purple-300 font-serif">
+              "Pain and suffering are always inevitable for a large intelligence and a deep heart."
+            </div>
+          </div>
+        </div>
+
+        {/* Go to Module Button */}
+        <div className="text-center mb-8">
+          <Link href="/crimeandpunishmentmodule" className="inline-block bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg transition-all duration-300 hover:scale-105 text-lg font-serif">
+            ⚖️ Enter Learning Module
+          </Link>
+        </div>
+
+
+
+        {/* Book Summary */}
+        <div className="bg-gradient-to-r from-purple-900/50 to-indigo-900/50 p-8 rounded-xl shadow-xl border border-purple-600 backdrop-blur-sm">
+          <h2 className="text-2xl font-bold text-amber-100 mb-4 font-serif">About This Novel</h2>
+          <p className="text-purple-100 leading-relaxed font-serif mb-4">
+            <em>Crime and Punishment</em> is a psychological novel by Russian author Fyodor Dostoevsky. 
+            First published in 1866, it follows the mental anguish and moral dilemmas of Rodion Raskolnikov, 
+            an impoverished ex-student in Saint Petersburg who plans to kill an unscrupulous pawnbroker for her money.
+          </p>
+          <p className="text-purple-100 leading-relaxed font-serif mb-4">
+            The novel explores themes of poverty, alienation, and the psychology of crime. Dostoevsky delves deep 
+            into the protagonist's mind, examining the philosophical and ethical questions surrounding murder, 
+            guilt, and redemption.
+          </p>
+          <p className="text-purple-100 leading-relaxed font-serif">
+            Through Raskolnikov's journey from crime to punishment to spiritual renewal, the novel presents 
+            a profound meditation on human nature, morality, and the possibility of redemption through suffering and love.
+          </p>
+        </div>
+
+      </div>
+    </main>
+  )
+} 

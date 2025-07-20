@@ -309,114 +309,188 @@ export default function Home() {
 
               </div>
 
-              {/* Second Row - Coming Soon Books */}
+              {/* Second Row - More Featured Books */}
               <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
                 
-                {/* Coming Soon Book 1 */}
-                <div className="group block opacity-60">
-                  <div className="relative transform transition-all duration-300 h-full">
-                    <div className="bg-gradient-to-r from-gray-600 to-gray-500 p-6 rounded-lg shadow-xl border-2 border-gray-400 h-full flex flex-col">
-                      <div className="bg-gradient-to-br from-gray-700 to-gray-800 p-6 rounded-lg mb-4 relative overflow-hidden">
-                        <div className="absolute top-2 right-2 text-4xl opacity-30">📖</div>
+                {/* Crime and Punishment Book */}
+                <Link href="/crimeandpunishment" className="group block">
+                  <div className="relative transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 h-full">
+                    <div className="bg-gradient-to-r from-purple-900 to-purple-800 p-6 rounded-lg shadow-xl border-2 border-purple-700 hover:shadow-2xl transition-all group-hover:from-purple-800 group-hover:to-purple-700 h-full flex flex-col">
+                      
+                      {/* Book Cover */}
+                      <div className="bg-gradient-to-br from-purple-950 via-purple-900 to-red-950 p-6 rounded-lg mb-4 relative overflow-hidden">
+                        {/* Decorative elements */}
+                        <div className="absolute top-2 right-2 text-4xl opacity-30">⚖️</div>
+                        <div className="absolute bottom-2 left-2 text-2xl opacity-20">🏛️</div>
                         
-                        <h3 className="text-2xl font-bold text-gray-300 mb-2 font-serif text-center">
-                          COMING SOON
+                        <h3 className="text-2xl font-bold text-amber-100 mb-2 font-serif text-center">
+                          CRIME & PUNISHMENT
                         </h3>
-                        <p className="text-gray-400 text-center font-serif italic mb-3">
-                          Next Classic
+                        <p className="text-amber-200 text-center font-serif italic mb-3">
+                          A Novel
                         </p>
-                        <div className="text-center text-gray-400 text-sm font-serif">
-                          Author TBA
+                        <div className="text-center text-amber-300 text-sm font-serif">
+                          Fyodor Dostoevsky
                         </div>
                         
+                        {/* Vintage decoration */}
                         <div className="mt-4 flex justify-center">
-                          <div className="w-20 h-0.5 bg-gray-500"></div>
+                          <div className="w-20 h-0.5 bg-amber-400"></div>
                         </div>
                       </div>
                       
-                      <p className="text-gray-300 text-sm leading-relaxed font-serif flex-grow">
-                        Another literary masterpiece will soon join our collection. 
-                        Stay tuned for more immersive explorations.
+                      {/* Book Description */}
+                      <p className="text-amber-100 text-sm leading-relaxed font-serif flex-grow">
+                        Delve into the psychological depths of guilt and redemption. 
+                        Follow Raskolnikov's tormented journey through moral philosophy and consequence.
                       </p>
                       
+                      {/* Reading Status */}
                       <div className="mt-4 flex items-center justify-between">
-                        <span className="text-gray-400 text-xs font-serif">⏳ In Development</span>
-                        <span className="text-gray-400 text-xs font-serif">...</span>
+                        <span className="text-green-400 text-xs font-serif">✓ Interactive Edition</span>
+                        <span className="text-amber-400 text-xs font-serif">→ Enter</span>
                       </div>
                     </div>
                   </div>
-                </div>
+                </Link>
 
-                {/* Coming Soon Book 2 */}
-                <div className="group block opacity-60">
-                  <div className="relative transform transition-all duration-300 h-full">
-                    <div className="bg-gradient-to-r from-gray-600 to-gray-500 p-6 rounded-lg shadow-xl border-2 border-gray-400 h-full flex flex-col">
-                      <div className="bg-gradient-to-br from-gray-700 to-gray-800 p-6 rounded-lg mb-4 relative overflow-hidden">
-                        <div className="absolute top-2 right-2 text-4xl opacity-30">📚</div>
+                {/* Their Eyes Were Watching God Book */}
+                <Link href="/theireyeswerewatchinggod" className="group block">
+                  <div className="relative transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 h-full">
+                    <div className="bg-gradient-to-r from-teal-800 to-teal-700 p-6 rounded-lg shadow-xl border-2 border-teal-600 hover:shadow-2xl transition-all group-hover:from-teal-700 group-hover:to-teal-600 h-full flex flex-col">
+                      
+                      {/* Book Cover */}
+                      <div className="bg-gradient-to-br from-teal-900 via-teal-800 to-cyan-900 p-6 rounded-lg mb-4 relative overflow-hidden">
+                        {/* Decorative elements */}
+                        <div className="absolute top-2 right-2 text-4xl opacity-30">🌊</div>
+                        <div className="absolute bottom-2 left-2 text-2xl opacity-20">🌴</div>
                         
-                        <h3 className="text-2xl font-bold text-gray-300 mb-2 font-serif text-center">
-                          COMING SOON
+                        <h3 className="text-2xl font-bold text-amber-100 mb-2 font-serif text-center">
+                          THEIR EYES WERE WATCHING GOD
                         </h3>
-                        <p className="text-gray-400 text-center font-serif italic mb-3">
-                          Future Addition
+                        <p className="text-amber-200 text-center font-serif italic mb-3">
+                          A Novel
                         </p>
-                        <div className="text-center text-gray-400 text-sm font-serif">
-                          Author TBA
+                        <div className="text-center text-amber-300 text-sm font-serif">
+                          Zora Neale Hurston
                         </div>
                         
+                        {/* Vintage decoration */}
                         <div className="mt-4 flex justify-center">
-                          <div className="w-20 h-0.5 bg-gray-500"></div>
+                          <div className="w-20 h-0.5 bg-amber-400"></div>
                         </div>
                       </div>
                       
-                      <p className="text-gray-300 text-sm leading-relaxed font-serif flex-grow">
-                        Our literary parlor continues to grow. Each addition brings 
-                        new perspectives and deeper understanding.
+                      {/* Book Description */}
+                      <p className="text-amber-100 text-sm leading-relaxed font-serif flex-grow">
+                        Follow Janie Crawford's journey of self-discovery through love, loss, 
+                        and liberation in the American South. A powerful exploration of identity and independence.
                       </p>
                       
+                      {/* Reading Status */}
                       <div className="mt-4 flex items-center justify-between">
-                        <span className="text-gray-400 text-xs font-serif">⏳ In Development</span>
-                        <span className="text-gray-400 text-xs font-serif">...</span>
+                        <span className="text-green-400 text-xs font-serif">✓ Interactive Edition</span>
+                        <span className="text-amber-400 text-xs font-serif">→ Enter</span>
                       </div>
                     </div>
                   </div>
-                </div>
+                </Link>
 
-                {/* Coming Soon Book 3 */}
-                <div className="group block opacity-60">
-                  <div className="relative transform transition-all duration-300 h-full">
-                    <div className="bg-gradient-to-r from-gray-600 to-gray-500 p-6 rounded-lg shadow-xl border-2 border-gray-400 h-full flex flex-col">
-                      <div className="bg-gradient-to-br from-gray-700 to-gray-800 p-6 rounded-lg mb-4 relative overflow-hidden">
-                        <div className="absolute top-2 right-2 text-4xl opacity-30">🎭</div>
+                {/* Animal Farm Book */}
+                <Link href="/animalfarm" className="group block">
+                  <div className="relative transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 h-full">
+                    <div className="bg-gradient-to-r from-red-800 to-red-700 p-6 rounded-lg shadow-xl border-2 border-red-600 hover:shadow-2xl transition-all group-hover:from-red-700 group-hover:to-red-600 h-full flex flex-col">
+                      
+                      {/* Book Cover */}
+                      <div className="bg-gradient-to-br from-red-900 via-red-800 to-orange-900 p-6 rounded-lg mb-4 relative overflow-hidden">
+                        {/* Decorative elements */}
+                        <div className="absolute top-2 right-2 text-4xl opacity-30">🐷</div>
+                        <div className="absolute bottom-2 left-2 text-2xl opacity-20">🏭</div>
                         
-                        <h3 className="text-2xl font-bold text-gray-300 mb-2 font-serif text-center">
-                          COMING SOON
+                        <h3 className="text-2xl font-bold text-amber-100 mb-2 font-serif text-center">
+                          ANIMAL FARM
                         </h3>
-                        <p className="text-gray-400 text-center font-serif italic mb-3">
-                          Literary Gem
+                        <p className="text-amber-200 text-center font-serif italic mb-3">
+                          Satirical Novella
                         </p>
-                        <div className="text-center text-gray-400 text-sm font-serif">
-                          Author TBA
+                        <div className="text-center text-amber-300 text-sm font-serif">
+                          George Orwell
                         </div>
                         
+                        {/* Vintage decoration */}
                         <div className="mt-4 flex justify-center">
-                          <div className="w-20 h-0.5 bg-gray-500"></div>
+                          <div className="w-20 h-0.5 bg-amber-400"></div>
                         </div>
                       </div>
                       
-                      <p className="text-gray-300 text-sm leading-relaxed font-serif flex-grow">
-                        More timeless classics are being prepared for your literary journey. 
-                        Each book offers new insights and perspectives.
+                      {/* Book Description */}
+                      <p className="text-amber-100 text-sm leading-relaxed font-serif flex-grow">
+                        A powerful allegory of revolution and corruption. Witness how noble ideals 
+                        can be twisted by power in this timeless tale of political satire.
                       </p>
                       
+                      {/* Reading Status */}
                       <div className="mt-4 flex items-center justify-between">
-                        <span className="text-gray-400 text-xs font-serif">⏳ In Development</span>
-                        <span className="text-gray-400 text-xs font-serif">...</span>
+                        <span className="text-green-400 text-xs font-serif">✓ Interactive Edition</span>
+                        <span className="text-amber-400 text-xs font-serif">→ Enter</span>
                       </div>
                     </div>
                   </div>
-                </div>
+                </Link>
 
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Learning Modalities Mission Card */}
+        <div className="text-center mb-12">
+          <div className="max-w-4xl mx-auto">
+            <div className="inline-block p-8 bg-gradient-to-r from-indigo-900/90 to-purple-800/90 border-4 border-indigo-400 rounded-2xl shadow-2xl relative overflow-hidden">
+              {/* Decorative background pattern */}
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-4 left-4 text-6xl">🎭</div>
+                <div className="absolute top-4 right-4 text-6xl">📚</div>
+                <div className="absolute bottom-4 left-4 text-6xl">🎵</div>
+                <div className="absolute bottom-4 right-4 text-6xl">🎨</div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-8xl">🧠</div>
+              </div>
+              
+              <div className="relative z-10">
+                <h2 className="text-3xl font-bold text-white mb-6 font-serif">
+                  The Power of Different Modalities & Mediums
+                </h2>
+                <p className="text-indigo-200 text-lg leading-relaxed font-serif mb-6 max-w-3xl mx-auto">
+                  Every learner is unique. Some grasp concepts through visual storytelling, others through interactive experiences, 
+                  and many through a combination of multiple approaches. Traditional education often limits itself to a single medium, 
+                  but true understanding flourishes when knowledge is presented through diverse channels.
+                </p>
+                <div className="bg-indigo-800/50 rounded-lg p-6 mb-6 backdrop-blur-sm">
+                  <h3 className="text-xl font-semibold text-indigo-200 mb-4 font-serif">Our Mission</h3>
+                  <p className="text-indigo-100 font-serif leading-relaxed">
+                    It's our mission to harness the power of visual, auditory, kinesthetic, and interactive learning modalities 
+                    and make them accessible to the next generation of learners. By combining literature with technology, 
+                    traditional analysis with modern engagement, we create pathways for every mind to discover the joy of learning.
+                  </p>
+                </div>
+                <div className="flex flex-wrap justify-center gap-6 text-indigo-200">
+                  <div className="flex items-center gap-2">
+                    <span className="text-2xl">👁️</span>
+                    <span className="font-serif">Visual Learning</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-2xl">🎧</span>
+                    <span className="font-serif">Auditory Learning</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-2xl">✋</span>
+                    <span className="font-serif">Kinesthetic Learning</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-2xl">🤝</span>
+                    <span className="font-serif">Interactive Learning</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
