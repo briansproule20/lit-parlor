@@ -150,7 +150,7 @@ export default function Home() {
                   </p>
                   <p className="text-green-800 font-serif leading-relaxed text-base">
                     Our mission is to empower teachers with intelligent tools that streamline these 
-                    essential responsibilities, allowing you to focus on what matters most: teaching.
+                    essential responsibilities and plug effortlessly into existing workflows, allowing you to focus on what matters most: teaching.
                   </p>
                 </div>
                 <div className="mt-8 text-green-700 font-serif italic text-base">
