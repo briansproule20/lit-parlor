@@ -33,11 +33,72 @@ export default function Home() {
               📚 The Literary Parlor
             </h1>
             <p className="text-xl text-amber-800 max-w-3xl mx-auto leading-relaxed font-serif">
-              A cozy corner where great stories come alive. Making long form narratives available in contemporary short forms. We are a project still in development.
+              A cozy corner where great stories come alive. Making long form narratives available in contemporary short forms. We are a project still in development. An umbrella site for learning tools and education projects undertaken by Brian Sproule.
             </p>
             <div className="mt-4 text-amber-700 font-serif italic">
               "A room without books is like a body without a soul" — Cicero
             </div>
+          </div>
+        </div>
+
+        {/* Information Boxes */}
+        <div className="mb-12">
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
+            
+            {/* Welcome Box - Left Side */}
+            <div className="text-center">
+              <div className="p-6 rounded-xl shadow-lg h-full flex flex-col justify-center" style={{
+                background: 'rgba(254, 251, 240, 0.9)',
+                border: '2px solid #8B4513'
+              }}>
+                <h3 className="text-2xl font-bold text-amber-900 mb-3 font-serif">Welcome to Your Literary Journey</h3>
+                <p className="text-amber-800 font-serif leading-relaxed">
+                  Each book in our collection offers an immersive, interactive experience. 
+                  Discover characters, themes, symbols, and structures through engaging visual guides 
+                  designed to deepen your appreciation of these timeless works. From those just beginning their reading journey, to seasoned bookworms, we have something to learn for everyone.
+                </p>
+                <div className="mt-4 text-amber-700 font-serif italic text-sm">
+                  Happy reading! 📖✨
+                </div>
+              </div>
+            </div>
+
+            {/* Gamification & Education Box - Middle */}
+            <div className="text-center">
+              <div className="p-6 rounded-xl shadow-lg h-full flex flex-col justify-center" style={{
+                background: 'rgba(236, 254, 255, 0.9)',
+                border: '2px solid #0891b2'
+              }}>
+                <h3 className="text-2xl font-bold text-cyan-900 mb-3 font-serif">Gamification in Education</h3>
+                <p className="text-cyan-800 font-serif leading-relaxed">
+                  Our gamified approach transforms classic literature (and all learning!) into an engaging, personalized adventure. 
+                  Complete interactive quizzes, unlock character insights, and track your progress 
+                  as you master the world's greatest stories and academic subjects.
+                </p>
+                <div className="mt-4 text-cyan-700 font-serif italic text-sm">
+                  Education meets adventure! 🎮📚
+                </div>
+              </div>
+            </div>
+
+            {/* Education & Human Capital Box - Right Side */}
+            <div className="text-center">
+              <div className="p-6 rounded-xl shadow-lg h-full flex flex-col justify-center" style={{
+                background: 'rgba(254, 242, 242, 0.9)',
+                border: '2px solid #dc2626'
+              }}>
+                <h3 className="text-2xl font-bold text-red-900 mb-3 font-serif">Education & Human Capital</h3>
+                <p className="text-red-800 font-serif leading-relaxed">
+                  Quality education builds the foundation of human progress. By investing in developing independent voices, 
+                  critical thinking, and cultural understanding, we develop the intellectual capital 
+                  that drives responsible innovation and societal advancement.
+                </p>
+                <div className="mt-4 text-red-700 font-serif italic text-sm">
+                  Knowledge is power! 🧠💡
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
 
@@ -297,24 +358,6 @@ export default function Home() {
                 </div>
 
               </div>
-            </div>
-          </div>
-        </div>
-
-        {/* About This Space */}
-        <div className="text-center mb-12">
-          <div className="inline-block p-6 rounded-xl shadow-lg" style={{
-            background: 'rgba(254, 251, 240, 0.9)',
-            border: '2px solid #8B4513'
-          }}>
-            <h3 className="text-2xl font-bold text-amber-900 mb-3 font-serif">Welcome to Your Literary Journey</h3>
-            <p className="text-amber-800 font-serif leading-relaxed max-w-2xl">
-              Each book in our collection offers an immersive, interactive experience. 
-              Discover characters, themes, symbols, and structures through engaging visual guides 
-              designed to deepen your appreciation of these timeless works.
-            </p>
-            <div className="mt-4 text-amber-700 font-serif italic text-sm">
-              Happy reading! 📖✨
             </div>
           </div>
         </div>
