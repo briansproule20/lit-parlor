@@ -426,10 +426,10 @@ export default function Home() {
         <div className="text-center mb-12">
           <div className="inline-block p-8 bg-gradient-to-r from-emerald-900/90 to-teal-800/90 border-4 border-emerald-400 rounded-2xl shadow-2xl">
             <h2 className="text-3xl font-bold text-white mb-4 font-serif">
-              🎓 Need Help with Literature?
+              Need Help with Literary Analysis, Writing, or Test Prep?
             </h2>
             <p className="text-emerald-200 text-lg mb-6 font-serif">
-              Meet your AI Literary Tutor - powered by famous authors and designed for educational excellence
+              Meet your AI Literary Tutor - Claude Hemingway - powered by famous authors and designed for educational excellence
             </p>
             <div className="flex flex-wrap justify-center gap-4 mb-6">
               <div className="flex items-center gap-2 text-emerald-200">
@@ -455,10 +455,10 @@ export default function Home() {
               rel="noopener noreferrer" 
               className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 inline-block text-lg"
             >
-              🎓 Start Learning with AI Tutor
+              See Project on GitHub
             </a>
             <p className="text-emerald-300 text-sm mt-3 font-serif italic">
-              Integration coming soon
+              Integration coming soon.
             </p>
           </div>
         </div>
