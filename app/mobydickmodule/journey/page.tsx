@@ -1,8 +1,200 @@
 'use client'
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 
+interface ChapterData {
+  id: number;
+  title: string;
+  chapter: string;
+  quote: string;
+  significance: string;
+  themes: string[];
+  characters: string[];
+  symbols: string[];
+  detailedAnalysis: string;
+}
+
 export default function Journey() {
+  const [selectedChapter, setSelectedChapter] = useState<ChapterData | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const chapterData: ChapterData[] = [
+    {
+      id: 1,
+      title: "Call me Ishmael",
+      chapter: "Chapter 1",
+      quote: "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
+      significance: "Establishes Ishmael's philosophical tone and central themes like isolation, existentialism, and man's search for meaning. The famous opening immediately draws us into the narrator's contemplative world-view.",
+      themes: ["Isolation", "Existentialism", "Search for Meaning", "Wanderlust"],
+      characters: ["Ishmael"],
+      symbols: ["The Sea", "The Shore"],
+      detailedAnalysis: "This iconic opening line sets the tone for the entire novel. Ishmael's casual, conversational tone belies the profound philosophical journey that lies ahead. The phrase 'never mind how long precisely' suggests both the narrator's unreliable memory and the timeless nature of the story. His decision to go to sea reflects a universal human desire to escape the mundane and seek adventure, while also introducing themes of isolation and the vastness of the natural world."
+    },
+    {
+      id: 2,
+      title: "Ishmael and Queequeg Bond",
+      chapter: "Chapters 3–4",
+      quote: "Thus, then, in our hearts' honeymoon, lay I and Queequeg—a cosy, loving pair.",
+      significance: "Their deep, cross-cultural friendship is a rare human warmth in a novel filled with obsession and doom. This unexpected bond between the Christian narrator and the Polynesian harpooner introduces vital themes of unity, brotherhood, and tolerance.",
+      themes: ["Friendship", "Cultural Unity", "Brotherhood", "Tolerance"],
+      characters: ["Ishmael", "Queequeg"],
+      symbols: ["The Bed", "The Pipe"],
+      detailedAnalysis: "The relationship between Ishmael and Queequeg represents one of the novel's most hopeful themes. Their friendship transcends cultural, religious, and racial barriers, offering a model of human connection in a world often divided. The 'hearts' honeymoon' metaphor suggests the purity and intensity of their bond, while their shared bed becomes a symbol of their unity. This relationship provides emotional grounding for Ishmael throughout his journey."
+    },
+    {
+      id: 3,
+      title: "The Whaleman's Chapel Sermon",
+      chapter: "Chapter 9",
+      quote: "Shipmates, God has laid but one hand upon you; both his hands press upon me. I have read ye by what murky light may be mine the lesson that Jonah teaches to all sinful men.",
+      significance: "The Jonah sermon foreshadows Ahab's doom while introducing religious and fatalistic themes central to the novel. Father Mapple's powerful preaching sets the moral and spiritual tone for the voyage ahead.",
+      themes: ["Religion", "Fate", "Sin", "Redemption", "Prophecy"],
+      characters: ["Father Mapple", "Jonah (Biblical)"],
+      symbols: ["The Pulpit", "The Whale"],
+      detailedAnalysis: "Father Mapple's sermon on Jonah serves as both a warning and a prophecy. The story of Jonah, who tried to flee from God's will and was swallowed by a whale, directly parallels the journey that lies ahead for the Pequod's crew. The 'murky light' suggests the uncertain nature of divine guidance, while the emphasis on sin and redemption sets up the moral framework for Ahab's later transgressions. This chapter establishes the novel's deep engagement with biblical themes and foreshadows the crew's fate."
+    },
+    {
+      id: 4,
+      title: "Meeting Elijah",
+      chapter: "Chapter 19",
+      quote: "Ye said true—ye haven't seen Old Thunder yet, have ye? Well, don't ye ever do it. Look here, when Captain Ahab is all right, then this left arm of mine will be all right; not before.",
+      significance: "Elijah's cryptic warning about the Pequod and its captain adds ominous prophecy and tension. This mysterious encounter serves as a biblical warning that foreshadows the tragic fate awaiting the ship.",
+      themes: ["Prophecy", "Warning", "Fate", "Biblical Allusion"],
+      characters: ["Elijah", "Ishmael", "Queequeg"],
+      symbols: ["Elijah's Arm", "The Pequod"],
+      detailedAnalysis: "Elijah serves as a biblical prophet figure, warning of impending doom. His name directly references the Old Testament prophet Elijah, who was known for his warnings and miracles. The mysterious nature of his warnings—referring to Ahab as 'Old Thunder' and linking his own physical condition to the captain's fate—creates an atmosphere of supernatural foreboding. This encounter establishes the novel's pattern of prophetic warnings that go unheeded."
+    },
+    {
+      id: 5,
+      title: "Boarding the Pequod",
+      chapter: "Chapters 16–22",
+      quote: "She was a ship of the old school, rather small if anything; with an old-fashioned claw-footed look about her. Long seasoned and weather-stained in the typhoons and calms of all four oceans.",
+      significance: "Finalizes Ishmael and Queequeg's entry into the voyage. First mentions of Ahab hint at mystery and danger, building suspense around the captain who remains hidden from view.",
+      themes: ["Adventure", "Mystery", "The Sea", "Tradition"],
+      characters: ["Ishmael", "Queequeg", "Captain Peleg", "Captain Bildad"],
+      symbols: ["The Pequod", "The Wharf"],
+      detailedAnalysis: "The Pequod itself becomes a character in the novel, representing both the tradition of whaling and the microcosm of human society. Its 'old-fashioned claw-footed look' suggests both tradition and the primitive nature of the hunt. The ship's weathered appearance from 'all four oceans' establishes its history and the vast scope of whaling. The gradual revelation of Ahab's character through others' descriptions builds suspense and mystery around the captain."
+    },
+    {
+      id: 6,
+      title: "First Sighting of Captain Ahab",
+      chapter: "Chapter 28",
+      quote: "Threading its way out from among his grey hairs, and continuing right down one side of his tawny scorched face and neck, till it disappeared in his clothing, you saw a slender rod-like mark, lividly whitish.",
+      significance: "Ahab is revealed physically and symbolically as a scarred, monomaniacal figure. His ivory leg and burning gaze introduce his mythic stature and hint at the obsession that will doom them all.",
+      themes: ["Obsession", "Scarring", "Leadership", "Mystery"],
+      characters: ["Captain Ahab"],
+      symbols: ["The Scar", "The Ivory Leg", "The Burning Gaze"],
+      detailedAnalysis: "Ahab's physical appearance immediately establishes his mythic stature. The scar that runs from his hair to his clothing suggests a wound that has penetrated to his very soul. The 'lividly whitish' color of the scar contrasts with his 'tawny scorched' skin, emphasizing the unnatural nature of his injury. His ivory leg, made from whale bone, represents his literal and metaphorical connection to his nemesis, Moby Dick. This first appearance sets up Ahab as a figure of both awe and tragedy."
+    },
+    {
+      id: 7,
+      title: "Ahab's Gold Doubloon",
+      chapter: "Chapter 36",
+      quote: "Whosoever of ye raises me a white-headed whale with a wrinkled brow and a crooked jaw... he shall have this gold ounce, my boys!",
+      significance: "Ahab offers a gold coin for the first sighting of Moby Dick. The crew's varying interpretations of the doubloon symbolize subjectivity, fate, and desire, showing how each person projects their own meaning onto symbols.",
+      themes: ["Reward", "Subjectivity", "Symbolism", "Desire"],
+      characters: ["Captain Ahab", "The Crew"],
+      symbols: ["The Gold Doubloon", "Moby Dick"],
+      detailedAnalysis: "The gold doubloon becomes a powerful symbol of subjectivity and interpretation. Each crew member who looks at the coin sees different meanings based on their own backgrounds and desires. This episode demonstrates how symbols can mean different things to different people, and how our interpretations reveal our inner nature. The doubloon also represents the material reward that contrasts with Ahab's spiritual quest for revenge."
+    },
+    {
+      id: 8,
+      title: "The Quarter-Deck Speech",
+      chapter: "Chapter 36",
+      quote: "Aye, aye! and I'll chase him round Good Hope, and round the Horn, and round the Norway Maelstrom, and round perdition's flames before I give him up!",
+      significance: "Ahab declares his obsession and mission: revenge on Moby Dick. A pivotal thematic moment about man's struggle with fate and the divine, where Ahab reveals his complete commitment to his vendetta regardless of the cost.",
+      themes: ["Revenge", "Obsession", "Defiance", "Fate"],
+      characters: ["Captain Ahab", "The Crew"],
+      symbols: ["The Quarter-Deck", "The Compass"],
+      detailedAnalysis: "This speech marks Ahab's transformation from a commercial whaling captain to a figure of mythic proportions. His declaration to chase Moby Dick 'round perdition's flames' elevates his quest to a cosmic level, suggesting he would defy even hell itself. The speech reveals Ahab's complete abandonment of commercial concerns in favor of his personal vendetta. This moment establishes Ahab as a tragic hero whose flaw is his monomaniacal obsession."
+    },
+    {
+      id: 9,
+      title: "Starbuck Confronts Ahab",
+      chapter: "Chapter 38",
+      quote: "Vengeance on a dumb brute! cried Starbuck, that simply smote thee from blindest instinct! Madness! To be enraged with a dumb thing, Captain Ahab, seems blasphemous.",
+      significance: "The novel's moral center, Starbuck pleads for reason and questions the wisdom of Ahab's quest. Ahab's rejection of his first mate's counsel marks his descent into full-blown vengeance, abandoning all moral restraint.",
+      themes: ["Reason vs. Passion", "Morality", "Blasphemy", "Leadership"],
+      characters: ["Captain Ahab", "Starbuck"],
+      symbols: ["The Quarter-Deck", "The Compass"],
+      detailedAnalysis: "Starbuck represents the voice of reason and morality in the novel. His argument that Moby Dick is merely a 'dumb brute' acting on instinct challenges Ahab's attribution of malice to the whale. The accusation of blasphemy suggests that Ahab's quest is not just foolish but morally wrong. This confrontation establishes the central conflict between rational, moral behavior and obsessive, destructive passion."
+    },
+    {
+      id: 10,
+      title: "The Try-Works",
+      chapter: "Chapter 96",
+      quote: "Look not too long in the face of the fire, O man! Never dream with thy hand on the helm! Turn not thy back to the compass; accept the first hint of the hitching tiller; believe not the artificial fire.",
+      significance: "Ishmael's night shift at the blubber furnace becomes a hallucinatory meditation on darkness, madness, and industrial man's alienation. This haunting chapter explores the psychological toll of the voyage.",
+      themes: ["Madness", "Industrialization", "Alienation", "Darkness"],
+      characters: ["Ishmael"],
+      symbols: ["The Try-Works", "The Fire", "The Compass"],
+      detailedAnalysis: "The try-works episode represents one of the novel's most powerful meditations on the psychological effects of industrial labor. The fire becomes a metaphor for the destructive power of obsession and the dehumanizing effects of industrial work. Ishmael's near-madness while tending the furnace suggests how the voyage is affecting his mental state. The warning about not turning one's back to the compass becomes a metaphor for maintaining moral and spiritual direction."
+    },
+    {
+      id: 11,
+      title: "Queequeg's Coffin",
+      chapter: "Chapters 110–111",
+      quote: "A life-buoy of a coffin! Does it go further? Can it be that in some spiritual sense the coffin is, after all, but an immortality-preserver!",
+      significance: "Queequeg becomes ill and commissions a coffin, which later becomes Ishmael's life buoy. This powerful symbol foreshadows death and salvation, showing how instruments of doom can become sources of life.",
+      themes: ["Death", "Salvation", "Transformation", "Friendship"],
+      characters: ["Queequeg", "Ishmael"],
+      symbols: ["The Coffin", "The Life-Buoy"],
+      detailedAnalysis: "The coffin episode represents one of the novel's most powerful symbolic reversals. What begins as a symbol of death becomes an instrument of salvation. This transformation suggests the novel's complex relationship with mortality and the possibility of transcendence. The coffin also represents the enduring bond between Queequeg and Ishmael, as Queequeg's gift ultimately saves his friend's life. This episode foreshadows the novel's ending while offering a glimmer of hope in the face of death."
+    },
+    {
+      id: 12,
+      title: "The Rachel",
+      chapter: "Chapter 128",
+      quote: "My boy, my own boy is among them. For God's sake—I beg, I conjure—here exclaimed the stranger Captain to Ahab, who thus far had but icily received his petition.",
+      significance: "A captain begs Ahab for help finding his lost son, but Ahab refuses, showing his complete moral decay and tunnel-visioned obsession. This moment reveals how far Ahab has fallen from basic human compassion.",
+      themes: ["Compassion", "Moral Decay", "Obsession", "Fatherhood"],
+      characters: ["Captain Gardiner", "Captain Ahab"],
+      symbols: ["The Rachel", "The Lost Son"],
+      detailedAnalysis: "The Rachel episode represents Ahab's complete moral failure. His refusal to help a father find his lost son demonstrates how his obsession has destroyed his capacity for basic human compassion. The name 'Rachel' is significant, as Rachel in the Bible wept for her children who were no more. This biblical allusion emphasizes the tragedy of the lost son and Ahab's heartless response. This moment shows the human cost of Ahab's monomania."
+    },
+    {
+      id: 13,
+      title: "The Delight",
+      chapter: "Chapter 131",
+      quote: "The harpoon is not yet forged that will ever do that, answered the other, sadly glancing upon a rounded hammock on the deck, whose gathered sides some noiseless sailors were busy in sewing together.",
+      significance: "The Pequod meets a ship already wounded by Moby Dick. The crew is terrified by this final warning, but Ahab ignores even this direct evidence of the White Whale's deadly power.",
+      themes: ["Warning", "Fate", "Terror", "Hubris"],
+      characters: ["Captain of the Delight", "Captain Ahab"],
+      symbols: ["The Hammock", "The Harpoon"],
+      detailedAnalysis: "The Delight episode provides the final warning before the Pequod's encounter with Moby Dick. The ship's name is ironic, as there is nothing delightful about their encounter with the white whale. The hammock being sewn together represents a shroud for a dead sailor, providing direct evidence of Moby Dick's deadly power. Ahab's refusal to heed this warning demonstrates his complete abandonment of reason and his fatal hubris."
+    },
+    {
+      id: 14,
+      title: "The Three-Day Chase",
+      chapter: "Chapters 133–135",
+      quote: "From hell's heart I stab at thee; for hate's sake I spit my last breath at thee. Sink all coffins and all hearses to one common pool!",
+      significance: "The climax arrives. Ahab and crew engage Moby Dick in an epic three-day battle. Over three days, the whale systematically destroys the Pequod and kills nearly all aboard, fulfilling the prophecies of doom that have haunted the voyage.",
+      themes: ["Revenge", "Destruction", "Fate", "Tragedy"],
+      characters: ["Captain Ahab", "Moby Dick", "The Crew"],
+      symbols: ["The White Whale", "The Pequod", "The Harpoon"],
+      detailedAnalysis: "The three-day chase represents the climax of Ahab's quest and the fulfillment of all the prophecies of doom. The systematic destruction of the Pequod over three days suggests the inevitability of Ahab's fate. Ahab's final words, quoting from Moby Dick's perspective, suggest his complete identification with his nemesis. The destruction of the ship and the death of nearly all aboard represents the cost of human hubris and the power of nature over human ambition."
+    },
+    {
+      id: 15,
+      title: "Ishmael's Survival",
+      chapter: "Epilogue",
+      quote: "And I only am escaped alone to tell thee.",
+      significance: "Ishmael survives by floating on Queequeg's coffin and is rescued by the Rachel. He becomes the lone witness to the catastrophe, emphasizing themes of fate, rebirth, and the power of storytelling to preserve memory and meaning.",
+      themes: ["Survival", "Storytelling", "Memory", "Redemption"],
+      characters: ["Ishmael"],
+      symbols: ["Queequeg's Coffin", "The Rachel"],
+      detailedAnalysis: "Ishmael's survival represents the novel's final paradox: out of destruction comes the possibility of renewal through storytelling. His survival on Queequeg's coffin suggests the enduring power of friendship and the possibility of transcendence. The fact that he is rescued by the Rachel, the ship whose captain Ahab had refused to help, suggests a kind of cosmic justice. Ishmael's role as the sole survivor and narrator emphasizes the importance of bearing witness and preserving memory."
+    }
+  ];
+
+  const openModal = (chapter: ChapterData) => {
+    setSelectedChapter(chapter);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedChapter(null);
+  };
   return (
     <main className="min-h-screen py-8 px-4 relative" style={{
         backgroundImage: 'url(/images/ship-storm.png)',
@@ -69,320 +261,128 @@ export default function Journey() {
 
         {/* Journey Content - The 15 Key Moments */}
         <div className="space-y-8">
-          
-          {/* Chapter 1: Call me Ishmael */}
-          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl">
-            <h2 className="text-3xl font-bold text-amber-900 mb-6 font-serif">1. "Call me Ishmael" – Chapter 1</h2>
-            <div className="prose prose-lg font-serif text-amber-800 leading-relaxed">
-              <div className="mb-6 p-4 bg-amber-100 rounded-lg border-l-4 border-amber-600">
-                <p className="italic text-lg">
-                  "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, 
-                  and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world."
-                </p>
-              </div>
-              <p className="mb-4">
-                <strong>Significance:</strong> Establishes Ishmael's philosophical tone and central themes like isolation, existentialism, 
-                and man's search for meaning. The famous opening immediately draws us into the narrator's contemplative world-view.
-              </p>
-            </div>
-          </div>
-
-          {/* Ishmael and Queequeg Bond */}
-          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl">
-            <h2 className="text-3xl font-bold text-amber-900 mb-6 font-serif">2. Ishmael and Queequeg Bond – Chapters 3–4</h2>
-            <div className="prose prose-lg font-serif text-amber-800 leading-relaxed">
-              <div className="mb-6 p-4 bg-amber-100 rounded-lg border-l-4 border-amber-600">
-                <p className="italic text-lg">
-                  "Thus, then, in our hearts' honeymoon, lay I and Queequeg—a cosy, loving pair."
-                </p>
-                <p className="text-amber-700 text-sm mt-2 text-right">— Ishmael</p>
-              </div>
-              <p className="mb-4">
-                <strong>Significance:</strong> Their deep, cross-cultural friendship is a rare human warmth in a novel filled with obsession and doom. 
-                This unexpected bond between the Christian narrator and the Polynesian harpooner introduces vital themes of unity, brotherhood, and tolerance.
-              </p>
-              <div className="bg-white/70 p-4 rounded-lg border border-amber-300">
-                <p className="text-sm text-amber-700">
-                  💫 <strong>Theme Focus:</strong> The power of human connection transcending cultural and religious differences
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* The Whaleman's Chapel Sermon */}
-          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl">
-            <h2 className="text-3xl font-bold text-amber-900 mb-6 font-serif">3. The Whaleman's Chapel Sermon – Chapter 9</h2>
-            <div className="prose prose-lg font-serif text-amber-800 leading-relaxed">
-              <div className="mb-6 p-4 bg-amber-100 rounded-lg border-l-4 border-amber-600">
-                <p className="italic text-lg">
-                  "Shipmates, God has laid but one hand upon you; both his hands press upon me. I have read ye by what murky light may be mine the lesson that Jonah teaches to all sinful men."
-                </p>
-                <p className="text-amber-700 text-sm mt-2 text-right">— Father Mapple</p>
-              </div>
-              <p className="mb-4">
-                <strong>Significance:</strong> The Jonah sermon foreshadows Ahab's doom while introducing religious and fatalistic themes 
-                central to the novel. Father Mapple's powerful preaching sets the moral and spiritual tone for the voyage ahead.
-              </p>
-              <div className="bg-blue-50 p-4 rounded-lg border border-blue-300">
-                <p className="text-sm text-blue-700">
-                  ⛪ <strong>Biblical Parallel:</strong> Jonah's attempt to flee God's will mirrors the crew's journey into the unknown
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Meeting Elijah */}
-          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl">
-            <h2 className="text-3xl font-bold text-amber-900 mb-6 font-serif">4. Meeting Elijah – Chapter 19</h2>
-            <div className="prose prose-lg font-serif text-amber-800 leading-relaxed">
-              <div className="mb-6 p-4 bg-amber-100 rounded-lg border-l-4 border-amber-600">
-                <p className="italic text-lg">
-                  "Ye said true—ye haven't seen Old Thunder yet, have ye? Well, don't ye ever do it. Look here, when Captain Ahab is all right, then this left arm of mine will be all right; not before."
-                </p>
-                <p className="text-amber-700 text-sm mt-2 text-right">— Elijah</p>
-              </div>
-              <p className="mb-4">
-                <strong>Significance:</strong> Elijah's cryptic warning about the Pequod and its captain adds ominous prophecy and tension. 
-                This mysterious encounter serves as a biblical warning that foreshadows the tragic fate awaiting the ship.
-              </p>
-            </div>
-          </div>
-
-          {/* Boarding the Pequod */}
-          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl">
-            <h2 className="text-3xl font-bold text-amber-900 mb-6 font-serif">5. Boarding the Pequod – Chapters 16–22</h2>
-            <div className="prose prose-lg font-serif text-amber-800 leading-relaxed">
-              <div className="mb-6 p-4 bg-amber-100 rounded-lg border-l-4 border-amber-600">
-                <p className="italic text-lg">
-                  "She was a ship of the old school, rather small if anything; with an old-fashioned claw-footed look about her. Long seasoned and weather-stained in the typhoons and calms of all four oceans."
-                </p>
-                <p className="text-amber-700 text-sm mt-2 text-right">— Ishmael on the Pequod</p>
-              </div>
-              <p className="mb-4">
-                <strong>Significance:</strong> Finalizes Ishmael and Queequeg's entry into the voyage. First mentions of Ahab hint at mystery and danger, 
-                building suspense around the captain who remains hidden from view.
-              </p>
-            </div>
-          </div>
-
-          {/* First Sighting of Captain Ahab */}
-          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl">
-            <h2 className="text-3xl font-bold text-amber-900 mb-6 font-serif">6. First Sighting of Captain Ahab – Chapter 28</h2>
-            <div className="prose prose-lg font-serif text-amber-800 leading-relaxed">
-              <div className="mb-6 p-4 bg-amber-100 rounded-lg border-l-4 border-amber-600">
-                <p className="italic text-lg">
-                  "Threading its way out from among his grey hairs, and continuing right down one side of his tawny scorched face and neck, till it disappeared in his clothing, you saw a slender rod-like mark, lividly whitish."
-                </p>
-                <p className="text-amber-700 text-sm mt-2 text-right">— Ishmael describing Ahab</p>
-              </div>
-              <p className="mb-4">
-                <strong>Significance:</strong> Ahab is revealed physically and symbolically as a scarred, monomaniacal figure. 
-                His ivory leg and burning gaze introduce his mythic stature and hint at the obsession that will doom them all.
-              </p>
-              <div className="bg-red-50 p-4 rounded-lg border border-red-300">
-                <p className="text-sm text-red-700">
-                  🦴 <strong>Symbolic Detail:</strong> The ivory leg made from whale bone represents his literal and metaphorical connection to his nemesis
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Ahab's Gold Doubloon */}
-          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl">
-            <h2 className="text-3xl font-bold text-amber-900 mb-6 font-serif">7. Ahab's Gold Doubloon – Chapter 36</h2>
-            <div className="prose prose-lg font-serif text-amber-800 leading-relaxed">
-              <div className="mb-6 p-4 bg-amber-100 rounded-lg border-l-4 border-amber-600">
-                <p className="italic text-lg">
-                  "Whosoever of ye raises me a white-headed whale with a wrinkled brow and a crooked jaw... he shall have this gold ounce, my boys!"
-                </p>
-                <p className="text-amber-700 text-sm mt-2 text-right">— Captain Ahab</p>
-              </div>
-              <p className="mb-4">
-                <strong>Significance:</strong> Ahab offers a gold coin for the first sighting of Moby Dick. 
-                The crew's varying interpretations of the doubloon symbolize subjectivity, fate, and desire, 
-                showing how each person projects their own meaning onto symbols.
-              </p>
-              <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-400">
-                <p className="text-sm text-yellow-700">
-                  🪙 <strong>The Doubloon:</strong> Each crew member sees different meanings in the coin, revealing their inner nature
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* The Quarter-Deck Speech */}
-          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl">
-            <h2 className="text-3xl font-bold text-amber-900 mb-6 font-serif">8. The Quarter-Deck Speech – Chapter 36</h2>
-            <div className="prose prose-lg font-serif text-amber-800 leading-relaxed">
-              <div className="mb-6 p-4 bg-amber-100 rounded-lg border-l-4 border-amber-600">
-                <p className="italic text-lg">
-                  "Aye, aye! and I'll chase him round Good Hope, and round the Horn, and round the Norway Maelstrom, and round perdition's flames before I give him up!"
-                </p>
-                <p className="text-amber-700 text-sm mt-2 text-right">— Captain Ahab</p>
-              </div>
-              <p className="mb-4">
-                <strong>Significance:</strong> Ahab declares his obsession and mission: revenge on Moby Dick. 
-                A pivotal thematic moment about man's struggle with fate and the divine, where Ahab reveals 
-                his complete commitment to his vendetta regardless of the cost.
-              </p>
-              <div className="bg-red-50 p-4 rounded-lg border border-red-300">
-                <p className="text-sm text-red-700">
-                  ⚔️ <strong>The Declaration:</strong> Ahab transforms a commercial voyage into a personal war against nature
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Starbuck Confronts Ahab */}
-          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl">
-            <h2 className="text-3xl font-bold text-amber-900 mb-6 font-serif">9. Starbuck Confronts Ahab – Chapter 38</h2>
-            <div className="prose prose-lg font-serif text-amber-800 leading-relaxed">
-              <div className="mb-6 p-4 bg-amber-100 rounded-lg border-l-4 border-amber-600">
-                <p className="italic text-lg">
-                  "Vengeance on a dumb brute!" cried Starbuck, "that simply smote thee from blindest instinct! Madness! To be enraged with a dumb thing, Captain Ahab, seems blasphemous."
-                </p>
-                <p className="text-amber-700 text-sm mt-2 text-right">— Starbuck</p>
-              </div>
-              <p className="mb-4">
-                <strong>Significance:</strong> The novel's moral center, Starbuck pleads for reason and questions the wisdom of Ahab's quest. 
-                Ahab's rejection of his first mate's counsel marks his descent into full-blown vengeance, abandoning all moral restraint.
-              </p>
-            </div>
-          </div>
-
-          {/* The Try-Works */}
-          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl">
-            <h2 className="text-3xl font-bold text-amber-900 mb-6 font-serif">10. The Try-Works – Chapter 96</h2>
-            <div className="prose prose-lg font-serif text-amber-800 leading-relaxed">
-              <div className="mb-6 p-4 bg-amber-100 rounded-lg border-l-4 border-amber-600">
-                <p className="italic text-lg">
-                  "Look not too long in the face of the fire, O man! Never dream with thy hand on the helm! Turn not thy back to the compass; accept the first hint of the hitching tiller; believe not the artificial fire."
-                </p>
-                <p className="text-amber-700 text-sm mt-2 text-right">— Ishmael's warning</p>
-              </div>
-              <p className="mb-4">
-                <strong>Significance:</strong> Ishmael's night shift at the blubber furnace becomes a hallucinatory meditation on darkness, madness, 
-                and industrial man's alienation. This haunting chapter explores the psychological toll of the voyage.
-              </p>
-            </div>
-          </div>
-
-          {/* Queequeg's Coffin */}
-          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl">
-            <h2 className="text-3xl font-bold text-amber-900 mb-6 font-serif">11. Queequeg's Coffin – Chapters 110–111</h2>
-            <div className="prose prose-lg font-serif text-amber-800 leading-relaxed">
-              <div className="mb-6 p-4 bg-amber-100 rounded-lg border-l-4 border-amber-600">
-                <p className="italic text-lg">
-                  "A life-buoy of a coffin! Does it go further? Can it be that in some spiritual sense the coffin is, after all, but an immortality-preserver!"
-                </p>
-                <p className="text-amber-700 text-sm mt-2 text-right">— Ishmael's reflection</p>
-              </div>
-              <p className="mb-4">
-                <strong>Significance:</strong> Queequeg becomes ill and commissions a coffin, which later becomes Ishmael's life buoy. 
-                This powerful symbol foreshadows death and salvation, showing how instruments of doom can become sources of life.
-              </p>
-              <div className="bg-green-50 p-4 rounded-lg border border-green-300">
-                <p className="text-sm text-green-700">
-                  ⚰️ <strong>Symbolic Reversal:</strong> Death becomes life, despair becomes hope—the coffin saves the sole survivor
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* The Rachel */}
-          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl">
-            <h2 className="text-3xl font-bold text-amber-900 mb-6 font-serif">12. The Rachel – Chapter 128</h2>
-            <div className="prose prose-lg font-serif text-amber-800 leading-relaxed">
-              <div className="mb-6 p-4 bg-amber-100 rounded-lg border-l-4 border-amber-600">
-                <p className="italic text-lg">
-                  "My boy, my own boy is among them. For God's sake—I beg, I conjure"—here exclaimed the stranger Captain to Ahab, who thus far had but icily received his petition.
-                </p>
-                <p className="text-amber-700 text-sm mt-2 text-right">— Captain Gardiner's plea</p>
-              </div>
-              <p className="mb-4">
-                <strong>Significance:</strong> A captain begs Ahab for help finding his lost son, but Ahab refuses, showing his complete moral decay 
-                and tunnel-visioned obsession. This moment reveals how far Ahab has fallen from basic human compassion.
-              </p>
-            </div>
-          </div>
-
-          {/* The Delight */}
-          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl">
-            <h2 className="text-3xl font-bold text-amber-900 mb-6 font-serif">13. The Delight – Chapter 131</h2>
-            <div className="prose prose-lg font-serif text-amber-800 leading-relaxed">
-              <div className="mb-6 p-4 bg-amber-100 rounded-lg border-l-4 border-amber-600">
-                <p className="italic text-lg">
-                  "The harpoon is not yet forged that will ever do that," answered the other, sadly glancing upon a rounded hammock on the deck, whose gathered sides some noiseless sailors were busy in sewing together.
-                </p>
-                <p className="text-amber-700 text-sm mt-2 text-right">— Captain of the Delight</p>
-              </div>
-              <p className="mb-4">
-                <strong>Significance:</strong> The Pequod meets a ship already wounded by Moby Dick. The crew is terrified by this final warning, 
-                but Ahab ignores even this direct evidence of the White Whale's deadly power.
-              </p>
-            </div>
-          </div>
-
-          {/* The Three-Day Chase */}
-          <div className="bg-red-50/95 border-4 border-red-600 rounded-xl p-8 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl">
-            <h2 className="text-3xl font-bold text-red-900 mb-6 font-serif">14. The Three-Day Chase – Chapters 133–135</h2>
-            <div className="prose prose-lg font-serif text-red-800 leading-relaxed">
-              <div className="mb-6 p-4 bg-red-100 rounded-lg border-l-4 border-red-600">
-                <p className="italic text-lg">
-                  "From hell's heart I stab at thee; for hate's sake I spit my last breath at thee. Sink all coffins and all hearses to one common pool!"
-                </p>
-                <p className="text-red-700 text-sm mt-2 text-right">— Ahab's final words</p>
-              </div>
-              <p className="mb-4">
-                <strong>Significance:</strong> The climax arrives. Ahab and crew engage Moby Dick in an epic three-day battle. 
-                Over three days, the whale systematically destroys the Pequod and kills nearly all aboard, fulfilling the prophecies 
-                of doom that have haunted the voyage.
-              </p>
-              <div className="bg-red-100 p-4 rounded-lg border border-red-400">
-                <p className="text-sm text-red-700">
-                  🌊 <strong>The Final Confrontation:</strong> Nature's power proves greater than human obsession
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Ishmael's Survival */}
-          <div className="bg-blue-50/95 border-4 border-blue-600 rounded-xl p-8 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl">
-            <h2 className="text-3xl font-bold text-blue-900 mb-6 font-serif">15. Ishmael's Survival – Epilogue</h2>
-            <div className="prose prose-lg font-serif text-blue-800 leading-relaxed">
-              <p className="mb-4">
-                <strong>Significance:</strong> Ishmael survives by floating on Queequeg's coffin and is rescued by the Rachel. 
-                He becomes the lone witness to the catastrophe, emphasizing themes of fate, rebirth, and the power of storytelling 
-                to preserve memory and meaning.
-              </p>
-              
-              <div className="bg-blue-100 p-6 rounded-lg border-2 border-blue-400 mt-6">
-                <h3 className="text-xl font-bold text-blue-900 mb-3">🌊 Your Journey Complete</h3>
-                <p className="text-blue-700 mb-4">
-                  You have now navigated the full arc of Melville's masterpiece—from Ishmael's contemplative beginning 
-                  to the tragic end that leaves only memory and story. What insights have you gained about obsession, 
-                  fate, and humanity's place in the natural world?
-                </p>
-                <div className="flex flex-wrap gap-4">
-                  <Link 
-                    href="/mobydickmodule/study-guide"
-                    className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105"
-                  >
-                    📚 Deepen Your Study
-                  </Link>
-                  <Link 
-                    href="/mobydickmodule/quiz"
-                    className="inline-block bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105"
-                  >
-                    🎯 Test Your Knowledge
-                  </Link>
+          {chapterData.map((chapter, idx) => (
+            <div
+              key={chapter.id}
+              className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl cursor-pointer"
+              onClick={() => openModal(chapter)}
+            >
+              <h2 className="text-3xl font-bold text-amber-900 mb-6 font-serif">
+                {chapter.id}. {chapter.title} – {chapter.chapter}
+              </h2>
+              <div className="prose prose-lg font-serif text-amber-800 leading-relaxed">
+                <div className="mb-6 p-4 bg-amber-100 rounded-lg border-l-4 border-amber-600">
+                  <p className="italic text-lg">{chapter.quote}</p>
                 </div>
+                <p className="mb-4">
+                  <strong>Significance:</strong> {chapter.significance}
+                </p>
               </div>
             </div>
-          </div>
-
+          ))}
         </div>
+
       </div>
+
+      {/* Modal */}
+      {isModalOpen && selectedChapter && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          {/* Backdrop with blur */}
+          <div 
+            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+            onClick={closeModal}
+          ></div>
+          
+          {/* Modal Content */}
+          <div className="relative bg-gradient-to-br from-amber-50 to-amber-100 rounded-2xl p-8 max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border-4 border-amber-600">
+            {/* Close Button */}
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 text-amber-800 hover:text-amber-900 text-2xl font-bold bg-amber-200 hover:bg-amber-300 rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300 hover:scale-110"
+            >
+              ×
+            </button>
+
+            {/* Modal Header */}
+            <div className="text-center mb-8">
+              <h2 className="text-4xl font-bold text-amber-900 mb-2 font-serif">
+                {selectedChapter.id}. {selectedChapter.title}
+              </h2>
+              <p className="text-xl text-amber-700 font-serif italic">
+                {selectedChapter.chapter}
+              </p>
+            </div>
+
+            {/* Quote Section */}
+            <div className="mb-8 p-6 bg-amber-200/50 rounded-xl border-l-4 border-amber-600">
+              <p className="text-lg text-amber-800 font-serif italic leading-relaxed">
+                "{selectedChapter.quote}"
+              </p>
+            </div>
+
+            {/* Significance */}
+            <div className="mb-8">
+              <h3 className="text-2xl font-bold text-amber-900 mb-4 font-serif">Significance</h3>
+              <p className="text-lg text-amber-800 font-serif leading-relaxed">
+                {selectedChapter.significance}
+              </p>
+            </div>
+
+            {/* Themes */}
+            <div className="mb-8">
+              <h3 className="text-2xl font-bold text-amber-900 mb-4 font-serif">Key Themes</h3>
+              <div className="flex flex-wrap gap-2">
+                {selectedChapter.themes.map((theme, index) => (
+                  <span 
+                    key={index}
+                    className="px-3 py-1 bg-amber-200 text-amber-800 rounded-full text-sm font-medium"
+                  >
+                    {theme}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Characters */}
+            <div className="mb-8">
+              <h3 className="text-2xl font-bold text-amber-900 mb-4 font-serif">Characters</h3>
+              <div className="flex flex-wrap gap-2">
+                {selectedChapter.characters.map((character, index) => (
+                  <span 
+                    key={index}
+                    className="px-3 py-1 bg-blue-200 text-blue-800 rounded-full text-sm font-medium"
+                  >
+                    {character}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Symbols */}
+            <div className="mb-8">
+              <h3 className="text-2xl font-bold text-amber-900 mb-4 font-serif">Symbols</h3>
+              <div className="flex flex-wrap gap-2">
+                {selectedChapter.symbols.map((symbol, index) => (
+                  <span 
+                    key={index}
+                    className="px-3 py-1 bg-purple-200 text-purple-800 rounded-full text-sm font-medium"
+                  >
+                    {symbol}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Detailed Analysis */}
+            <div className="mb-8">
+              <h3 className="text-2xl font-bold text-amber-900 mb-4 font-serif">Detailed Analysis</h3>
+              <p className="text-lg text-amber-800 font-serif leading-relaxed">
+                {selectedChapter.detailedAnalysis}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   )
 } 
