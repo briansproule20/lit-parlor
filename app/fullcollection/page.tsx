@@ -41,7 +41,7 @@ export default function FullCollectionPage() {
               The Complete Library
             </h1>
             <p className="text-amber-200 text-xl mb-2 font-serif italic">
-              Browse Our Curated Library
+              Browse Our Full Selection
             </p>
             <div className="text-amber-300 font-serif">
               "A library is not a luxury but one of the necessities of life." - Henry Ward Beecher

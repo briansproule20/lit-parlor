@@ -451,6 +451,9 @@ export default function Home() {
           >
             Browse the Stacks
           </Link>
+          <p className="text-amber-200/70 text-sm font-serif italic mt-2">
+            view our full collection
+          </p>
         </div>
 
         {/* Learning Modalities Mission Card */}
@@ -501,6 +504,38 @@ export default function Home() {
                     <span className="font-serif">Interactive Learning</span>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Resources Section */}
+        <div className="text-center mb-12">
+          <div className="max-w-4xl mx-auto">
+            <div className="inline-block p-8 bg-gradient-to-r from-orange-900/90 to-red-800/90 border-4 border-orange-400 rounded-2xl shadow-2xl relative overflow-hidden">
+              {/* Decorative background pattern */}
+              <div className="absolute inset-0 opacity-5">
+                <div className="absolute top-4 left-4 w-12 h-12 bg-orange-300 rounded-full"></div>
+                <div className="absolute top-4 right-4 w-8 h-8 bg-red-300 rounded-full"></div>
+                <div className="absolute bottom-4 left-4 w-10 h-10 bg-orange-400 rounded-full"></div>
+                <div className="absolute bottom-4 right-4 w-6 h-6 bg-red-400 rounded-full"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-orange-200 rounded-full"></div>
+              </div>
+              
+              <div className="relative z-10">
+                <h2 className="text-3xl font-bold text-white mb-6 font-serif">
+                  Resources
+                </h2>
+                <p className="text-orange-200 text-lg leading-relaxed font-serif mb-6 max-w-3xl mx-auto">
+                  Essential tools and references to enhance your literary journey. Access comprehensive guides, 
+                  terminology, and supplementary materials designed to deepen your understanding of literature.
+                </p>
+                <Link 
+                  href="/glossary" 
+                  className="inline-flex items-center gap-3 bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 text-lg font-serif border-2 border-orange-400"
+                >
+                  📖 Glossary of Terms
+                </Link>
               </div>
             </div>
           </div>

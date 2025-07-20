@@ -2062,27 +2062,38 @@ export default function GlossaryPage() {
   const [selectedLetter, setSelectedLetter] = useState('All');
   const [filteredTerms, setFilteredTerms] = useState(dictionaryTerms);
   const [selectedTerm, setSelectedTerm] = useState<string | null>(null);
+  const [isFiltering, setIsFiltering] = useState(false);
 
   // Get unique first letters for alphabet filter
   const letters = ['All', ...Array.from(new Set(dictionaryTerms.map(term => term.term[0]))).sort()];
 
   useEffect(() => {
-    let filtered = dictionaryTerms;
+    const filterTerms = () => {
+      setIsFiltering(true);
+      
+      // Add a small delay to show the filtering state
+      setTimeout(() => {
+        let filtered = dictionaryTerms;
 
-    // Filter by search term
-    if (searchTerm) {
-      filtered = filtered.filter(term => 
-        term.term.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        term.def.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-    }
+        // Filter by search term
+        if (searchTerm) {
+          filtered = filtered.filter(term => 
+            term.term.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            term.def.toLowerCase().includes(searchTerm.toLowerCase())
+          );
+        }
 
-    // Filter by selected letter
-    if (selectedLetter !== 'All') {
-      filtered = filtered.filter(term => term.term[0] === selectedLetter);
-    }
+        // Filter by selected letter
+        if (selectedLetter !== 'All') {
+          filtered = filtered.filter(term => term.term[0] === selectedLetter);
+        }
 
-    setFilteredTerms(filtered);
+        setFilteredTerms(filtered);
+        setIsFiltering(false);
+      }, 100);
+    };
+
+    filterTerms();
   }, [searchTerm, selectedLetter]);
 
   return (
@@ -2163,40 +2174,85 @@ export default function GlossaryPage() {
               ))}
             </div>
 
-            <div className="mt-4 text-center text-orange-200 font-serif">
+            <motion.div 
+              className="mt-4 text-center text-orange-200 font-serif"
+              key={filteredTerms.length}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+            >
               Showing {filteredTerms.length} of {dictionaryTerms.length} terms
-            </div>
+            </motion.div>
           </div>
         </div>
 
         {/* Terms Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 relative">
+          {/* Loading overlay */}
           <AnimatePresence>
-            {filteredTerms.map((item, index) => {
-              const hasDetailedInfo = detailedTerms[item.term];
-              return (
-                <motion.div
-                  key={item.term}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
-                  className={`bg-gradient-to-br from-amber-50/95 to-orange-100/95 p-6 rounded-xl shadow-lg border-2 border-amber-300 transition-all duration-300 backdrop-blur-sm ${
-                    hasDetailedInfo 
-                      ? 'cursor-pointer hover:shadow-2xl hover:border-orange-500 hover:scale-105 hover:bg-gradient-to-br hover:from-orange-50/95 hover:to-amber-100/95' 
-                      : 'hover:shadow-xl hover:border-orange-400'
-                  }`}
-                  onClick={() => hasDetailedInfo && setSelectedTerm(item.term)}
-                >
-                  <h3 className="text-xl font-bold text-amber-900 mb-3 font-serif border-b-2 border-orange-300 pb-2">
-                    {item.term}
-                  </h3>
-                  <p className="text-amber-800 font-serif leading-relaxed">
-                    {item.def}
-                  </p>
-                </motion.div>
-              );
-            })}
+            {isFiltering && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="absolute inset-0 bg-amber-100/50 rounded-xl backdrop-blur-sm flex items-center justify-center z-10"
+              >
+                <div className="text-amber-800 font-serif text-lg">Filtering terms...</div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`${searchTerm}-${selectedLetter}`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="contents"
+            >
+              {filteredTerms.map((item, index) => {
+                const hasDetailedInfo = detailedTerms[item.term];
+                return (
+                  <motion.div
+                    key={item.term}
+                    initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                    animate={{ 
+                      opacity: 1, 
+                      y: 0, 
+                      scale: 1,
+                      transition: { 
+                        duration: 0.4, 
+                        delay: Math.min(index * 0.03, 0.5),
+                        type: "spring",
+                        stiffness: 100,
+                        damping: 15
+                      }
+                    }}
+                    exit={{ 
+                      opacity: 0, 
+                      y: -10, 
+                      scale: 0.95,
+                      transition: { duration: 0.2 }
+                    }}
+                    layout
+                    className={`bg-gradient-to-br from-amber-50/95 to-orange-100/95 p-6 rounded-xl shadow-lg border-2 border-amber-300 transition-all duration-300 backdrop-blur-sm ${
+                      hasDetailedInfo 
+                        ? 'cursor-pointer hover:shadow-2xl hover:border-orange-500 hover:scale-105 hover:bg-gradient-to-br hover:from-orange-50/95 hover:to-amber-100/95' 
+                        : 'hover:shadow-xl hover:border-orange-400'
+                    }`}
+                    onClick={() => hasDetailedInfo && setSelectedTerm(item.term)}
+                  >
+                    <h3 className="text-xl font-bold text-amber-900 mb-3 font-serif border-b-2 border-orange-300 pb-2">
+                      {item.term}
+                    </h3>
+                    <p className="text-amber-800 font-serif leading-relaxed">
+                      {item.def}
+                    </p>
+                  </motion.div>
+                );
+              })}
+            </motion.div>
           </AnimatePresence>
         </div>
 
@@ -2286,18 +2342,36 @@ export default function GlossaryPage() {
         </AnimatePresence>
 
         {/* No Results Message */}
-        {filteredTerms.length === 0 && (
-          <div className="text-center mb-12">
-            <div className="bg-gradient-to-r from-orange-900/80 to-red-800/80 p-8 rounded-xl shadow-xl border-2 border-orange-400 backdrop-blur-sm">
-              <h2 className="text-2xl font-bold text-amber-100 mb-4 font-serif">
-                No terms found
-              </h2>
-              <p className="text-orange-200 font-serif">
-                Try adjusting your search or filter criteria.
-              </p>
-            </div>
-          </div>
-        )}
+        <AnimatePresence>
+          {filteredTerms.length === 0 && !isFiltering && (
+            <motion.div 
+              className="text-center mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="bg-gradient-to-r from-orange-900/80 to-red-800/80 p-8 rounded-xl shadow-xl border-2 border-orange-400 backdrop-blur-sm">
+                <motion.h2 
+                  className="text-2xl font-bold text-amber-100 mb-4 font-serif"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  No terms found
+                </motion.h2>
+                <motion.p 
+                  className="text-orange-200 font-serif"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.3 }}
+                >
+                  Try adjusting your search or filter criteria.
+                </motion.p>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Return to Parlor */}
         <div className="text-center">
