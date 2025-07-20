@@ -33,7 +33,7 @@ export default function Journey() {
         
         {/* Journey Header */}
         <div className="text-center mb-12">
-          <div className="inline-block p-8 shadow-2xl transform -rotate-1 relative overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-3xl hover:-rotate-2" style={{
+          <div className="inline-block p-8 shadow-2xl transform relative overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-3xl" style={{
             border: '4px solid #8B4513',
             borderRadius: '12px',
             boxShadow: `
@@ -71,7 +71,7 @@ export default function Journey() {
         <div className="space-y-8">
           
           {/* Chapter 1: Call me Ishmael */}
-          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl transform rotate-1 transition-all duration-300 hover:scale-105 hover:rotate-2 hover:shadow-3xl">
+          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl">
             <h2 className="text-3xl font-bold text-amber-900 mb-6 font-serif">1. "Call me Ishmael" – Chapter 1</h2>
             <div className="prose prose-lg font-serif text-amber-800 leading-relaxed">
               <div className="mb-6 p-4 bg-amber-100 rounded-lg border-l-4 border-amber-600">
@@ -88,7 +88,7 @@ export default function Journey() {
           </div>
 
           {/* Ishmael and Queequeg Bond */}
-          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl transform -rotate-1 transition-all duration-300 hover:scale-105 hover:-rotate-2 hover:shadow-3xl">
+          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl">
             <h2 className="text-3xl font-bold text-amber-900 mb-6 font-serif">2. Ishmael and Queequeg Bond – Chapters 3–4</h2>
             <div className="prose prose-lg font-serif text-amber-800 leading-relaxed">
               <div className="mb-6 p-4 bg-amber-100 rounded-lg border-l-4 border-amber-600">
@@ -110,7 +110,7 @@ export default function Journey() {
           </div>
 
           {/* The Whaleman's Chapel Sermon */}
-          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl transform rotate-2 transition-all duration-300 hover:scale-105 hover:rotate-3 hover:shadow-3xl">
+          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl">
             <h2 className="text-3xl font-bold text-amber-900 mb-6 font-serif">3. The Whaleman's Chapel Sermon – Chapter 9</h2>
             <div className="prose prose-lg font-serif text-amber-800 leading-relaxed">
               <div className="mb-6 p-4 bg-amber-100 rounded-lg border-l-4 border-amber-600">
@@ -132,7 +132,7 @@ export default function Journey() {
           </div>
 
           {/* Meeting Elijah */}
-          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl transform -rotate-2 transition-all duration-300 hover:scale-105 hover:-rotate-3 hover:shadow-3xl">
+          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl">
             <h2 className="text-3xl font-bold text-amber-900 mb-6 font-serif">4. Meeting Elijah – Chapter 19</h2>
             <div className="prose prose-lg font-serif text-amber-800 leading-relaxed">
               <div className="mb-6 p-4 bg-amber-100 rounded-lg border-l-4 border-amber-600">
@@ -149,7 +149,7 @@ export default function Journey() {
           </div>
 
           {/* Boarding the Pequod */}
-          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl transform rotate-1 transition-all duration-300 hover:scale-105 hover:rotate-2 hover:shadow-3xl">
+          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl">
             <h2 className="text-3xl font-bold text-amber-900 mb-6 font-serif">5. Boarding the Pequod – Chapters 16–22</h2>
             <div className="prose prose-lg font-serif text-amber-800 leading-relaxed">
               <div className="mb-6 p-4 bg-amber-100 rounded-lg border-l-4 border-amber-600">
@@ -166,7 +166,7 @@ export default function Journey() {
           </div>
 
           {/* First Sighting of Captain Ahab */}
-          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl transform -rotate-1 transition-all duration-300 hover:scale-105 hover:-rotate-2 hover:shadow-3xl">
+          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl">
             <h2 className="text-3xl font-bold text-amber-900 mb-6 font-serif">6. First Sighting of Captain Ahab – Chapter 28</h2>
             <div className="prose prose-lg font-serif text-amber-800 leading-relaxed">
               <div className="mb-6 p-4 bg-amber-100 rounded-lg border-l-4 border-amber-600">
@@ -188,7 +188,7 @@ export default function Journey() {
           </div>
 
           {/* Ahab's Gold Doubloon */}
-          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl transform rotate-2 transition-all duration-300 hover:scale-105 hover:rotate-3 hover:shadow-3xl">
+          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl">
             <h2 className="text-3xl font-bold text-amber-900 mb-6 font-serif">7. Ahab's Gold Doubloon – Chapter 36</h2>
             <div className="prose prose-lg font-serif text-amber-800 leading-relaxed">
               <div className="mb-6 p-4 bg-amber-100 rounded-lg border-l-4 border-amber-600">
@@ -211,7 +211,7 @@ export default function Journey() {
           </div>
 
           {/* The Quarter-Deck Speech */}
-          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl transform -rotate-2 transition-all duration-300 hover:scale-105 hover:-rotate-3 hover:shadow-3xl">
+          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl">
             <h2 className="text-3xl font-bold text-amber-900 mb-6 font-serif">8. The Quarter-Deck Speech – Chapter 36</h2>
             <div className="prose prose-lg font-serif text-amber-800 leading-relaxed">
               <div className="mb-6 p-4 bg-amber-100 rounded-lg border-l-4 border-amber-600">
@@ -234,7 +234,7 @@ export default function Journey() {
           </div>
 
           {/* Starbuck Confronts Ahab */}
-          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl transform rotate-1 transition-all duration-300 hover:scale-105 hover:rotate-2 hover:shadow-3xl">
+          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl">
             <h2 className="text-3xl font-bold text-amber-900 mb-6 font-serif">9. Starbuck Confronts Ahab – Chapter 38</h2>
             <div className="prose prose-lg font-serif text-amber-800 leading-relaxed">
               <div className="mb-6 p-4 bg-amber-100 rounded-lg border-l-4 border-amber-600">
@@ -251,7 +251,7 @@ export default function Journey() {
           </div>
 
           {/* The Try-Works */}
-          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl transform -rotate-1 transition-all duration-300 hover:scale-105 hover:-rotate-2 hover:shadow-3xl">
+          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl">
             <h2 className="text-3xl font-bold text-amber-900 mb-6 font-serif">10. The Try-Works – Chapter 96</h2>
             <div className="prose prose-lg font-serif text-amber-800 leading-relaxed">
               <div className="mb-6 p-4 bg-amber-100 rounded-lg border-l-4 border-amber-600">
@@ -268,7 +268,7 @@ export default function Journey() {
           </div>
 
           {/* Queequeg's Coffin */}
-          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl transform rotate-2 transition-all duration-300 hover:scale-105 hover:rotate-3 hover:shadow-3xl">
+          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl">
             <h2 className="text-3xl font-bold text-amber-900 mb-6 font-serif">11. Queequeg's Coffin – Chapters 110–111</h2>
             <div className="prose prose-lg font-serif text-amber-800 leading-relaxed">
               <div className="mb-6 p-4 bg-amber-100 rounded-lg border-l-4 border-amber-600">
@@ -290,7 +290,7 @@ export default function Journey() {
           </div>
 
           {/* The Rachel */}
-          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl transform -rotate-2 transition-all duration-300 hover:scale-105 hover:-rotate-3 hover:shadow-3xl">
+          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl">
             <h2 className="text-3xl font-bold text-amber-900 mb-6 font-serif">12. The Rachel – Chapter 128</h2>
             <div className="prose prose-lg font-serif text-amber-800 leading-relaxed">
               <div className="mb-6 p-4 bg-amber-100 rounded-lg border-l-4 border-amber-600">
@@ -307,7 +307,7 @@ export default function Journey() {
           </div>
 
           {/* The Delight */}
-          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl transform rotate-1 transition-all duration-300 hover:scale-105 hover:rotate-2 hover:shadow-3xl">
+          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl">
             <h2 className="text-3xl font-bold text-amber-900 mb-6 font-serif">13. The Delight – Chapter 131</h2>
             <div className="prose prose-lg font-serif text-amber-800 leading-relaxed">
               <div className="mb-6 p-4 bg-amber-100 rounded-lg border-l-4 border-amber-600">
@@ -324,7 +324,7 @@ export default function Journey() {
           </div>
 
           {/* The Three-Day Chase */}
-          <div className="bg-red-50/95 border-4 border-red-600 rounded-xl p-8 shadow-2xl transform -rotate-1 transition-all duration-300 hover:scale-105 hover:-rotate-2 hover:shadow-3xl">
+          <div className="bg-red-50/95 border-4 border-red-600 rounded-xl p-8 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl">
             <h2 className="text-3xl font-bold text-red-900 mb-6 font-serif">14. The Three-Day Chase – Chapters 133–135</h2>
             <div className="prose prose-lg font-serif text-red-800 leading-relaxed">
               <div className="mb-6 p-4 bg-red-100 rounded-lg border-l-4 border-red-600">
@@ -347,7 +347,7 @@ export default function Journey() {
           </div>
 
           {/* Ishmael's Survival */}
-          <div className="bg-blue-50/95 border-4 border-blue-600 rounded-xl p-8 shadow-2xl transform rotate-2 transition-all duration-300 hover:scale-105 hover:rotate-3 hover:shadow-3xl">
+          <div className="bg-blue-50/95 border-4 border-blue-600 rounded-xl p-8 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl">
             <h2 className="text-3xl font-bold text-blue-900 mb-6 font-serif">15. Ishmael's Survival – Epilogue</h2>
             <div className="prose prose-lg font-serif text-blue-800 leading-relaxed">
               <p className="mb-4">
