@@ -346,9 +346,17 @@ export default function Home() {
                 <span>Literary Analysis</span>
               </div>
             </div>
-            <Link href="/tutor" className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 inline-block text-lg">
+            <a 
+              href="https://github.com/briansproule20/claude_hemingway" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 inline-block text-lg"
+            >
               🎓 Start Learning with AI Tutor
-            </Link>
+            </a>
+            <p className="text-emerald-300 text-sm mt-3 font-serif italic">
+              Integration coming soon
+            </p>
           </div>
         </div>
 
