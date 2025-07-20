@@ -443,6 +443,16 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Browse the Stacks Button */}
+        <div className="text-center mb-12">
+          <Link 
+            href="/fullcollection" 
+            className="inline-flex items-center gap-3 bg-gradient-to-r from-amber-700 to-amber-600 hover:from-amber-800 hover:to-amber-700 text-white font-bold py-4 px-8 rounded-xl shadow-xl transition-all duration-300 hover:scale-105 text-lg font-serif border-2 border-amber-500"
+          >
+            Browse the Stacks
+          </Link>
+        </div>
+
         {/* Learning Modalities Mission Card */}
         <div className="text-center mb-12">
           <div className="max-w-4xl mx-auto">
