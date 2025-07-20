@@ -13,14 +13,14 @@ export default function AnimalFarmModulePage() {
       <div className="flex justify-between items-start mb-8">
         <Link 
           href="/animalfarm" 
-          className="inline-flex items-center gap-2 text-red-800 hover:text-red-900 font-bold text-lg px-6 py-3 bg-red-50/90 rounded-lg border-2 border-red-600 shadow-md hover:shadow-lg transition-all"
+          className="inline-flex items-center gap-2 text-amber-800 hover:text-amber-900 font-bold text-lg px-6 py-3 bg-amber-50/90 rounded-lg border-2 border-amber-600 shadow-md hover:shadow-lg transition-all"
         >
-          🐷 Return to Farm
+          🌾 Return to Barnyard
         </Link>
         
         <Link 
           href="/" 
-          className="inline-flex items-center gap-2 text-red-800 hover:text-red-900 font-bold text-lg px-6 py-3 bg-red-50/90 rounded-lg border-2 border-red-600 shadow-md hover:shadow-lg transition-all"
+          className="inline-flex items-center gap-2 text-amber-800 hover:text-amber-900 font-bold text-lg px-6 py-3 bg-amber-50/90 rounded-lg border-2 border-amber-600 shadow-md hover:shadow-lg transition-all"
         >
           🏠 Return to Parlor
         </Link>

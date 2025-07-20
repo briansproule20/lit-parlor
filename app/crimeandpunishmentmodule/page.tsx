@@ -13,14 +13,14 @@ export default function CrimeAndPunishmentModulePage() {
       <div className="flex justify-between items-start mb-8">
         <Link 
           href="/crimeandpunishment" 
-          className="inline-flex items-center gap-2 text-purple-800 hover:text-purple-900 font-bold text-lg px-6 py-3 bg-purple-50/90 rounded-lg border-2 border-purple-600 shadow-md hover:shadow-lg transition-all"
+          className="inline-flex items-center gap-2 text-amber-800 hover:text-amber-900 font-bold text-lg px-6 py-3 bg-amber-50/90 rounded-lg border-2 border-amber-600 shadow-md hover:shadow-lg transition-all"
         >
-          ⚖️ Return to Novel
+          🏛️ Return to Streets
         </Link>
         
         <Link 
           href="/" 
-          className="inline-flex items-center gap-2 text-purple-800 hover:text-purple-900 font-bold text-lg px-6 py-3 bg-purple-50/90 rounded-lg border-2 border-purple-600 shadow-md hover:shadow-lg transition-all"
+          className="inline-flex items-center gap-2 text-amber-800 hover:text-amber-900 font-bold text-lg px-6 py-3 bg-amber-50/90 rounded-lg border-2 border-amber-600 shadow-md hover:shadow-lg transition-all"
         >
           🏠 Return to Parlor
         </Link>

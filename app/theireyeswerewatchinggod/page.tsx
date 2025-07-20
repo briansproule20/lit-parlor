@@ -13,9 +13,19 @@ export default function TheirEyesWereWatchingGodPage() {
       <div className="max-w-4xl mx-auto relative">
         
         {/* Navigation */}
-        <div className="mb-8">
-          <Link href="/" className="text-teal-200 hover:text-white transition-colors font-serif">
-            ← Back to Literary Parlor
+        <div className="flex justify-between items-start mb-8">
+          <Link 
+            href="/" 
+            className="inline-flex items-center gap-2 text-amber-800 hover:text-amber-900 font-bold text-lg px-6 py-3 bg-amber-50/90 rounded-lg border-2 border-amber-600 shadow-md hover:shadow-lg transition-all"
+          >
+            🏠 Return to Parlor
+          </Link>
+          
+          <Link 
+            href="/theireyeswerewatchinggodmodule" 
+            className="inline-flex items-center gap-2 text-amber-800 hover:text-amber-900 font-bold text-lg px-6 py-3 bg-amber-50/90 rounded-lg border-2 border-amber-600 shadow-md hover:shadow-lg transition-all"
+          >
+            🌊 Enter Everglades
           </Link>
         </div>
 
@@ -46,12 +56,7 @@ export default function TheirEyesWereWatchingGodPage() {
           </div>
         </div>
 
-        {/* Go to Module Button */}
-        <div className="text-center mb-8">
-          <Link href="/theireyeswerewatchinggodmodule" className="inline-block bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg transition-all duration-300 hover:scale-105 text-lg font-serif">
-            🌊 Enter Learning Module
-          </Link>
-        </div>
+
 
 
 
