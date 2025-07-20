@@ -56,121 +56,247 @@ export default function Home() {
           <div className="bg-gradient-to-b from-amber-900 to-amber-800 p-8 rounded-xl shadow-2xl border-4 border-amber-700" style={{
             backgroundImage: 'url("data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23654321" fill-opacity="0.1"%3E%3Cpath d="m36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")'
           }}>
-            <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
-              
-              {/* Moby Dick Book */}
-              <Link href="/mobydick" className="group block">
-                <div className="relative transform transition-all duration-300 hover:scale-105 hover:-translate-y-2">
-                  {/* Book Spine */}
-                  <div className="bg-gradient-to-r from-slate-800 to-slate-700 p-6 rounded-lg shadow-xl border-2 border-slate-600 hover:shadow-2xl transition-all group-hover:from-slate-700 group-hover:to-slate-600">
-                    
-                    {/* Book Cover */}
-                    <div className="bg-gradient-to-br from-blue-900 via-blue-800 to-slate-900 p-6 rounded-lg mb-4 relative overflow-hidden">
-                      {/* Decorative elements */}
-                      <div className="absolute top-2 right-2 text-4xl opacity-30">🐋</div>
-                      <div className="absolute bottom-2 left-2 text-2xl opacity-20">⚓</div>
+            <div className="grid gap-8">
+              {/* First Row - Available Books */}
+              <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
+                
+                {/* Moby Dick Book */}
+                <Link href="/mobydick" className="group block">
+                  <div className="relative transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 h-full">
+                    <div className="bg-gradient-to-r from-slate-800 to-slate-700 p-6 rounded-lg shadow-xl border-2 border-slate-600 hover:shadow-2xl transition-all group-hover:from-slate-700 group-hover:to-slate-600 h-full flex flex-col">
                       
-                      <h3 className="text-2xl font-bold text-amber-100 mb-2 font-serif text-center">
-                        MOBY DICK
-                      </h3>
-                      <p className="text-amber-200 text-center font-serif italic mb-3">
-                        or, The Whale
+                      {/* Book Cover */}
+                      <div className="bg-gradient-to-br from-blue-900 via-blue-800 to-slate-900 p-6 rounded-lg mb-4 relative overflow-hidden">
+                        {/* Decorative elements */}
+                        <div className="absolute top-2 right-2 text-4xl opacity-30">🐋</div>
+                        <div className="absolute bottom-2 left-2 text-2xl opacity-20">⚓</div>
+                        
+                        <h3 className="text-2xl font-bold text-amber-100 mb-2 font-serif text-center">
+                          MOBY DICK
+                        </h3>
+                        <p className="text-amber-200 text-center font-serif italic mb-3">
+                          or, The Whale
+                        </p>
+                        <div className="text-center text-amber-300 text-sm font-serif">
+                          Herman Melville
+                        </div>
+                        
+                        {/* Vintage decoration */}
+                        <div className="mt-4 flex justify-center">
+                          <div className="w-20 h-0.5 bg-amber-400"></div>
+                        </div>
+                      </div>
+                      
+                      {/* Book Description */}
+                      <p className="text-amber-100 text-sm leading-relaxed font-serif flex-grow">
+                        Journey into the depths of obsession and the sea. Explore themes of fate, 
+                        nature, and the human condition aboard the Pequod.
                       </p>
-                      <div className="text-center text-amber-300 text-sm font-serif">
-                        Herman Melville
-                      </div>
                       
-                      {/* Vintage decoration */}
-                      <div className="mt-4 flex justify-center">
-                        <div className="w-20 h-0.5 bg-amber-400"></div>
+                      {/* Reading Status */}
+                      <div className="mt-4 flex items-center justify-between">
+                        <span className="text-green-400 text-xs font-serif">✓ Interactive Edition</span>
+                        <span className="text-amber-400 text-xs font-serif">→ Enter</span>
                       </div>
-                    </div>
-                    
-                    {/* Book Description */}
-                    <p className="text-amber-100 text-sm leading-relaxed font-serif">
-                      Journey into the depths of obsession and the sea. Explore themes of fate, 
-                      nature, and the human condition aboard the Pequod.
-                    </p>
-                    
-                    {/* Reading Status */}
-                    <div className="mt-4 flex items-center justify-between">
-                      <span className="text-green-400 text-xs font-serif">✓ Interactive Edition</span>
-                      <span className="text-amber-400 text-xs font-serif">→ Enter</span>
                     </div>
                   </div>
-                </div>
-              </Link>
+                </Link>
 
-              {/* Coming Soon Book 1 */}
-              <div className="group block opacity-60">
-                <div className="relative transform transition-all duration-300">
-                  <div className="bg-gradient-to-r from-gray-600 to-gray-500 p-6 rounded-lg shadow-xl border-2 border-gray-400">
-                    <div className="bg-gradient-to-br from-gray-700 to-gray-800 p-6 rounded-lg mb-4 relative overflow-hidden">
-                      <div className="absolute top-2 right-2 text-4xl opacity-30">📖</div>
+                {/* Pride and Prejudice Book */}
+                <Link href="/prideandprejudice" className="group block">
+                  <div className="relative transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 h-full">
+                    <div className="bg-gradient-to-r from-rose-800 to-rose-700 p-6 rounded-lg shadow-xl border-2 border-rose-600 hover:shadow-2xl transition-all group-hover:from-rose-700 group-hover:to-rose-600 h-full flex flex-col">
                       
-                      <h3 className="text-2xl font-bold text-gray-300 mb-2 font-serif text-center">
-                        COMING SOON
-                      </h3>
-                      <p className="text-gray-400 text-center font-serif italic mb-3">
-                        Next Classic
+                      {/* Book Cover */}
+                      <div className="bg-gradient-to-br from-rose-900 via-rose-800 to-pink-900 p-6 rounded-lg mb-4 relative overflow-hidden">
+                        {/* Decorative elements */}
+                        <div className="absolute top-2 right-2 text-4xl opacity-30">💕</div>
+                        <div className="absolute bottom-2 left-2 text-2xl opacity-20">🏰</div>
+                        
+                        <h3 className="text-2xl font-bold text-amber-100 mb-2 font-serif text-center">
+                          PRIDE & PREJUDICE
+                        </h3>
+                        <p className="text-amber-200 text-center font-serif italic mb-3">
+                          A Novel
+                        </p>
+                        <div className="text-center text-amber-300 text-sm font-serif">
+                          Jane Austen
+                        </div>
+                        
+                        {/* Vintage decoration */}
+                        <div className="mt-4 flex justify-center">
+                          <div className="w-20 h-0.5 bg-amber-400"></div>
+                        </div>
+                      </div>
+                      
+                      {/* Book Description */}
+                      <p className="text-amber-100 text-sm leading-relaxed font-serif flex-grow">
+                        Navigate the social complexities of Georgian England. Explore love, 
+                        marriage, and the power of first impressions in this beloved classic.
                       </p>
-                      <div className="text-center text-gray-400 text-sm font-serif">
-                        Author TBA
-                      </div>
                       
-                      <div className="mt-4 flex justify-center">
-                        <div className="w-20 h-0.5 bg-gray-500"></div>
+                      {/* Reading Status */}
+                      <div className="mt-4 flex items-center justify-between">
+                        <span className="text-green-400 text-xs font-serif">✓ Interactive Edition</span>
+                        <span className="text-amber-400 text-xs font-serif">→ Enter</span>
                       </div>
-                    </div>
-                    
-                    <p className="text-gray-300 text-sm leading-relaxed font-serif">
-                      Another literary masterpiece will soon join our collection. 
-                      Stay tuned for more immersive explorations.
-                    </p>
-                    
-                    <div className="mt-4 flex items-center justify-between">
-                      <span className="text-gray-400 text-xs font-serif">⏳ In Development</span>
-                      <span className="text-gray-400 text-xs font-serif">...</span>
                     </div>
                   </div>
-                </div>
+                </Link>
+
+                {/* Things Fall Apart Book */}
+                <Link href="/thingsfallapart" className="group block">
+                  <div className="relative transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 h-full">
+                    <div className="bg-gradient-to-r from-orange-800 to-orange-700 p-6 rounded-lg shadow-xl border-2 border-orange-600 hover:shadow-2xl transition-all group-hover:from-orange-700 group-hover:to-orange-600 h-full flex flex-col">
+                      
+                      {/* Book Cover */}
+                      <div className="bg-gradient-to-br from-orange-900 via-orange-800 to-red-900 p-6 rounded-lg mb-4 relative overflow-hidden">
+                        {/* Decorative elements */}
+                        <div className="absolute top-2 right-2 text-4xl opacity-30">🌍</div>
+                        <div className="absolute bottom-2 left-2 text-2xl opacity-20">🏺</div>
+                        
+                        <h3 className="text-2xl font-bold text-amber-100 mb-2 font-serif text-center">
+                          THINGS FALL APART
+                        </h3>
+                        <p className="text-amber-200 text-center font-serif italic mb-3">
+                          A Novel
+                        </p>
+                        <div className="text-center text-amber-300 text-sm font-serif">
+                          Chinua Achebe
+                        </div>
+                        
+                        {/* Vintage decoration */}
+                        <div className="mt-4 flex justify-center">
+                          <div className="w-20 h-0.5 bg-amber-400"></div>
+                        </div>
+                      </div>
+                      
+                      {/* Book Description */}
+                      <p className="text-amber-100 text-sm leading-relaxed font-serif flex-grow">
+                        Journey into pre-colonial Nigeria. Witness the clash of cultures 
+                        and the tragic consequences of change in this powerful narrative.
+                      </p>
+                      
+                      {/* Reading Status */}
+                      <div className="mt-4 flex items-center justify-between">
+                        <span className="text-green-400 text-xs font-serif">✓ Interactive Edition</span>
+                        <span className="text-amber-400 text-xs font-serif">→ Enter</span>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+
               </div>
 
-              {/* Coming Soon Book 2 */}
-              <div className="group block opacity-60">
-                <div className="relative transform transition-all duration-300">
-                  <div className="bg-gradient-to-r from-gray-600 to-gray-500 p-6 rounded-lg shadow-xl border-2 border-gray-400">
-                    <div className="bg-gradient-to-br from-gray-700 to-gray-800 p-6 rounded-lg mb-4 relative overflow-hidden">
-                      <div className="absolute top-2 right-2 text-4xl opacity-30">📚</div>
+              {/* Second Row - Coming Soon Books */}
+              <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
+                
+                {/* Coming Soon Book 1 */}
+                <div className="group block opacity-60">
+                  <div className="relative transform transition-all duration-300 h-full">
+                    <div className="bg-gradient-to-r from-gray-600 to-gray-500 p-6 rounded-lg shadow-xl border-2 border-gray-400 h-full flex flex-col">
+                      <div className="bg-gradient-to-br from-gray-700 to-gray-800 p-6 rounded-lg mb-4 relative overflow-hidden">
+                        <div className="absolute top-2 right-2 text-4xl opacity-30">📖</div>
+                        
+                        <h3 className="text-2xl font-bold text-gray-300 mb-2 font-serif text-center">
+                          COMING SOON
+                        </h3>
+                        <p className="text-gray-400 text-center font-serif italic mb-3">
+                          Next Classic
+                        </p>
+                        <div className="text-center text-gray-400 text-sm font-serif">
+                          Author TBA
+                        </div>
+                        
+                        <div className="mt-4 flex justify-center">
+                          <div className="w-20 h-0.5 bg-gray-500"></div>
+                        </div>
+                      </div>
                       
-                      <h3 className="text-2xl font-bold text-gray-300 mb-2 font-serif text-center">
-                        COMING SOON
-                      </h3>
-                      <p className="text-gray-400 text-center font-serif italic mb-3">
-                        Future Addition
+                      <p className="text-gray-300 text-sm leading-relaxed font-serif flex-grow">
+                        Another literary masterpiece will soon join our collection. 
+                        Stay tuned for more immersive explorations.
                       </p>
-                      <div className="text-center text-gray-400 text-sm font-serif">
-                        Author TBA
-                      </div>
                       
-                      <div className="mt-4 flex justify-center">
-                        <div className="w-20 h-0.5 bg-gray-500"></div>
+                      <div className="mt-4 flex items-center justify-between">
+                        <span className="text-gray-400 text-xs font-serif">⏳ In Development</span>
+                        <span className="text-gray-400 text-xs font-serif">...</span>
                       </div>
-                    </div>
-                    
-                    <p className="text-gray-300 text-sm leading-relaxed font-serif">
-                      Our literary parlor continues to grow. Each addition brings 
-                      new perspectives and deeper understanding.
-                    </p>
-                    
-                    <div className="mt-4 flex items-center justify-between">
-                      <span className="text-gray-400 text-xs font-serif">⏳ In Development</span>
-                      <span className="text-gray-400 text-xs font-serif">...</span>
                     </div>
                   </div>
                 </div>
-              </div>
 
+                {/* Coming Soon Book 2 */}
+                <div className="group block opacity-60">
+                  <div className="relative transform transition-all duration-300 h-full">
+                    <div className="bg-gradient-to-r from-gray-600 to-gray-500 p-6 rounded-lg shadow-xl border-2 border-gray-400 h-full flex flex-col">
+                      <div className="bg-gradient-to-br from-gray-700 to-gray-800 p-6 rounded-lg mb-4 relative overflow-hidden">
+                        <div className="absolute top-2 right-2 text-4xl opacity-30">📚</div>
+                        
+                        <h3 className="text-2xl font-bold text-gray-300 mb-2 font-serif text-center">
+                          COMING SOON
+                        </h3>
+                        <p className="text-gray-400 text-center font-serif italic mb-3">
+                          Future Addition
+                        </p>
+                        <div className="text-center text-gray-400 text-sm font-serif">
+                          Author TBA
+                        </div>
+                        
+                        <div className="mt-4 flex justify-center">
+                          <div className="w-20 h-0.5 bg-gray-500"></div>
+                        </div>
+                      </div>
+                      
+                      <p className="text-gray-300 text-sm leading-relaxed font-serif flex-grow">
+                        Our literary parlor continues to grow. Each addition brings 
+                        new perspectives and deeper understanding.
+                      </p>
+                      
+                      <div className="mt-4 flex items-center justify-between">
+                        <span className="text-gray-400 text-xs font-serif">⏳ In Development</span>
+                        <span className="text-gray-400 text-xs font-serif">...</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Coming Soon Book 3 */}
+                <div className="group block opacity-60">
+                  <div className="relative transform transition-all duration-300 h-full">
+                    <div className="bg-gradient-to-r from-gray-600 to-gray-500 p-6 rounded-lg shadow-xl border-2 border-gray-400 h-full flex flex-col">
+                      <div className="bg-gradient-to-br from-gray-700 to-gray-800 p-6 rounded-lg mb-4 relative overflow-hidden">
+                        <div className="absolute top-2 right-2 text-4xl opacity-30">🎭</div>
+                        
+                        <h3 className="text-2xl font-bold text-gray-300 mb-2 font-serif text-center">
+                          COMING SOON
+                        </h3>
+                        <p className="text-gray-400 text-center font-serif italic mb-3">
+                          Literary Gem
+                        </p>
+                        <div className="text-center text-gray-400 text-sm font-serif">
+                          Author TBA
+                        </div>
+                        
+                        <div className="mt-4 flex justify-center">
+                          <div className="w-20 h-0.5 bg-gray-500"></div>
+                        </div>
+                      </div>
+                      
+                      <p className="text-gray-300 text-sm leading-relaxed font-serif flex-grow">
+                        More timeless classics are being prepared for your literary journey. 
+                        Each book offers new insights and perspectives.
+                      </p>
+                      
+                      <div className="mt-4 flex items-center justify-between">
+                        <span className="text-gray-400 text-xs font-serif">⏳ In Development</span>
+                        <span className="text-gray-400 text-xs font-serif">...</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
             </div>
           </div>
         </div>
