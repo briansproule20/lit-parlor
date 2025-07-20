@@ -14,9 +14,86 @@ interface ChapterData {
   detailedAnalysis: string;
 }
 
+// Function to map chapter information to Project Gutenberg links
+const getGutenbergLink = (chapter: string): string => {
+  const baseUrl = "https://www.gutenberg.org/cache/epub/2701/pg2701-images.html";
+  
+  // Extract chapter number(s) from the chapter string
+  if (chapter.includes("Chapter 1") && !chapter.includes("–")) {
+    return `${baseUrl}#link2HCH0001`;
+  } else if (chapter.includes("Chapters 3–4")) {
+    return `${baseUrl}#link2HCH0003`;
+  } else if (chapter.includes("Chapter 9")) {
+    return `${baseUrl}#link2HCH0009`;
+  } else if (chapter.includes("Chapter 19")) {
+    return `${baseUrl}#link2HCH0019`;
+  } else if (chapter.includes("Chapters 16–22")) {
+    return `${baseUrl}#link2HCH0016`;
+  } else if (chapter.includes("Chapter 28")) {
+    return `${baseUrl}#link2HCH0028`;
+  } else if (chapter.includes("Chapter 36")) {
+    return `${baseUrl}#link2HCH0036`;
+  } else if (chapter.includes("Chapter 38")) {
+    return `${baseUrl}#link2HCH0038`;
+  } else if (chapter.includes("Chapter 96")) {
+    return `${baseUrl}#link2HCH0096`;
+  } else if (chapter.includes("Chapters 110–111")) {
+    return `${baseUrl}#link2HCH0110`;
+  } else if (chapter.includes("Chapter 128")) {
+    return `${baseUrl}#link2HCH0128`;
+  } else if (chapter.includes("Chapter 131")) {
+    return `${baseUrl}#link2HCH0131`;
+  } else if (chapter.includes("Chapters 133–135")) {
+    return `${baseUrl}#link2HCH0133`;
+  } else if (chapter.includes("Epilogue")) {
+    return `${baseUrl}#link2H_EPIL`;
+  }
+  
+  // Default to the beginning if no specific match
+  return baseUrl;
+};
+
 export default function Journey() {
   const [selectedChapter, setSelectedChapter] = useState<ChapterData | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Navigation functions for modal
+  const navigateToPrevious = () => {
+    if (!selectedChapter) return;
+    const currentIndex = chapterData.findIndex(chapter => chapter.id === selectedChapter.id);
+    if (currentIndex > 0) {
+      setSelectedChapter(chapterData[currentIndex - 1]);
+    }
+  };
+
+  const navigateToNext = () => {
+    if (!selectedChapter) return;
+    const currentIndex = chapterData.findIndex(chapter => chapter.id === selectedChapter.id);
+    if (currentIndex < chapterData.length - 1) {
+      setSelectedChapter(chapterData[currentIndex + 1]);
+    }
+  };
+
+  // Keyboard navigation
+  React.useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (!isModalOpen) return;
+      
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        navigateToPrevious();
+      } else if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        navigateToNext();
+      } else if (event.key === 'Escape') {
+        event.preventDefault();
+        closeModal();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [isModalOpen, selectedChapter]);
 
   const chapterData: ChapterData[] = [
     {
@@ -318,6 +395,49 @@ export default function Journey() {
               ×
             </button>
 
+            {/* Quick Navigation Arrows - Top Corners */}
+            <div className="absolute top-4 left-16 right-16 flex justify-between pointer-events-none">
+              {/* Previous Button */}
+              {(() => {
+                const currentIndex = chapterData.findIndex(chapter => chapter.id === selectedChapter.id);
+                const hasPrevious = currentIndex > 0;
+                return (
+                  <button
+                    onClick={navigateToPrevious}
+                    disabled={!hasPrevious}
+                    className={`pointer-events-auto transition-all duration-300 rounded-lg px-3 py-2 flex items-center gap-1 text-sm font-medium shadow-md ${
+                      hasPrevious 
+                        ? 'bg-blue-600 hover:bg-blue-700 text-white hover:scale-105 cursor-pointer' 
+                        : 'bg-gray-300 text-gray-500 cursor-not-allowed opacity-50'
+                    }`}
+                    title={hasPrevious ? 'Previous Section (←)' : 'First Section'}
+                  >
+                    ← Prev
+                  </button>
+                );
+              })()}
+
+              {/* Next Button */}
+              {(() => {
+                const currentIndex = chapterData.findIndex(chapter => chapter.id === selectedChapter.id);
+                const hasNext = currentIndex < chapterData.length - 1;
+                return (
+                  <button
+                    onClick={navigateToNext}
+                    disabled={!hasNext}
+                    className={`pointer-events-auto transition-all duration-300 rounded-lg px-3 py-2 flex items-center gap-1 text-sm font-medium shadow-md ${
+                      hasNext 
+                        ? 'bg-blue-600 hover:bg-blue-700 text-white hover:scale-105 cursor-pointer' 
+                        : 'bg-gray-300 text-gray-500 cursor-not-allowed opacity-50'
+                    }`}
+                    title={hasNext ? 'Next Section (→)' : 'Last Section'}
+                  >
+                    Next →
+                  </button>
+                );
+              })()}
+            </div>
+
             {/* Modal Header */}
             <div className="text-center mb-8">
               <h2 className="text-4xl font-bold text-amber-900 mb-2 font-serif">
@@ -388,12 +508,101 @@ export default function Journey() {
               </div>
             </div>
 
-            {/* Detailed Analysis */}
+                        {/* Detailed Analysis */}
             <div className="mb-8">
               <h3 className="text-2xl font-bold text-amber-900 mb-4 font-serif">Detailed Analysis</h3>
               <p className="text-lg text-amber-800 font-serif leading-relaxed">
                 {selectedChapter.detailedAnalysis}
               </p>
+            </div>
+
+            {/* Read More Section */}
+            <div className="p-6 bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl border-2 border-blue-300 shadow-lg mb-6">
+              <div className="text-center">
+                <h3 className="text-xl font-bold text-blue-900 mb-3 font-serif">📖 Read More</h3>
+                <p className="text-blue-800 font-serif mb-4">
+                  Dive deeper into the original text and discover more details
+                </p>
+                <a 
+                  href={getGutenbergLink(selectedChapter.chapter)} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition-all duration-300 hover:scale-105"
+                >
+                  🌊 Read Chapter on Project Gutenberg
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            {/* Journey Progress Navigation */}
+            <div className="bg-gradient-to-r from-amber-100 to-orange-100 p-4 rounded-xl border-2 border-amber-400 shadow-md">
+              <div className="text-center mb-3">
+                <h4 className="text-lg font-bold text-amber-900 font-serif">Journey Progress</h4>
+                <p className="text-sm text-amber-700 font-serif">
+                  Section {selectedChapter.id} of {chapterData.length} • Use ← → arrows to navigate
+                </p>
+              </div>
+              
+              {/* Progress Bar */}
+              <div className="bg-amber-200 rounded-full h-3 mb-4 shadow-inner">
+                <div 
+                  className="bg-gradient-to-r from-blue-500 to-blue-600 h-3 rounded-full transition-all duration-500 shadow-sm"
+                  style={{
+                    width: `${(selectedChapter.id / chapterData.length) * 100}%`
+                  }}
+                ></div>
+              </div>
+
+              {/* Navigation Buttons */}
+              <div className="flex justify-between items-center">
+                {(() => {
+                  const currentIndex = chapterData.findIndex(chapter => chapter.id === selectedChapter.id);
+                  const hasPrevious = currentIndex > 0;
+                  const hasNext = currentIndex < chapterData.length - 1;
+                  
+                  return (
+                    <>
+                      <button
+                        onClick={navigateToPrevious}
+                        disabled={!hasPrevious}
+                        className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
+                          hasPrevious 
+                            ? 'bg-amber-600 hover:bg-amber-700 text-white hover:scale-105' 
+                            : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                        }`}
+                      >
+                        ← Previous
+                      </button>
+                      
+                      <div className="text-center">
+                        <div className="text-sm text-amber-700 font-serif font-medium">
+                          {hasPrevious && (
+                            <div className="mb-1">← {chapterData[currentIndex - 1]?.title}</div>
+                          )}
+                          {hasNext && (
+                            <div>{chapterData[currentIndex + 1]?.title} →</div>
+                          )}
+                        </div>
+                      </div>
+                      
+                      <button
+                        onClick={navigateToNext}
+                        disabled={!hasNext}
+                        className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
+                          hasNext 
+                            ? 'bg-amber-600 hover:bg-amber-700 text-white hover:scale-105' 
+                            : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                        }`}
+                      >
+                        Next →
+                      </button>
+                    </>
+                  );
+                })()}
+              </div>
             </div>
           </div>
         </div>
