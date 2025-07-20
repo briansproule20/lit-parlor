@@ -4,11 +4,11 @@ import Link from 'next/link'
 export default function CrimeAndPunishmentPage() {
   return (
     <main className="min-h-screen py-8 px-4 relative" style={{
-      backgroundImage: 'linear-gradient(135deg, #4C1D95 0%, #5B21B6 25%, #7C3AED 50%, #8B5CF6 75%, #4C1D95 100%)',
+      backgroundImage: 'linear-gradient(135deg, #8B4513 0%, #A0522D 25%, #CD853F 50%, #D2691E 75%, #8B4513 100%)',
       backgroundAttachment: 'fixed'
     }}>
-      {/* Atmospheric overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-purple-50/10 via-transparent to-purple-950/40 pointer-events-none"></div>
+      {/* Cozy lighting overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-amber-50/20 via-transparent to-amber-900/30 pointer-events-none"></div>
       
       <div className="max-w-4xl mx-auto relative">
         

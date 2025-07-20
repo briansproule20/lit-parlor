@@ -37,13 +37,13 @@ export default function Home() {
             <h1 className="text-5xl font-bold text-amber-900 mb-4 font-serif" style={{
               textShadow: '3px 3px 6px rgba(0,0,0,0.3)'
             }}>
-              📚 The Literary Parlor
+              The Literary Parlor
             </h1>
             <p className="text-xl text-amber-800 max-w-3xl mx-auto leading-relaxed font-serif">
               A cozy corner where great stories come alive. Making long form narratives available in contemporary short forms. We are a project still in development. An umbrella site for learning tools and education projects undertaken by Brian Sproule.
             </p>
             <div className="mt-4 text-amber-700 font-serif italic">
-              "A room without books is like a body without a soul" — Cicero
+              "A home without books is like a body without a soul" — Cicero
             </div>
           </div>
         </div>
@@ -184,13 +184,13 @@ export default function Home() {
                 {/* Moby Dick Book */}
                 <Link href="/mobydick" className="group block">
                   <div className="relative transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 h-full">
-                    <div className="bg-gradient-to-r from-slate-800 to-slate-700 p-6 rounded-lg shadow-xl border-2 border-slate-600 hover:shadow-2xl transition-all group-hover:from-slate-700 group-hover:to-slate-600 h-full flex flex-col">
+                    <div className="bg-gradient-to-r from-slate-800 to-slate-700 p-6 rounded-lg shadow-xl border-2 border-slate-600 hover:shadow-2xl transition-all group-hover:from-slate-700 group-hover:to-slate-600 h-full flex flex-col min-h-[340px]">
                       
                       {/* Book Cover */}
-                      <div className="bg-gradient-to-br from-blue-900 via-blue-800 to-slate-900 p-6 rounded-lg mb-4 relative overflow-hidden">
+                      <div className="bg-gradient-to-br from-blue-900 via-blue-800 to-slate-900 p-6 rounded-lg mb-4 relative overflow-hidden min-h-[160px]">
                         {/* Decorative elements */}
-                        <div className="absolute top-2 right-2 text-4xl opacity-30">🐋</div>
-                        <div className="absolute bottom-2 left-2 text-2xl opacity-20">⚓</div>
+                        <div className="absolute top-2 right-2 w-8 h-8 bg-blue-300 opacity-20 rounded-full"></div>
+                        <div className="absolute bottom-2 left-2 w-6 h-6 bg-slate-300 opacity-20 rounded-full"></div>
                         
                         <h3 className="text-2xl font-bold text-amber-100 mb-2 font-serif text-center">
                           MOBY DICK
@@ -226,15 +226,15 @@ export default function Home() {
                 {/* Pride and Prejudice Book */}
                 <Link href="/prideandprejudice" className="group block">
                   <div className="relative transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 h-full">
-                    <div className="bg-gradient-to-r from-rose-800 to-rose-700 p-6 rounded-lg shadow-xl border-2 border-rose-600 hover:shadow-2xl transition-all group-hover:from-rose-700 group-hover:to-rose-600 h-full flex flex-col">
+                    <div className="bg-gradient-to-r from-rose-800 to-rose-700 p-6 rounded-lg shadow-xl border-2 border-rose-600 hover:shadow-2xl transition-all group-hover:from-rose-700 group-hover:to-rose-600 h-full flex flex-col min-h-[340px]">
                       
                       {/* Book Cover */}
-                      <div className="bg-gradient-to-br from-rose-900 via-rose-800 to-pink-900 p-6 rounded-lg mb-4 relative overflow-hidden">
+                      <div className="bg-gradient-to-br from-rose-900 via-rose-800 to-pink-900 p-6 rounded-lg mb-4 relative overflow-hidden min-h-[160px]">
                         {/* Decorative elements */}
-                        <div className="absolute top-2 right-2 text-4xl opacity-30">💕</div>
-                        <div className="absolute bottom-2 left-2 text-2xl opacity-20">🏰</div>
+                        <div className="absolute top-2 right-2 w-8 h-8 bg-rose-300 opacity-20 rounded-full"></div>
+                        <div className="absolute bottom-2 left-2 w-6 h-6 bg-pink-300 opacity-20 rounded-full"></div>
                         
-                        <h3 className="text-2xl font-bold text-amber-100 mb-2 font-serif text-center">
+                        <h3 className="text-xl font-bold text-amber-100 mb-2 font-serif text-center leading-tight">
                           PRIDE & PREJUDICE
                         </h3>
                         <p className="text-amber-200 text-center font-serif italic mb-3">
@@ -268,15 +268,15 @@ export default function Home() {
                 {/* Things Fall Apart Book */}
                 <Link href="/thingsfallapart" className="group block">
                   <div className="relative transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 h-full">
-                    <div className="bg-gradient-to-r from-orange-800 to-orange-700 p-6 rounded-lg shadow-xl border-2 border-orange-600 hover:shadow-2xl transition-all group-hover:from-orange-700 group-hover:to-orange-600 h-full flex flex-col">
+                    <div className="bg-gradient-to-r from-orange-800 to-orange-700 p-6 rounded-lg shadow-xl border-2 border-orange-600 hover:shadow-2xl transition-all group-hover:from-orange-700 group-hover:to-orange-600 h-full flex flex-col min-h-[340px]">
                       
                       {/* Book Cover */}
-                      <div className="bg-gradient-to-br from-orange-900 via-orange-800 to-red-900 p-6 rounded-lg mb-4 relative overflow-hidden">
+                      <div className="bg-gradient-to-br from-orange-900 via-orange-800 to-red-900 p-6 rounded-lg mb-4 relative overflow-hidden min-h-[160px]">
                         {/* Decorative elements */}
-                        <div className="absolute top-2 right-2 text-4xl opacity-30">🌍</div>
-                        <div className="absolute bottom-2 left-2 text-2xl opacity-20">🏺</div>
+                        <div className="absolute top-2 right-2 w-8 h-8 bg-orange-300 opacity-20 rounded-full"></div>
+                        <div className="absolute bottom-2 left-2 w-6 h-6 bg-red-300 opacity-20 rounded-full"></div>
                         
-                        <h3 className="text-2xl font-bold text-amber-100 mb-2 font-serif text-center">
+                        <h3 className="text-xl font-bold text-amber-100 mb-2 font-serif text-center leading-tight">
                           THINGS FALL APART
                         </h3>
                         <p className="text-amber-200 text-center font-serif italic mb-3">
@@ -315,15 +315,15 @@ export default function Home() {
                 {/* Crime and Punishment Book */}
                 <Link href="/crimeandpunishment" className="group block">
                   <div className="relative transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 h-full">
-                    <div className="bg-gradient-to-r from-purple-900 to-purple-800 p-6 rounded-lg shadow-xl border-2 border-purple-700 hover:shadow-2xl transition-all group-hover:from-purple-800 group-hover:to-purple-700 h-full flex flex-col">
+                    <div className="bg-gradient-to-r from-purple-900 to-purple-800 p-6 rounded-lg shadow-xl border-2 border-purple-700 hover:shadow-2xl transition-all group-hover:from-purple-800 group-hover:to-purple-700 h-full flex flex-col min-h-[340px]">
                       
                       {/* Book Cover */}
-                      <div className="bg-gradient-to-br from-purple-950 via-purple-900 to-red-950 p-6 rounded-lg mb-4 relative overflow-hidden">
+                      <div className="bg-gradient-to-br from-purple-950 via-purple-900 to-red-950 p-6 rounded-lg mb-4 relative overflow-hidden min-h-[160px]">
                         {/* Decorative elements */}
-                        <div className="absolute top-2 right-2 text-4xl opacity-30">⚖️</div>
-                        <div className="absolute bottom-2 left-2 text-2xl opacity-20">🏛️</div>
+                        <div className="absolute top-2 right-2 w-8 h-8 bg-purple-300 opacity-20 rounded-full"></div>
+                        <div className="absolute bottom-2 left-2 w-6 h-6 bg-red-300 opacity-20 rounded-full"></div>
                         
-                        <h3 className="text-2xl font-bold text-amber-100 mb-2 font-serif text-center">
+                        <h3 className="text-lg font-bold text-amber-100 mb-2 font-serif text-center leading-tight">
                           CRIME & PUNISHMENT
                         </h3>
                         <p className="text-amber-200 text-center font-serif italic mb-3">
@@ -357,15 +357,15 @@ export default function Home() {
                 {/* Their Eyes Were Watching God Book */}
                 <Link href="/theireyeswerewatchinggod" className="group block">
                   <div className="relative transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 h-full">
-                    <div className="bg-gradient-to-r from-teal-800 to-teal-700 p-6 rounded-lg shadow-xl border-2 border-teal-600 hover:shadow-2xl transition-all group-hover:from-teal-700 group-hover:to-teal-600 h-full flex flex-col">
+                    <div className="bg-gradient-to-r from-teal-800 to-teal-700 p-6 rounded-lg shadow-xl border-2 border-teal-600 hover:shadow-2xl transition-all group-hover:from-teal-700 group-hover:to-teal-600 h-full flex flex-col min-h-[340px]">
                       
                       {/* Book Cover */}
-                      <div className="bg-gradient-to-br from-teal-900 via-teal-800 to-cyan-900 p-6 rounded-lg mb-4 relative overflow-hidden">
+                      <div className="bg-gradient-to-br from-teal-900 via-teal-800 to-cyan-900 p-6 rounded-lg mb-4 relative overflow-hidden min-h-[160px]">
                         {/* Decorative elements */}
-                        <div className="absolute top-2 right-2 text-4xl opacity-30">🌊</div>
-                        <div className="absolute bottom-2 left-2 text-2xl opacity-20">🌴</div>
+                        <div className="absolute top-2 right-2 w-8 h-8 bg-teal-300 opacity-20 rounded-full"></div>
+                        <div className="absolute bottom-2 left-2 w-6 h-6 bg-cyan-300 opacity-20 rounded-full"></div>
                         
-                        <h3 className="text-2xl font-bold text-amber-100 mb-2 font-serif text-center">
+                        <h3 className="text-base font-bold text-amber-100 mb-2 font-serif text-center leading-tight">
                           THEIR EYES WERE WATCHING GOD
                         </h3>
                         <p className="text-amber-200 text-center font-serif italic mb-3">
@@ -399,13 +399,13 @@ export default function Home() {
                 {/* Animal Farm Book */}
                 <Link href="/animalfarm" className="group block">
                   <div className="relative transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 h-full">
-                    <div className="bg-gradient-to-r from-red-800 to-red-700 p-6 rounded-lg shadow-xl border-2 border-red-600 hover:shadow-2xl transition-all group-hover:from-red-700 group-hover:to-red-600 h-full flex flex-col">
+                    <div className="bg-gradient-to-r from-red-800 to-red-700 p-6 rounded-lg shadow-xl border-2 border-red-600 hover:shadow-2xl transition-all group-hover:from-red-700 group-hover:to-red-600 h-full flex flex-col min-h-[340px]">
                       
                       {/* Book Cover */}
-                      <div className="bg-gradient-to-br from-red-900 via-red-800 to-orange-900 p-6 rounded-lg mb-4 relative overflow-hidden">
+                      <div className="bg-gradient-to-br from-red-900 via-red-800 to-orange-900 p-6 rounded-lg mb-4 relative overflow-hidden min-h-[160px]">
                         {/* Decorative elements */}
-                        <div className="absolute top-2 right-2 text-4xl opacity-30">🐷</div>
-                        <div className="absolute bottom-2 left-2 text-2xl opacity-20">🏭</div>
+                        <div className="absolute top-2 right-2 w-8 h-8 bg-red-300 opacity-20 rounded-full"></div>
+                        <div className="absolute bottom-2 left-2 w-6 h-6 bg-orange-300 opacity-20 rounded-full"></div>
                         
                         <h3 className="text-2xl font-bold text-amber-100 mb-2 font-serif text-center">
                           ANIMAL FARM
@@ -448,12 +448,12 @@ export default function Home() {
           <div className="max-w-4xl mx-auto">
             <div className="inline-block p-8 bg-gradient-to-r from-indigo-900/90 to-purple-800/90 border-4 border-indigo-400 rounded-2xl shadow-2xl relative overflow-hidden">
               {/* Decorative background pattern */}
-              <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-4 left-4 text-6xl">🎭</div>
-                <div className="absolute top-4 right-4 text-6xl">📚</div>
-                <div className="absolute bottom-4 left-4 text-6xl">🎵</div>
-                <div className="absolute bottom-4 right-4 text-6xl">🎨</div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-8xl">🧠</div>
+              <div className="absolute inset-0 opacity-5">
+                <div className="absolute top-4 left-4 w-12 h-12 bg-indigo-300 rounded-full"></div>
+                <div className="absolute top-4 right-4 w-8 h-8 bg-purple-300 rounded-full"></div>
+                <div className="absolute bottom-4 left-4 w-10 h-10 bg-indigo-400 rounded-full"></div>
+                <div className="absolute bottom-4 right-4 w-6 h-6 bg-purple-400 rounded-full"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-indigo-200 rounded-full"></div>
               </div>
               
               <div className="relative z-10">
@@ -475,19 +475,19 @@ export default function Home() {
                 </div>
                 <div className="flex flex-wrap justify-center gap-6 text-indigo-200">
                   <div className="flex items-center gap-2">
-                    <span className="text-2xl">👁️</span>
+                    <div className="w-3 h-3 bg-indigo-300 rounded-full"></div>
                     <span className="font-serif">Visual Learning</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-2xl">🎧</span>
+                    <div className="w-3 h-3 bg-purple-300 rounded-full"></div>
                     <span className="font-serif">Auditory Learning</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-2xl">✋</span>
+                    <div className="w-3 h-3 bg-indigo-400 rounded-full"></div>
                     <span className="font-serif">Kinesthetic Learning</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-2xl">🤝</span>
+                    <div className="w-3 h-3 bg-purple-400 rounded-full"></div>
                     <span className="font-serif">Interactive Learning</span>
                   </div>
                 </div>
