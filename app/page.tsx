@@ -302,7 +302,7 @@ export default function Home() {
         </div>
 
         {/* About This Space */}
-        <div className="text-center">
+        <div className="text-center mb-12">
           <div className="inline-block p-6 rounded-xl shadow-lg" style={{
             background: 'rgba(254, 251, 240, 0.9)',
             border: '2px solid #8B4513'
@@ -316,6 +316,39 @@ export default function Home() {
             <div className="mt-4 text-amber-700 font-serif italic text-sm">
               Happy reading! 📖✨
             </div>
+          </div>
+        </div>
+
+        {/* AI Tutor Section */}
+        <div className="text-center mb-12">
+          <div className="inline-block p-8 bg-gradient-to-r from-emerald-900/90 to-teal-800/90 border-4 border-emerald-400 rounded-2xl shadow-2xl">
+            <h2 className="text-3xl font-bold text-white mb-4 font-serif">
+              🎓 Need Help with Literature?
+            </h2>
+            <p className="text-emerald-200 text-lg mb-6 font-serif">
+              Meet your AI Literary Tutor - powered by famous authors and designed for educational excellence
+            </p>
+            <div className="flex flex-wrap justify-center gap-4 mb-6">
+              <div className="flex items-center gap-2 text-emerald-200">
+                <span className="text-green-400">✓</span>
+                <span>Reading Comprehension</span>
+              </div>
+              <div className="flex items-center gap-2 text-emerald-200">
+                <span className="text-green-400">✓</span>
+                <span>Writing Skills</span>
+              </div>
+              <div className="flex items-center gap-2 text-emerald-200">
+                <span className="text-green-400">✓</span>
+                <span>Grammar & Vocabulary</span>
+              </div>
+              <div className="flex items-center gap-2 text-emerald-200">
+                <span className="text-green-400">✓</span>
+                <span>Literary Analysis</span>
+              </div>
+            </div>
+            <Link href="/tutor" className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 inline-block text-lg">
+              🎓 Start Learning with AI Tutor
+            </Link>
           </div>
         </div>
 
