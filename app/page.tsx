@@ -596,6 +596,99 @@ export default function Home() {
           </p>
         </div>
 
+        {/* Current Challenges */}
+        <div className="mb-12">
+          <div className="bg-white/95 rounded-xl shadow-xl p-6 border-2 border-amber-200">
+            <h2 className="text-2xl font-bold text-amber-900 mb-6 font-serif text-center">Current Challenges</h2>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Weekly Challenges */}
+              <div>
+                <h3 className="text-lg font-semibold text-blue-800 font-serif mb-4 flex items-center gap-2">
+                  <span className="text-xl">📅</span>
+                  Weekly Global Challenges
+                </h3>
+                <div className="space-y-4">
+                                      <div className="p-4 bg-blue-50 rounded-lg border-2 border-blue-200 shadow-md">
+                      <div className="flex items-center justify-between mb-2">
+                        <h4 className="font-semibold text-blue-800 font-serif">Speed Reading Sprint</h4>
+                        <span className="text-blue-600 text-sm font-bold">2/3 days</span>
+                      </div>
+                      <p className="text-blue-700 text-sm font-serif mb-3">Read 15 pages daily for 3 consecutive days</p>
+                      <div className="w-full bg-blue-200 rounded-full h-2">
+                        <div className="bg-blue-500 h-2 rounded-full" style={{width: '67%'}}></div>
+                      </div>
+                    </div>
+                  
+                  <div className="p-4 bg-green-50 rounded-lg border-2 border-green-200 shadow-md">
+                    <div className="flex items-center justify-between mb-2">
+                      <h4 className="font-semibold text-green-800 font-serif">Character Analysis Deep Dive</h4>
+                      <span className="text-green-600 text-sm font-bold">2/3 tasks</span>
+                    </div>
+                    <p className="text-green-700 text-sm font-serif mb-3">Complete 3 character analysis exercises</p>
+                    <div className="w-full bg-green-200 rounded-full h-2">
+                      <div className="bg-green-500 h-2 rounded-full" style={{width: '67%'}}></div>
+                    </div>
+                  </div>
+                  
+                  <div className="p-4 bg-purple-50 rounded-lg border-2 border-purple-200 shadow-md">
+                    <div className="flex items-center justify-between mb-2">
+                      <h4 className="font-semibold text-purple-800 font-serif">Theme Hunter</h4>
+                      <span className="text-purple-600 text-sm font-bold">1/4 themes</span>
+                    </div>
+                    <p className="text-purple-700 text-sm font-serif mb-3">Identify and analyze 4 recurring themes</p>
+                    <div className="w-full bg-purple-200 rounded-full h-2">
+                      <div className="bg-purple-500 h-2 rounded-full" style={{width: '25%'}}></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Assigned Challenges */}
+              <div>
+                <h3 className="text-lg font-semibold text-orange-800 font-serif mb-4 flex items-center gap-2">
+                  <span className="text-xl">📋</span>
+                  Your Assigned Challenges
+                </h3>
+                <div className="space-y-4">
+                  <div className="p-4 bg-orange-50 rounded-lg border-2 border-orange-200 shadow-md">
+                    <div className="flex items-center justify-between mb-2">
+                      <h4 className="font-semibold text-orange-800 font-serif">Moby Dick Chapter Analysis</h4>
+                      <span className="text-orange-600 text-sm font-bold">Due: 3 days</span>
+                    </div>
+                    <p className="text-orange-700 text-sm font-serif mb-3">Analyze chapters 15-20 for symbolism and themes</p>
+                    <div className="w-full bg-orange-200 rounded-full h-2">
+                      <div className="bg-orange-500 h-2 rounded-full" style={{width: '40%'}}></div>
+                    </div>
+                  </div>
+                  
+                  <div className="p-4 bg-red-50 rounded-lg border-2 border-red-200 shadow-md">
+                    <div className="flex items-center justify-between mb-2">
+                      <h4 className="font-semibold text-red-800 font-serif">Essay Writing Practice</h4>
+                      <span className="text-red-600 text-sm font-bold">Due: 1 week</span>
+                    </div>
+                    <p className="text-red-700 text-sm font-serif mb-3">Write a 1000-word essay on character development</p>
+                    <div className="w-full bg-red-200 rounded-full h-2">
+                      <div className="bg-red-500 h-2 rounded-full" style={{width: '20%'}}></div>
+                    </div>
+                  </div>
+                  
+                  <div className="p-4 bg-teal-50 rounded-lg border-2 border-teal-200 shadow-md">
+                    <div className="flex items-center justify-between mb-2">
+                      <h4 className="font-semibold text-teal-800 font-serif">Discussion Participation</h4>
+                      <span className="text-teal-600 text-sm font-bold">Due: Ongoing</span>
+                    </div>
+                    <p className="text-teal-700 text-sm font-serif mb-3">Participate in 5 Socratic Forum discussions</p>
+                    <div className="w-full bg-teal-200 rounded-full h-2">
+                      <div className="bg-teal-500 h-2 rounded-full" style={{width: '80%'}}></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Learning Modalities Mission Card */}
         <div className="text-center mb-12">
           <div className="max-w-4xl mx-auto">
