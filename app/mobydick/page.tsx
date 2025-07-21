@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 
 export default function MobyDick() {
@@ -9,6 +9,50 @@ export default function MobyDick() {
   const [selectedSymbolismItem, setSelectedSymbolismItem] = useState<string | null>(null);
   const [selectedAuthor, setSelectedAuthor] = useState<string | null>(null);
   const [selectedSetting, setSelectedSetting] = useState<string | null>(null);
+  
+  // Module exploration tracking
+  const [clickedItems, setClickedItems] = useState<Set<string>>(new Set());
+  const [timeSpent, setTimeSpent] = useState<number>(0);
+  const [explorationPercentage, setExplorationPercentage] = useState<number>(0);
+  const startTimeRef = useRef<number>(Date.now());
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Total trackable items in the module
+  const totalItems = 16; // 5 themes + 5 characters + 4 structure + 4 symbolism + 1 author + 1 setting
+
+  // Track time spent
+  useEffect(() => {
+    startTimeRef.current = Date.now();
+    
+    intervalRef.current = setInterval(() => {
+      const currentTime = Date.now();
+      const elapsed = Math.floor((currentTime - startTimeRef.current) / 1000);
+      setTimeSpent(elapsed);
+    }, 1000);
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, []);
+
+  // Calculate exploration percentage
+  useEffect(() => {
+    const clickWeight = 70; // 70% for clicks
+    const timeWeight = 30; // 30% for time
+    
+    const clickPercentage = (clickedItems.size / totalItems) * 100;
+    const timePercentage = Math.min((timeSpent / 300) * 100, 100); // Max at 5 minutes
+    
+    const totalPercentage = Math.round((clickPercentage * clickWeight + timePercentage * timeWeight) / 100);
+    setExplorationPercentage(Math.min(totalPercentage, 100));
+  }, [clickedItems.size, timeSpent, totalItems]);
+
+  // Function to track clicks
+  const trackClick = (itemId: string) => {
+    setClickedItems(prev => new Set(Array.from(prev).concat(itemId)));
+  };
   return (
     <main className="min-h-screen py-8 px-4 relative" style={{
         backgroundImage: 'url(/images/ship-storm.png)',
@@ -41,6 +85,7 @@ export default function MobyDick() {
               setSelectedStructureItem(null);
               setSelectedSymbolismItem(null);
               setSelectedAuthor(null);
+              trackClick('nantucket');
             }}
             style={{
             border: '3px solid #8B4513',
@@ -220,6 +265,7 @@ export default function MobyDick() {
                     setSelectedStructureItem(null);
                     setSelectedSymbolismItem(null);
                     setSelectedSetting(null);
+                    trackClick('melville');
                   }}
                   style={{
                   background: `
@@ -305,6 +351,7 @@ export default function MobyDick() {
                         setSelectedSymbolismItem(null);
                         setSelectedAuthor(null);
                         setSelectedSetting(null);
+                        trackClick('theme-obsession');
                       }}
                     >
                       <span className="text-amber-600">⚔️</span>
@@ -319,6 +366,7 @@ export default function MobyDick() {
                         setSelectedSymbolismItem(null);
                         setSelectedAuthor(null);
                         setSelectedSetting(null);
+                        trackClick('theme-nature');
                       }}
                     >
                       <span className="text-amber-600">🌊</span>
@@ -333,6 +381,7 @@ export default function MobyDick() {
                         setSelectedSymbolismItem(null);
                         setSelectedAuthor(null);
                         setSelectedSetting(null);
+                        trackClick('theme-fate');
                       }}
                     >
                       <span className="text-amber-600">⚖️</span>
@@ -347,6 +396,7 @@ export default function MobyDick() {
                         setSelectedSymbolismItem(null);
                         setSelectedAuthor(null);
                         setSelectedSetting(null);
+                        trackClick('theme-morality');
                       }}
                     >
                       <span className="text-amber-600">⚓</span>
@@ -361,6 +411,7 @@ export default function MobyDick() {
                         setSelectedSymbolismItem(null);
                         setSelectedAuthor(null);
                         setSelectedSetting(null);
+                        trackClick('theme-truth');
                       }}
                     >
                       <span className="text-amber-600">🔍</span>
@@ -405,6 +456,7 @@ export default function MobyDick() {
                         setSelectedSymbolismItem(null);
                         setSelectedAuthor(null);
                         setSelectedSetting(null);
+                        trackClick('character-ahab');
                       }}
                     >
                       <span className="text-amber-600">👨‍✈️</span>
@@ -419,6 +471,7 @@ export default function MobyDick() {
                         setSelectedSymbolismItem(null);
                         setSelectedAuthor(null);
                         setSelectedSetting(null);
+                        trackClick('character-ishmael');
                       }}
                     >
                       <span className="text-amber-600">📝</span>
@@ -648,13 +701,62 @@ export default function MobyDick() {
         </div> {/* Close bulletin board container */}
         
         {/* Set Sail Button */}
-        <div className="text-center -mt-8">
+        <div className="text-center -mt-8 mb-8">
           <Link 
             href="/mobydickmodule" 
             className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-amber-700 to-amber-900 text-amber-50 font-bold text-xl rounded-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-amber-800 font-serif hover:from-amber-800 hover:to-amber-950"
           >
             ⛵ Set Sail for Deep Waters
           </Link>
+        </div>
+
+        {/* Module Explored Card */}
+        <div className="fixed bottom-4 right-4 z-40">
+          <div className="bg-gradient-to-r from-indigo-600 to-purple-700 p-4 rounded-xl shadow-2xl border-2 border-indigo-400 min-w-[280px]">
+            <div className="text-white">
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="font-bold text-lg font-serif">📊 Module Explored</h3>
+                <span className="text-2xl font-bold">{explorationPercentage}%</span>
+              </div>
+              
+              {/* Progress Bar */}
+              <div className="w-full bg-indigo-800 rounded-full h-3 mb-3">
+                <div 
+                  className="bg-gradient-to-r from-green-400 to-blue-400 h-3 rounded-full transition-all duration-500 ease-out"
+                  style={{width: `${explorationPercentage}%`}}
+                ></div>
+              </div>
+              
+              {/* Stats */}
+              <div className="grid grid-cols-2 gap-3 text-sm">
+                <div className="bg-indigo-800/50 p-2 rounded">
+                  <div className="text-indigo-200">Items Explored</div>
+                  <div className="font-bold">{clickedItems.size}/{totalItems}</div>
+                </div>
+                <div className="bg-purple-800/50 p-2 rounded">
+                  <div className="text-purple-200">Time Spent</div>
+                  <div className="font-bold">{Math.floor(timeSpent / 60)}:{(timeSpent % 60).toString().padStart(2, '0')}</div>
+                </div>
+              </div>
+              
+              {/* Completion Message */}
+              {explorationPercentage >= 90 && (
+                <div className="mt-3 p-2 bg-green-600 rounded text-center text-sm font-semibold">
+                  🎉 Excellent Exploration!
+                </div>
+              )}
+              {explorationPercentage >= 70 && explorationPercentage < 90 && (
+                <div className="mt-3 p-2 bg-blue-600 rounded text-center text-sm font-semibold">
+                  🌟 Great Progress!
+                </div>
+              )}
+              {explorationPercentage >= 50 && explorationPercentage < 70 && (
+                <div className="mt-3 p-2 bg-yellow-600 rounded text-center text-sm font-semibold">
+                  📚 Keep Exploring!
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </div>
 
