@@ -262,6 +262,302 @@ export default function TheArena() {
           </div>
         </div>
 
+        {/* Sample Quick Battle Quizzes */}
+        <div className="bg-gradient-to-r from-blue-900/90 to-indigo-800/90 border-4 border-blue-400 rounded-2xl shadow-2xl p-8 mb-8 mt-8">
+          <h2 className="text-3xl font-bold text-white font-serif text-center mb-6">⚡ Quick Battle Quizzes</h2>
+          <div className="grid lg:grid-cols-2 gap-6">
+            
+            {/* Quick Battle 1 */}
+            <div className="bg-white/10 rounded-xl p-6 border-2 border-blue-300 backdrop-blur-sm">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-xl font-bold text-blue-400 font-serif">📚 Character Showdown</h3>
+                <div className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-bold">5 min</div>
+              </div>
+              <p className="text-blue-100 font-serif mb-4">Identify literary characters from descriptions, quotes, and actions in rapid-fire rounds.</p>
+              <div className="space-y-2 mb-4">
+                <div className="flex justify-between text-sm">
+                  <span className="text-blue-200">Questions:</span>
+                  <span className="text-yellow-300">20 rapid-fire</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-blue-200">Time Limit:</span>
+                  <span className="text-yellow-300">15 seconds per question</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-blue-200">Difficulty:</span>
+                  <span className="text-yellow-300">Mixed (Easy to Hard)</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-blue-200">Topics:</span>
+                  <span className="text-yellow-300">All Major Works</span>
+                </div>
+              </div>
+              <div className="flex justify-between items-center">
+                <div className="text-blue-400 font-bold">Reward: 75 XP + "Character Master" Badge</div>
+                <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-serif font-semibold transition-colors">
+                  Start Battle
+                </button>
+              </div>
+            </div>
+
+            {/* Quick Battle 2 */}
+            <div className="bg-white/10 rounded-xl p-6 border-2 border-green-300 backdrop-blur-sm">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-xl font-bold text-green-400 font-serif">📜 Quote Lightning Round</h3>
+                <div className="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold">3 min</div>
+              </div>
+              <p className="text-green-100 font-serif mb-4">Match famous literary quotes to their correct authors and works in this high-speed challenge.</p>
+              <div className="space-y-2 mb-4">
+                <div className="flex justify-between text-sm">
+                  <span className="text-green-200">Questions:</span>
+                  <span className="text-yellow-300">15 quote matches</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-green-200">Time Limit:</span>
+                  <span className="text-yellow-300">12 seconds per quote</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-green-200">Difficulty:</span>
+                  <span className="text-yellow-300">Intermediate</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-green-200">Format:</span>
+                  <span className="text-yellow-300">Multiple Choice</span>
+                </div>
+              </div>
+              <div className="flex justify-between items-center">
+                <div className="text-green-400 font-bold">Reward: 60 XP + "Quote Collector" Badge</div>
+                <button className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-serif font-semibold transition-colors">
+                  Start Battle
+                </button>
+              </div>
+            </div>
+
+            {/* Quick Battle 3 */}
+            <div className="bg-white/10 rounded-xl p-6 border-2 border-purple-300 backdrop-blur-sm">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-xl font-bold text-purple-400 font-serif">🎭 Symbol Hunt</h3>
+                <div className="bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-bold">4 min</div>
+              </div>
+              <p className="text-purple-100 font-serif mb-4">Identify and interpret literary symbols, metaphors, and allegorical elements across classic works.</p>
+              <div className="space-y-2 mb-4">
+                <div className="flex justify-between text-sm">
+                  <span className="text-purple-200">Questions:</span>
+                  <span className="text-yellow-300">18 symbol analysis</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-purple-200">Time Limit:</span>
+                  <span className="text-yellow-300">13 seconds per question</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-purple-200">Difficulty:</span>
+                  <span className="text-yellow-300">Advanced</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-purple-200">Focus:</span>
+                  <span className="text-yellow-300">Symbolism & Themes</span>
+                </div>
+              </div>
+              <div className="flex justify-between items-center">
+                <div className="text-purple-400 font-bold">Reward: 85 XP + "Symbol Seeker" Badge</div>
+                <button className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg font-serif font-semibold transition-colors">
+                  Start Battle
+                </button>
+              </div>
+            </div>
+
+            {/* Quick Battle 4 */}
+            <div className="bg-white/10 rounded-xl p-6 border-2 border-orange-300 backdrop-blur-sm">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-xl font-bold text-orange-400 font-serif">⚔️ Plot Warrior</h3>
+                <div className="bg-orange-600 text-white px-3 py-1 rounded-full text-sm font-bold">6 min</div>
+              </div>
+              <p className="text-orange-100 font-serif mb-4">Navigate complex plot structures, identify story arcs, and sequence major events from literary masterpieces.</p>
+              <div className="space-y-2 mb-4">
+                <div className="flex justify-between text-sm">
+                  <span className="text-orange-200">Questions:</span>
+                  <span className="text-yellow-300">25 plot challenges</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-orange-200">Time Limit:</span>
+                  <span className="text-yellow-300">14 seconds per question</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-orange-200">Difficulty:</span>
+                  <span className="text-yellow-300">Mixed</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-orange-200">Types:</span>
+                  <span className="text-yellow-300">Sequence, Cause/Effect</span>
+                </div>
+              </div>
+              <div className="flex justify-between items-center">
+                <div className="text-orange-400 font-bold">Reward: 90 XP + "Plot Master" Badge</div>
+                <button className="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg font-serif font-semibold transition-colors">
+                  Start Battle
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        {/* Sample Boss Battles */}
+        <div className="bg-gradient-to-r from-red-900/90 to-orange-800/90 border-4 border-red-400 rounded-2xl shadow-2xl p-8 mb-8">
+          <h2 className="text-3xl font-bold text-white font-serif text-center mb-6">🐉 Legendary Boss Battles</h2>
+          <div className="grid lg:grid-cols-2 gap-6">
+            
+            {/* Boss Battle 1 */}
+            <div className="bg-white/10 rounded-xl p-6 border-2 border-red-300 backdrop-blur-sm">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-xl font-bold text-yellow-400 font-serif">🔥 The White Whale</h3>
+                <div className="bg-red-600 text-white px-3 py-1 rounded-full text-sm font-bold">Level 20+</div>
+              </div>
+              <p className="text-red-100 font-serif mb-4">Master Melville's maritime epic through five grueling phases of increasing complexity.</p>
+              <div className="space-y-3 mb-4">
+                <div className="flex justify-between text-sm">
+                  <span className="text-red-200">Phase 1:</span>
+                  <span className="text-yellow-300">Character Identification (10 questions)</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-red-200">Phase 2:</span>
+                  <span className="text-yellow-300">Symbolism Analysis (15 questions)</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-red-200">Phase 3:</span>
+                  <span className="text-yellow-300">Quote Attribution (20 questions)</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-red-200">Phase 4:</span>
+                  <span className="text-yellow-300">Thematic Essay (30 minutes)</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-red-200">Phase 5:</span>
+                  <span className="text-yellow-300">Boss Battle: Ahab's Monologue (Timed)</span>
+                </div>
+              </div>
+              <div className="flex justify-between items-center">
+                <div className="text-yellow-400 font-bold">Reward: 500 XP + "Whale Hunter" Title</div>
+                <button className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-serif font-semibold transition-colors">
+                  Enter Battle
+                </button>
+              </div>
+            </div>
+
+            {/* Boss Battle 2 */}
+            <div className="bg-white/10 rounded-xl p-6 border-2 border-orange-300 backdrop-blur-sm">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-xl font-bold text-orange-400 font-serif">⚡ Iago's Deception</h3>
+                <div className="bg-orange-600 text-white px-3 py-1 rounded-full text-sm font-bold">Level 15+</div>
+              </div>
+              <p className="text-orange-100 font-serif mb-4">Navigate Shakespeare's web of lies and manipulation in this psychological warfare challenge.</p>
+              <div className="space-y-3 mb-4">
+                <div className="flex justify-between text-sm">
+                  <span className="text-orange-200">Phase 1:</span>
+                  <span className="text-yellow-300">Plot Sequence (12 questions)</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-orange-200">Phase 2:</span>
+                  <span className="text-yellow-300">Character Motivation (18 questions)</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-orange-200">Phase 3:</span>
+                  <span className="text-yellow-300">Dramatic Irony (15 questions)</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-orange-200">Phase 4:</span>
+                  <span className="text-yellow-300">Soliloquy Analysis (25 minutes)</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-orange-200">Phase 5:</span>
+                  <span className="text-yellow-300">Boss Battle: Iago's Schemes (Timed)</span>
+                </div>
+              </div>
+              <div className="flex justify-between items-center">
+                <div className="text-orange-400 font-bold">Reward: 400 XP + "Master of Deceit" Title</div>
+                <button className="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg font-serif font-semibold transition-colors">
+                  Enter Battle
+                </button>
+              </div>
+            </div>
+
+            {/* Boss Battle 3 */}
+            <div className="bg-white/10 rounded-xl p-6 border-2 border-purple-300 backdrop-blur-sm">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-xl font-bold text-purple-400 font-serif">💀 Raskolnikov's Conscience</h3>
+                <div className="bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-bold">Level 25+</div>
+              </div>
+              <p className="text-purple-100 font-serif mb-4">Confront Dostoevsky's psychological masterpiece in this morally complex challenge.</p>
+              <div className="space-y-3 mb-4">
+                <div className="flex justify-between text-sm">
+                  <span className="text-purple-200">Phase 1:</span>
+                  <span className="text-yellow-300">Philosophical Concepts (20 questions)</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-purple-200">Phase 2:</span>
+                  <span className="text-yellow-300">Psychological Analysis (25 questions)</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-purple-200">Phase 3:</span>
+                  <span className="text-yellow-300">Symbolic Objects (15 questions)</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-purple-200">Phase 4:</span>
+                  <span className="text-yellow-300">Moral Philosophy Essay (45 minutes)</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-purple-200">Phase 5:</span>
+                  <span className="text-yellow-300">Boss Battle: The Confession (Timed)</span>
+                </div>
+              </div>
+              <div className="flex justify-between items-center">
+                <div className="text-purple-400 font-bold">Reward: 600 XP + "Moral Philosopher" Title</div>
+                <button className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg font-serif font-semibold transition-colors">
+                  Enter Battle
+                </button>
+              </div>
+            </div>
+
+            {/* Boss Battle 4 */}
+            <div className="bg-white/10 rounded-xl p-6 border-2 border-green-300 backdrop-blur-sm">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-xl font-bold text-green-400 font-serif">🌊 Janie's Journey</h3>
+                <div className="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold">Level 18+</div>
+              </div>
+              <p className="text-green-100 font-serif mb-4">Embark on Hurston's epic journey of self-discovery and cultural identity.</p>
+              <div className="space-y-3 mb-4">
+                <div className="flex justify-between text-sm">
+                  <span className="text-green-200">Phase 1:</span>
+                  <span className="text-yellow-300">Cultural Context (15 questions)</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-green-200">Phase 2:</span>
+                  <span className="text-yellow-300">Dialect Analysis (20 questions)</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-green-200">Phase 3:</span>
+                  <span className="text-yellow-300">Folkloric Elements (18 questions)</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-green-200">Phase 4:</span>
+                  <span className="text-yellow-300">Character Development Essay (35 minutes)</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-green-200">Phase 5:</span>
+                  <span className="text-yellow-300">Boss Battle: The Pear Tree (Timed)</span>
+                </div>
+              </div>
+              <div className="flex justify-between items-center">
+                <div className="text-green-400 font-bold">Reward: 450 XP + "Voice of the People" Title</div>
+                <button className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-serif font-semibold transition-colors">
+                  Enter Battle
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </main>
   )
