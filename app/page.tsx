@@ -1,7 +1,60 @@
-import React from 'react'
+'use client'
+
+import React, { useState } from 'react'
 import Link from 'next/link'
 
 export default function Home() {
+  const [openModal, setOpenModal] = useState<string | null>(null)
+
+  const modalData = {
+    welcome: {
+      title: "Welcome to Your Literary Journey",
+      content: `Each book in our collection offers an immersive, interactive experience. 
+      Discover characters, themes, symbols, and structures through engaging visual guides 
+      designed to deepen your appreciation of these timeless works.
+
+      Whether you're just beginning your reading journey or you're a seasoned 
+      literary enthusiast, we offer meaningful learning experiences for every level.`,
+      tagline: "Happy reading!",
+      color: "amber"
+    },
+    gamification: {
+      title: "Gamification in Education",
+      content: `Our gamified approach transforms classic literature (and all learning!) 
+      into an engaging, personalized adventure. By incorporating familiar game mechanics, 
+      we strive to make learning both enjoyable and effective.
+
+      This familiar framework empowers learners to take ownership of their educational 
+      journey while building valuable skills and knowledge that contribute to their 
+      personal and professional growth.`,
+      tagline: "Education meets adventure!",
+      color: "cyan"
+    },
+    education: {
+      title: "Education & Human Capital",
+      content: `Quality education builds the foundation of human progress. 
+      By investing in developing independent voices, critical thinking, 
+      and cultural understanding, we develop the intellectual capital 
+      that drives responsible innovation and societal advancement.
+
+      Literature serves as a powerful catalyst in this process, exposing students 
+      to diverse perspectives, complex moral questions, and the full spectrum 
+      of human experience across cultures and centuries.`,
+      tagline: "Knowledge is power!",
+      color: "red"
+    },
+    teachers: {
+      title: "Tools for Teachers",
+      content: `As a former teacher, I understand that educators juggle multiple demanding roles: 
+      subject matter expert, curriculum designer, assessment specialist, data analyst, 
+      and classroom manager—all while inspiring young minds.
+
+      Our mission is to empower teachers with intelligent tools that streamline these 
+      essential responsibilities and plug effortlessly into existing workflows, allowing you to focus on what matters most: teaching.`,
+      tagline: "Empowering educators!",
+      color: "green"
+    }
+  }
   return (
     <main className="min-h-screen py-8 px-4 relative" style={{
       backgroundImage: 'linear-gradient(135deg, #8B4513 0%, #A0522D 25%, #CD853F 50%, #D2691E 75%, #8B4513 100%)',
@@ -168,113 +221,82 @@ export default function Home() {
 
         {/* Information Boxes */}
         <div className="mb-16">
-          <div className="grid xl:grid-cols-4 lg:grid-cols-2 md:grid-cols-2 gap-8">
+          <div className="grid xl:grid-cols-4 lg:grid-cols-2 md:grid-cols-2 gap-6">
             
-            {/* Welcome Box - Left Side */}
+            {/* Welcome Box */}
             <div className="text-center">
-              <div className="p-8 rounded-2xl shadow-xl h-full flex flex-col justify-between" style={{
-                background: 'rgba(254, 251, 240, 0.95)',
-                border: '3px solid #8B4513'
-              }}>
-                <div>
-                  <h3 className="text-2xl font-bold text-amber-900 mb-6 font-serif leading-tight">
-                    Welcome to Your Literary Journey
-                  </h3>
-                  <p className="text-amber-800 font-serif leading-relaxed text-base mb-6">
-                    Each book in our collection offers an immersive, interactive experience. 
-                    Discover characters, themes, symbols, and structures through engaging visual guides 
-                    designed to deepen your appreciation of these timeless works.
-                  </p>
-                  <p className="text-amber-800 font-serif leading-relaxed text-base">
-                    Whether you're just beginning your reading journey or you're a seasoned 
-                    literary enthusiast, we offer meaningful learning experiences for every level.
-                  </p>
-                </div>
-                <div className="mt-8 text-amber-700 font-serif italic text-base">
-                  Happy reading!
-                </div>
-              </div>
+              <button 
+                onClick={() => setOpenModal('welcome')}
+                className="w-full p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer" 
+                style={{
+                  background: 'rgba(254, 251, 240, 0.95)',
+                  border: '3px solid #8B4513'
+                }}
+              >
+                <h3 className="text-xl font-bold text-amber-900 font-serif leading-tight">
+                  Welcome to Your Literary Journey
+                </h3>
+                <p className="text-amber-700 text-sm font-serif mt-2">
+                  Click to learn more
+                </p>
+              </button>
             </div>
 
-            {/* Gamification & Education Box - Middle */}
+            {/* Gamification Box */}
             <div className="text-center">
-              <div className="p-8 rounded-2xl shadow-xl h-full flex flex-col justify-between" style={{
-                background: 'rgba(236, 254, 255, 0.95)',
-                border: '3px solid #0891b2'
-              }}>
-                <div>
-                  <h3 className="text-2xl font-bold text-cyan-900 mb-6 font-serif leading-tight">
-                    Gamification in Education
-                  </h3>
-                  <p className="text-cyan-800 font-serif leading-relaxed text-base mb-6">
-                    Our gamified approach transforms classic literature (and all learning!) 
-                    into an engaging, personalized adventure. By incorporating familiar game mechanics, 
-                    we strive to make learning both enjoyable and effective.
-                  </p>
-                  <p className="text-cyan-800 font-serif leading-relaxed text-base">
-                    This familiar framework empowers learners to take ownership of their educational 
-                    journey while building valuable skills and knowledge that contribute to their 
-                    personal and professional growth.
-                  </p>
-                </div>
-                <div className="mt-8 text-cyan-700 font-serif italic text-base">
-                  Education meets adventure!
-                </div>
-              </div>
+              <button 
+                onClick={() => setOpenModal('gamification')}
+                className="w-full p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer" 
+                style={{
+                  background: 'rgba(236, 254, 255, 0.95)',
+                  border: '3px solid #0891b2'
+                }}
+              >
+                <h3 className="text-xl font-bold text-cyan-900 font-serif leading-tight">
+                  Gamification in Education
+                </h3>
+                <p className="text-cyan-700 text-sm font-serif mt-2">
+                  Click to learn more
+                </p>
+              </button>
             </div>
 
             {/* Education & Human Capital Box */}
             <div className="text-center">
-              <div className="p-8 rounded-2xl shadow-xl h-full flex flex-col justify-between" style={{
-                background: 'rgba(254, 242, 242, 0.95)',
-                border: '3px solid #dc2626'
-              }}>
-                <div>
-                  <h3 className="text-2xl font-bold text-red-900 mb-6 font-serif leading-tight">
-                    Education & Human Capital
-                  </h3>
-                  <p className="text-red-800 font-serif leading-relaxed text-base mb-6">
-                    Quality education builds the foundation of human progress. 
-                    By investing in developing independent voices, critical thinking, 
-                    and cultural understanding, we develop the intellectual capital 
-                    that drives responsible innovation and societal advancement.
-                  </p>
-                  <p className="text-red-800 font-serif leading-relaxed text-base">
-                    Literature serves as a powerful catalyst in this process, exposing students 
-                    to diverse perspectives, complex moral questions, and the full spectrum 
-                    of human experience across cultures and centuries.
-                  </p>
-                </div>
-                <div className="mt-8 text-red-700 font-serif italic text-base">
-                  Knowledge is power!
-                </div>
-              </div>
+              <button 
+                onClick={() => setOpenModal('education')}
+                className="w-full p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer" 
+                style={{
+                  background: 'rgba(254, 242, 242, 0.95)',
+                  border: '3px solid #dc2626'
+                }}
+              >
+                <h3 className="text-xl font-bold text-red-900 font-serif leading-tight">
+                  Education & Human Capital
+                </h3>
+                <p className="text-red-700 text-sm font-serif mt-2">
+                  Click to learn more
+                </p>
+              </button>
             </div>
 
             {/* Tools for Teachers Box */}
             <div className="text-center">
-              <div className="p-8 rounded-2xl shadow-xl h-full flex flex-col justify-between" style={{
-                background: 'rgba(240, 253, 244, 0.95)',
-                border: '3px solid #16a34a'
-              }}>
-                <div>
-                  <h3 className="text-2xl font-bold text-green-900 mb-6 font-serif leading-tight">
-                    Tools for Teachers
-                  </h3>
-                  <p className="text-green-800 font-serif leading-relaxed text-base mb-6">
-                    As a former teacher, I understand that educators juggle multiple demanding roles: 
-                    subject matter expert, curriculum designer, assessment specialist, data analyst, 
-                    and classroom manager—all while inspiring young minds.
-                  </p>
-                  <p className="text-green-800 font-serif leading-relaxed text-base">
-                    Our mission is to empower teachers with intelligent tools that streamline these 
-                    essential responsibilities and plug effortlessly into existing workflows, allowing you to focus on what matters most: teaching.
-                  </p>
-                </div>
-                <div className="mt-8 text-green-700 font-serif italic text-base">
-                  Empowering educators!
-                </div>
-              </div>
+              <button 
+                onClick={() => setOpenModal('teachers')}
+                className="w-full p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer" 
+                style={{
+                  background: 'rgba(240, 253, 244, 0.95)',
+                  border: '3px solid #16a34a'
+                }}
+              >
+                <h3 className="text-xl font-bold text-green-900 font-serif leading-tight">
+                  Tools for<br />Teachers
+                </h3>
+                <p className="text-green-700 text-sm font-serif mt-2">
+                  Click to learn more
+                </p>
+              </button>
             </div>
 
           </div>
@@ -836,6 +858,52 @@ export default function Home() {
             Please reach out if you are interested in making use of our resources in your classroom.
           </p>
         </div>
+
+        {/* Modal */}
+        {openModal && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+            <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto">
+              <div className="p-8">
+                <div className="flex justify-between items-start mb-6">
+                  <h2 className={`text-3xl font-bold font-serif ${
+                    modalData[openModal as keyof typeof modalData].color === 'amber' ? 'text-amber-900' :
+                    modalData[openModal as keyof typeof modalData].color === 'cyan' ? 'text-cyan-900' :
+                    modalData[openModal as keyof typeof modalData].color === 'red' ? 'text-red-900' :
+                    'text-green-900'
+                  }`}>
+                    {modalData[openModal as keyof typeof modalData].title}
+                  </h2>
+                  <button 
+                    onClick={() => setOpenModal(null)}
+                    className="text-gray-500 hover:text-gray-700 text-2xl font-bold"
+                  >
+                    ×
+                  </button>
+                </div>
+                <div className={`prose max-w-none ${
+                  modalData[openModal as keyof typeof modalData].color === 'amber' ? 'text-amber-800' :
+                  modalData[openModal as keyof typeof modalData].color === 'cyan' ? 'text-cyan-800' :
+                  modalData[openModal as keyof typeof modalData].color === 'red' ? 'text-red-800' :
+                  'text-green-800'
+                } font-serif leading-relaxed text-base`}>
+                  {modalData[openModal as keyof typeof modalData].content.split('\n\n').map((paragraph, index) => (
+                    <p key={index} className="mb-4">
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+                <div className={`mt-8 text-center font-serif italic text-lg ${
+                  modalData[openModal as keyof typeof modalData].color === 'amber' ? 'text-amber-700' :
+                  modalData[openModal as keyof typeof modalData].color === 'cyan' ? 'text-cyan-700' :
+                  modalData[openModal as keyof typeof modalData].color === 'red' ? 'text-red-700' :
+                  'text-green-700'
+                }`}>
+                  {modalData[openModal as keyof typeof modalData].tagline}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
 
       </div>
     </main>
