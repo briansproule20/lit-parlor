@@ -15,29 +15,46 @@ export default function Home() {
         {/* Bookstore Header */}
         <div className="text-center mb-12 relative">
           
-          {/* Navigation Buttons - Top Right */}
-          <div className="absolute top-0 -right-24 h-full flex flex-col justify-start items-end space-y-4 py-4">
-            <Link href="/quests" className="bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 font-serif text-right whitespace-nowrap">
-              Quests
-            </Link>
-            <Link href="/socratic-forum" className="bg-teal-700 hover:bg-teal-800 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 font-serif text-right whitespace-nowrap">
-              Socratic Forum
-            </Link>
-            <Link href="/storyworlds" className="bg-purple-700 hover:bg-purple-800 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 font-serif text-right whitespace-nowrap">
-              Storyworlds
-            </Link>
-            <Link href="/student-dashboard" className="bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 font-serif text-right whitespace-nowrap">
-              Student Dashboard
-            </Link>
-            <Link href="/teacher-dashboard" className="bg-indigo-700 hover:bg-indigo-800 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 font-serif text-right whitespace-nowrap">
-              Teacher Dashboard
-            </Link>
-            <Link href="/the-arena" className="bg-red-700 hover:bg-red-800 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 font-serif text-right whitespace-nowrap">
-              The Arena
-            </Link>
-            <Link href="/character" className="bg-amber-700 hover:bg-amber-800 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 font-serif text-right whitespace-nowrap">
-              Your Character
-            </Link>
+          {/* Student Dropdown - Top Left */}
+          <div className="absolute top-0 -left-24 group">
+            <div className="bg-blue-700 hover:bg-blue-800 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 font-serif cursor-pointer">
+              For Students: ▼
+            </div>
+            <div className="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-2xl border-2 border-blue-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 min-w-[220px]">
+              <Link href="/quests" className="block px-4 py-3 text-emerald-700 hover:bg-emerald-50 font-serif font-semibold border-b border-gray-100 transition-colors">
+                🗺️ Quests
+              </Link>
+              <Link href="/socratic-forum" className="block px-4 py-3 text-teal-700 hover:bg-teal-50 font-serif font-semibold border-b border-gray-100 transition-colors">
+                🏛️ Socratic Forum
+              </Link>
+              <Link href="/storyworlds" className="block px-4 py-3 text-purple-700 hover:bg-purple-50 font-serif font-semibold border-b border-gray-100 transition-colors">
+                🗺️ Storyworlds
+              </Link>
+              <Link href="/student-dashboard" className="block px-4 py-3 text-green-700 hover:bg-green-50 font-serif font-semibold border-b border-gray-100 transition-colors">
+                📊 Student Dashboard
+              </Link>
+              <Link href="/the-arena" className="block px-4 py-3 text-red-700 hover:bg-red-50 font-serif font-semibold border-b border-gray-100 transition-colors">
+                ⚔️ The Arena
+              </Link>
+              <Link href="/character" className="block px-4 py-3 text-amber-700 hover:bg-amber-50 font-serif font-semibold rounded-b-lg transition-colors">
+                👤 Your Character
+              </Link>
+            </div>
+          </div>
+
+          {/* Teacher Dropdown - Top Right */}
+          <div className="absolute top-0 -right-24 group">
+            <div className="bg-indigo-700 hover:bg-indigo-800 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 font-serif cursor-pointer">
+              For Teachers: ▼
+            </div>
+            <div className="absolute top-full right-0 mt-2 bg-white rounded-lg shadow-2xl border-2 border-indigo-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 min-w-[220px]">
+              <Link href="/teacher-dashboard" className="block px-4 py-3 text-indigo-700 hover:bg-indigo-50 font-serif font-semibold border-b border-gray-100 transition-colors">
+                📚 Teacher Dashboard
+              </Link>
+              <Link href="/analytics-dashboard" className="block px-4 py-3 text-blue-700 hover:bg-blue-50 font-serif font-semibold rounded-b-lg transition-colors">
+                📊 Analytics Dashboard
+              </Link>
+            </div>
           </div>
           <div className="inline-block p-8 rounded-xl shadow-2xl relative" style={{
             background: `
