@@ -12,8 +12,25 @@ export default function TeacherDashboard() {
       
       <div className="max-w-7xl mx-auto relative">
         
+        {/* Navigation */}
+        <div className="flex justify-between items-start mb-8">
+          <Link 
+            href="/analytics-dashboard" 
+            className="inline-flex items-center gap-2 text-amber-800 hover:text-amber-900 font-bold text-lg px-6 py-3 bg-amber-50/90 rounded-lg border-2 border-amber-600 shadow-md hover:shadow-lg transition-all"
+          >
+            📊 Analytics Dashboard
+          </Link>
+          
+          <Link 
+            href="/" 
+            className="inline-flex items-center gap-2 text-amber-800 hover:text-amber-900 font-bold text-lg px-6 py-3 bg-amber-50/90 rounded-lg border-2 border-amber-600 shadow-md hover:shadow-lg transition-all"
+          >
+            🏠 Return to Parlor
+          </Link>
+        </div>
+
         {/* Header */}
-        <div className="text-center mb-12 relative">
+        <div className="text-center mb-12">
           <div className="inline-block p-8 rounded-xl shadow-2xl relative" style={{
             background: `
               radial-gradient(circle at 25% 20%, rgba(252, 248, 227, 0.95) 0%, transparent 60%),
@@ -35,11 +52,6 @@ export default function TeacherDashboard() {
             <p className="text-lg text-amber-800 max-w-2xl mx-auto leading-relaxed font-serif">
               Manage your classes, track student progress, and access powerful teaching tools designed to streamline your workflow.
             </p>
-            <div className="mt-4">
-              <Link href="/" className="text-amber-700 hover:text-amber-800 font-serif underline">
-                ← Back to Literary Parlor
-              </Link>
-            </div>
           </div>
         </div>
 
