@@ -12,8 +12,23 @@ export default function Storyworlds() {
       
       <div className="max-w-7xl mx-auto relative">
         
+        {/* Navigation */}
+        <div className="flex justify-between items-start mb-8">
+          <Link 
+            href="/" 
+            className="inline-flex items-center gap-2 text-amber-800 hover:text-amber-900 font-bold text-lg px-6 py-3 bg-amber-50/90 rounded-lg border-2 border-amber-600 shadow-md hover:shadow-lg transition-all"
+          >
+            🏠 Return to Parlor
+          </Link>
+          
+          <div className="text-right">
+            <div className="text-amber-800 font-bold text-lg">🌍 World Explorer</div>
+            <div className="text-amber-700 text-sm">Level 10 Cartographer</div>
+          </div>
+        </div>
+
         {/* Header */}
-        <div className="text-center mb-12 relative">
+        <div className="text-center mb-12">
           <div className="inline-block p-8 rounded-xl shadow-2xl relative" style={{
             background: `
               radial-gradient(circle at 25% 20%, rgba(252, 248, 227, 0.95) 0%, transparent 60%),
@@ -35,11 +50,6 @@ export default function Storyworlds() {
             <p className="text-lg text-amber-800 max-w-3xl mx-auto leading-relaxed font-serif">
               Explore the geographic landscapes where our literary journeys unfold. From the whaling ports of New England to the drawing rooms of England, discover the real-world settings that shaped these timeless stories.
             </p>
-            <div className="mt-4">
-              <Link href="/" className="text-amber-700 hover:text-amber-800 font-serif underline">
-                ← Back to Literary Parlor
-              </Link>
-            </div>
           </div>
         </div>
 

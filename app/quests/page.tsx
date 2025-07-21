@@ -12,8 +12,23 @@ export default function Quests() {
       
       <div className="max-w-7xl mx-auto relative">
         
+        {/* Navigation */}
+        <div className="flex justify-between items-start mb-8">
+          <Link 
+            href="/" 
+            className="inline-flex items-center gap-2 text-amber-800 hover:text-amber-900 font-bold text-lg px-6 py-3 bg-amber-50/90 rounded-lg border-2 border-amber-600 shadow-md hover:shadow-lg transition-all"
+          >
+            🏠 Return to Parlor
+          </Link>
+          
+          <div className="text-right">
+            <div className="text-amber-800 font-bold text-lg">🗺️ Quest Master</div>
+            <div className="text-amber-700 text-sm">Level 12 Adventurer</div>
+          </div>
+        </div>
+
         {/* Header */}
-        <div className="text-center mb-12 relative">
+        <div className="text-center mb-12">
           <div className="inline-block p-8 rounded-xl shadow-2xl relative" style={{
             background: `
               radial-gradient(circle at 25% 20%, rgba(252, 248, 227, 0.95) 0%, transparent 60%),
@@ -36,11 +51,6 @@ export default function Quests() {
               Embark on epic literary adventures to unlock the secrets of great works. Complete quests to gain knowledge, 
               earn experience, and unlock legendary boss battles in The Arena.
             </p>
-            <div className="mt-4">
-              <Link href="/" className="text-emerald-700 hover:text-emerald-800 font-serif underline">
-                ← Back to Literary Parlor
-              </Link>
-            </div>
           </div>
         </div>
 
