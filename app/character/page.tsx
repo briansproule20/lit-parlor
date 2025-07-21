@@ -85,7 +85,13 @@ export default function CharacterPage() {
               <div className="text-left">
                 <h1 className="text-4xl font-bold text-amber-900 font-serif">{character.name}</h1>
                 <div className="text-2xl text-purple-600 font-serif font-semibold">{character.title}</div>
-                <div className="text-lg text-amber-700 font-serif">Level {character.level}</div>
+                <div className="flex items-center gap-4">
+                  <div className="text-lg text-amber-700 font-serif">Level {character.level}</div>
+                  <div className="flex items-center gap-2">
+                    <div className="text-lg text-indigo-600 font-serif font-semibold">{character.level}</div>
+                    <div className="text-sm text-indigo-500 font-serif">Skill Points</div>
+                  </div>
+                </div>
               </div>
             </div>
             
@@ -576,6 +582,189 @@ export default function CharacterPage() {
                 <span className="font-semibold">Demo Note:</span> In the full version, students can select their preferred character class 
                 or unlock multiple classes as they progress, each offering unique quest paths and specialized tools.
               </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Skill Tree */}
+        <div className="mb-12">
+          <div className="text-center mb-8">
+            <div className="inline-block p-6 bg-gradient-to-r from-indigo-900/90 to-purple-800/90 border-4 border-indigo-400 rounded-2xl shadow-2xl">
+              <h2 className="text-3xl font-bold text-white mb-4 font-serif">
+                Literary Skill Tree
+              </h2>
+              <p className="text-indigo-200 text-lg font-serif max-w-3xl mx-auto">
+                Develop your literary analysis abilities through a branching skill system. 
+                Each skill unlocks new quest types, analysis tools, and specialized content.
+              </p>
+            </div>
+          </div>
+
+          <div className="bg-white/95 rounded-xl shadow-xl p-8 border-2 border-indigo-200">
+            {/* Foundation Skills */}
+            <div className="text-center mb-8">
+              <div className="inline-block p-4 bg-gradient-to-r from-amber-700 to-amber-800 rounded-lg shadow-lg border-2 border-amber-600">
+                <h3 className="text-lg font-bold text-white font-serif">Literary Foundation</h3>
+                <p className="text-amber-200 text-sm font-serif">Basic reading and comprehension</p>
+              </div>
+            </div>
+
+            {/* Skill Categories */}
+            <div className="grid lg:grid-cols-3 gap-8">
+              
+              {/* Reading Skills */}
+              <div className="space-y-4">
+                <div className="text-center mb-6">
+                  <h3 className="text-xl font-bold text-green-800 font-serif">Reading Skills</h3>
+                </div>
+                
+                <div className="p-4 bg-green-50 rounded-lg border-2 border-green-200 shadow-md">
+                  <div className="flex items-center justify-between mb-2">
+                    <h4 className="font-semibold text-green-800 font-serif">Close Reading</h4>
+                    <span className="text-green-600 text-sm font-bold">Level 3</span>
+                  </div>
+                  <p className="text-green-700 text-sm font-serif mb-3">Analyze text at the word and sentence level</p>
+                  <div className="w-full bg-green-200 rounded-full h-2">
+                    <div className="bg-green-500 h-2 rounded-full" style={{width: '75%'}}></div>
+                  </div>
+                </div>
+                
+                <div className="p-4 bg-blue-50 rounded-lg border-2 border-blue-200 shadow-md">
+                  <div className="flex items-center justify-between mb-2">
+                    <h4 className="font-semibold text-blue-800 font-serif">Speed Reading</h4>
+                    <span className="text-blue-600 text-sm font-bold">Level 1</span>
+                  </div>
+                  <p className="text-blue-700 text-sm font-serif mb-3">Increase reading speed while maintaining comprehension</p>
+                  <div className="w-full bg-blue-200 rounded-full h-2">
+                    <div className="bg-blue-500 h-2 rounded-full" style={{width: '25%'}}></div>
+                  </div>
+                </div>
+                
+                <div className="p-4 bg-gray-50 rounded-lg border-2 border-gray-200 shadow-md opacity-60">
+                  <div className="flex items-center justify-between mb-2">
+                    <h4 className="font-semibold text-gray-600 font-serif">Contextual Reading</h4>
+                    <span className="text-gray-500 text-sm font-bold">🔒 Locked</span>
+                  </div>
+                  <p className="text-gray-600 text-sm font-serif">Understand historical and cultural context</p>
+                </div>
+              </div>
+
+              {/* Analysis Skills */}
+              <div className="space-y-4">
+                <div className="text-center mb-6">
+                  <h3 className="text-xl font-bold text-purple-800 font-serif">Analysis Skills</h3>
+                </div>
+                
+                <div className="p-4 bg-purple-50 rounded-lg border-2 border-purple-200 shadow-md">
+                  <div className="flex items-center justify-between mb-2">
+                    <h4 className="font-semibold text-purple-800 font-serif">Character Analysis</h4>
+                    <span className="text-purple-600 text-sm font-bold">Level 4</span>
+                  </div>
+                  <p className="text-purple-700 text-sm font-serif mb-3">Deep character study and motivation analysis</p>
+                  <div className="w-full bg-purple-200 rounded-full h-2">
+                    <div className="bg-purple-500 h-2 rounded-full" style={{width: '90%'}}></div>
+                  </div>
+                </div>
+                
+                <div className="p-4 bg-orange-50 rounded-lg border-2 border-orange-200 shadow-md">
+                  <div className="flex items-center justify-between mb-2">
+                    <h4 className="font-semibold text-orange-800 font-serif">Theme Identification</h4>
+                    <span className="text-orange-600 text-sm font-bold">Level 2</span>
+                  </div>
+                  <p className="text-orange-700 text-sm font-serif mb-3">Identify and analyze recurring themes</p>
+                  <div className="w-full bg-orange-200 rounded-full h-2">
+                    <div className="bg-orange-500 h-2 rounded-full" style={{width: '50%'}}></div>
+                  </div>
+                </div>
+                
+                <div className="p-4 bg-red-50 rounded-lg border-2 border-red-200 shadow-md">
+                  <div className="flex items-center justify-between mb-2">
+                    <h4 className="font-semibold text-red-800 font-serif">Symbolism Analysis</h4>
+                    <span className="text-red-600 text-sm font-bold">Level 1</span>
+                  </div>
+                  <p className="text-red-700 text-sm font-serif mb-3">Interpret symbols and metaphorical language</p>
+                  <div className="w-full bg-red-200 rounded-full h-2">
+                    <div className="bg-red-500 h-2 rounded-full" style={{width: '30%'}}></div>
+                  </div>
+                </div>
+                
+                <div className="p-4 bg-gray-50 rounded-lg border-2 border-gray-200 shadow-md opacity-60">
+                  <div className="flex items-center justify-between mb-2">
+                    <h4 className="font-semibold text-gray-600 font-serif">Structural Analysis</h4>
+                    <span className="text-gray-500 text-sm font-bold">🔒 Locked</span>
+                  </div>
+                  <p className="text-gray-600 text-sm font-serif">Analyze plot structure and narrative techniques</p>
+                </div>
+              </div>
+
+              {/* Writing Skills */}
+              <div className="space-y-4">
+                <div className="text-center mb-6">
+                  <h3 className="text-xl font-bold text-teal-800 font-serif">Writing Skills</h3>
+                </div>
+                
+                <div className="p-4 bg-teal-50 rounded-lg border-2 border-teal-200 shadow-md">
+                  <div className="flex items-center justify-between mb-2">
+                    <h4 className="font-semibold text-teal-800 font-serif">Essay Writing</h4>
+                    <span className="text-teal-600 text-sm font-bold">Level 3</span>
+                  </div>
+                  <p className="text-teal-700 text-sm font-serif mb-3">Craft analytical essays with evidence</p>
+                  <div className="w-full bg-teal-200 rounded-full h-2">
+                    <div className="bg-teal-500 h-2 rounded-full" style={{width: '60%'}}></div>
+                  </div>
+                </div>
+                
+                <div className="p-4 bg-pink-50 rounded-lg border-2 border-pink-200 shadow-md">
+                  <div className="flex items-center justify-between mb-2">
+                    <h4 className="font-semibold text-pink-800 font-serif">Creative Response</h4>
+                    <span className="text-pink-600 text-sm font-bold">Level 2</span>
+                  </div>
+                  <p className="text-pink-700 text-sm font-serif mb-3">Write creative responses to literature</p>
+                  <div className="w-full bg-pink-200 rounded-full h-2">
+                    <div className="bg-pink-500 h-2 rounded-full" style={{width: '40%'}}></div>
+                  </div>
+                </div>
+                
+                <div className="p-4 bg-gray-50 rounded-lg border-2 border-gray-200 shadow-md opacity-60">
+                  <div className="flex items-center justify-between mb-2">
+                    <h4 className="font-semibold text-gray-600 font-serif">Research Writing</h4>
+                    <span className="text-gray-500 text-sm font-bold">🔒 Locked</span>
+                  </div>
+                  <p className="text-gray-600 text-sm font-serif">Conduct literary research and citations</p>
+                </div>
+                
+                <div className="p-4 bg-gray-50 rounded-lg border-2 border-gray-200 shadow-md opacity-60">
+                  <div className="flex items-center justify-between mb-2">
+                    <h4 className="font-semibold text-gray-600 font-serif">Poetry Analysis</h4>
+                    <span className="text-gray-500 text-sm font-bold">🔒 Locked</span>
+                  </div>
+                  <p className="text-gray-600 text-sm font-serif">Analyze poetic forms and techniques</p>
+                </div>
+              </div>
+
+            </div>
+
+            {/* Skill Synergies */}
+            <div className="mt-8 p-6 bg-indigo-50 rounded-lg border-2 border-indigo-200">
+              <h4 className="text-lg font-semibold text-indigo-800 mb-4 font-serif text-center">Skill Synergies</h4>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h5 className="font-semibold text-indigo-700 mb-2 font-serif">Unlocked Combinations</h5>
+                  <ul className="text-sm text-indigo-600 space-y-1 font-serif">
+                    <li>• Close Reading + Character Analysis = Advanced Character Studies</li>
+                    <li>• Theme Identification + Symbolism = Deep Symbolic Analysis</li>
+                    <li>• Essay Writing + Analysis Skills = Masterful Literary Criticism</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5 className="font-semibold text-indigo-700 mb-2 font-serif">Locked Combinations</h5>
+                  <ul className="text-sm text-gray-500 space-y-1 font-serif">
+                    <li>• Structural Analysis + Contextual Reading = Historical Context Mastery</li>
+                    <li>• Poetry Analysis + Creative Response = Poetic Expression</li>
+                    <li>• Research Writing + All Analysis Skills = Scholarly Expertise</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
