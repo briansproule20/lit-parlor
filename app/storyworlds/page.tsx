@@ -130,37 +130,7 @@ export default function Storyworlds() {
                     </div>
                   </div>
                 </div>
-                
-                {/* Map Legend */}
-                <div className="absolute bottom-4 left-4 bg-white/95 rounded-lg p-4 shadow-xl border border-amber-200">
-                  <div className="text-sm font-bold text-amber-900 font-serif mb-3">Literary Locations</div>
-                  <div className="grid grid-cols-2 gap-2 text-xs">
-                    <div className="flex items-center gap-2">
-                      <div className="w-3 h-3 bg-blue-600 rounded-full"></div>
-                      <span className="font-serif">Moby Dick</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-3 h-3 bg-red-600 rounded-full"></div>
-                      <span className="font-serif">Pride & Prejudice</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-3 h-3 bg-orange-600 rounded-full"></div>
-                      <span className="font-serif">Things Fall Apart</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-3 h-3 bg-purple-600 rounded-full"></div>
-                      <span className="font-serif">Crime & Punishment</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-3 h-3 bg-green-600 rounded-full"></div>
-                      <span className="font-serif">Their Eyes...</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-3 h-3 bg-red-700 rounded-full"></div>
-                      <span className="font-serif">Animal Farm</span>
-                    </div>
-                  </div>
-                </div>
+
               </div>
             </div>
           </div>
