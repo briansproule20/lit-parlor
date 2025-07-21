@@ -203,6 +203,12 @@ export default function FullCollectionPage() {
             Coming Soon
           </h2>
           
+          <h3 className="text-xl font-semibold text-amber-200 mb-6 text-center font-serif" style={{
+            textShadow: '1px 1px 2px rgba(0,0,0,0.5)'
+          }}>
+            Narrative Fiction
+          </h3>
+          
           <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-6">
             
             {/* Coming Soon Books */}
@@ -214,7 +220,9 @@ export default function FullCollectionPage() {
               { title: "Lord of the Flies", author: "William Golding", genre: "Allegorical Novel" },
               { title: "Of Mice and Men", author: "John Steinbeck", genre: "American Literature" },
               { title: "The Scarlet Letter", author: "Nathaniel Hawthorne", genre: "Historical Fiction" },
-              { title: "Brave New World", author: "Aldous Huxley", genre: "Science Fiction" }
+              { title: "Brave New World", author: "Aldous Huxley", genre: "Science Fiction" },
+              { title: "Slaughterhouse-Five", author: "Kurt Vonnegut", genre: "Science Fiction" },
+              { title: "The Alchemist", author: "Paulo Coelho", genre: "Philosophical Novel" }
             ].map((book, index) => (
               <div key={index} className="bg-gradient-to-r from-gray-700 to-gray-600 p-4 rounded-lg shadow-lg border-2 border-gray-500 opacity-75">
                 <div className="bg-gradient-to-br from-gray-800 to-gray-700 p-3 rounded-lg mb-3 relative overflow-hidden">
@@ -229,6 +237,121 @@ export default function FullCollectionPage() {
               </div>
             ))}
             
+          </div>
+          
+          {/* Drama Section */}
+          <h3 className="text-xl font-semibold text-amber-200 mb-6 text-center font-serif mt-12" style={{
+            textShadow: '1px 1px 2px rgba(0,0,0,0.5)'
+          }}>
+            Drama
+          </h3>
+          
+          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-6 mb-12">
+            {/* Drama Books */}
+            {[
+              { title: "Romeo & Juliet", author: "William Shakespeare", genre: "Tragedy" },
+              { title: "Othello", author: "William Shakespeare", genre: "Tragedy" }
+            ].map((book, index) => (
+              <div key={index} className="bg-gradient-to-r from-gray-700 to-gray-600 p-4 rounded-lg shadow-lg border-2 border-gray-500 opacity-75">
+                <div className="bg-gradient-to-br from-gray-800 to-gray-700 p-3 rounded-lg mb-3 relative overflow-hidden">
+                  <div className="absolute top-2 right-2 w-4 h-4 bg-gray-400 opacity-20 rounded-full"></div>
+                  <h3 className="text-sm font-bold text-gray-300 mb-1 font-serif text-center leading-tight">{book.title}</h3>
+                  <p className="text-gray-400 text-center font-serif italic text-xs">{book.genre}</p>
+                  <div className="text-center text-gray-400 text-xs font-serif mt-1">{book.author}</div>
+                </div>
+                <div className="text-center">
+                  <span className="text-gray-400 text-xs font-serif">🔒 Coming Soon</span>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          {/* Short Stories Section */}
+          <h3 className="text-xl font-semibold text-amber-200 mb-6 text-center font-serif mt-12" style={{
+            textShadow: '1px 1px 2px rgba(0,0,0,0.5)'
+          }}>
+            Short Stories
+          </h3>
+          
+          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-6 mb-12">
+            {/* Placeholder for Short Stories */}
+            <div className="bg-gradient-to-r from-gray-700 to-gray-600 p-4 rounded-lg shadow-lg border-2 border-gray-500 opacity-75">
+              <div className="bg-gradient-to-br from-gray-800 to-gray-700 p-3 rounded-lg mb-3 relative overflow-hidden">
+                <div className="absolute top-2 right-2 w-4 h-4 bg-gray-400 opacity-20 rounded-full"></div>
+                <h3 className="text-sm font-bold text-gray-300 mb-1 font-serif text-center leading-tight">Coming Soon</h3>
+                <p className="text-gray-400 text-center font-serif italic text-xs">Short Fiction</p>
+                <div className="text-center text-gray-400 text-xs font-serif mt-1">Various Authors</div>
+              </div>
+              <div className="text-center">
+                <span className="text-gray-400 text-xs font-serif">🔒 Coming Soon</span>
+              </div>
+            </div>
+          </div>
+          
+          {/* Poetry Section */}
+          <h3 className="text-xl font-semibold text-amber-200 mb-6 text-center font-serif" style={{
+            textShadow: '1px 1px 2px rgba(0,0,0,0.5)'
+          }}>
+            Poetry
+          </h3>
+          
+          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-6 mb-12">
+            {/* Placeholder for Poetry */}
+            <div className="bg-gradient-to-r from-gray-700 to-gray-600 p-4 rounded-lg shadow-lg border-2 border-gray-500 opacity-75">
+              <div className="bg-gradient-to-br from-gray-800 to-gray-700 p-3 rounded-lg mb-3 relative overflow-hidden">
+                <div className="absolute top-2 right-2 w-4 h-4 bg-gray-400 opacity-20 rounded-full"></div>
+                <h3 className="text-sm font-bold text-gray-300 mb-1 font-serif text-center leading-tight">Coming Soon</h3>
+                <p className="text-gray-400 text-center font-serif italic text-xs">Poetry Collections</p>
+                <div className="text-center text-gray-400 text-xs font-serif mt-1">Various Poets</div>
+              </div>
+              <div className="text-center">
+                <span className="text-gray-400 text-xs font-serif">🔒 Coming Soon</span>
+              </div>
+            </div>
+          </div>
+          
+          {/* Nonfiction Section */}
+          <h3 className="text-xl font-semibold text-amber-200 mb-6 text-center font-serif" style={{
+            textShadow: '1px 1px 2px rgba(0,0,0,0.5)'
+          }}>
+            Nonfiction
+          </h3>
+          
+          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-6 mb-12">
+            {/* Placeholder for Nonfiction */}
+            <div className="bg-gradient-to-r from-gray-700 to-gray-600 p-4 rounded-lg shadow-lg border-2 border-gray-500 opacity-75">
+              <div className="bg-gradient-to-br from-gray-800 to-gray-700 p-3 rounded-lg mb-3 relative overflow-hidden">
+                <div className="absolute top-2 right-2 w-4 h-4 bg-gray-400 opacity-20 rounded-full"></div>
+                <h3 className="text-sm font-bold text-gray-300 mb-1 font-serif text-center leading-tight">Coming Soon</h3>
+                <p className="text-gray-400 text-center font-serif italic text-xs">Nonfiction Works</p>
+                <div className="text-center text-gray-400 text-xs font-serif mt-1">Various Authors</div>
+              </div>
+              <div className="text-center">
+                <span className="text-gray-400 text-xs font-serif">🔒 Coming Soon</span>
+              </div>
+            </div>
+          </div>
+          
+          {/* Speeches Section */}
+          <h3 className="text-xl font-semibold text-amber-200 mb-6 text-center font-serif" style={{
+            textShadow: '1px 1px 2px rgba(0,0,0,0.5)'
+          }}>
+            Speeches
+          </h3>
+          
+          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-6 mb-12">
+            {/* Placeholder for Speeches */}
+            <div className="bg-gradient-to-r from-gray-700 to-gray-600 p-4 rounded-lg shadow-lg border-2 border-gray-500 opacity-75">
+              <div className="bg-gradient-to-br from-gray-800 to-gray-700 p-3 rounded-lg mb-3 relative overflow-hidden">
+                <div className="absolute top-2 right-2 w-4 h-4 bg-gray-400 opacity-20 rounded-full"></div>
+                <h3 className="text-sm font-bold text-gray-300 mb-1 font-serif text-center leading-tight">Coming Soon</h3>
+                <p className="text-gray-400 text-center font-serif italic text-xs">Historic Speeches</p>
+                <div className="text-center text-gray-400 text-xs font-serif mt-1">Various Orators</div>
+              </div>
+              <div className="text-center">
+                <span className="text-gray-400 text-xs font-serif">🔒 Coming Soon</span>
+              </div>
+            </div>
           </div>
         </div>
 
