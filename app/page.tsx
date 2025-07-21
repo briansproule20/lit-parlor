@@ -134,21 +134,21 @@ export default function Home() {
         {/* Mission Statement */}
         <div className="text-center mb-12">
           <div className="max-w-4xl mx-auto">
-            <div className="inline-block p-8 bg-gradient-to-r from-indigo-900/90 to-purple-800/90 border-4 border-indigo-400 rounded-2xl shadow-2xl relative overflow-hidden">
+            <div className="inline-block p-8 bg-gradient-to-r from-blue-900/90 to-blue-700/90 border-4 border-blue-400 rounded-2xl shadow-2xl relative overflow-hidden">
               {/* Decorative background pattern */}
               <div className="absolute inset-0 opacity-5">
-                <div className="absolute top-4 left-4 w-12 h-12 bg-indigo-300 rounded-full"></div>
-                <div className="absolute top-4 right-4 w-8 h-8 bg-purple-300 rounded-full"></div>
-                <div className="absolute bottom-4 left-4 w-10 h-10 bg-indigo-400 rounded-full"></div>
-                <div className="absolute bottom-4 right-4 w-6 h-6 bg-purple-400 rounded-full"></div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-indigo-200 rounded-full"></div>
+                <div className="absolute top-4 left-4 w-12 h-12 bg-blue-300 rounded-full"></div>
+                <div className="absolute top-4 right-4 w-8 h-8 bg-blue-400 rounded-full"></div>
+                <div className="absolute bottom-4 left-4 w-10 h-10 bg-blue-500 rounded-full"></div>
+                <div className="absolute bottom-4 right-4 w-6 h-6 bg-blue-600 rounded-full"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-blue-200 rounded-full"></div>
               </div>
               
               <div className="relative z-10">
                 <h2 className="text-3xl font-bold text-white mb-6 font-serif">
                   Our Mission
                 </h2>
-                <p className="text-indigo-200 text-lg leading-relaxed font-serif max-w-3xl mx-auto">
+                <p className="text-blue-200 text-lg leading-relaxed font-serif max-w-3xl mx-auto">
                   We're revolutionizing literary education by combining gamification, multi-modal learning, and intelligent teaching tools to transform how students experience classic works - building critical thinking and cultural literacy while providing teachers with powerful tools that streamline lesson planning, classroom management, and student analytics.
                 </p>
               </div>
@@ -587,9 +587,9 @@ export default function Home() {
                   but true understanding flourishes when knowledge is presented through diverse channels.
                 </p>
                 <div className="bg-indigo-800/50 rounded-lg p-6 mb-6 backdrop-blur-sm">
-                  <h3 className="text-xl font-semibold text-indigo-200 mb-4 font-serif">Our Mission</h3>
+                  <h3 className="text-xl font-semibold text-indigo-200 mb-4 font-serif">Our Goals</h3>
                   <p className="text-indigo-100 font-serif leading-relaxed">
-                    It's our mission to harness the power of visual, auditory, kinesthetic, and interactive learning modalities 
+                    It's our goal to harness the power of visual, auditory, kinesthetic, and interactive learning modalities 
                     and make them accessible to the next generation of learners. By combining literature with technology, 
                     traditional analysis with modern engagement, we create pathways for every mind to discover the joy of learning.
                   </p>
@@ -644,6 +644,133 @@ export default function Home() {
                 >
                   📖 Glossary of Terms
                 </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Lit Salon Workflow Section */}
+        <div className="text-center mb-12">
+          <div className="max-w-4xl mx-auto">
+            <div className="inline-block p-8 bg-gradient-to-r from-pink-900/90 to-pink-700/90 border-4 border-pink-400 rounded-2xl shadow-2xl relative overflow-hidden">
+              {/* Decorative background pattern */}
+              <div className="absolute inset-0 opacity-5">
+                <div className="absolute top-4 left-4 w-12 h-12 bg-pink-300 rounded-full"></div>
+                <div className="absolute top-4 right-4 w-8 h-8 bg-pink-400 rounded-full"></div>
+                <div className="absolute bottom-4 left-4 w-10 h-10 bg-pink-500 rounded-full"></div>
+                <div className="absolute bottom-4 right-4 w-6 h-6 bg-pink-600 rounded-full"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-pink-200 rounded-full"></div>
+              </div>
+              
+              <div className="relative z-10">
+                <h2 className="text-3xl font-bold text-white mb-6 font-serif">
+                  Lit Salon Workflow
+                </h2>
+                <p className="text-pink-200 text-lg leading-relaxed font-serif mb-6 max-w-3xl mx-auto">
+                  Our comprehensive gamified learning system designed to engage students and streamline teaching workflows.
+                </p>
+                
+                {/* Workflow Steps */}
+                <div className="grid md:grid-cols-2 gap-6 mb-6">
+                  <div className="text-left">
+                    <div className="space-y-4">
+                      <div className="flex items-start gap-3">
+                        <div className="bg-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold font-serif flex-shrink-0">1</div>
+                        <div className="text-purple-100 font-serif">
+                          <span className="font-semibold">Student/Teacher Onboarding</span>
+                          <p className="text-sm text-purple-200 mt-1">Initial setup and account creation for all users</p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-start gap-3">
+                        <div className="bg-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold font-serif flex-shrink-0">2</div>
+                        <div className="text-purple-100 font-serif">
+                          <span className="font-semibold">Setup Class Rosters</span>
+                          <p className="text-sm text-purple-200 mt-1">Create and manage student groups and assignments</p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-start gap-3">
+                        <div className="bg-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold font-serif flex-shrink-0">3</div>
+                        <div className="text-purple-100 font-serif">
+                          <span className="font-semibold">Assign Modules</span>
+                          <p className="text-sm text-purple-200 mt-1">Select literary works and learning objectives</p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-start gap-3">
+                        <div className="bg-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold font-serif flex-shrink-0">4</div>
+                        <div className="text-purple-100 font-serif">
+                          <span className="font-semibold">Students Complete Module Quests for XP</span>
+                          <p className="text-sm text-purple-200 mt-1">Gamified learning activities and assessments</p>
+                          <div className="ml-2 mt-2 p-3 bg-purple-800/30 rounded-lg border-l-2 border-purple-400">
+                            <p className="text-purple-200 text-xs font-semibold">Integrate Peer Collaboration:</p>
+                            <p className="text-purple-300 text-xs mt-1">Add collaborative quests where students can form "guilds" or study groups to tackle certain challenges together. This builds community and supports different learning styles while maintaining the gamified structure.</p>
+                          </div>
+                          <div className="ml-2 mt-2 p-3 bg-purple-800/30 rounded-lg border-l-2 border-purple-400">
+                            <p className="text-purple-200 text-xs font-semibold">🏆 Micro-Credentialing System:</p>
+                            <p className="text-purple-300 text-xs mt-1">Break down the XP system into specific skill badges (close reading, textual analysis, creative response) that students can showcase and teachers can track for more granular assessment.</p>
+                          </div>
+                          <div className="ml-2 mt-2 p-3 bg-purple-800/30 rounded-lg border-l-2 border-purple-400">
+                            <p className="text-purple-200 text-xs font-semibold">🎯 Student Agency Integration:</p>
+                            <p className="text-purple-300 text-xs mt-1">Add a "Quest Creation" feature where advanced students can design challenges for peers, increasing ownership and deeper engagement with the material.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="text-left">
+                    <div className="space-y-4">
+                      <div className="flex items-start gap-3">
+                        <div className="bg-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold font-serif flex-shrink-0">5</div>
+                        <div className="text-purple-100 font-serif">
+                          <span className="font-semibold">Higher Levels Unlock More Difficult Assignments</span>
+                          <p className="text-sm text-purple-200 mt-1">Progressive difficulty based on achievement</p>
+                          <div className="ml-2 mt-2 p-3 bg-purple-800/30 rounded-lg border-l-2 border-purple-400">
+                            <p className="text-purple-200 text-xs font-semibold">🎭 Adaptive Pathways:</p>
+                            <p className="text-purple-300 text-xs mt-1">Instead of purely linear progression, allow students to choose between different "character classes" (analytical reader, creative interpreter, historical researcher) that offer varied approaches to the same literary content.</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-start gap-3">
+                        <div className="bg-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold font-serif flex-shrink-0">6</div>
+                        <div className="text-purple-100 font-serif">
+                          <span className="font-semibold">Arena/Boss Battles (Final Assessments)</span>
+                          <p className="text-sm text-purple-200 mt-1">Comprehensive evaluations after quest completion</p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-start gap-3">
+                        <div className="bg-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold font-serif flex-shrink-0">7</div>
+                        <div className="text-purple-100 font-serif">
+                          <span className="font-semibold">Teacher Assessment Options</span>
+                          <p className="text-sm text-purple-200 mt-1">Individual assignments, level ranges, or participation grades</p>
+                          <div className="ml-2 mt-2 p-3 bg-purple-800/30 rounded-lg border-l-2 border-purple-400">
+                            <p className="text-purple-200 text-xs font-semibold">⚡ Teacher Workflow Optimization:</p>
+                            <p className="text-purple-300 text-xs mt-1">Include automated report generation that translates gamified achievements into traditional grade formats, and bulk assignment tools for managing multiple classes efficiently.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Real-Time Progress Monitoring */}
+                <div className="mb-6 p-4 bg-violet-800/30 rounded-lg border-l-4 border-violet-400">
+                  <h3 className="text-violet-100 font-serif font-semibold mb-2">📊 Real-Time Progress Monitoring (Parallel to Steps 4-6)</h3>
+                  <p className="text-violet-200 text-sm font-serif">
+                    Create a dashboard that gives both teachers and students live feedback on progress, struggle points, and achievement patterns. This enables timely interventions rather than waiting for final assessments.
+                  </p>
+                </div>
+                
+                <div className="bg-violet-800/50 rounded-lg p-4 backdrop-blur-sm">
+                  <p className="text-violet-100 font-serif text-sm">
+                    <span className="font-semibold">🎯 Goal:</span> Transform traditional literary education into an engaging, 
+                    gamified experience that motivates students while providing teachers with powerful assessment tools.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
