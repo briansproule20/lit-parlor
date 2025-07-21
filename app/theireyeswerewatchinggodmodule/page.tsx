@@ -30,7 +30,7 @@ export default function TheirEyesWereWatchingGodModulePage() {
         
         {/* Renaissance Notice Header */}
         <div className="text-center mb-12">
-          <div className="inline-block p-8 shadow-2xl transform -rotate-1 relative overflow-visible transition-all duration-300 hover:scale-105 hover:shadow-3xl hover:-rotate-2 cursor-pointer" style={{
+          <div className="inline-block p-8 shadow-2xl transform relative overflow-visible transition-all duration-300 hover:scale-105 hover:shadow-3xl cursor-pointer" style={{
             border: '4px solid #8B4513',
             borderRadius: '12px',
             boxShadow: `
@@ -113,7 +113,7 @@ export default function TheirEyesWereWatchingGodModulePage() {
         <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
           
           {/* Character Analysis */}
-          <div className="bg-teal-50/95 border-4 border-teal-600 rounded-xl p-6 shadow-2xl transform rotate-1 transition-all duration-300 hover:scale-105 hover:rotate-2 hover:shadow-3xl cursor-pointer">
+          <div className="bg-teal-50/95 border-4 border-teal-600 rounded-xl p-6 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl cursor-pointer">
             <div className="text-center mb-6">
               <div className="text-6xl mb-3">👩</div>
               <h3 className="text-2xl font-bold text-teal-900 font-serif">CHARACTER DEEP DIVE</h3>
@@ -146,7 +146,7 @@ export default function TheirEyesWereWatchingGodModulePage() {
           </div>
 
           {/* Thematic Exploration */}
-          <div className="bg-teal-50/95 border-4 border-teal-600 rounded-xl p-6 shadow-2xl transform -rotate-1 transition-all duration-300 hover:scale-105 hover:-rotate-2 hover:shadow-3xl cursor-pointer">
+          <div className="bg-teal-50/95 border-4 border-teal-600 rounded-xl p-6 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl cursor-pointer">
             <div className="text-center mb-6">
               <div className="text-6xl mb-3">🌱</div>
               <h3 className="text-2xl font-bold text-teal-900 font-serif">THEMATIC DEPTHS</h3>
@@ -176,7 +176,7 @@ export default function TheirEyesWereWatchingGodModulePage() {
           </div>
 
           {/* Symbolic Analysis */}
-          <div className="bg-teal-50/95 border-4 border-teal-600 rounded-xl p-6 shadow-2xl transform rotate-2 transition-all duration-300 hover:scale-105 hover:rotate-3 hover:shadow-3xl cursor-pointer">
+          <div className="bg-teal-50/95 border-4 border-teal-600 rounded-xl p-6 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl cursor-pointer">
             <div className="text-center mb-6">
               <div className="text-6xl mb-3">🌳</div>
               <h3 className="text-2xl font-bold text-teal-900 font-serif">SYMBOLIC NATURE</h3>
