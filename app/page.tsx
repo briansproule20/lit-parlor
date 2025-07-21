@@ -12,6 +12,16 @@ export default function Home() {
       
       <div className="max-w-6xl mx-auto relative">
         
+        {/* Quote */}
+        <div className="text-center mb-8">
+          <p className="text-amber-100 text-2xl font-serif italic mb-2">
+            "The unexamined life is not worth living"
+          </p>
+          <p className="text-amber-200 text-sm font-serif">
+            — Socrates
+          </p>
+        </div>
+
         {/* Bookstore Header */}
         <div className="text-center mb-12 relative">
           
