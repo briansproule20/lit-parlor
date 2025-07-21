@@ -16,10 +16,15 @@ export default function Home() {
         <div className="text-center mb-12 relative">
           
           {/* Your Character Button - Top Right */}
-          <div className="absolute top-0 -right-8">
+          <div className="absolute top-0 -right-16">
             <Link href="/character" className="bg-amber-700 hover:bg-amber-800 text-white font-bold py-2 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 font-serif inline-block">
               Your Character
             </Link>
+            <div className="mt-2">
+              <Link href="/teacher-dashboard" className="bg-indigo-700 hover:bg-indigo-800 text-white font-bold py-2 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 font-serif inline-block">
+                Teacher Dashboard
+              </Link>
+            </div>
           </div>
           <div className="inline-block p-8 rounded-xl shadow-2xl relative" style={{
             background: `
