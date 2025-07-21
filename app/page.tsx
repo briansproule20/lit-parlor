@@ -37,13 +37,38 @@ export default function Home() {
             <h1 className="text-5xl font-bold text-amber-900 mb-4 font-serif" style={{
               textShadow: '3px 3px 6px rgba(0,0,0,0.3)'
             }}>
-              The Literary Parlor
+              The Literary Parlor // Lit Salon
             </h1>
             <p className="text-xl text-amber-800 max-w-3xl mx-auto leading-relaxed font-serif">
               A cozy corner where great stories come alive. Making long form narratives available in contemporary short forms. We are a project still in development. An umbrella site for learning tools and education projects undertaken by Brian Sproule.
             </p>
             <div className="mt-4 text-amber-700 font-serif italic">
               "A home without books is like a body without a soul" — Cicero
+            </div>
+          </div>
+        </div>
+
+        {/* Mission Statement */}
+        <div className="text-center mb-12">
+          <div className="max-w-4xl mx-auto">
+            <div className="inline-block p-8 bg-gradient-to-r from-indigo-900/90 to-purple-800/90 border-4 border-indigo-400 rounded-2xl shadow-2xl relative overflow-hidden">
+              {/* Decorative background pattern */}
+              <div className="absolute inset-0 opacity-5">
+                <div className="absolute top-4 left-4 w-12 h-12 bg-indigo-300 rounded-full"></div>
+                <div className="absolute top-4 right-4 w-8 h-8 bg-purple-300 rounded-full"></div>
+                <div className="absolute bottom-4 left-4 w-10 h-10 bg-indigo-400 rounded-full"></div>
+                <div className="absolute bottom-4 right-4 w-6 h-6 bg-purple-400 rounded-full"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-indigo-200 rounded-full"></div>
+              </div>
+              
+              <div className="relative z-10">
+                <h2 className="text-3xl font-bold text-white mb-6 font-serif">
+                  Our Mission
+                </h2>
+                <p className="text-indigo-200 text-lg leading-relaxed font-serif max-w-3xl mx-auto">
+                  We're revolutionizing literary education by combining gamification, multi-modal learning, and intelligent teaching tools to transform how students experience classic works - building critical thinking and cultural literacy while providing teachers with powerful tools that streamline lesson planning, classroom management, and student analytics.
+                </p>
+              </div>
             </div>
           </div>
         </div>
