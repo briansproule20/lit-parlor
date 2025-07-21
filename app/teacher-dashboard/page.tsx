@@ -15,17 +15,17 @@ export default function TeacherDashboard() {
         {/* Navigation */}
         <div className="flex justify-between items-start mb-8">
           <Link 
-            href="/analytics-dashboard" 
-            className="inline-flex items-center gap-2 text-amber-800 hover:text-amber-900 font-bold text-lg px-6 py-3 bg-amber-50/90 rounded-lg border-2 border-amber-600 shadow-md hover:shadow-lg transition-all"
-          >
-            📊 Analytics Dashboard
-          </Link>
-          
-          <Link 
             href="/" 
             className="inline-flex items-center gap-2 text-amber-800 hover:text-amber-900 font-bold text-lg px-6 py-3 bg-amber-50/90 rounded-lg border-2 border-amber-600 shadow-md hover:shadow-lg transition-all"
           >
             🏠 Return to Parlor
+          </Link>
+          
+          <Link 
+            href="/analytics-dashboard" 
+            className="inline-flex items-center gap-2 text-amber-800 hover:text-amber-900 font-bold text-lg px-6 py-3 bg-amber-50/90 rounded-lg border-2 border-amber-600 shadow-md hover:shadow-lg transition-all"
+          >
+            📊 Analytics Dashboard
           </Link>
         </div>
 
