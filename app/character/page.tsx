@@ -298,6 +298,288 @@ export default function CharacterPage() {
           </div>
         </div>
 
+        {/* Character Classes Section */}
+        <div className="mb-12">
+          <div className="text-center mb-8">
+            <div className="inline-block p-6 bg-gradient-to-r from-purple-900/90 to-indigo-800/90 border-4 border-purple-400 rounded-2xl shadow-2xl">
+              <h2 className="text-3xl font-bold text-white mb-4 font-serif">
+                Choose Your Literary Lens
+              </h2>
+              <p className="text-purple-200 text-lg font-serif max-w-3xl mx-auto">
+                Each character class represents a unique approach to reading and analyzing literature. 
+                These lenses shape how you engage with texts and unlock specialized quest paths.
+              </p>
+            </div>
+          </div>
+
+              <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-6">
+                {/* Analytical Reader */}
+                <div className="p-6 bg-gradient-to-br from-blue-50 to-blue-100 border-2 border-blue-400 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                  <div className="text-center mb-4">
+                    <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-3">
+                      🔍
+                    </div>
+                    <h3 className="text-xl font-bold text-blue-900 font-serif">Analytical Reader</h3>
+                  </div>
+                  <p className="text-blue-800 font-serif text-sm leading-relaxed">
+                    Masters of close reading and textual analysis. Excels at identifying literary devices, 
+                    themes, and structural elements. Unlocks advanced annotation tools and critical essay quests.
+                  </p>
+                </div>
+
+                {/* Creative Interpreter */}
+                <div className="p-6 bg-gradient-to-br from-pink-50 to-pink-100 border-2 border-pink-400 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                  <div className="text-center mb-4">
+                    <div className="w-16 h-16 bg-pink-600 text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-3">
+                      🎭
+                    </div>
+                    <h3 className="text-xl font-bold text-pink-900 font-serif">Creative Interpreter</h3>
+                  </div>
+                  <p className="text-pink-800 font-serif text-sm leading-relaxed">
+                    Brings imagination to literary analysis through creative responses. Specializes in character 
+                    development, alternative perspectives, and artistic interpretations. Unlocks creative writing and multimedia quests.
+                  </p>
+                </div>
+
+                {/* Historical Researcher */}
+                <div className="p-6 bg-gradient-to-br from-amber-50 to-amber-100 border-2 border-amber-400 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                  <div className="text-center mb-4">
+                    <div className="w-16 h-16 bg-amber-600 text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-3">
+                      📜
+                    </div>
+                    <h3 className="text-xl font-bold text-amber-900 font-serif">Historical Researcher</h3>
+                  </div>
+                  <p className="text-amber-800 font-serif text-sm leading-relaxed">
+                    Contextualizes literature within its historical and cultural framework. Expert at understanding 
+                    social conditions, author biography, and period influences. Unlocks historical research and timeline quests.
+                  </p>
+                </div>
+
+                {/* Relationship Expert */}
+                <div className="p-6 bg-gradient-to-br from-green-50 to-green-100 border-2 border-green-400 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                  <div className="text-center mb-4">
+                    <div className="w-16 h-16 bg-green-600 text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-3">
+                      💝
+                    </div>
+                    <h3 className="text-xl font-bold text-green-900 font-serif">Relationship Expert</h3>
+                  </div>
+                  <p className="text-green-800 font-serif text-sm leading-relaxed">
+                    Focuses on character relationships, social dynamics, and interpersonal conflicts. 
+                    Masters dialogue analysis and character motivation. Unlocks relationship mapping and character study quests.
+                  </p>
+                </div>
+
+                {/* Allusion Hunter */}
+                <div className="p-6 bg-gradient-to-br from-purple-50 to-purple-100 border-2 border-purple-400 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                  <div className="text-center mb-4">
+                    <div className="w-16 h-16 bg-purple-600 text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-3">
+                      🔗
+                    </div>
+                    <h3 className="text-xl font-bold text-purple-900 font-serif">Allusion Hunter</h3>
+                  </div>
+                  <p className="text-purple-800 font-serif text-sm leading-relaxed">
+                    Specializes in identifying references, connections, and intertextuality. Expert at finding 
+                    mythological, biblical, and literary allusions. Unlocks connection-mapping and reference research quests.
+                  </p>
+                </div>
+
+                {/* Symbolic Decoder */}
+                <div className="p-6 bg-gradient-to-br from-indigo-50 to-indigo-100 border-2 border-indigo-400 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                  <div className="text-center mb-4">
+                    <div className="w-16 h-16 bg-indigo-600 text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-3">
+                      🗝️
+                    </div>
+                    <h3 className="text-xl font-bold text-indigo-900 font-serif">Symbolic Decoder</h3>
+                  </div>
+                  <p className="text-indigo-800 font-serif text-sm leading-relaxed">
+                    Masters the art of interpreting symbols, metaphors, and deeper meanings. 
+                    Excels at uncovering hidden layers and abstract concepts. Unlocks symbolism analysis and metaphor exploration quests.
+                  </p>
+                </div>
+
+                {/* Visual Artist */}
+                <div className="p-6 bg-gradient-to-br from-teal-50 to-teal-100 border-2 border-teal-400 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                  <div className="text-center mb-4">
+                    <div className="w-16 h-16 bg-teal-600 text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-3">
+                      🎨
+                    </div>
+                    <h3 className="text-xl font-bold text-teal-900 font-serif">Visual Artist</h3>
+                  </div>
+                  <p className="text-teal-800 font-serif text-sm leading-relaxed">
+                    Creates visual representations of literary concepts, character maps, and storyboards. 
+                    Specializes in graphic novels, illustrations, and visual storytelling techniques. 
+                    Unlocks visual mapping and creative design quests.
+                  </p>
+                </div>
+
+                {/* Rhythm & Sound Detective */}
+                <div className="p-6 bg-gradient-to-br from-orange-50 to-orange-100 border-2 border-orange-400 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                  <div className="text-center mb-4">
+                    <div className="w-16 h-16 bg-orange-600 text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-3">
+                      🎵
+                    </div>
+                    <h3 className="text-xl font-bold text-orange-900 font-serif">Rhythm & Sound Detective</h3>
+                  </div>
+                  <p className="text-orange-800 font-serif text-sm leading-relaxed">
+                    Analyzes poetic meter, rhythm patterns, and sound devices. Masters scansion, 
+                    alliteration, and musical elements in literature. Unlocks sound analysis and rhythm exploration quests.
+                  </p>
+                </div>
+
+                {/* Cultural Anthropologist */}
+                <div className="p-6 bg-gradient-to-br from-amber-50 to-amber-100 border-2 border-amber-400 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                  <div className="text-center mb-4">
+                    <div className="w-16 h-16 bg-amber-600 text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-3">
+                      🌍
+                    </div>
+                    <h3 className="text-xl font-bold text-amber-900 font-serif">Cultural Anthropologist</h3>
+                  </div>
+                  <p className="text-amber-800 font-serif text-sm leading-relaxed">
+                    Studies literature through cultural lenses, examining social customs, traditions, 
+                    and cultural contexts. Specializes in world literature and cross-cultural analysis. 
+                    Unlocks cultural research and comparative analysis quests.
+                  </p>
+                </div>
+
+                {/* Psychological Profiler */}
+                <div className="p-6 bg-gradient-to-br from-red-50 to-red-100 border-2 border-red-400 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                  <div className="text-center mb-4">
+                    <div className="w-16 h-16 bg-red-600 text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-3">
+                      🧠
+                    </div>
+                    <h3 className="text-xl font-bold text-red-900 font-serif">Psychological Profiler</h3>
+                  </div>
+                  <p className="text-red-800 font-serif text-sm leading-relaxed">
+                    Analyzes character psychology, mental states, and behavioral patterns. 
+                    Masters psychological theories and character motivation analysis. 
+                    Unlocks psychological analysis and character study quests.
+                  </p>
+                </div>
+
+                {/* Moral Philosopher */}
+                <div className="p-6 bg-gradient-to-br from-slate-50 to-slate-100 border-2 border-slate-400 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                  <div className="text-center mb-4">
+                    <div className="w-16 h-16 bg-slate-600 text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-3">
+                      ⚖️
+                    </div>
+                    <h3 className="text-xl font-bold text-slate-900 font-serif">Moral Philosopher</h3>
+                  </div>
+                  <p className="text-slate-800 font-serif text-sm leading-relaxed">
+                    Examines ethical dilemmas, moral choices, and philosophical themes. 
+                    Specializes in ethical analysis and philosophical discussion. 
+                    Unlocks ethical debate and philosophical exploration quests.
+                  </p>
+                </div>
+
+                {/* Time Traveler */}
+                <div className="p-6 bg-gradient-to-br from-gray-50 to-gray-100 border-2 border-gray-400 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                  <div className="text-center mb-4">
+                    <div className="w-16 h-16 bg-gray-600 text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-3">
+                      ⏰
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 font-serif">Time Traveler</h3>
+                  </div>
+                  <p className="text-gray-800 font-serif text-sm leading-relaxed">
+                    Compares literature across time periods, tracks literary evolution, and studies 
+                    how themes persist or change over centuries. Unlocks historical comparison and timeline quests.
+                  </p>
+                </div>
+
+                {/* Genre Specialist */}
+                <div className="p-6 bg-gradient-to-br from-yellow-50 to-yellow-100 border-2 border-yellow-400 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                  <div className="text-center mb-4">
+                    <div className="w-16 h-16 bg-yellow-600 text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-3">
+                      📚
+                    </div>
+                    <h3 className="text-xl font-bold text-yellow-900 font-serif">Genre Specialist</h3>
+                  </div>
+                  <p className="text-yellow-800 font-serif text-sm leading-relaxed">
+                    Masters specific genres (mystery, romance, sci-fi, etc.) and their conventions. 
+                    Unlocks genre-specific analysis tools and specialized quests.
+                  </p>
+                </div>
+
+                {/* Performance Artist */}
+                <div className="p-6 bg-gradient-to-br from-violet-50 to-violet-100 border-2 border-violet-400 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                  <div className="text-center mb-4">
+                    <div className="w-16 h-16 bg-violet-600 text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-3">
+                      🎭
+                    </div>
+                    <h3 className="text-xl font-bold text-violet-900 font-serif">Performance Artist</h3>
+                  </div>
+                  <p className="text-violet-800 font-serif text-sm leading-relaxed">
+                    Brings literature to life through dramatic readings, character voices, and theatrical interpretations. 
+                    Specializes in performance and oral storytelling. Unlocks dramatic performance and oral interpretation quests.
+                  </p>
+                </div>
+
+                {/* Master of Poetics */}
+                <div className="p-6 bg-gradient-to-br from-rose-50 to-rose-100 border-2 border-rose-400 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                  <div className="text-center mb-4">
+                    <div className="w-16 h-16 bg-rose-600 text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-3">
+                      ✍️
+                    </div>
+                    <h3 className="text-xl font-bold text-rose-900 font-serif">Master of Poetics</h3>
+                  </div>
+                  <p className="text-rose-800 font-serif text-sm leading-relaxed">
+                    Expert in poetic forms, meter, and verse structure. Masters sonnets, haiku, free verse, 
+                    and traditional forms. Unlocks poetry analysis and verse composition quests.
+                  </p>
+                </div>
+
+                {/* Rhetorical Savant */}
+                <div className="p-6 bg-gradient-to-br from-cyan-50 to-cyan-100 border-2 border-cyan-400 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                  <div className="text-center mb-4">
+                    <div className="w-16 h-16 bg-cyan-600 text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-3">
+                      🎯
+                    </div>
+                    <h3 className="text-xl font-bold text-cyan-900 font-serif">Rhetorical Savant</h3>
+                  </div>
+                  <p className="text-cyan-800 font-serif text-sm leading-relaxed">
+                    Analyzes persuasive techniques, argument structure, and rhetorical devices. 
+                    Masters ethos, pathos, logos, and classical rhetoric. Unlocks argument analysis and debate quests.
+                  </p>
+                </div>
+
+                {/* Stylistic Critic */}
+                <div className="p-6 bg-gradient-to-br from-emerald-50 to-emerald-100 border-2 border-emerald-400 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                  <div className="text-center mb-4">
+                    <div className="w-16 h-16 bg-emerald-600 text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-3">
+                      🎨
+                    </div>
+                    <h3 className="text-xl font-bold text-emerald-900 font-serif">Stylistic Critic</h3>
+                  </div>
+                  <p className="text-emerald-800 font-serif text-sm leading-relaxed">
+                    Focuses on authorial voice, writing style, and linguistic choices. 
+                    Masters tone, diction, syntax, and narrative voice analysis. Unlocks style analysis and voice study quests.
+                  </p>
+                </div>
+
+                {/* Demosthenic Orator */}
+                <div className="p-6 bg-gradient-to-br from-lime-50 to-lime-100 border-2 border-lime-400 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                  <div className="text-center mb-4">
+                    <div className="w-16 h-16 bg-lime-600 text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-3">
+                      🗣️
+                    </div>
+                    <h3 className="text-xl font-bold text-lime-900 font-serif">Demosthenic Orator</h3>
+                  </div>
+                  <p className="text-lime-800 font-serif text-sm leading-relaxed">
+                    Specializes in speech analysis, public speaking, and oratory techniques. 
+                    Masters delivery, audience engagement, and persuasive speaking. Unlocks speech analysis and presentation quests.
+                  </p>
+                </div>
+              </div>
+
+          <div className="text-center mt-8">
+            <div className="inline-block p-4 bg-gradient-to-r from-slate-700/90 to-slate-600/90 border-2 border-slate-400 rounded-xl shadow-lg">
+              <p className="text-slate-200 font-serif text-sm">
+                <span className="font-semibold">Demo Note:</span> In the full version, students can select their preferred character class 
+                or unlock multiple classes as they progress, each offering unique quest paths and specialized tools.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Call to Action */}
         <div className="text-center">
           <div className="inline-block p-6 bg-gradient-to-r from-amber-900/90 to-orange-800/90 border-4 border-amber-400 rounded-2xl shadow-2xl">
