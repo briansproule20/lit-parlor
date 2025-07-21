@@ -158,6 +158,14 @@ export default function Home() {
                 </div>
               </div>
               <div className="relative group/item">
+                <Link href="/student-success" className="block px-4 py-3 text-purple-700 hover:bg-purple-50 font-serif font-semibold border-b border-gray-100 transition-colors">
+                  Student Success
+                </Link>
+                <div className="absolute right-full top-0 mr-2 bg-purple-800 text-white text-sm rounded-lg px-3 py-2 opacity-0 invisible group-hover/item:opacity-100 group-hover/item:visible transition-all duration-200 pointer-events-none whitespace-nowrap z-60">
+                  AI-generated visuals showcasing student achievements
+                </div>
+              </div>
+              <div className="relative group/item">
                 <Link href="/analytics-dashboard" className="block px-4 py-3 text-blue-700 hover:bg-blue-50 font-serif font-semibold rounded-b-lg transition-colors">
                   Analytics Dashboard
                 </Link>
