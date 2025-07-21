@@ -12,13 +12,20 @@ export default function MobyDick() {
   
   // Module exploration tracking
   const [clickedItems, setClickedItems] = useState<Set<string>>(new Set());
+  const [qualifiedItems, setQualifiedItems] = useState<Set<string>>(new Set());
+  const [itemReadingTimes, setItemReadingTimes] = useState<Map<string, number>>(new Map());
+  const [currentItemStartTime, setCurrentItemStartTime] = useState<number | null>(null);
+  const [currentItem, setCurrentItem] = useState<string | null>(null);
   const [timeSpent, setTimeSpent] = useState<number>(0);
   const [explorationPercentage, setExplorationPercentage] = useState<number>(0);
   const startTimeRef = useRef<number>(Date.now());
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   // Total trackable items in the module
-  const totalItems = 16; // 5 themes + 5 characters + 4 structure + 4 symbolism + 1 author + 1 setting
+  const totalItems = 18; // 5 themes + 5 characters + 4 structure + 4 symbolism + 1 author + 1 setting
+  
+  // Minimum reading time required to qualify (in seconds)
+  const minReadingTime = 8;
 
   // Track time spent
   useEffect(() => {
@@ -37,21 +44,61 @@ export default function MobyDick() {
     };
   }, []);
 
+  // Track reading time for current item
+  useEffect(() => {
+    if (currentItem && currentItemStartTime) {
+      const interval = setInterval(() => {
+        const currentTime = Date.now();
+        const readingTime = Math.floor((currentTime - currentItemStartTime) / 1000);
+        
+        setItemReadingTimes(prev => new Map(prev.set(currentItem, readingTime)));
+        
+        // Qualify item if minimum reading time is met
+        if (readingTime >= minReadingTime && !qualifiedItems.has(currentItem)) {
+          setQualifiedItems(prev => new Set(Array.from(prev).concat(currentItem)));
+        }
+      }, 1000);
+      
+      return () => clearInterval(interval);
+    }
+  }, [currentItem, currentItemStartTime, minReadingTime, qualifiedItems]);
+
   // Calculate exploration percentage
   useEffect(() => {
-    const clickWeight = 70; // 70% for clicks
-    const timeWeight = 30; // 30% for time
+    const clickWeight = 70; // 70% for qualified items (clicked + read)
+    const timeWeight = 30; // 30% for overall time
     
-    const clickPercentage = (clickedItems.size / totalItems) * 100;
+    const clickPercentage = (qualifiedItems.size / totalItems) * 100;
     const timePercentage = Math.min((timeSpent / 300) * 100, 100); // Max at 5 minutes
     
     const totalPercentage = Math.round((clickPercentage * clickWeight + timePercentage * timeWeight) / 100);
     setExplorationPercentage(Math.min(totalPercentage, 100));
-  }, [clickedItems.size, timeSpent, totalItems]);
+  }, [qualifiedItems.size, timeSpent, totalItems]);
 
-  // Function to track clicks
+  // Function to track clicks and start reading timer
   const trackClick = (itemId: string) => {
+    // Add to clicked items
     setClickedItems(prev => new Set(Array.from(prev).concat(itemId)));
+    
+    // Start reading timer for this item
+    setCurrentItem(itemId);
+    setCurrentItemStartTime(Date.now());
+  };
+
+  // Function to stop reading timer when popup closes
+  const stopReadingTimer = () => {
+    if (currentItem && currentItemStartTime) {
+      const readingTime = Math.floor((Date.now() - currentItemStartTime) / 1000);
+      setItemReadingTimes(prev => new Map(prev.set(currentItem, readingTime)));
+      
+      // Qualify item if minimum reading time was met
+      if (readingTime >= minReadingTime && !qualifiedItems.has(currentItem)) {
+        setQualifiedItems(prev => new Set(Array.from(prev).concat(currentItem)));
+      }
+    }
+    
+    setCurrentItem(null);
+    setCurrentItemStartTime(null);
   };
   return (
     <main className="min-h-screen py-8 px-4 relative" style={{
@@ -486,6 +533,7 @@ export default function MobyDick() {
                         setSelectedSymbolismItem(null);
                         setSelectedAuthor(null);
                         setSelectedSetting(null);
+                        trackClick('character-queequeg');
                       }}
                     >
                       <span className="text-amber-600">🗡️</span>
@@ -500,6 +548,7 @@ export default function MobyDick() {
                         setSelectedSymbolismItem(null);
                         setSelectedAuthor(null);
                         setSelectedSetting(null);
+                        trackClick('character-starbuck');
                       }}
                     >
                       <span className="text-amber-600">🏹</span>
@@ -514,6 +563,7 @@ export default function MobyDick() {
                         setSelectedSymbolismItem(null);
                         setSelectedAuthor(null);
                         setSelectedSetting(null);
+                        trackClick('character-stubb');
                       }}
                     >
                       <span className="text-amber-600">😄</span>
@@ -559,6 +609,7 @@ export default function MobyDick() {
                         setSelectedSymbolismItem(null);
                         setSelectedAuthor(null);
                         setSelectedSetting(null);
+                        trackClick('structure-journey');
                       }}
                     >
                       <span className="text-amber-600">🧭</span>
@@ -573,6 +624,7 @@ export default function MobyDick() {
                         setSelectedSymbolismItem(null);
                         setSelectedAuthor(null);
                         setSelectedSetting(null);
+                        trackClick('structure-chapters');
                       }}
                     >
                       <span className="text-amber-600">📖</span>
@@ -587,6 +639,7 @@ export default function MobyDick() {
                         setSelectedSymbolismItem(null);
                         setSelectedAuthor(null);
                         setSelectedSetting(null);
+                        trackClick('structure-perspectives');
                       }}
                     >
                       <span className="text-amber-600">🎭</span>
@@ -601,6 +654,7 @@ export default function MobyDick() {
                         setSelectedSymbolismItem(null);
                         setSelectedAuthor(null);
                         setSelectedSetting(null);
+                        trackClick('structure-stylistic');
                       }}
                     >
                       <span className="text-amber-600">🎨</span>
@@ -645,6 +699,7 @@ export default function MobyDick() {
                         setSelectedStructureItem(null);
                         setSelectedAuthor(null);
                         setSelectedSetting(null);
+                        trackClick('symbolism-whale');
                       }}
                     >
                       <span className="text-amber-600">🐋</span>
@@ -659,6 +714,7 @@ export default function MobyDick() {
                         setSelectedStructureItem(null);
                         setSelectedAuthor(null);
                         setSelectedSetting(null);
+                        trackClick('symbolism-ocean');
                       }}
                     >
                       <span className="text-amber-600">🌊</span>
@@ -673,6 +729,7 @@ export default function MobyDick() {
                         setSelectedStructureItem(null);
                         setSelectedAuthor(null);
                         setSelectedSetting(null);
+                        trackClick('symbolism-coffin');
                       }}
                     >
                       <span className="text-amber-600">⚰️</span>
@@ -687,6 +744,7 @@ export default function MobyDick() {
                         setSelectedStructureItem(null);
                         setSelectedAuthor(null);
                         setSelectedSetting(null);
+                        trackClick('symbolism-doubloon');
                       }}
                     >
                       <span className="text-amber-600">🪙</span>
@@ -730,14 +788,30 @@ export default function MobyDick() {
               {/* Stats */}
               <div className="grid grid-cols-2 gap-3 text-sm">
                 <div className="bg-indigo-800/50 p-2 rounded">
-                  <div className="text-indigo-200">Items Explored</div>
-                  <div className="font-bold">{clickedItems.size}/{totalItems}</div>
+                  <div className="text-indigo-200">Items Qualified</div>
+                  <div className="font-bold">{qualifiedItems.size}/{totalItems}</div>
+                  <div className="text-indigo-300 text-xs">({clickedItems.size} clicked)</div>
                 </div>
                 <div className="bg-purple-800/50 p-2 rounded">
                   <div className="text-purple-200">Time Spent</div>
                   <div className="font-bold">{Math.floor(timeSpent / 60)}:{(timeSpent % 60).toString().padStart(2, '0')}</div>
                 </div>
               </div>
+              
+              {/* Reading Progress Indicator */}
+              {currentItem && (
+                <div className="mt-3 p-2 bg-yellow-600/80 rounded text-center text-sm">
+                  <div className="text-xs mb-2">
+                    {itemReadingTimes.get(currentItem) || 0}s / {minReadingTime}s required
+                  </div>
+                  <div className="w-full bg-yellow-800 rounded-full h-2">
+                    <div 
+                      className="bg-yellow-300 h-2 rounded-full transition-all duration-1000"
+                      style={{width: `${Math.min(((itemReadingTimes.get(currentItem) || 0) / minReadingTime) * 100, 100)}%`}}
+                    ></div>
+                  </div>
+                </div>
+              )}
               
               {/* Completion Message */}
               {explorationPercentage >= 90 && (
@@ -766,7 +840,7 @@ export default function MobyDick() {
           <div className="bg-amber-50 p-8 rounded-lg shadow-2xl max-w-md border-2 border-amber-600 font-serif">
             <div className="flex justify-between items-start mb-6">
               <h3 className="text-2xl font-bold text-amber-900">🏛️ Nantucket Harbor, 1851</h3>
-              <button onClick={() => setSelectedSetting(null)} className="text-amber-600 hover:text-amber-800 text-2xl">&times;</button>
+              <button onClick={() => { setSelectedSetting(null); stopReadingTimer(); }} className="text-amber-600 hover:text-amber-800 text-2xl">&times;</button>
             </div>
             
             <div className="mb-6 p-4 bg-amber-100 rounded-lg border-l-4 border-amber-600">
@@ -801,7 +875,7 @@ export default function MobyDick() {
           <div className="bg-amber-50 p-8 rounded-lg shadow-2xl max-w-md border-2 border-amber-600 font-serif">
             <div className="flex justify-between items-start mb-6">
               <h3 className="text-2xl font-bold text-amber-900">📚 Herman Melville</h3>
-              <button onClick={() => setSelectedAuthor(null)} className="text-amber-600 hover:text-amber-800 text-2xl">&times;</button>
+              <button onClick={() => { setSelectedAuthor(null); stopReadingTimer(); }} className="text-amber-600 hover:text-amber-800 text-2xl">&times;</button>
             </div>
             
             <div className="mb-6 p-4 bg-amber-100 rounded-lg border-l-4 border-amber-600">
@@ -841,7 +915,7 @@ export default function MobyDick() {
           <div className="bg-amber-50 p-6 rounded-lg shadow-2xl max-w-sm border-2 border-amber-600 font-serif">
             <div className="flex justify-between items-start mb-4">
               <h3 className="text-xl font-bold text-amber-900">⚔️ Obsession & Revenge</h3>
-              <button onClick={() => setSelectedThemeItem(null)} className="text-amber-600 hover:text-amber-800 text-xl">&times;</button>
+              <button onClick={() => { setSelectedThemeItem(null); stopReadingTimer(); }} className="text-amber-600 hover:text-amber-800 text-xl">&times;</button>
             </div>
             <p className="text-amber-800 text-sm">Ahab's consuming quest for vengeance against the white whale drives the entire narrative, showing how obsession can destroy both the individual and those around them. His monomaniacal pursuit becomes a cautionary tale about the dangers of unchecked passion.</p>
           </div>
@@ -853,7 +927,7 @@ export default function MobyDick() {
           <div className="bg-amber-50 p-6 rounded-lg shadow-2xl max-w-sm border-2 border-amber-600 font-serif">
             <div className="flex justify-between items-start mb-4">
               <h3 className="text-xl font-bold text-amber-900">🌊 Man vs. Nature</h3>
-              <button onClick={() => setSelectedThemeItem(null)} className="text-amber-600 hover:text-amber-800 text-xl">&times;</button>
+              <button onClick={() => { setSelectedThemeItem(null); stopReadingTimer(); }} className="text-amber-600 hover:text-amber-800 text-xl">&times;</button>
             </div>
             <p className="text-amber-800 text-sm">The eternal struggle between humanity and the natural world, with the ocean representing both life's sustenance and its ultimate mystery and danger. The sea is both provider and destroyer, reflecting nature's dual character.</p>
           </div>
@@ -865,7 +939,7 @@ export default function MobyDick() {
           <div className="bg-amber-50 p-6 rounded-lg shadow-2xl max-w-sm border-2 border-amber-600 font-serif">
             <div className="flex justify-between items-start mb-4">
               <h3 className="text-xl font-bold text-amber-900">⚖️ Fate & Free Will</h3>
-              <button onClick={() => setSelectedThemeItem(null)} className="text-amber-600 hover:text-amber-800 text-xl">&times;</button>
+              <button onClick={() => { setSelectedThemeItem(null); stopReadingTimer(); }} className="text-amber-600 hover:text-amber-800 text-xl">&times;</button>
             </div>
             <p className="text-amber-800 text-sm">Questions whether our destinies are predetermined or if we have the power to shape our own paths, explored through the crew's various responses to their voyage. Each character represents different philosophies about human agency.</p>
           </div>
@@ -877,7 +951,7 @@ export default function MobyDick() {
           <div className="bg-amber-50 p-6 rounded-lg shadow-2xl max-w-sm border-2 border-amber-600 font-serif">
             <div className="flex justify-between items-start mb-4">
               <h3 className="text-xl font-bold text-amber-900">⚓ Morality</h3>
-              <button onClick={() => setSelectedThemeItem(null)} className="text-amber-600 hover:text-amber-800 text-xl">&times;</button>
+              <button onClick={() => { setSelectedThemeItem(null); stopReadingTimer(); }} className="text-amber-600 hover:text-amber-800 text-xl">&times;</button>
             </div>
             <p className="text-amber-800 text-sm">The complex moral landscape of the sea, where traditional ethical frameworks are challenged by survival, duty, and conflicting loyalties. Starbuck's moral struggles against Ahab's commands highlight the tension between conscience and authority.</p>
           </div>
@@ -889,7 +963,7 @@ export default function MobyDick() {
           <div className="bg-amber-50 p-6 rounded-lg shadow-2xl max-w-sm border-2 border-amber-600 font-serif">
             <div className="flex justify-between items-start mb-4">
               <h3 className="text-xl font-bold text-amber-900">🔍 Truth</h3>
-              <button onClick={() => setSelectedThemeItem(null)} className="text-amber-600 hover:text-amber-800 text-xl">&times;</button>
+              <button onClick={() => { setSelectedThemeItem(null); stopReadingTimer(); }} className="text-amber-600 hover:text-amber-800 text-xl">&times;</button>
             </div>
             <p className="text-amber-800 text-sm">The elusive nature of truth and knowledge, as characters seek meaning in an indifferent universe. The whale itself becomes a blank canvas onto which different interpretations are projected, questioning whether absolute truth exists.</p>
           </div>
@@ -1005,7 +1079,7 @@ export default function MobyDick() {
           <div className="bg-amber-50 p-6 rounded-lg shadow-2xl max-w-sm border-2 border-amber-600 font-serif">
             <div className="flex justify-between items-start mb-4">
               <h3 className="text-xl font-bold text-amber-900">🧭 Epic Journey</h3>
-              <button onClick={() => setSelectedStructureItem(null)} className="text-amber-600 hover:text-amber-800 text-xl">&times;</button>
+              <button onClick={() => { setSelectedStructureItem(null); stopReadingTimer(); }} className="text-amber-600 hover:text-amber-800 text-xl">&times;</button>
             </div>
             <p className="text-amber-800 text-sm">Follows the classical structure of an epic voyage, with departure, trials at sea, and ultimate confrontation. The journey serves as both literal adventure and metaphysical quest for meaning and understanding.</p>
           </div>
@@ -1017,7 +1091,7 @@ export default function MobyDick() {
           <div className="bg-amber-50 p-6 rounded-lg shadow-2xl max-w-sm border-2 border-amber-600 font-serif">
             <div className="flex justify-between items-start mb-4">
               <h3 className="text-xl font-bold text-amber-900">📖 Episodic Chapters</h3>
-              <button onClick={() => setSelectedStructureItem(null)} className="text-amber-600 hover:text-amber-800 text-xl">&times;</button>
+              <button onClick={() => { setSelectedStructureItem(null); stopReadingTimer(); }} className="text-amber-600 hover:text-amber-800 text-xl">&times;</button>
             </div>
             <p className="text-amber-800 text-sm">135 chapters vary wildly in style and content - from dramatic dialogue to scientific treatises on whales, creating an encyclopedic approach to storytelling that mirrors the complexity of life itself.</p>
           </div>
@@ -1029,7 +1103,7 @@ export default function MobyDick() {
           <div className="bg-amber-50 p-6 rounded-lg shadow-2xl max-w-sm border-2 border-amber-600 font-serif">
             <div className="flex justify-between items-start mb-4">
               <h3 className="text-xl font-bold text-amber-900">🎭 Multiple Perspectives</h3>
-              <button onClick={() => setSelectedStructureItem(null)} className="text-amber-600 hover:text-amber-800 text-xl">&times;</button>
+              <button onClick={() => { setSelectedStructureItem(null); stopReadingTimer(); }} className="text-amber-600 hover:text-amber-800 text-xl">&times;</button>
             </div>
             <p className="text-amber-800 text-sm">Shifts between Ishmael's first-person narration and omniscient third-person accounts, allowing for both intimate personal reflection and broader dramatic scope that encompasses the entire crew's experience.</p>
           </div>
@@ -1041,7 +1115,7 @@ export default function MobyDick() {
           <div className="bg-amber-50 p-6 rounded-lg shadow-2xl max-w-sm border-2 border-amber-600 font-serif">
             <div className="flex justify-between items-start mb-4">
               <h3 className="text-xl font-bold text-amber-900">🎨 Stylistic Variation</h3>
-              <button onClick={() => setSelectedStructureItem(null)} className="text-amber-600 hover:text-amber-800 text-xl">&times;</button>
+              <button onClick={() => { setSelectedStructureItem(null); stopReadingTimer(); }} className="text-amber-600 hover:text-amber-800 text-xl">&times;</button>
             </div>
             <p className="text-amber-800 text-sm">Melville employs dramatic monologues, technical exposition, philosophical meditation, and poetic language throughout. This stylistic diversity mirrors the novel's encyclopedic scope and reflects the complexity of human experience and knowledge.</p>
           </div>
@@ -1054,7 +1128,7 @@ export default function MobyDick() {
           <div className="bg-amber-50 p-6 rounded-lg shadow-2xl max-w-sm border-2 border-amber-600 font-serif">
             <div className="flex justify-between items-start mb-4">
               <h3 className="text-xl font-bold text-amber-900">🐋 The White Whale</h3>
-              <button onClick={() => setSelectedSymbolismItem(null)} className="text-amber-600 hover:text-amber-800 text-xl">&times;</button>
+              <button onClick={() => { setSelectedSymbolismItem(null); stopReadingTimer(); }} className="text-amber-600 hover:text-amber-800 text-xl">&times;</button>
             </div>
             <p className="text-amber-800 text-sm">Represents the unknowable, the sublime in nature, and the ultimate object of human obsession. Can symbolize God, nature's power, or the blank meaninglessness of existence - its interpretation depends on the observer.</p>
           </div>
@@ -1066,7 +1140,7 @@ export default function MobyDick() {
           <div className="bg-amber-50 p-6 rounded-lg shadow-2xl max-w-sm border-2 border-amber-600 font-serif">
             <div className="flex justify-between items-start mb-4">
               <h3 className="text-xl font-bold text-amber-900">🌊 The Ocean</h3>
-              <button onClick={() => setSelectedSymbolismItem(null)} className="text-amber-600 hover:text-amber-800 text-xl">&times;</button>
+              <button onClick={() => { setSelectedSymbolismItem(null); stopReadingTimer(); }} className="text-amber-600 hover:text-amber-800 text-xl">&times;</button>
             </div>
             <p className="text-amber-800 text-sm">The vast, mysterious sea represents the unconscious mind, the source of life, and the ultimate frontier of human knowledge and experience. It is both womb and tomb, creator and destroyer.</p>
           </div>
@@ -1078,7 +1152,7 @@ export default function MobyDick() {
           <div className="bg-amber-50 p-6 rounded-lg shadow-2xl max-w-sm border-2 border-amber-600 font-serif">
             <div className="flex justify-between items-start mb-4">
               <h3 className="text-xl font-bold text-amber-900">⚰️ Queequeg's Coffin</h3>
-              <button onClick={() => setSelectedSymbolismItem(null)} className="text-amber-600 hover:text-amber-800 text-xl">&times;</button>
+              <button onClick={() => { setSelectedSymbolismItem(null); stopReadingTimer(); }} className="text-amber-600 hover:text-amber-800 text-xl">&times;</button>
             </div>
             <p className="text-amber-800 text-sm">Transforms from a symbol of death into one of salvation, representing the cyclical nature of life and death and the power of friendship to transcend mortality. What was meant for burial becomes the means of rescue.</p>
           </div>
@@ -1090,7 +1164,7 @@ export default function MobyDick() {
           <div className="bg-amber-50 p-6 rounded-lg shadow-2xl max-w-sm border-2 border-amber-600 font-serif">
             <div className="flex justify-between items-start mb-4">
               <h3 className="text-xl font-bold text-amber-900">🪙 The Doubloon</h3>
-              <button onClick={() => setSelectedSymbolismItem(null)} className="text-amber-600 hover:text-amber-800 text-xl">&times;</button>
+              <button onClick={() => { setSelectedSymbolismItem(null); stopReadingTimer(); }} className="text-amber-600 hover:text-amber-800 text-xl">&times;</button>
             </div>
             <p className="text-amber-800 text-sm">The gold coin nailed to the mast represents different things to different characters, showing how meaning is subjective and personal interpretation shapes reality. Each crew member sees their own desires and fears reflected in its surface.</p>
           </div>
