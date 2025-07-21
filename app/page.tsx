@@ -35,6 +35,9 @@ export default function Home() {
             <Link href="/the-arena" className="bg-red-700 hover:bg-red-800 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 font-serif text-right whitespace-nowrap">
               The Arena
             </Link>
+            <Link href="/quests" className="bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 font-serif text-right whitespace-nowrap">
+              Quests
+            </Link>
           </div>
           <div className="inline-block p-8 rounded-xl shadow-2xl relative" style={{
             background: `
