@@ -33,7 +33,7 @@ export default function Home() {
             <div className="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-2xl border-2 border-blue-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 min-w-[220px]">
               <div className="relative group/item">
                 <Link href="/quests" className="block px-4 py-3 text-emerald-700 hover:bg-emerald-50 font-serif font-semibold border-b border-gray-100 transition-colors">
-                  🗺️ Quests
+                  Quests
                 </Link>
                 <div className="absolute left-full top-0 ml-2 bg-emerald-800 text-white text-sm rounded-lg px-3 py-2 opacity-0 invisible group-hover/item:opacity-100 group-hover/item:visible transition-all duration-200 pointer-events-none whitespace-nowrap z-60">
                   Complete literary adventures to unlock boss battles
@@ -41,7 +41,7 @@ export default function Home() {
               </div>
               <div className="relative group/item">
                 <Link href="/socratic-forum" className="block px-4 py-3 text-teal-700 hover:bg-teal-50 font-serif font-semibold border-b border-gray-100 transition-colors">
-                  🏛️ Socratic Forum
+                  Socratic Forum
                 </Link>
                 <div className="absolute left-full top-0 ml-2 bg-teal-800 text-white text-sm rounded-lg px-3 py-2 opacity-0 invisible group-hover/item:opacity-100 group-hover/item:visible transition-all duration-200 pointer-events-none whitespace-nowrap z-60">
                   Engage in discussions and collaborative analysis
@@ -49,7 +49,7 @@ export default function Home() {
               </div>
               <div className="relative group/item">
                 <Link href="/storyworlds" className="block px-4 py-3 text-purple-700 hover:bg-purple-50 font-serif font-semibold border-b border-gray-100 transition-colors">
-                  🗺️ Storyworlds
+                  Storyworlds
                 </Link>
                 <div className="absolute left-full top-0 ml-2 bg-purple-800 text-white text-sm rounded-lg px-3 py-2 opacity-0 invisible group-hover/item:opacity-100 group-hover/item:visible transition-all duration-200 pointer-events-none whitespace-nowrap z-60">
                   Explore the geographic settings of literature
@@ -57,7 +57,7 @@ export default function Home() {
               </div>
               <div className="relative group/item">
                 <Link href="/student-dashboard" className="block px-4 py-3 text-green-700 hover:bg-green-50 font-serif font-semibold border-b border-gray-100 transition-colors">
-                  📊 Student Dashboard
+                  Student Dashboard
                 </Link>
                 <div className="absolute left-full top-0 ml-2 bg-green-800 text-white text-sm rounded-lg px-3 py-2 opacity-0 invisible group-hover/item:opacity-100 group-hover/item:visible transition-all duration-200 pointer-events-none whitespace-nowrap z-60">
                   Track your progress and achievements
@@ -65,7 +65,7 @@ export default function Home() {
               </div>
               <div className="relative group/item">
                 <Link href="/the-arena" className="block px-4 py-3 text-red-700 hover:bg-red-50 font-serif font-semibold border-b border-gray-100 transition-colors">
-                  ⚔️ The Arena
+                  The Arena
                 </Link>
                 <div className="absolute left-full top-0 ml-2 bg-red-800 text-white text-sm rounded-lg px-3 py-2 opacity-0 invisible group-hover/item:opacity-100 group-hover/item:visible transition-all duration-200 pointer-events-none whitespace-nowrap z-60">
                   Battle boss encounters and competitive quizzes
@@ -73,7 +73,7 @@ export default function Home() {
               </div>
               <div className="relative group/item">
                 <Link href="/character" className="block px-4 py-3 text-amber-700 hover:bg-amber-50 font-serif font-semibold rounded-b-lg transition-colors">
-                  👤 Your Character
+                  Your Character
                 </Link>
                 <div className="absolute left-full top-0 ml-2 bg-amber-800 text-white text-sm rounded-lg px-3 py-2 opacity-0 invisible group-hover/item:opacity-100 group-hover/item:visible transition-all duration-200 pointer-events-none whitespace-nowrap z-60">
                   Customize your avatar and view profile
@@ -90,7 +90,7 @@ export default function Home() {
             <div className="absolute top-full right-0 mt-2 bg-white rounded-lg shadow-2xl border-2 border-indigo-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 min-w-[220px]">
               <div className="relative group/item">
                 <Link href="/teacher-dashboard" className="block px-4 py-3 text-indigo-700 hover:bg-indigo-50 font-serif font-semibold border-b border-gray-100 transition-colors">
-                  📚 Teacher Dashboard
+                  Teacher Dashboard
                 </Link>
                 <div className="absolute right-full top-0 mr-2 bg-indigo-800 text-white text-sm rounded-lg px-3 py-2 opacity-0 invisible group-hover/item:opacity-100 group-hover/item:visible transition-all duration-200 pointer-events-none whitespace-nowrap z-60">
                   Manage classes and student assignments
@@ -98,7 +98,7 @@ export default function Home() {
               </div>
               <div className="relative group/item">
                 <Link href="/classes" className="block px-4 py-3 text-green-700 hover:bg-green-50 font-serif font-semibold border-b border-gray-100 transition-colors">
-                  🎓 Classes
+                  Classes
                 </Link>
                 <div className="absolute right-full top-0 mr-2 bg-green-800 text-white text-sm rounded-lg px-3 py-2 opacity-0 invisible group-hover/item:opacity-100 group-hover/item:visible transition-all duration-200 pointer-events-none whitespace-nowrap z-60">
                   View and manage your class roster
@@ -106,7 +106,7 @@ export default function Home() {
               </div>
               <div className="relative group/item">
                 <Link href="/analytics-dashboard" className="block px-4 py-3 text-blue-700 hover:bg-blue-50 font-serif font-semibold rounded-b-lg transition-colors">
-                  📊 Analytics Dashboard
+                  Analytics Dashboard
                 </Link>
                 <div className="absolute right-full top-0 mr-2 bg-blue-800 text-white text-sm rounded-lg px-3 py-2 opacity-0 invisible group-hover/item:opacity-100 group-hover/item:visible transition-all duration-200 pointer-events-none whitespace-nowrap z-60">
                   View student performance and progress data
