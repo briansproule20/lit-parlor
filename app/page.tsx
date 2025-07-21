@@ -17,26 +17,26 @@ export default function Home() {
           
           {/* Navigation Buttons - Top Right */}
           <div className="absolute top-0 -right-24 h-full flex flex-col justify-start items-end space-y-4 py-4">
-            <Link href="/character" className="bg-amber-700 hover:bg-amber-800 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 font-serif text-right whitespace-nowrap">
-              Your Character
-            </Link>
-            <Link href="/teacher-dashboard" className="bg-indigo-700 hover:bg-indigo-800 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 font-serif text-right whitespace-nowrap">
-              Teacher Dashboard
-            </Link>
-            <Link href="/student-dashboard" className="bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 font-serif text-right whitespace-nowrap">
-              Student Dashboard
-            </Link>
-            <Link href="/storyworlds" className="bg-purple-700 hover:bg-purple-800 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 font-serif text-right whitespace-nowrap">
-              Storyworlds
+            <Link href="/quests" className="bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 font-serif text-right whitespace-nowrap">
+              Quests
             </Link>
             <Link href="/socratic-forum" className="bg-teal-700 hover:bg-teal-800 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 font-serif text-right whitespace-nowrap">
               Socratic Forum
             </Link>
+            <Link href="/storyworlds" className="bg-purple-700 hover:bg-purple-800 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 font-serif text-right whitespace-nowrap">
+              Storyworlds
+            </Link>
+            <Link href="/student-dashboard" className="bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 font-serif text-right whitespace-nowrap">
+              Student Dashboard
+            </Link>
+            <Link href="/teacher-dashboard" className="bg-indigo-700 hover:bg-indigo-800 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 font-serif text-right whitespace-nowrap">
+              Teacher Dashboard
+            </Link>
             <Link href="/the-arena" className="bg-red-700 hover:bg-red-800 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 font-serif text-right whitespace-nowrap">
               The Arena
             </Link>
-            <Link href="/quests" className="bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 font-serif text-right whitespace-nowrap">
-              Quests
+            <Link href="/character" className="bg-amber-700 hover:bg-amber-800 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 font-serif text-right whitespace-nowrap">
+              Your Character
             </Link>
           </div>
           <div className="inline-block p-8 rounded-xl shadow-2xl relative" style={{
