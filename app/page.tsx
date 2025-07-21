@@ -25,6 +25,11 @@ export default function Home() {
                 Teacher Dashboard
               </Link>
             </div>
+            <div className="mt-2">
+              <Link href="/student-dashboard" className="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 font-serif inline-block">
+                Student Dashboard
+              </Link>
+            </div>
           </div>
           <div className="inline-block p-8 rounded-xl shadow-2xl relative" style={{
             background: `
