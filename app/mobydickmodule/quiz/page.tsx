@@ -6,6 +6,13 @@ export default function Quiz() {
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [selectedAnswers, setSelectedAnswers] = useState<{[key: number]: number}>({})
   const [showResults, setShowResults] = useState(false)
+  const [showFeedback, setShowFeedback] = useState(false)
+  const [feedbackData, setFeedbackData] = useState<{
+    isCorrect: boolean;
+    selectedAnswer: string;
+    correctAnswer: string;
+    explanation: string;
+  } | null>(null)
 
   // Question bank with 20 questions
   const questionBank = [
@@ -151,9 +158,24 @@ export default function Quiz() {
       ...prev,
       [currentQuestion]: answerIndex
     }))
+    
+    // Check if answer is correct and show immediate feedback
+    const currentQ = questions[currentQuestion]
+    const isCorrect = answerIndex === currentQ.correct
+    
+    setFeedbackData({
+      isCorrect,
+      selectedAnswer: currentQ.options[answerIndex],
+      correctAnswer: currentQ.options[currentQ.correct],
+      explanation: currentQ.explanation
+    })
+    setShowFeedback(true)
   }
 
   const goToNextQuestion = () => {
+    setShowFeedback(false)
+    setFeedbackData(null)
+    
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1)
     } else {
@@ -175,6 +197,8 @@ export default function Quiz() {
     setCurrentQuestion(0)
     setSelectedAnswers({})
     setShowResults(false)
+    setShowFeedback(false)
+    setFeedbackData(null)
   }
 
   // Show loading state while questions are being initialized
@@ -410,9 +434,14 @@ export default function Quiz() {
               <button
                 key={index}
                 onClick={() => handleAnswerSelect(index)}
+                disabled={showFeedback}
                 className={`w-full p-4 text-left rounded-lg border-2 transition-all duration-300 font-serif ${
                   selectedAnswers[currentQuestion] === index
-                    ? 'bg-amber-200 border-amber-600 shadow-lg scale-105'
+                    ? showFeedback && feedbackData?.isCorrect === false && index === questions[currentQuestion].correct
+                      ? 'bg-green-200 border-green-600 shadow-lg scale-105'
+                      : showFeedback && feedbackData?.isCorrect === false && selectedAnswers[currentQuestion] === index
+                      ? 'bg-red-200 border-red-600 shadow-lg scale-105'
+                      : 'bg-amber-200 border-amber-600 shadow-lg scale-105'
                     : 'bg-white/70 border-amber-300 hover:bg-amber-100 hover:border-amber-500 hover:scale-102'
                 }`}
               >
@@ -424,12 +453,52 @@ export default function Quiz() {
             ))}
           </div>
 
+          {/* Immediate Feedback Intervention */}
+          {showFeedback && feedbackData && !feedbackData.isCorrect && (
+            <div className="mb-8 p-6 bg-red-50 border-2 border-red-300 rounded-lg">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-3xl">❌</span>
+                <h3 className="text-xl font-bold text-red-900">Incorrect Answer</h3>
+              </div>
+              
+              <div className="space-y-3 text-red-800">
+                <div>
+                  <span className="font-semibold">Your answer:</span> {feedbackData.selectedAnswer}
+                </div>
+                <div>
+                  <span className="font-semibold text-green-700">Correct answer:</span> {feedbackData.correctAnswer}
+                </div>
+                <div className="mt-4 p-3 bg-white/70 rounded border-l-4 border-red-400">
+                  <span className="font-semibold">Explanation:</span>
+                  <p className="mt-1">{feedbackData.explanation}</p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Correct Answer Feedback */}
+          {showFeedback && feedbackData && feedbackData.isCorrect && (
+            <div className="mb-8 p-6 bg-green-50 border-2 border-green-300 rounded-lg">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-3xl">✅</span>
+                <h3 className="text-xl font-bold text-green-900">Correct!</h3>
+              </div>
+              
+              <div className="space-y-3 text-green-800">
+                <div className="mt-4 p-3 bg-white/70 rounded border-l-4 border-green-400">
+                  <span className="font-semibold">Explanation:</span>
+                  <p className="mt-1">{feedbackData.explanation}</p>
+                </div>
+              </div>
+            </div>
+          )}
+
           <div className="text-center">
             <button
               onClick={goToNextQuestion}
-              disabled={selectedAnswers[currentQuestion] === undefined}
+              disabled={!showFeedback}
               className={`py-3 px-8 rounded-lg font-bold text-lg transition-all duration-300 ${
-                selectedAnswers[currentQuestion] !== undefined
+                showFeedback
                   ? 'bg-amber-600 hover:bg-amber-700 text-white shadow-lg hover:scale-105 cursor-pointer'
                   : 'bg-gray-400 text-gray-600 cursor-not-allowed'
               }`}
