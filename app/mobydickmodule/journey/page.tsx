@@ -707,8 +707,8 @@ export default function Journey() {
             >
               <div className="bg-gradient-to-br from-amber-800 to-amber-700 p-4 rounded-lg border-2 border-amber-500 shadow-inner">
                 <img 
-                  src="/images/ship-storm.png" 
-                  alt="Ship in Storm" 
+                  src={selectedChapter.id === 2 ? "/images/chapter2.png" : "/images/ship-storm.png"} 
+                  alt={selectedChapter.id === 2 ? "Chapter 2 Visual Journey" : "Ship in Storm"} 
                   className="w-full h-[28rem] object-cover rounded border border-amber-400"
                 />
               </div>
