@@ -249,26 +249,74 @@ export default function StudyGuide() {
                   {
                     title: 'Obsession and Revenge',
                     icon: '⚔️',
-                    description: 'Ahab\'s monomaniacal pursuit of Moby Dick explores how obsession can consume and ultimately destroy a person.',
-                    examples: ['Ahab\'s leg loss and psychological wound', 'The doubloon as symbol of different obsessions', 'The crew\'s gradual entrapment in Ahab\'s quest']
+                    description: 'Ahab\'s monomaniacal pursuit of Moby Dick explores how obsession can consume and ultimately destroy a person. The novel examines the psychological and moral consequences of unchecked ambition and the human capacity for self-destruction.',
+                    analysis: 'Melville presents obsession as a form of madness that transforms Ahab from a respected captain into a figure of mythic proportions. The novel suggests that revenge, while initially justified, becomes a destructive force that corrupts both the individual and those around them. Ahab\'s transformation represents the danger of allowing personal vendettas to override moral judgment and human compassion.',
+                    examples: ['Ahab\'s leg loss and psychological wound', 'The doubloon as symbol of different obsessions', 'The crew\'s gradual entrapment in Ahab\'s quest', 'Ahab\'s rejection of Starbuck\'s moral objections'],
+                    quote: '"Talk not to me of blasphemy, man; I\'d strike the sun if it insulted me."',
+                    context: 'This theme reaches its climax in the final chase, where Ahab\'s obsession leads to the destruction of the entire crew except Ishmael.'
                   },
                   {
                     title: 'Knowledge and Ignorance',
                     icon: '🔍',
-                    description: 'The novel explores the limits of human knowledge and our relationship with the unknowable.',
-                    examples: ['Cetology chapters showing scientific approach', 'The whiteness of the whale as unknowable mystery', 'Ishmael\'s philosophical meditations']
+                    description: 'The novel explores the limits of human knowledge and our relationship with the unknowable. Melville questions whether true understanding is possible and how humans cope with the mysteries of existence.',
+                    analysis: 'Melville uses the encyclopedic structure of the novel to demonstrate both the human desire for comprehensive knowledge and its ultimate impossibility. The cetology chapters represent our scientific attempts to understand nature, while the "Whiteness of the Whale" chapter acknowledges the fundamental mystery that remains. The novel suggests that true wisdom lies in accepting the limits of human understanding.',
+                    examples: ['Cetology chapters showing scientific approach', 'The whiteness of the whale as unknowable mystery', 'Ishmael\'s philosophical meditations', 'The novel\'s encyclopedic structure'],
+                    quote: '"It is not down on any map; true places never are."',
+                    context: 'The novel\'s structure itself reflects this theme, with its digressions and philosophical interludes interrupting the main narrative.'
                   },
                   {
                     title: 'Nature vs. Humanity',
                     icon: '🌍',
-                    description: 'The ocean represents nature\'s indifference to human concerns and ambitions.',
-                    examples: ['The sea as both provider and destroyer', 'Whales as symbols of natural power', 'The Pequod\'s ultimate fate']
+                    description: 'The ocean represents nature\'s indifference to human concerns and ambitions. The novel examines humanity\'s complex relationship with the natural world and our attempts to control what we cannot.',
+                    analysis: 'The sea functions as both setting and character, representing nature\'s sublime power and complete indifference to human drama. Melville contrasts humanity\'s attempts to master nature through technology (the whaling industry) with nature\'s ultimate supremacy. The novel suggests that human attempts to control nature are both hubristic and doomed to failure.',
+                    examples: ['The sea as both provider and destroyer', 'Whales as symbols of natural power', 'The Pequod\'s ultimate fate', 'The crew\'s vulnerability to natural forces'],
+                    quote: '"The great shroud of the sea rolled on as it rolled five thousand years ago."',
+                    context: 'This theme is central to the novel\'s environmental and philosophical concerns, particularly relevant to modern discussions of humanity\'s relationship with nature.'
                   },
                   {
                     title: 'Fate vs. Free Will',
                     icon: '⚖️',
-                    description: 'Characters struggle with whether they control their destiny or are subject to predetermined fate.',
-                    examples: ['Ahab\'s belief in his destined confrontation', 'Ishmael\'s survival as chance or providence', 'The prophecies surrounding the voyage']
+                    description: 'Characters struggle with whether they control their destiny or are subject to predetermined fate. The novel explores the tension between human agency and cosmic forces beyond our control.',
+                    analysis: 'Melville presents a complex view of fate and free will, where characters make choices but within constraints they cannot control. Ahab believes in his own agency while being driven by forces he doesn\'t understand. The novel suggests that while humans have some agency, they are ultimately subject to larger cosmic and natural forces.',
+                    examples: ['Ahab\'s belief in his destined confrontation', 'Ishmael\'s survival as chance or providence', 'The prophecies surrounding the voyage', 'The crew\'s acceptance of their fate'],
+                    quote: '"I am the Fates\' lieutenant; I act under orders."',
+                    context: 'The novel\'s ending, with Ishmael as the sole survivor, raises questions about whether his survival was chance, providence, or fate.'
+                  },
+                  {
+                    title: 'Friendship and Brotherhood',
+                    icon: '🤝',
+                    description: 'The relationship between Ishmael and Queequeg represents the possibility of human connection across cultural and racial barriers. Their friendship provides emotional grounding in a world of isolation.',
+                    analysis: 'The friendship between Ishmael and Queequeg represents one of the novel\'s most positive themes. Their bond transcends cultural differences and provides a model of human connection in an otherwise isolating world. The coffin that saves Ishmael\'s life symbolizes the enduring power of their friendship. This theme contrasts sharply with Ahab\'s isolation and the crew\'s eventual fate.',
+                    examples: ['Ishmael and Queequeg\'s bond', 'The coffin as symbol of enduring friendship', 'The crew\'s camaraderie', 'The contrast with Ahab\'s isolation'],
+                    quote: '"It\'s better to sleep with a sober cannibal than a drunken Christian."',
+                    context: 'This theme is particularly significant given the novel\'s publication in 1851, when racial and cultural barriers were even more pronounced in American society.'
+                  },
+                  {
+                    title: 'Religion and Spirituality',
+                    icon: '⛪',
+                    description: 'The novel engages deeply with religious themes, biblical allusions, and spiritual questions. It examines the role of faith, divine justice, and human attempts to understand the divine.',
+                    analysis: 'Melville uses extensive biblical allusions, particularly from the Book of Job and the story of Jonah, to explore questions of divine justice and human suffering. Father Mapple\'s sermon serves as a prophetic warning, while Ahab\'s defiance represents human rebellion against divine authority. The novel questions whether suffering has meaning and whether divine justice exists.',
+                    examples: ['Father Mapple\'s Jonah sermon', 'Biblical references throughout', 'Ahab\'s blasphemous defiance', 'Ishmael\'s spiritual journey'],
+                    quote: '"Shipmates, God has laid but one hand upon you; both his hands press upon me."',
+                    context: 'The novel\'s religious themes reflect Melville\'s own spiritual struggles and the broader religious questions of 19th-century America.'
+                  },
+                  {
+                    title: 'Industrialization and Labor',
+                    icon: '🏭',
+                    description: 'The whaling industry represents the dehumanizing effects of industrial labor and the psychological toll of repetitive, dangerous work. The novel critiques the human cost of progress.',
+                    analysis: 'Melville presents whaling as an early form of industrial labor that transforms humans into tools of production. The try-works episode particularly illustrates the psychological effects of industrial work, where workers become alienated from their labor and their humanity. The novel critiques the commodification of nature and the human cost of industrial progress.',
+                    examples: ['The try-works episode', 'The industrial process of whaling', 'The crew\'s transformation into tools', 'The commodification of nature'],
+                    quote: '"The whiteness of the whale is that which most appals me."',
+                    context: 'This theme anticipates later critiques of industrial capitalism and environmental exploitation.'
+                  },
+                  {
+                    title: 'Isolation and Community',
+                    icon: '🏝️',
+                    description: 'The novel explores the tension between individual isolation and the need for human community. Characters struggle with loneliness while being part of a collective enterprise.',
+                    analysis: 'The Pequod functions as a microcosm of society, where individuals must balance their personal needs with collective responsibilities. Ahab\'s isolation represents the danger of complete individualism, while the crew\'s fate shows how individual actions affect the entire community. The novel suggests that true human fulfillment requires both individual autonomy and community connection.',
+                    examples: ['Ahab\'s psychological isolation', 'Ishmael\'s search for connection', 'The crew as floating society', 'The individual vs. collective fate'],
+                    quote: '"I only am escaped alone to tell thee."',
+                    context: 'Ishmael\'s survival emphasizes both his individual fate and his role as the community\'s storyteller.'
                   }
                 ].map((theme, index) => (
                   <div key={index} className="bg-white/70 p-6 rounded-lg border border-amber-300">
@@ -276,14 +324,29 @@ export default function StudyGuide() {
                       <span className="text-2xl">{theme.icon}</span>
                       {theme.title}
                     </h3>
-                    <p className="text-amber-700 mb-4">{theme.description}</p>
-                    <div className="space-y-2">
-                      <h4 className="font-semibold text-amber-800">Key Examples:</h4>
-                      <ul className="list-disc list-inside space-y-1 text-sm text-amber-600">
-                        {theme.examples.map((example, i) => (
-                          <li key={i}>{example}</li>
-                        ))}
-                      </ul>
+                    <p className="text-amber-700 mb-4 leading-relaxed">{theme.description}</p>
+                    <div className="bg-amber-50 p-4 rounded-lg border border-amber-200 mb-4">
+                      <h4 className="font-bold text-amber-800 mb-2">📖 Deep Analysis</h4>
+                      <p className="text-amber-700 leading-relaxed">{theme.analysis}</p>
+                    </div>
+                    <div className="space-y-3">
+                      <div>
+                        <h4 className="font-semibold text-amber-800 mb-2">🔑 Key Examples:</h4>
+                        <ul className="list-disc list-inside space-y-1 text-sm text-amber-600">
+                          {theme.examples.map((example, i) => (
+                            <li key={i}>{example}</li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div className="bg-amber-50 p-3 rounded border-l-4 border-amber-400">
+                        <blockquote className="italic text-amber-800 mb-1">
+                          {theme.quote}
+                        </blockquote>
+                        <p className="text-xs text-amber-600">— Representative quote</p>
+                      </div>
+                      <div className="text-sm text-amber-600">
+                        <span className="font-semibold">Context:</span> {theme.context}
+                      </div>
                     </div>
                   </div>
                 ))}
