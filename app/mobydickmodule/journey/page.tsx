@@ -62,6 +62,7 @@ export default function Journey() {
   const [isFading, setIsFading] = useState(false);
   const [fadeOpacity, setFadeOpacity] = useState(0);
   const [modalOpacity, setModalOpacity] = useState(0);
+  const [showVisualJourney, setShowVisualJourney] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   // Navigation functions for modal
@@ -280,6 +281,7 @@ export default function Journey() {
     setIsModalOpen(false);
     setSelectedChapter(null);
     setModalOpacity(0);
+    setShowVisualJourney(false);
   };
 
   // Audio control functions
@@ -332,6 +334,7 @@ export default function Journey() {
   // Fade to black and ramp volume function
   const beginVisualJourney = () => {
     setIsFading(true);
+    setShowVisualJourney(true);
     
     // Start audio if not playing
     if (!isAudioPlaying && audioRef.current) {
@@ -649,16 +652,34 @@ export default function Journey() {
 
       {/* Modal */}
       {isModalOpen && selectedChapter && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div className={`fixed inset-0 z-50 flex items-center ${showVisualJourney ? 'justify-start' : 'justify-center'} p-4`}>
           {/* Backdrop with blur */}
           <div 
             className="absolute inset-0 bg-black/50 backdrop-blur-sm"
             onClick={closeModal}
           ></div>
           
+          {/* Visual Journey Element - Only shows when triggered by Visual Journey button */}
+          {showVisualJourney && (
+            <div 
+              className="fixed right-8 top-1/2 transform -translate-y-1/2 z-60 transition-opacity duration-1000"
+              style={{ opacity: modalOpacity }}
+            >
+              <div className="bg-gradient-to-br from-amber-800 to-amber-700 p-4 rounded-lg border-2 border-amber-500 shadow-inner">
+                <img 
+                  src="/images/ship-storm.png" 
+                  alt="Ship in Storm" 
+                  className="w-full h-[28rem] object-cover rounded border border-amber-400"
+                />
+              </div>
+            </div>
+          )}
+          
           {/* Modal Content */}
           <div 
-            className="relative bg-gradient-to-br from-amber-50 to-amber-100 rounded-2xl p-8 max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border-4 border-amber-600 transition-opacity duration-500"
+            className={`relative bg-gradient-to-br from-amber-50 to-amber-100 rounded-2xl p-8 max-h-[90vh] overflow-y-auto shadow-2xl border-4 border-amber-600 transition-opacity duration-500 ${
+              showVisualJourney ? 'max-w-2xl ml-8' : 'max-w-4xl w-full'
+            }`}
             style={{ opacity: modalOpacity }}
           >
             {/* Close Button */}
