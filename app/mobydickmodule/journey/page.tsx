@@ -702,13 +702,13 @@ export default function Journey() {
           {/* Visual Journey Element - Only shows when triggered by Visual Journey button */}
           {showVisualJourney && (
             <div 
-              className="fixed right-8 top-1/2 transform -translate-y-1/2 z-60 transition-opacity duration-1000"
+              className={`fixed top-1/2 transform -translate-y-1/2 z-60 transition-opacity duration-1000 ${selectedChapter.id === 3 ? 'right-16' : 'right-8'}`}
               style={{ opacity: modalOpacity }}
             >
               <div className="bg-gradient-to-br from-amber-800 to-amber-700 p-4 rounded-lg border-2 border-amber-500 shadow-inner">
                 <img 
-                  src={selectedChapter.id === 2 ? "/images/chapter2.png" : "/images/ship-storm.png"} 
-                  alt={selectedChapter.id === 2 ? "Chapter 2 Visual Journey" : "Ship in Storm"} 
+                  src={selectedChapter.id === 2 ? "/images/chapter2.png" : selectedChapter.id === 3 ? "/images/whalemanchapel.png" : "/images/ship-storm.png"} 
+                  alt={selectedChapter.id === 2 ? "Chapter 2 Visual Journey" : selectedChapter.id === 3 ? "Whaleman Chapel" : "Ship in Storm"} 
                   className="w-full h-[28rem] object-cover rounded border border-amber-400"
                 />
               </div>
