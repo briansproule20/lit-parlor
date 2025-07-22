@@ -334,7 +334,7 @@ export default function Quiz() {
       <div className="max-w-4xl mx-auto">
         
         {/* Quiz Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <div className="inline-block p-8 shadow-2xl relative overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-3xl" style={{
             border: '4px solid #8B4513',
             borderRadius: '12px',
@@ -365,6 +365,19 @@ export default function Quiz() {
               <p className="text-2xl text-amber-800 font-serif leading-relaxed">
                 Test your knowledge of the White Whale
               </p>
+            </div>
+          </div>
+        </div>
+
+        {/* XP and Quest Unlock Card */}
+        <div className="text-center mb-12">
+          <div className="inline-block px-6 py-4 bg-amber-50/95 border-2 border-amber-600 rounded-lg shadow-md">
+            <div className="flex items-center justify-center gap-3">
+              <span className="text-2xl">⭐</span>
+              <span className="text-lg font-bold text-amber-900">
+                Complete Quiz for XP, and to Unlock Moby-Dick Related Quests
+              </span>
+              <span className="text-2xl">🎯</span>
             </div>
           </div>
         </div>
