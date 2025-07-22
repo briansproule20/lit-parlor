@@ -312,6 +312,12 @@ export default function StudyGuide() {
                     analysis: "Epitomizes Ahab's obsession and the destructive power of revenge, echoing Milton's Satan."
                   },
                   {
+                    quote: "Talk not to me of blasphemy, man; I'd strike the sun if it insulted me. For could the sun do that, then could I do the other; since there is ever a sort of fair play herein, jealousy presiding over all creations.",
+                    speaker: "Captain Ahab",
+                    context: "Ahab's monomaniacal declaration to Starbuck",
+                    analysis: "Demonstrates Ahab's hubris and his willingness to challenge even the divine, showing his complete moral corruption and his belief in cosmic justice."
+                  },
+                  {
                     quote: "The sea had jeeringly kept his finite body up, but drowned the infinite of his soul.",
                     speaker: "Ishmael",
                     context: "Reflecting on fate and survival",
@@ -322,6 +328,24 @@ export default function StudyGuide() {
                     speaker: "Ishmael",
                     context: "About the Pequod's route",
                     analysis: "Suggests that the most important experiences transcend physical geography."
+                  },
+                  {
+                    quote: "And I only am escaped alone to tell thee.",
+                    speaker: "Ishmael",
+                    context: "Final line of the novel",
+                    analysis: "Echoes the biblical Book of Job, emphasizing Ishmael's role as the sole survivor and storyteller, completing the epic journey."
+                  },
+                  {
+                    quote: "Whosoever of ye raises me a white-headed whale with a wrinkled brow and a crooked jaw; whosoever of ye raises me that white-headed whale, with three holes punctured in his starboard fluke—look ye, whosoever of ye raises me that same white whale, he shall have this gold ounce, my boys!",
+                    speaker: "Captain Ahab",
+                    context: "The doubloon speech",
+                    analysis: "The doubloon becomes a powerful symbol of subjectivity and interpretation, as each crew member sees different meanings in the same object."
+                  },
+                  {
+                    quote: "[T]hen all collapsed, and the great shroud of the sea rolled on as it rolled five thousand years ago.",
+                    speaker: "Ishmael",
+                    context: "Final moments of the Pequod's destruction",
+                    analysis: "Emphasizes nature's indifference to human tragedy and the timeless, cyclical nature of the sea, putting human drama in cosmic perspective."
                   }
                 ].map((item, index) => (
                   <div key={index} className="bg-white/70 p-6 rounded-lg border border-amber-300">
