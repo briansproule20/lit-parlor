@@ -35,7 +35,7 @@ export default function StudyGuide() {
         
         {/* Study Guide Header */}
         <div className="text-center mb-12">
-          <div className="inline-block p-8 shadow-2xl transform -rotate-1 relative overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-3xl hover:-rotate-2" style={{
+          <div className="inline-block p-8 shadow-2xl transform relative overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-3xl" style={{
             border: '4px solid #8B4513',
             borderRadius: '12px',
             boxShadow: `
