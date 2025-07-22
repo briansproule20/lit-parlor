@@ -299,31 +299,71 @@ export default function StudyGuide() {
                     symbol: 'The White Whale (Moby Dick)',
                     icon: '🐋',
                     meaning: 'The unknowable, nature\'s power, God, fate, or the limits of human understanding',
-                    significance: 'Central to the entire narrative, representing whatever the observer projects onto it'
+                    significance: 'Central to the entire narrative, representing whatever the observer projects onto it. The whale\'s whiteness symbolizes both purity and the blank canvas of interpretation. To Ahab, it represents malice; to Ishmael, mystery; to others, profit or adventure.',
+                    examples: ['Ahab\'s monomaniacal pursuit', 'The "Whiteness of the Whale" chapter', 'Ishmael\'s philosophical meditations']
                   },
                   {
                     symbol: 'The Ocean',
                     icon: '🌊',
                     meaning: 'Infinity, the unconscious mind, life\'s mysteries, and nature\'s indifference',
-                    significance: 'The setting that contains all other symbols and represents the vast unknown'
+                    significance: 'The setting that contains all other symbols and represents the vast unknown. The sea is both provider and destroyer, reflecting humanity\'s complex relationship with nature and the limits of human control.',
+                    examples: ['The sea\'s timeless indifference', 'The ocean as both life-giver and death-dealer', 'The vastness that dwarfs human concerns']
                   },
                   {
                     symbol: 'Queequeg\'s Coffin',
                     icon: '⚰️',
                     meaning: 'Death and rebirth, the transformation of doom into salvation',
-                    significance: 'Becomes Ishmael\'s life preserver, showing how death can become life'
+                    significance: 'Becomes Ishmael\'s life preserver, showing how death can become life. The coffin represents the enduring power of friendship and the possibility of transcendence through human connection.',
+                    examples: ['Queequeg\'s illness and recovery', 'The coffin\'s transformation to life-buoy', 'Ishmael\'s survival on the coffin']
                   },
                   {
                     symbol: 'The Doubloon',
                     icon: '🪙',
                     meaning: 'Subjective interpretation, how each person sees what they want to see',
-                    significance: 'Each character sees different meanings in the same object'
+                    significance: 'Each character sees different meanings in the same object, demonstrating how symbols reflect the observer\'s inner nature and desires. The doubloon becomes a mirror of human psychology.',
+                    examples: ['Ahab sees his own face in the coin', 'Starbuck sees religious symbols', 'Stubb sees the zodiac']
                   },
                   {
                     symbol: 'The Pequod',
                     icon: '⚓',
                     meaning: 'Society, civilization, humanity\'s collective fate',
-                    significance: 'A microcosm of the world, doomed by its leader\'s obsession'
+                    significance: 'A microcosm of the world, doomed by its leader\'s obsession. The ship represents how individual madness can corrupt an entire community and lead to collective destruction.',
+                    examples: ['The crew\'s gradual entrapment', 'The ship as floating society', 'The Pequod\'s final destruction']
+                  },
+                  {
+                    symbol: 'Ahab\'s Ivory Leg',
+                    icon: '🦴',
+                    meaning: 'The literal and metaphorical connection to his nemesis',
+                    significance: 'Made from whale bone, the leg represents Ahab\'s physical and spiritual wound. It symbolizes his complete identification with his quest for revenge and his transformation into something less than human.',
+                    examples: ['The leg\'s creation from whale bone', 'Ahab\'s pain and limping', 'The leg as weapon and wound']
+                  },
+                  {
+                    symbol: 'The Try-Works',
+                    icon: '🔥',
+                    meaning: 'Industrialization, madness, and the dehumanizing effects of labor',
+                    significance: 'The blubber furnace represents the psychological toll of industrial work and the fire of obsession that consumes the crew. It becomes a metaphor for the destructive power of human ambition.',
+                    examples: ['Ishmael\'s night shift hallucinations', 'The fire as metaphor for obsession', 'The industrial process of whaling']
+                  },
+                  {
+                    symbol: 'The Whaleman\'s Chapel',
+                    icon: '⛪',
+                    meaning: 'Religion, morality, and divine warning',
+                    significance: 'The chapel represents the moral and spiritual framework that the voyage will test and ultimately reject. Father Mapple\'s sermon serves as a prophetic warning that goes unheeded.',
+                    examples: ['Father Mapple\'s Jonah sermon', 'The chapel\'s maritime decorations', 'The religious framework of the voyage']
+                  },
+                  {
+                    symbol: 'The Compass',
+                    icon: '🧭',
+                    meaning: 'Moral direction, spiritual guidance, and the loss of bearings',
+                    significance: 'The compass represents moral and spiritual direction. When Ahab destroys the compass, he symbolically abandons all moral restraint and spiritual guidance.',
+                    examples: ['Ahab\'s destruction of the compass', 'The crew\'s loss of moral direction', 'The compass as spiritual metaphor']
+                  },
+                  {
+                    symbol: 'The Rachel',
+                    icon: '🚢',
+                    meaning: 'Compassion, human connection, and missed opportunities for redemption',
+                    significance: 'The ship that begs Ahab for help finding a lost son represents the human cost of obsession. Ahab\'s refusal shows his complete moral decay and abandonment of basic human compassion.',
+                    examples: ['Captain Gardiner\'s plea for help', 'Ahab\'s heartless refusal', 'The Rachel\'s rescue of Ishmael']
                   }
                 ].map((item, index) => (
                   <div key={index} className="bg-white/70 p-6 rounded-lg border border-amber-300">
@@ -340,6 +380,16 @@ export default function StudyGuide() {
                         <span className="font-semibold text-amber-800">Significance:</span>
                         <p className="text-amber-700">{item.significance}</p>
                       </div>
+                      {item.examples && (
+                        <div>
+                          <span className="font-semibold text-amber-800">Key Examples:</span>
+                          <ul className="list-disc list-inside space-y-1 text-sm text-amber-600 mt-2">
+                            {item.examples.map((example, i) => (
+                              <li key={i}>{example}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
                     </div>
                   </div>
                 ))}
