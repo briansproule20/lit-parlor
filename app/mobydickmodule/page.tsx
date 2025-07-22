@@ -115,97 +115,103 @@ export default function MobyDickModule() {
         <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
           
           {/* Interactive Analysis */}
-          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-6 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl cursor-pointer">
-            <div className="text-center mb-6">
-              <div className="text-6xl mb-3">🔍</div>
-              <h3 className="text-2xl font-bold text-amber-900 font-serif">CHARACTER DEEP DIVE</h3>
-              <div className="w-full h-1 bg-amber-600 my-2"></div>
-              <p className="text-amber-700 font-serif italic">Explore the souls aboard the Pequod</p>
+          <Link href="/mobydickmodule/study-guide?section=characters" className="block">
+            <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-6 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl cursor-pointer">
+              <div className="text-center mb-6">
+                <div className="text-6xl mb-3">🔍</div>
+                <h3 className="text-2xl font-bold text-amber-900 font-serif">CHARACTERS</h3>
+                <div className="w-full h-1 bg-amber-600 my-2"></div>
+                <p className="text-amber-700 font-serif italic">Explore the souls aboard the Pequod</p>
+              </div>
+              <div className="space-y-4 text-amber-800 font-serif">
+                <div className="flex items-center gap-3 p-3 bg-white/70 rounded border border-amber-300">
+                  <span className="text-2xl">👨‍✈️</span>
+                  <div>
+                    <div className="font-bold">Captain Ahab</div>
+                    <div className="text-sm">Obsession Incarnate</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 p-3 bg-white/70 rounded border border-amber-300">
+                  <span className="text-2xl">📝</span>
+                  <div>
+                    <div className="font-bold">Ishmael</div>
+                    <div className="text-sm">Our Chronicler</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 p-3 bg-white/70 rounded border border-amber-300">
+                  <span className="text-2xl">🗡️</span>
+                  <div>
+                    <div className="font-bold">Queequeg</div>
+                    <div className="text-sm">Noble Savage</div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="space-y-4 text-amber-800 font-serif">
-              <div className="flex items-center gap-3 p-3 bg-white/70 rounded border border-amber-300">
-                <span className="text-2xl">👨‍✈️</span>
-                <div>
-                  <div className="font-bold">Captain Ahab</div>
-                  <div className="text-sm">Obsession Incarnate</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-3 p-3 bg-white/70 rounded border border-amber-300">
-                <span className="text-2xl">📝</span>
-                <div>
-                  <div className="font-bold">Ishmael</div>
-                  <div className="text-sm">Our Chronicler</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-3 p-3 bg-white/70 rounded border border-amber-300">
-                <span className="text-2xl">🗡️</span>
-                <div>
-                  <div className="font-bold">Queequeg</div>
-                  <div className="text-sm">Noble Savage</div>
-                </div>
-              </div>
-            </div>
-          </div>
+          </Link>
 
           {/* Thematic Exploration */}
-          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-6 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl cursor-pointer">
-            <div className="text-center mb-6">
-              <div className="text-6xl mb-3">🌊</div>
-              <h3 className="text-2xl font-bold text-amber-900 font-serif">THEMATIC DEPTHS</h3>
-              <div className="w-full h-1 bg-amber-600 my-2"></div>
-              <p className="text-amber-700 font-serif italic">Dive into Melville's profound themes</p>
+          <Link href="/mobydickmodule/study-guide?section=themes" className="block">
+            <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-6 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl cursor-pointer">
+              <div className="text-center mb-6">
+                <div className="text-6xl mb-3">🌊</div>
+                <h3 className="text-2xl font-bold text-amber-900 font-serif">THEMATIC DEPTHS</h3>
+                <div className="w-full h-1 bg-amber-600 my-2"></div>
+                <p className="text-amber-700 font-serif italic">Dive into Melville's profound themes</p>
+              </div>
+              <div className="space-y-4 text-amber-800 font-serif">
+                <div className="p-3 bg-white/70 rounded border border-amber-300">
+                  <div className="font-bold flex items-center gap-2">
+                    <span>⚔️</span> Obsession vs. Reason
+                  </div>
+                  <div className="text-sm mt-1">When pursuit becomes destruction</div>
+                </div>
+                <div className="p-3 bg-white/70 rounded border border-amber-300">
+                  <div className="font-bold flex items-center gap-2">
+                    <span>🌍</span> Nature's Indifference
+                  </div>
+                  <div className="text-sm mt-1">The ocean as impartial force</div>
+                </div>
+                <div className="p-3 bg-white/70 rounded border border-amber-300">
+                  <div className="font-bold flex items-center gap-2">
+                    <span>⚖️</span> Fate vs. Free Will
+                  </div>
+                  <div className="text-sm mt-1">Are we masters of our destiny?</div>
+                </div>
+              </div>
             </div>
-            <div className="space-y-4 text-amber-800 font-serif">
-              <div className="p-3 bg-white/70 rounded border border-amber-300">
-                <div className="font-bold flex items-center gap-2">
-                  <span>⚔️</span> Obsession vs. Reason
-                </div>
-                <div className="text-sm mt-1">When pursuit becomes destruction</div>
-              </div>
-              <div className="p-3 bg-white/70 rounded border border-amber-300">
-                <div className="font-bold flex items-center gap-2">
-                  <span>🌍</span> Nature's Indifference
-                </div>
-                <div className="text-sm mt-1">The ocean as impartial force</div>
-              </div>
-              <div className="p-3 bg-white/70 rounded border border-amber-300">
-                <div className="font-bold flex items-center gap-2">
-                  <span>⚖️</span> Fate vs. Free Will
-                </div>
-                <div className="text-sm mt-1">Are we masters of our destiny?</div>
-              </div>
-            </div>
-          </div>
+          </Link>
 
           {/* Symbol Navigation */}
-          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-6 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl cursor-pointer">
-            <div className="text-center mb-6">
-              <div className="text-6xl mb-3">🐋</div>
-              <h3 className="text-2xl font-bold text-amber-900 font-serif">SYMBOLIC OCEAN</h3>
-              <div className="w-full h-1 bg-amber-600 my-2"></div>
-              <p className="text-amber-700 font-serif italic">Navigate the sea of symbols</p>
+          <Link href="/mobydickmodule/study-guide?section=symbols" className="block">
+            <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-6 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl cursor-pointer">
+              <div className="text-center mb-6">
+                <div className="text-6xl mb-3">🐋</div>
+                <h3 className="text-2xl font-bold text-amber-900 font-serif">SYMBOLIC OCEAN</h3>
+                <div className="w-full h-1 bg-amber-600 my-2"></div>
+                <p className="text-amber-700 font-serif italic">Navigate the sea of symbols</p>
+              </div>
+              <div className="space-y-4 text-amber-800 font-serif">
+                <div className="p-3 bg-white/70 rounded border border-amber-300">
+                  <div className="font-bold flex items-center gap-2">
+                    <span>🐋</span> The White Whale
+                  </div>
+                  <div className="text-sm mt-1">Nature's unknowable mystery</div>
+                </div>
+                <div className="p-3 bg-white/70 rounded border border-amber-300">
+                  <div className="font-bold flex items-center gap-2">
+                    <span>⚰️</span> Queequeg's Coffin
+                  </div>
+                  <div className="text-sm mt-1">Death becomes salvation</div>
+                </div>
+                <div className="p-3 bg-white/70 rounded border border-amber-300">
+                  <div className="font-bold flex items-center gap-2">
+                    <span>🌊</span> The Boundless Sea
+                  </div>
+                  <div className="text-sm mt-1">Infinity and isolation</div>
+                </div>
+              </div>
             </div>
-            <div className="space-y-4 text-amber-800 font-serif">
-              <div className="p-3 bg-white/70 rounded border border-amber-300">
-                <div className="font-bold flex items-center gap-2">
-                  <span>🐋</span> The White Whale
-                </div>
-                <div className="text-sm mt-1">Nature's unknowable mystery</div>
-              </div>
-              <div className="p-3 bg-white/70 rounded border border-amber-300">
-                <div className="font-bold flex items-center gap-2">
-                  <span>⚰️</span> Queequeg's Coffin
-                </div>
-                <div className="text-sm mt-1">Death becomes salvation</div>
-              </div>
-              <div className="p-3 bg-white/70 rounded border border-amber-300">
-                <div className="font-bold flex items-center gap-2">
-                  <span>🌊</span> The Boundless Sea
-                </div>
-                <div className="text-sm mt-1">Infinity and isolation</div>
-              </div>
-            </div>
-          </div>
+          </Link>
 
         </div>
 

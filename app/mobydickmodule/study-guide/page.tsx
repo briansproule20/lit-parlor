@@ -5,6 +5,17 @@ import Link from 'next/link'
 export default function StudyGuide() {
   const [activeSection, setActiveSection] = useState<string>('overview')
 
+  // Handle URL parameters for direct section navigation
+  React.useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const urlParams = new URLSearchParams(window.location.search)
+      const section = urlParams.get('section')
+      if (section && ['overview', 'characters', 'themes', 'symbols', 'quotes', 'analysis'].includes(section)) {
+        setActiveSection(section)
+      }
+    }
+  }, [])
+
   return (
     <main className="min-h-screen py-8 px-4 relative" style={{
         backgroundImage: 'url(/images/ship-storm.png)',
