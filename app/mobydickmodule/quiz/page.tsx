@@ -373,11 +373,11 @@ export default function Quiz() {
         <div className="text-center mb-12">
           <div className="inline-block px-6 py-4 bg-amber-50/95 border-2 border-amber-600 rounded-lg shadow-md">
             <div className="flex items-center justify-center gap-3">
-              <span className="text-2xl">⭐</span>
+              <span className="text-2xl"></span>
               <span className="text-lg font-bold text-amber-900">
-                Complete Quiz for XP, and to Unlock Moby-Dick Related Quests
+                Complete Quiz for XP
               </span>
-              <span className="text-2xl">🎯</span>
+              <span className="text-2xl"></span>
             </div>
           </div>
         </div>
