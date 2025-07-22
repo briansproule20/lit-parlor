@@ -10,7 +10,7 @@ export default function StudyGuide() {
     if (typeof window !== 'undefined') {
       const urlParams = new URLSearchParams(window.location.search)
       const section = urlParams.get('section')
-      if (section && ['overview', 'characters', 'themes', 'symbols', 'quotes', 'analysis'].includes(section)) {
+      if (section && ['overview', 'characters', 'themes', 'symbols', 'quotes', 'analysis', 'questions'].includes(section)) {
         setActiveSection(section)
       }
     }
@@ -91,7 +91,8 @@ export default function StudyGuide() {
             { id: 'themes', label: 'Themes', icon: '🌊' },
             { id: 'symbols', label: 'Symbols', icon: '🐋' },
             { id: 'quotes', label: 'Key Quotes', icon: '💬' },
-            { id: 'analysis', label: 'Analysis', icon: '🔍' }
+            { id: 'analysis', label: 'Analysis', icon: '🔍' },
+            { id: 'questions', label: 'Study Questions', icon: '🎯' }
           ].map((section) => (
             <button
               key={section.id}
@@ -600,14 +601,80 @@ export default function StudyGuide() {
                   </div>
                 </div>
 
+              </div>
+            </div>
+          )}
+
+          {activeSection === 'questions' && (
+            <div>
+              <h2 className="text-3xl font-bold text-amber-900 mb-6 font-serif">🎯 Study Questions</h2>
+              <div className="space-y-6">
+                
                 <div className="bg-blue-50 p-6 rounded-lg border-2 border-blue-300">
-                  <h3 className="text-xl font-bold text-blue-900 mb-3">🎯 Study Questions</h3>
-                  <ol className="space-y-2 text-blue-700">
-                    <li>1. How does Ishmael's role as narrator affect our understanding of events?</li>
-                    <li>2. What does the white whale represent to different characters?</li>
-                    <li>3. How does Melville use the ship as a microcosm of society?</li>
-                    <li>4. What is the significance of the novel's encyclopedic chapters on whales?</li>
-                    <li>5. How do the themes of fate and free will intersect in the story?</li>
+                  <h3 className="text-xl font-bold text-blue-900 mb-4">📝 Critical Thinking Questions</h3>
+                  <ol className="space-y-3 text-blue-700">
+                    <li className="flex items-start gap-3">
+                      <span className="font-bold text-blue-800">1.</span>
+                      <div>
+                        <p className="font-semibold">How does Ishmael's role as narrator affect our understanding of events?</p>
+                        <p className="text-sm text-blue-600 mt-1">Consider his retrospective perspective and philosophical commentary.</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="font-bold text-blue-800">2.</span>
+                      <div>
+                        <p className="font-semibold">What does the white whale represent to different characters?</p>
+                        <p className="text-sm text-blue-600 mt-1">Analyze how each character projects their own meaning onto Moby Dick.</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="font-bold text-blue-800">3.</span>
+                      <div>
+                        <p className="font-semibold">How does Melville use the ship as a microcosm of society?</p>
+                        <p className="text-sm text-blue-600 mt-1">Consider the crew's diversity and how Ahab's obsession affects everyone.</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="font-bold text-blue-800">4.</span>
+                      <div>
+                        <p className="font-semibold">What is the significance of the novel's encyclopedic chapters on whales?</p>
+                        <p className="text-sm text-blue-600 mt-1">Think about how these chapters affect the narrative flow and meaning.</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="font-bold text-blue-800">5.</span>
+                      <div>
+                        <p className="font-semibold">How do the themes of fate and free will intersect in the story?</p>
+                        <p className="text-sm text-blue-600 mt-1">Consider Ahab's choices and the prophecies throughout the novel.</p>
+                      </div>
+                    </li>
+                  </ol>
+                </div>
+
+                <div className="bg-green-50 p-6 rounded-lg border-2 border-green-300">
+                  <h3 className="text-xl font-bold text-green-900 mb-4">🔍 Deep Analysis Questions</h3>
+                  <ol className="space-y-3 text-green-700">
+                    <li className="flex items-start gap-3">
+                      <span className="font-bold text-green-800">6.</span>
+                      <div>
+                        <p className="font-semibold">How does Melville's varied syntax and style contribute to the novel's meaning?</p>
+                        <p className="text-sm text-green-600 mt-1">Consider the shifts between different linguistic registers.</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="font-bold text-green-800">7.</span>
+                      <div>
+                        <p className="font-semibold">What is the role of religion and biblical allusion in the novel?</p>
+                        <p className="text-sm text-green-600 mt-1">Analyze Father Mapple's sermon and other religious references.</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="font-bold text-green-800">8.</span>
+                      <div>
+                        <p className="font-semibold">How does the novel explore the relationship between humanity and nature?</p>
+                        <p className="text-sm text-green-600 mt-1">Consider the ocean's indifference and humanity's attempts to control it.</p>
+                      </div>
+                    </li>
                   </ol>
                 </div>
 
