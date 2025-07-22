@@ -461,6 +461,103 @@ export default function MobyDickModule() {
           </div>
         </div>
 
+        {/* Moby Dick Specific Achievements Section */}
+        <div className="mt-16">
+          <div className="text-center mb-12">
+            <div className="inline-block p-6 bg-gradient-to-r from-amber-900/90 to-yellow-800/90 border-4 border-amber-400 rounded-2xl shadow-2xl">
+              <h2 className="text-4xl font-bold text-white mb-2 font-serif">🏆 Moby Dick Specific Achievements</h2>
+              <p className="text-amber-200 text-lg font-serif">Unlock these maritime milestones</p>
+            </div>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-gradient-to-br from-amber-50/95 to-yellow-100/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl">
+              
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                {/* Achievement 1 */}
+                <div className="bg-white/80 p-4 rounded-lg border-2 border-amber-300 shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105">
+                  <div className="text-center mb-3">
+                    <div className="text-3xl mb-2">🐋</div>
+                    <h4 className="font-bold text-amber-900">Whale Watcher</h4>
+                  </div>
+                  <p className="text-sm text-amber-700 mb-3">Complete all whale-related questions in the quiz</p>
+                  <div className="flex justify-between items-center text-xs">
+                    <span className="bg-amber-200 px-2 py-1 rounded">Reward: 25 XP</span>
+                    <span className="text-amber-600">🔒</span>
+                  </div>
+                </div>
+
+                {/* Achievement 2 */}
+                <div className="bg-white/80 p-4 rounded-lg border-2 border-amber-300 shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105">
+                  <div className="text-center mb-3">
+                    <div className="text-3xl mb-2">⚓</div>
+                    <h4 className="font-bold text-amber-900">Pequod Navigator</h4>
+                  </div>
+                  <p className="text-sm text-amber-700 mb-3">Read through the entire journey section</p>
+                  <div className="flex justify-between items-center text-xs">
+                    <span className="bg-amber-200 px-2 py-1 rounded">Reward: 50 XP</span>
+                    <span className="text-amber-600">🔒</span>
+                  </div>
+                </div>
+
+                {/* Achievement 3 */}
+                <div className="bg-white/80 p-4 rounded-lg border-2 border-amber-300 shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105">
+                  <div className="text-center mb-3">
+                    <div className="text-3xl mb-2">🗡️</div>
+                    <h4 className="font-bold text-amber-900">Harpoon Master</h4>
+                  </div>
+                  <p className="text-sm text-amber-700 mb-3">Score 100% on the advanced quiz</p>
+                  <div className="flex justify-between items-center text-xs">
+                    <span className="bg-amber-200 px-2 py-1 rounded">Reward: 75 XP</span>
+                    <span className="text-amber-600">🔒</span>
+                  </div>
+                </div>
+
+                {/* Achievement 4 */}
+                <div className="bg-white/80 p-4 rounded-lg border-2 border-amber-300 shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105">
+                  <div className="text-center mb-3">
+                    <div className="text-3xl mb-2">🌊</div>
+                    <h4 className="font-bold text-amber-900">Ocean Scholar</h4>
+                  </div>
+                  <p className="text-sm text-amber-700 mb-3">Complete all study guide sections</p>
+                  <div className="flex justify-between items-center text-xs">
+                    <span className="bg-amber-200 px-2 py-1 rounded">Reward: 100 XP</span>
+                    <span className="text-amber-600">🔒</span>
+                  </div>
+                </div>
+
+                {/* Achievement 5 */}
+                <div className="bg-white/80 p-4 rounded-lg border-2 border-amber-300 shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105">
+                  <div className="text-center mb-3">
+                    <div className="text-3xl mb-2">👑</div>
+                    <h4 className="font-bold text-amber-900">Captain's Legacy</h4>
+                  </div>
+                  <p className="text-sm text-amber-700 mb-3">Defeat the Boss Battle and earn the Master Badge</p>
+                  <div className="flex justify-between items-center text-xs">
+                    <span className="bg-amber-200 px-2 py-1 rounded">Reward: 200 XP</span>
+                    <span className="text-amber-600">🔒</span>
+                  </div>
+                </div>
+
+              </div>
+
+              {/* Achievement Progress */}
+              <div className="mt-8 p-4 bg-white/70 rounded-lg border border-amber-300">
+                <div className="flex items-center justify-between mb-3">
+                  <h5 className="font-bold text-amber-900">Achievement Progress</h5>
+                  <span className="text-sm text-amber-700">0/5 Unlocked</span>
+                </div>
+                <div className="w-full bg-amber-200 rounded-full h-3">
+                  <div className="bg-amber-600 h-3 rounded-full" style={{ width: '0%' }}></div>
+                </div>
+                <p className="text-xs text-amber-600 mt-2 text-center">Complete activities to unlock achievements</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
       </div>
     </main>
   )
