@@ -734,7 +734,7 @@ export default function Journey() {
             </div>
 
             {/* Modal Header */}
-            <div className="text-center mb-8">
+            <div className="text-center mb-8 mt-12">
               <h2 className="text-4xl font-bold text-amber-900 mb-2 font-serif">
                 {selectedChapter.id}. {selectedChapter.title}
               </h2>
