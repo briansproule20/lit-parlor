@@ -673,69 +673,169 @@ export default function StudyGuide() {
               <h2 className="text-3xl font-bold text-amber-900 mb-6 font-serif">🎯 Study Questions</h2>
               <div className="space-y-6">
                 
-                <div className="bg-blue-50 p-6 rounded-lg border-2 border-blue-300">
-                  <h3 className="text-xl font-bold text-blue-900 mb-4">📝 Critical Thinking Questions</h3>
-                  <ol className="space-y-3 text-blue-700">
+                <div className="bg-red-50 p-6 rounded-lg border-2 border-red-300">
+                  <h3 className="text-xl font-bold text-red-900 mb-4">📚 DOK-1: What is the Knowledge?</h3>
+                  <p className="text-red-700 mb-4 text-sm">Basic recall and recognition questions to assess prior knowledge and build background understanding.</p>
+                  <ol className="space-y-3 text-red-700">
                     <li className="flex items-start gap-3">
-                      <span className="font-bold text-blue-800">1.</span>
+                      <span className="font-bold text-red-800">1.</span>
                       <div>
-                        <p className="font-semibold">How does Ishmael's role as narrator affect our understanding of events?</p>
-                        <p className="text-sm text-blue-600 mt-1">Consider his retrospective perspective and philosophical commentary.</p>
+                        <p className="font-semibold">Who is the narrator of Moby Dick?</p>
+                        <p className="text-sm text-red-600 mt-1">Recall the main storyteller and his role.</p>
                       </div>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="font-bold text-blue-800">2.</span>
+                      <span className="font-bold text-red-800">2.</span>
                       <div>
-                        <p className="font-semibold">What does the white whale represent to different characters?</p>
-                        <p className="text-sm text-blue-600 mt-1">Analyze how each character projects their own meaning onto Moby Dick.</p>
+                        <p className="font-semibold">What is the name of Captain Ahab's ship?</p>
+                        <p className="text-sm text-red-600 mt-1">Identify the whaling vessel.</p>
                       </div>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="font-bold text-blue-800">3.</span>
+                      <span className="font-bold text-red-800">3.</span>
                       <div>
-                        <p className="font-semibold">How does Melville use the ship as a microcosm of society?</p>
-                        <p className="text-sm text-blue-600 mt-1">Consider the crew's diversity and how Ahab's obsession affects everyone.</p>
+                        <p className="font-semibold">What happened to Captain Ahab's leg?</p>
+                        <p className="text-sm text-red-600 mt-1">Recall the captain's physical injury.</p>
                       </div>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="font-bold text-blue-800">4.</span>
+                      <span className="font-bold text-red-800">4.</span>
                       <div>
-                        <p className="font-semibold">What is the significance of the novel's encyclopedic chapters on whales?</p>
-                        <p className="text-sm text-blue-600 mt-1">Think about how these chapters affect the narrative flow and meaning.</p>
+                        <p className="font-semibold">What is the name of Ishmael's friend and harpooner?</p>
+                        <p className="text-sm text-red-600 mt-1">Identify the Polynesian character.</p>
                       </div>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="font-bold text-blue-800">5.</span>
+                      <span className="font-bold text-red-800">5.</span>
                       <div>
-                        <p className="font-semibold">How do the themes of fate and free will intersect in the story?</p>
-                        <p className="text-sm text-blue-600 mt-1">Consider Ahab's choices and the prophecies throughout the novel.</p>
+                        <p className="font-semibold">What color is the whale that Ahab is hunting?</p>
+                        <p className="text-sm text-red-600 mt-1">Recall the whale's distinctive characteristic.</p>
                       </div>
                     </li>
                   </ol>
                 </div>
 
                 <div className="bg-green-50 p-6 rounded-lg border-2 border-green-300">
-                  <h3 className="text-xl font-bold text-green-900 mb-4">🔍 Deep Analysis Questions</h3>
+                  <h3 className="text-xl font-bold text-green-900 mb-4">🔧 DOK-2: How Can the Knowledge Be Used?</h3>
+                  <p className="text-green-700 mb-4 text-sm">Questions that demonstrate and communicate how knowledge can be used to answer questions, address problems, and accomplish tasks.</p>
                   <ol className="space-y-3 text-green-700">
                     <li className="flex items-start gap-3">
                       <span className="font-bold text-green-800">6.</span>
                       <div>
-                        <p className="font-semibold">How does Melville's varied syntax and style contribute to the novel's meaning?</p>
-                        <p className="text-sm text-green-600 mt-1">Consider the shifts between different linguistic registers.</p>
+                        <p className="font-semibold">How does Melville use symbolism in the novel?</p>
+                        <p className="text-sm text-green-600 mt-1">Demonstrate understanding of symbolic elements like the white whale, the ocean, and Queequeg's coffin.</p>
                       </div>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="font-bold text-green-800">7.</span>
                       <div>
-                        <p className="font-semibold">What is the role of religion and biblical allusion in the novel?</p>
-                        <p className="text-sm text-green-600 mt-1">Analyze Father Mapple's sermon and other religious references.</p>
+                        <p className="font-semibold">What are the main themes of Moby Dick?</p>
+                        <p className="text-sm text-green-600 mt-1">Identify and explain key themes such as obsession, fate, and humanity's relationship with nature.</p>
                       </div>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="font-bold text-green-800">8.</span>
                       <div>
-                        <p className="font-semibold">How does the novel explore the relationship between humanity and nature?</p>
-                        <p className="text-sm text-green-600 mt-1">Consider the ocean's indifference and humanity's attempts to control it.</p>
+                        <p className="font-semibold">How does the novel's structure contribute to its meaning?</p>
+                        <p className="text-sm text-green-600 mt-1">Analyze the encyclopedic chapters and their relationship to the main narrative.</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="font-bold text-green-800">9.</span>
+                      <div>
+                        <p className="font-semibold">What role do the supporting characters play in the story?</p>
+                        <p className="text-sm text-green-600 mt-1">Explain the functions of characters like Starbuck, Stubb, and Pip.</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="font-bold text-green-800">10.</span>
+                      <div>
+                        <p className="font-semibold">How does Melville use language and style in the novel?</p>
+                        <p className="text-sm text-green-600 mt-1">Analyze the shifts between different linguistic registers and their effects.</p>
+                      </div>
+                    </li>
+                  </ol>
+                </div>
+
+                <div className="bg-blue-50 p-6 rounded-lg border-2 border-blue-300">
+                  <h3 className="text-xl font-bold text-blue-900 mb-4">🧠 DOK-3: How and Why Could the Knowledge Be Used?</h3>
+                  <p className="text-blue-700 mb-4 text-sm">Strategic thinking questions that require reasoning, planning, and explaining how and why knowledge could be used to examine arguments, cause and effects, and conclusions.</p>
+                  <ol className="space-y-3 text-blue-700">
+                    <li className="flex items-start gap-3">
+                      <span className="font-bold text-blue-800">11.</span>
+                      <div>
+                        <p className="font-semibold">Why does Ahab's obsession with Moby Dick lead to the destruction of the entire crew?</p>
+                        <p className="text-sm text-blue-600 mt-1">Analyze the psychological and moral consequences of unchecked ambition and the human capacity for self-destruction.</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="font-bold text-blue-800">12.</span>
+                      <div>
+                        <p className="font-semibold">How does the novel explore the tension between fate and free will?</p>
+                        <p className="text-sm text-blue-600 mt-1">Examine how characters make choices within constraints they cannot control and the implications for human agency.</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="font-bold text-blue-800">13.</span>
+                      <div>
+                        <p className="font-semibold">What does the friendship between Ishmael and Queequeg reveal about human connection?</p>
+                        <p className="text-sm text-blue-600 mt-1">Consider how their bond transcends cultural differences and provides a model of human connection.</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="font-bold text-blue-800">14.</span>
+                      <div>
+                        <p className="font-semibold">How does Melville use biblical allusions to enhance the novel's meaning?</p>
+                        <p className="text-sm text-blue-600 mt-1">Analyze the religious framework and its implications for understanding divine justice and human suffering.</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="font-bold text-blue-800">15.</span>
+                      <div>
+                        <p className="font-semibold">What is the significance of the novel's ending with Ishmael as the sole survivor?</p>
+                        <p className="text-sm text-blue-600 mt-1">Consider the implications for storytelling, survival, and the role of the witness in tragedy.</p>
+                      </div>
+                    </li>
+                  </ol>
+                </div>
+
+                <div className="bg-purple-50 p-6 rounded-lg border-2 border-purple-300">
+                  <h3 className="text-xl font-bold text-purple-900 mb-4">🌟 DOK-4: How Else Could You Use the Knowledge?</h3>
+                  <p className="text-purple-700 mb-4 text-sm">Extended thinking questions that require transferring knowledge to different contexts and new situations across the curriculum and beyond the classroom.</p>
+                  <ol className="space-y-3 text-purple-700">
+                    <li className="flex items-start gap-3">
+                      <span className="font-bold text-purple-800">16.</span>
+                      <div>
+                        <p className="font-semibold">How does Moby Dick's exploration of obsession and revenge relate to contemporary issues of mental health and violence?</p>
+                        <p className="text-sm text-purple-600 mt-1">Apply the novel's themes to modern psychological and social concerns.</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="font-bold text-purple-800">17.</span>
+                      <div>
+                        <p className="font-semibold">What can Moby Dick teach us about humanity's relationship with the environment in the age of climate change?</p>
+                        <p className="text-sm text-purple-600 mt-1">Connect the novel's environmental themes to current ecological challenges.</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="font-bold text-purple-800">18.</span>
+                      <div>
+                        <p className="font-semibold">How does the novel's critique of industrialization apply to modern labor practices and worker rights?</p>
+                        <p className="text-sm text-purple-600 mt-1">Extend the novel's social commentary to contemporary workplace issues.</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="font-bold text-purple-800">19.</span>
+                      <div>
+                        <p className="font-semibold">What does Moby Dick reveal about the role of storytelling in preserving human experience and cultural memory?</p>
+                        <p className="text-sm text-purple-600 mt-1">Consider the novel's meta-narrative elements and their implications for literature and history.</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="font-bold text-purple-800">20.</span>
+                      <div>
+                        <p className="font-semibold">How can the novel's exploration of knowledge and ignorance inform our approach to scientific discovery and technological advancement?</p>
+                        <p className="text-sm text-purple-600 mt-1">Apply the novel's philosophical questions to modern scientific and technological challenges.</p>
                       </div>
                     </li>
                   </ol>
