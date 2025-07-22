@@ -61,6 +61,7 @@ export default function Journey() {
   const [isMuted, setIsMuted] = useState(false);
   const [isFading, setIsFading] = useState(false);
   const [fadeOpacity, setFadeOpacity] = useState(0);
+  const [modalOpacity, setModalOpacity] = useState(0);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   // Navigation functions for modal
@@ -272,11 +273,13 @@ export default function Journey() {
   const openModal = (chapter: ChapterData) => {
     setSelectedChapter(chapter);
     setIsModalOpen(true);
+    setModalOpacity(1); // Immediately visible for normal modal opening
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
     setSelectedChapter(null);
+    setModalOpacity(0);
   };
 
   // Audio control functions
@@ -350,8 +353,10 @@ export default function Journey() {
       const newOpacity = (currentStep / fadeSteps);
       setFadeOpacity(newOpacity);
       
-      // Ramp volume from current to max
-      const newVolume = Math.min(1, volume + (0.7 / fadeSteps));
+      // Ramp volume from current to max with exponential curve for more noticeable effect
+      const progress = currentStep / fadeSteps;
+      const volumeIncrease = Math.pow(progress, 0.7); // Exponential curve for more dramatic increase
+      const newVolume = Math.min(1, volume + (1 - volume) * volumeIncrease);
       handleVolumeChange(newVolume);
       
       if (currentStep >= fadeSteps) {
@@ -362,20 +367,33 @@ export default function Journey() {
           if (firstChapter) {
             setSelectedChapter(firstChapter);
             setIsModalOpen(true);
+            setModalOpacity(0); // Start modal invisible
           }
-          // Fade back in after 1 second
+          // Fade back in over 2 seconds for slower, more dramatic reveal
           setTimeout(() => {
-            const fadeBackInterval = setInterval(() => {
-              setFadeOpacity(prev => {
-                const newOpacity = prev - (1 / 30); // Fade back over 1 second
-                if (newOpacity <= 0) {
-                  clearInterval(fadeBackInterval);
-                  setIsFading(false);
-                  return 0;
-                }
-                return newOpacity;
-              });
-            }, 33); // 30fps
+            const fadeBackDuration = 2000; // 2 seconds
+            const fadeBackSteps = 60;
+            const fadeBackInterval = fadeBackDuration / fadeBackSteps;
+            let fadeBackStep = 0;
+            
+            const fadeBackIntervalId = setInterval(() => {
+              fadeBackStep++;
+              const newOpacity = 1 - (fadeBackStep / fadeBackSteps);
+              setFadeOpacity(newOpacity);
+              
+              // Start fading in modal halfway through the fade back
+              if (fadeBackStep >= fadeBackSteps / 2) {
+                const modalProgress = (fadeBackStep - fadeBackSteps / 2) / (fadeBackSteps / 2);
+                setModalOpacity(modalProgress);
+              }
+              
+              if (fadeBackStep >= fadeBackSteps) {
+                clearInterval(fadeBackIntervalId);
+                setIsFading(false);
+                setFadeOpacity(0);
+                setModalOpacity(1); // Ensure modal is fully visible
+              }
+            }, fadeBackInterval);
           }, 1000);
         }, 500);
       }
@@ -639,7 +657,10 @@ export default function Journey() {
           ></div>
           
           {/* Modal Content */}
-          <div className="relative bg-gradient-to-br from-amber-50 to-amber-100 rounded-2xl p-8 max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border-4 border-amber-600">
+          <div 
+            className="relative bg-gradient-to-br from-amber-50 to-amber-100 rounded-2xl p-8 max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border-4 border-amber-600 transition-opacity duration-500"
+            style={{ opacity: modalOpacity }}
+          >
             {/* Close Button */}
             <button
               onClick={closeModal}
