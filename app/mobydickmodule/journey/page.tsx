@@ -691,14 +691,14 @@ export default function Journey() {
           {/* Visual Journey Element - Only shows when triggered by Visual Journey button */}
           {showVisualJourney && (
             <div 
-              className={`fixed top-1/2 transform -translate-y-1/2 z-60 transition-opacity duration-1000 ${selectedChapter.id === 3 ? 'right-16' : 'right-8'}`}
+              className={`fixed top-1/2 transform -translate-y-1/2 z-60 transition-opacity duration-1000 ${selectedChapter.id === 3 ? 'left-1/2 translate-x-1/4' : selectedChapter.id === 5 ? 'left-1/2 translate-x-1/4' : selectedChapter.id === 6 ? 'left-1/2 translate-x-1/4' : 'right-8'}`}
               style={{ opacity: modalOpacity }}
             >
               <div className="bg-gradient-to-br from-amber-800 to-amber-700 p-4 rounded-lg border-2 border-amber-500 shadow-inner">
                 <img
                   src={selectedChapter.id === 2 ? "/images/chapter2.png" : selectedChapter.id === 3 ? "/images/whalemanchapel.png" : selectedChapter.id === 4 ? "/images/elijah.png" : selectedChapter.id === 5 ? "/images/pequod.png" : selectedChapter.id === 6 ? "/images/ahab.png" : selectedChapter.id === 7 ? "/images/doubloon.png" : selectedChapter.id === 8 ? "/images/quarterdeck.png" : selectedChapter.id === 9 ? "/images/starbuck.png" : selectedChapter.id === 10 ? "/images/tryworks.png" : selectedChapter.id === 11 ? "/images/coffin.png" : selectedChapter.id === 12 ? "/images/therachel.png" : selectedChapter.id === 13 ? "/images/delight.png" : selectedChapter.id === 14 ? "/images/thechase.png" : selectedChapter.id === 15 ? "/images/survival.png" : "/images/ship-storm.png"}
                   alt={selectedChapter.id === 2 ? "Chapter 2 Visual Journey" : selectedChapter.id === 3 ? "Whaleman Chapel" : selectedChapter.id === 4 ? "Elijah" : selectedChapter.id === 5 ? "The Pequod" : selectedChapter.id === 6 ? "Captain Ahab" : selectedChapter.id === 7 ? "Doubloon" : selectedChapter.id === 8 ? "Quarterdeck" : selectedChapter.id === 9 ? "Starbuck" : selectedChapter.id === 10 ? "Tryworks" : selectedChapter.id === 11 ? "Coffin" : selectedChapter.id === 12 ? "The Rachel" : selectedChapter.id === 13 ? "Delight" : selectedChapter.id === 14 ? "The Chase" : selectedChapter.id === 15 ? "Survival" : "Ship in Storm"}
-                  className="w-full h-[28rem] object-cover rounded border border-amber-400"
+                  className={selectedChapter.id === 5 || selectedChapter.id === 6 ? "w-full h-[90vh] object-cover rounded border border-amber-400" : "w-full h-[28rem] object-cover rounded border border-amber-400"}
                 />
               </div>
             </div>
