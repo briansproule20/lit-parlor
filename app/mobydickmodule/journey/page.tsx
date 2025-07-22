@@ -717,8 +717,8 @@ export default function Journey() {
             >
               <div className="bg-gradient-to-br from-amber-800 to-amber-700 p-4 rounded-lg border-2 border-amber-500 shadow-inner">
                 <img
-                  src={selectedChapter.id === 2 ? "/images/chapter2.png" : selectedChapter.id === 3 ? "/images/whalemanchapel.png" : selectedChapter.id === 4 ? "/images/elijah.png" : selectedChapter.id === 5 ? "/images/pequod.png" : selectedChapter.id === 6 ? "/images/ahab.png" : selectedChapter.id === 7 ? "/images/doubloon.png" : selectedChapter.id === 8 ? "/images/quarterdeck.png" : selectedChapter.id === 9 ? "/images/starbuck.png" : "/images/ship-storm.png"}
-                  alt={selectedChapter.id === 2 ? "Chapter 2 Visual Journey" : selectedChapter.id === 3 ? "Whaleman Chapel" : selectedChapter.id === 4 ? "Elijah" : selectedChapter.id === 5 ? "The Pequod" : selectedChapter.id === 6 ? "Captain Ahab" : selectedChapter.id === 7 ? "Doubloon" : selectedChapter.id === 8 ? "Quarterdeck" : selectedChapter.id === 9 ? "Starbuck" : "Ship in Storm"}
+                  src={selectedChapter.id === 2 ? "/images/chapter2.png" : selectedChapter.id === 3 ? "/images/whalemanchapel.png" : selectedChapter.id === 4 ? "/images/elijah.png" : selectedChapter.id === 5 ? "/images/pequod.png" : selectedChapter.id === 6 ? "/images/ahab.png" : selectedChapter.id === 7 ? "/images/doubloon.png" : selectedChapter.id === 8 ? "/images/quarterdeck.png" : selectedChapter.id === 9 ? "/images/starbuck.png" : selectedChapter.id === 10 ? "/images/tryworks.png" : "/images/ship-storm.png"}
+                  alt={selectedChapter.id === 2 ? "Chapter 2 Visual Journey" : selectedChapter.id === 3 ? "Whaleman Chapel" : selectedChapter.id === 4 ? "Elijah" : selectedChapter.id === 5 ? "The Pequod" : selectedChapter.id === 6 ? "Captain Ahab" : selectedChapter.id === 7 ? "Doubloon" : selectedChapter.id === 8 ? "Quarterdeck" : selectedChapter.id === 9 ? "Starbuck" : selectedChapter.id === 10 ? "Tryworks" : "Ship in Storm"}
                   className="w-full h-[28rem] object-cover rounded border border-amber-400"
                 />
               </div>
