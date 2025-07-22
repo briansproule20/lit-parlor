@@ -59,6 +59,8 @@ export default function Journey() {
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
   const [volume, setVolume] = useState(0.3);
   const [isMuted, setIsMuted] = useState(false);
+  const [isFading, setIsFading] = useState(false);
+  const [fadeOpacity, setFadeOpacity] = useState(0);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   // Navigation functions for modal
@@ -324,6 +326,62 @@ export default function Journey() {
     }
   }, [volume, isMuted]);
 
+  // Fade to black and ramp volume function
+  const beginVisualJourney = () => {
+    setIsFading(true);
+    
+    // Start audio if not playing
+    if (!isAudioPlaying && audioRef.current) {
+      audioRef.current.play().then(() => {
+        setIsAudioPlaying(true);
+      }).catch(error => {
+        console.log('Audio play failed:', error);
+      });
+    }
+    
+    // Fade to black over 3 seconds
+    const fadeDuration = 3000; // 3 seconds
+    const fadeSteps = 60; // 60 steps for smooth animation
+    const fadeInterval = fadeDuration / fadeSteps;
+    let currentStep = 0;
+    
+    const fadeIntervalId = setInterval(() => {
+      currentStep++;
+      const newOpacity = (currentStep / fadeSteps);
+      setFadeOpacity(newOpacity);
+      
+      // Ramp volume from current to max
+      const newVolume = Math.min(1, volume + (0.7 / fadeSteps));
+      handleVolumeChange(newVolume);
+      
+      if (currentStep >= fadeSteps) {
+        clearInterval(fadeIntervalId);
+        // After fade completes, open Chapter 1 modal
+        setTimeout(() => {
+          const firstChapter = chapterData.find(chapter => chapter.id === 1);
+          if (firstChapter) {
+            setSelectedChapter(firstChapter);
+            setIsModalOpen(true);
+          }
+          // Fade back in after 1 second
+          setTimeout(() => {
+            const fadeBackInterval = setInterval(() => {
+              setFadeOpacity(prev => {
+                const newOpacity = prev - (1 / 30); // Fade back over 1 second
+                if (newOpacity <= 0) {
+                  clearInterval(fadeBackInterval);
+                  setIsFading(false);
+                  return 0;
+                }
+                return newOpacity;
+              });
+            }, 33); // 30fps
+          }, 1000);
+        }, 500);
+      }
+    }, fadeInterval);
+  };
+
   // Auto-start audio when page loads (with user interaction)
   useEffect(() => {
     const handleUserInteraction = () => {
@@ -365,9 +423,47 @@ export default function Journey() {
         onError={(e) => console.error('Audio error:', e)}
       />
 
+      {/* Fade Overlay */}
+      {isFading && (
+        <div 
+          className="fixed inset-0 bg-black z-50 transition-opacity duration-100"
+          style={{ opacity: fadeOpacity }}
+        ></div>
+      )}
+
+      {/* Begin Visual Journey Card - Left Side */}
+      <div className="fixed left-4 top-1/3 transform -translate-y-1/2 z-40 audio-panel">
+        <div className="bg-blue-900/90 backdrop-blur-sm rounded-lg p-3 shadow-2xl border-2 border-blue-600" style={{ width: '120px' }}>
+          <div className="text-center mb-3">
+            <h3 className="text-blue-100 font-serif font-bold text-xs mb-2">Visual Journey</h3>
+            <button
+              onClick={beginVisualJourney}
+              disabled={isFading}
+              className={`w-full bg-blue-600 hover:bg-blue-700 text-white font-serif font-bold py-2 px-1 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg border-2 border-blue-400 text-xs leading-tight ${
+                isFading ? 'opacity-50 cursor-not-allowed' : ''
+              }`}
+              title="Begin the visual journey through Moby Dick"
+            >
+              Begin<br />Visual Journey
+            </button>
+          </div>
+          
+          {/* Visual Journey Status */}
+          <div className="text-center">
+            <div className="text-blue-100 text-xs font-serif mb-1">Status</div>
+            <div className="w-6 h-6 rounded-lg bg-blue-600 flex items-center justify-center mx-auto shadow-md border border-blue-400">
+              <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+              </svg>
+            </div>
+            <div className="text-blue-100 text-xs font-serif mt-1">Ready</div>
+          </div>
+        </div>
+      </div>
+
       {/* Volume Control Panel - Left Side */}
-      <div className="fixed left-4 top-1/2 transform -translate-y-1/2 z-40 audio-panel">
-        <div className="bg-amber-900/90 backdrop-blur-sm rounded-lg p-3 shadow-2xl border-2 border-amber-600">
+      <div className="fixed left-4 top-2/3 transform -translate-y-1/2 z-40 audio-panel">
+        <div className="bg-amber-900/90 backdrop-blur-sm rounded-lg p-3 shadow-2xl border-2 border-amber-600" style={{ width: '120px' }}>
           <div className="text-center mb-3">
             <h3 className="text-amber-100 font-serif font-bold text-xs mb-2">Nantucket Harbor</h3>
             <button
@@ -424,7 +520,7 @@ export default function Journey() {
             >
               {isMuted ? (
                 <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+                  <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L12 8.18V4z"/>
                 </svg>
               ) : (
                 <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
@@ -497,6 +593,7 @@ export default function Journey() {
           {chapterData.map((chapter, idx) => (
             <div
               key={chapter.id}
+              data-chapter={chapter.id}
               className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl cursor-pointer"
               onClick={() => openModal(chapter)}
             >
