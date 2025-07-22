@@ -401,6 +401,13 @@ export default function StudyGuide() {
                       </blockquote>
                       <p className="text-sm text-amber-600">— Elevated, scholarly discourse with complex syntax and formal diction</p>
                     </div>
+                    <div className="bg-amber-50 p-4 rounded border-l-4 border-amber-400">
+                      <blockquote className="italic text-amber-800 mb-2">
+                        "The sperm whale, as with all other species of the Leviathan, is an hermaphrodite; but this is a mere 
+                        piece of courtesy on his part, a sort of acknowledgment of the supremacy of the human male."
+                      </blockquote>
+                      <p className="text-sm text-amber-600">— Scientific cetological language with technical classification and biological detail</p>
+                    </div>
                   </div>
                 </div>
 
