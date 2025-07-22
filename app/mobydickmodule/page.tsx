@@ -215,6 +215,252 @@ export default function MobyDickModule() {
 
         </div>
 
+        {/* Moby Dick Quests Section */}
+        <div className="mt-16">
+          <div className="text-center mb-12">
+            <div className="inline-block p-6 bg-gradient-to-r from-purple-900/90 to-indigo-800/90 border-4 border-purple-400 rounded-2xl shadow-2xl">
+              <h2 className="text-4xl font-bold text-white mb-2 font-serif">🎯 Moby Dick Quests</h2>
+              <p className="text-purple-200 text-lg font-serif">Complete challenges to earn XP and unlock new content</p>
+            </div>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8">
+            
+            {/* Easy Quest */}
+            <div className="bg-green-50/95 border-4 border-green-600 rounded-xl p-6 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl">
+              <div className="text-center mb-6">
+                <div className="text-6xl mb-3">🌱</div>
+                <h3 className="text-2xl font-bold text-green-900 font-serif">Easy Quest</h3>
+                <div className="w-full h-1 bg-green-600 my-2"></div>
+                <div className="flex items-center justify-center gap-2 text-green-700">
+                  <span className="text-sm">⭐</span>
+                  <span className="text-sm">⭐</span>
+                  <span className="text-sm">⭐</span>
+                  <span className="text-sm">⭐</span>
+                  <span className="text-sm">⭐</span>
+                </div>
+                <p className="text-green-700 font-serif italic mt-2">Perfect for beginners</p>
+              </div>
+              
+              <div className="space-y-4 text-green-800 font-serif">
+                <div className="p-4 bg-white/70 rounded border border-green-300">
+                  <h4 className="font-bold text-lg mb-2">📖 Character Collector</h4>
+                  <p className="text-sm mb-3">Read about 5 different characters from the novel and write a brief summary of each one's role in the story.</p>
+                  <div className="flex justify-between items-center text-xs">
+                    <span className="bg-green-200 px-2 py-1 rounded">Reward: 50 XP</span>
+                    <span className="bg-green-200 px-2 py-1 rounded">Time: 30 min</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Medium Quest */}
+            <div className="bg-yellow-50/95 border-4 border-yellow-600 rounded-xl p-6 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl">
+              <div className="text-center mb-6">
+                <div className="text-6xl mb-3">⚔️</div>
+                <h3 className="text-2xl font-bold text-yellow-900 font-serif">Medium Quest</h3>
+                <div className="w-full h-1 bg-yellow-600 my-2"></div>
+                <div className="flex items-center justify-center gap-2 text-yellow-700">
+                  <span className="text-sm">⭐</span>
+                  <span className="text-sm">⭐</span>
+                  <span className="text-sm">⭐</span>
+                  <span className="text-sm">⭐</span>
+                  <span className="text-sm">⭐</span>
+                  <span className="text-sm">⭐</span>
+                  <span className="text-sm">⭐</span>
+                </div>
+                <p className="text-yellow-700 font-serif italic mt-2">For experienced sailors</p>
+              </div>
+              
+              <div className="space-y-4 text-yellow-800 font-serif">
+                <div className="p-4 bg-white/70 rounded border border-yellow-300">
+                  <h4 className="font-bold text-lg mb-2">🔍 Symbol Detective</h4>
+                  <p className="text-sm mb-3">Analyze 3 major symbols from the novel. For each symbol, explain what it represents and how it contributes to the story's meaning.</p>
+                  <div className="flex justify-between items-center text-xs">
+                    <span className="bg-yellow-200 px-2 py-1 rounded">Reward: 100 XP</span>
+                    <span className="bg-yellow-200 px-2 py-1 rounded">Time: 45 min</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Challenging Quest */}
+            <div className="bg-red-50/95 border-4 border-red-600 rounded-xl p-6 shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl">
+              <div className="text-center mb-6">
+                <div className="text-6xl mb-3">🔥</div>
+                <h3 className="text-2xl font-bold text-red-900 font-serif">Challenging Quest</h3>
+                <div className="w-full h-1 bg-red-600 my-2"></div>
+                <div className="flex items-center justify-center gap-2 text-red-700">
+                  <span className="text-sm">⭐</span>
+                  <span className="text-sm">⭐</span>
+                  <span className="text-sm">⭐</span>
+                  <span className="text-sm">⭐</span>
+                  <span className="text-sm">⭐</span>
+                  <span className="text-sm">⭐</span>
+                  <span className="text-sm">⭐</span>
+                  <span className="text-sm">⭐</span>
+                  <span className="text-sm">⭐</span>
+                  <span className="text-sm">⭐</span>
+                </div>
+                <p className="text-red-700 font-serif italic mt-2">For master whalers only</p>
+              </div>
+              
+              <div className="space-y-4 text-red-800 font-serif">
+                <div className="p-4 bg-white/70 rounded border border-red-300">
+                  <h4 className="font-bold text-lg mb-2">🎭 Literary Analysis Master</h4>
+                  <p className="text-sm mb-3">Write a 500-word essay comparing and contrasting two major themes from Moby Dick. Use specific quotes and examples to support your analysis.</p>
+                  <div className="flex justify-between items-center text-xs">
+                    <span className="bg-red-200 px-2 py-1 rounded">Reward: 200 XP</span>
+                    <span className="bg-red-200 px-2 py-1 rounded">Time: 90 min</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        {/* Boss Battle Section */}
+        <div className="mt-16">
+          <div className="text-center mb-12">
+            <div className="inline-block p-8 bg-gradient-to-r from-gray-900/95 to-slate-800/95 border-4 border-gray-400 rounded-2xl shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl">
+              <div className="flex items-center justify-center gap-4 mb-4">
+                <span className="text-6xl">🐋</span>
+                <h2 className="text-4xl font-bold text-white font-serif">BOSS BATTLE</h2>
+                <span className="text-6xl">⚔️</span>
+              </div>
+              <h3 className="text-3xl font-bold text-red-400 mb-2 font-serif">Facing the White Whale</h3>
+              <p className="text-gray-300 text-lg font-serif">The ultimate test of your Moby Dick mastery</p>
+            </div>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-gradient-to-br from-gray-50/95 to-slate-100/95 border-4 border-gray-600 rounded-xl p-8 shadow-2xl">
+              
+              {/* Boss Battle Header */}
+              <div className="text-center mb-8">
+                <div className="inline-block p-6 bg-gradient-to-r from-red-900/90 to-orange-800/90 border-2 border-red-400 rounded-xl shadow-lg">
+                  <h4 className="text-2xl font-bold text-white mb-2 font-serif">🎯 Comprehensive Assessment</h4>
+                  <p className="text-red-200 font-serif">Prove your mastery of Melville's masterpiece</p>
+                </div>
+              </div>
+
+              {/* Assessment Components */}
+              <div className="grid md:grid-cols-2 gap-6 mb-8">
+                
+                {/* Left Column */}
+                <div className="space-y-4">
+                  <div className="bg-white/80 p-4 rounded-lg border border-gray-300">
+                    <h5 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
+                      <span className="text-xl">📝</span>
+                      Written Analysis
+                    </h5>
+                    <p className="text-sm text-gray-700">750-word critical essay analyzing a major theme or character from Moby Dick</p>
+                  </div>
+
+                  <div className="bg-white/80 p-4 rounded-lg border border-gray-300">
+                    <h5 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
+                      <span className="text-xl">🔍</span>
+                      Symbol Interpretation
+                    </h5>
+                    <p className="text-sm text-gray-700">Detailed analysis of 3 key symbols and their significance in the novel</p>
+                  </div>
+
+                  <div className="bg-white/80 p-4 rounded-lg border border-gray-300">
+                    <h5 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
+                      <span className="text-xl">📊</span>
+                      Advanced Quiz
+                    </h5>
+                    <p className="text-sm text-gray-700">Comprehensive 20-question assessment covering all aspects of the novel</p>
+                  </div>
+                </div>
+
+                {/* Right Column */}
+                <div className="space-y-4">
+                  <div className="bg-white/80 p-4 rounded-lg border border-gray-300">
+                    <h5 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
+                      <span className="text-xl">💬</span>
+                      Quote Analysis
+                    </h5>
+                    <p className="text-sm text-gray-700">Interpret and explain 5 significant quotes from the novel</p>
+                  </div>
+
+                  <div className="bg-white/80 p-4 rounded-lg border border-gray-300">
+                    <h5 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
+                      <span className="text-xl">🌊</span>
+                      Theme Exploration
+                    </h5>
+                    <p className="text-sm text-gray-700">Compare and contrast two major themes with textual evidence</p>
+                  </div>
+
+                  <div className="bg-white/80 p-4 rounded-lg border border-gray-300">
+                    <h5 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
+                      <span className="text-xl">🎭</span>
+                      Character Study
+                    </h5>
+                    <p className="text-sm text-gray-700">In-depth character analysis with psychological insights</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Rewards and Requirements */}
+              <div className="grid md:grid-cols-3 gap-6 mb-8">
+                
+                <div className="text-center p-4 bg-gradient-to-r from-green-100 to-emerald-100 rounded-lg border-2 border-green-400">
+                  <div className="text-3xl mb-2">🏆</div>
+                  <h5 className="font-bold text-green-900 mb-1">Grand Prize</h5>
+                  <p className="text-sm text-green-700">500 XP + Moby Dick Master Badge</p>
+                </div>
+
+                <div className="text-center p-4 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-lg border-2 border-blue-400">
+                  <div className="text-3xl mb-2">⏱️</div>
+                  <h5 className="font-bold text-blue-900 mb-1">Time Limit</h5>
+                  <p className="text-sm text-blue-700">3 hours to complete all sections</p>
+                </div>
+
+                <div className="text-center p-4 bg-gradient-to-r from-purple-100 to-violet-100 rounded-lg border-2 border-purple-400">
+                  <div className="text-3xl mb-2">📚</div>
+                  <h5 className="font-bold text-purple-900 mb-1">Prerequisites</h5>
+                  <p className="text-sm text-purple-700">Complete all 3 quests first</p>
+                </div>
+              </div>
+
+              {/* Warning and Challenge */}
+              <div className="text-center p-6 bg-gradient-to-r from-red-100 to-orange-100 rounded-lg border-2 border-red-400">
+                <div className="flex items-center justify-center gap-3 mb-4">
+                  <span className="text-4xl">⚠️</span>
+                  <h5 className="text-xl font-bold text-red-900">Final Warning</h5>
+                  <span className="text-4xl">🐋</span>
+                </div>
+                <p className="text-red-800 font-serif mb-4">
+                  "To the last, I grapple with thee; From Hell's heart, I stab at thee; For hate's sake, I spit my last breath at thee."
+                </p>
+                <p className="text-sm text-red-700 italic">
+                  — Captain Ahab's challenge to the White Whale
+                </p>
+              </div>
+
+              {/* Locked Battle Button */}
+              <div className="text-center mt-8">
+                <div className="inline-block p-6 bg-gradient-to-r from-gray-400 to-slate-500 border-2 border-gray-500 rounded-lg shadow-lg">
+                  <div className="flex items-center justify-center gap-3 mb-3">
+                    <span className="text-3xl">🔒</span>
+                    <span className="text-2xl font-bold text-gray-700">LOCKED</span>
+                    <span className="text-3xl">🔒</span>
+                  </div>
+                  <p className="text-gray-600 font-serif mb-2">Complete all 3 quests to unlock</p>
+                  <div className="flex items-center justify-center gap-2 text-sm text-gray-500">
+                    <span className="bg-gray-200 px-2 py-1 rounded">Easy Quest</span>
+                    <span className="bg-gray-200 px-2 py-1 rounded">Medium Quest</span>
+                    <span className="bg-gray-200 px-2 py-1 rounded">Challenging Quest</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
       </div>
     </main>
   )
