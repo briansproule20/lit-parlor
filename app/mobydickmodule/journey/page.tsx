@@ -63,6 +63,7 @@ export default function Journey() {
   const [fadeOpacity, setFadeOpacity] = useState(0);
   const [modalOpacity, setModalOpacity] = useState(0);
   const [showVisualJourney, setShowVisualJourney] = useState(false);
+  const [sessionTime, setSessionTime] = useState(0);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   // Navigation functions for modal
@@ -425,6 +426,15 @@ export default function Journey() {
       document.removeEventListener('keydown', handleUserInteraction);
     };
   }, [isAudioPlaying]);
+
+  // Session timer
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setSessionTime(prev => prev + 1);
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <main className="min-h-screen py-8 px-4 relative" style={{
         backgroundImage: 'url(/images/ship-storm.png)',
@@ -942,6 +952,15 @@ export default function Journey() {
           </div>
         </div>
       )}
+
+      {/* Session Timer - Bottom Right */}
+      <div className="fixed bottom-4 right-4 z-30">
+        <div className="bg-black/20 backdrop-blur-sm rounded-lg px-3 py-2 border border-white/20">
+          <div className="text-white/70 text-xs font-mono">
+            {Math.floor(sessionTime / 60)}:{(sessionTime % 60).toString().padStart(2, '0')}
+          </div>
+        </div>
+      </div>
     </main>
   )
 } 
