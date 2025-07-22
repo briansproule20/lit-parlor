@@ -372,6 +372,38 @@ export default function StudyGuide() {
                   </div>
                 </div>
 
+                <div className="bg-white/70 p-6 rounded-lg border border-amber-300">
+                  <h3 className="text-xl font-bold text-amber-900 mb-4">📝 Varied Syntax & Style</h3>
+                  <p className="text-amber-700 mb-4">
+                    Melville's language encompasses nautical, biblical, Homeric, Shakespearean, Miltonic, and cetological elements. 
+                    His deliberate shifts in language and style create a richly layered and immersive reading experience, enhancing 
+                    the novel's themes of adventure, the natural world, and the complexities of human nature.
+                  </p>
+                  <div className="space-y-3">
+                    <div className="bg-amber-50 p-4 rounded border-l-4 border-amber-400">
+                      <blockquote className="italic text-amber-800 mb-2">
+                        "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, 
+                        and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world."
+                      </blockquote>
+                      <p className="text-sm text-amber-600">— Sophisticated, philosophical opening with classical cadence</p>
+                    </div>
+                    <div className="bg-amber-50 p-4 rounded border-l-4 border-amber-400">
+                      <blockquote className="italic text-amber-800 mb-2">
+                        "Aye, aye! and I'll chase him round Good Hope, and round the Horn, and round the Norway Maelstrom, 
+                        and round perdition's flames before I give him up!"
+                      </blockquote>
+                      <p className="text-sm text-amber-600">— Nautical jargon mixed with epic, Miltonic grandeur</p>
+                    </div>
+                    <div className="bg-amber-50 p-4 rounded border-l-4 border-amber-400">
+                      <blockquote className="italic text-amber-800 mb-2">
+                        "The whiteness of the whale is that which most appals me. But how can I hope to explain myself here; 
+                        and yet, in some dim, random way, explain myself I must, else all these chapters might be naught."
+                      </blockquote>
+                      <p className="text-sm text-amber-600">— Elevated, scholarly discourse with complex syntax and formal diction</p>
+                    </div>
+                  </div>
+                </div>
+
                 <div className="bg-blue-50 p-6 rounded-lg border-2 border-blue-300">
                   <h3 className="text-xl font-bold text-blue-900 mb-3">🎯 Study Questions</h3>
                   <ol className="space-y-2 text-blue-700">
