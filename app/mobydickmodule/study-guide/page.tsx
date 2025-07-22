@@ -132,6 +132,20 @@ export default function StudyGuide() {
                     the white whale that destroyed his leg in a previous encounter. What begins as a commercial whaling voyage 
                     becomes a dangerous quest for revenge that leads to the destruction of the ship and all but one of its crew.
                   </p>
+                  <p className="leading-relaxed mt-4">
+                    The novel follows Ishmael's journey from New Bedford to the Pacific Ocean, where the Pequod encounters 
+                    various whaling ships and their captains. Along the way, Ishmael forms a deep friendship with Queequeg, 
+                    a Polynesian harpooner, and witnesses the crew's growing unease as Ahab's obsession with the white whale 
+                    becomes increasingly apparent. The narrative is interspersed with detailed chapters on whaling techniques, 
+                    whale biology, and philosophical meditations on the nature of existence and humanity's relationship with the sea.
+                  </p>
+                  <p className="leading-relaxed mt-4">
+                    As the voyage progresses, Ahab's monomaniacal pursuit of Moby Dick intensifies, leading to conflicts 
+                    with his first mate Starbuck, who represents reason and morality. The crew becomes increasingly caught 
+                    between their duty to follow their captain and their growing awareness of the dangerous path they're on. 
+                    The novel builds toward an inevitable confrontation with the legendary white whale, exploring themes of 
+                    fate, free will, and the limits of human ambition.
+                  </p>
                 </div>
               </div>
             </div>
