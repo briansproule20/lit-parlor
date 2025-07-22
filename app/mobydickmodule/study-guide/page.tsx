@@ -473,28 +473,90 @@ export default function StudyGuide() {
                 
                 <div className="bg-white/70 p-6 rounded-lg border border-amber-300">
                   <h3 className="text-xl font-bold text-amber-900 mb-4">📚 Literary Significance</h3>
-                  <ul className="space-y-2 text-amber-700">
-                    <li>• Often considered the greatest American novel</li>
-                    <li>• Pioneered the "encyclopedic novel" form</li>
-                    <li>• Influenced modern stream-of-consciousness writing</li>
-                    <li>• Elevated adventure fiction to philosophical literature</li>
-                  </ul>
+                  <div className="space-y-4">
+                    <div>
+                      <h4 className="font-semibold text-amber-800 mb-2">🏆 Critical Reception</h4>
+                      <ul className="space-y-2 text-amber-700">
+                        <li>• Often considered the greatest American novel and a masterpiece of world literature</li>
+                        <li>• Initially misunderstood and commercially unsuccessful, now universally acclaimed</li>
+                        <li>• Influenced generations of writers including Faulkner, Hemingway, and Joyce</li>
+                        <li>• Established Melville as a major figure in American literary canon</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-amber-800 mb-2">📖 Literary Innovation</h4>
+                      <ul className="space-y-2 text-amber-700">
+                        <li>• Pioneered the "encyclopedic novel" form that combines multiple genres and styles</li>
+                        <li>• Broke traditional narrative conventions with its experimental structure</li>
+                        <li>• Elevated adventure fiction to philosophical and psychological literature</li>
+                        <li>• Created a new model for the American epic novel</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-amber-800 mb-2">🌊 Cultural Impact</h4>
+                      <ul className="space-y-2 text-amber-700">
+                        <li>• Shaped American literature's engagement with nature and the sublime</li>
+                        <li>• Influenced modern stream-of-consciousness and experimental writing</li>
+                        <li>• Established themes of obsession, revenge, and human vs. nature in American fiction</li>
+                        <li>• Continues to inspire contemporary literature and popular culture</li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
 
                 <div className="bg-white/70 p-6 rounded-lg border border-amber-300">
                   <h3 className="text-xl font-bold text-amber-900 mb-4">🎭 Narrative Techniques</h3>
-                  <div className="space-y-3">
+                  <div className="space-y-6">
                     <div>
-                      <span className="font-semibold">Multiple Perspectives:</span>
-                      <p className="text-amber-700">Shifts between Ishmael's first-person narrative and omniscient third-person</p>
+                      <h4 className="text-lg font-bold text-amber-800 mb-3">📝 Narrative Structure</h4>
+                      <div className="space-y-4">
+                        <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
+                          <h5 className="font-bold text-amber-900 mb-2">Multiple Perspectives</h5>
+                          <p className="text-amber-700 leading-relaxed">Melville shifts between Ishmael's first-person narrative and omniscient third-person. This creates both intimate personal connection and epic scope.</p>
+                        </div>
+                        <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
+                          <h5 className="font-bold text-amber-900 mb-2">Frame Narrative</h5>
+                          <p className="text-amber-700 leading-relaxed">Ishmael tells the story after the events occur. This allows for philosophical commentary and dramatic irony throughout.</p>
+                        </div>
+                        <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
+                          <h5 className="font-bold text-amber-900 mb-2">Interrupted Narrative</h5>
+                          <p className="text-amber-700 leading-relaxed">The story frequently digresses into whale biology, philosophy, and other topics. This creates a complex, layered reading experience.</p>
+                        </div>
+                      </div>
                     </div>
                     <div>
-                      <span className="font-semibold">Genre Mixing:</span>
-                      <p className="text-amber-700">Combines adventure story, philosophical treatise, scientific manual, and dramatic soliloquies</p>
+                      <h4 className="text-lg font-bold text-amber-800 mb-3">🎨 Genre Innovation</h4>
+                      <div className="space-y-4">
+                        <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
+                          <h5 className="font-bold text-amber-900 mb-2">Encyclopedic Form</h5>
+                          <p className="text-amber-700 leading-relaxed">Melville combines adventure story, philosophical treatise, scientific manual, dramatic soliloquies, and biblical allegory into one work.</p>
+                        </div>
+                        <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
+                          <h5 className="font-bold text-amber-900 mb-2">Epic Elements</h5>
+                          <p className="text-amber-700 leading-relaxed">The novel incorporates Homeric and Miltonic influences, elevating the whaling story to mythic proportions.</p>
+                        </div>
+                        <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
+                          <h5 className="font-bold text-amber-900 mb-2">Dramatic Structure</h5>
+                          <p className="text-amber-700 leading-relaxed">Melville uses soliloquies, dramatic confrontations, and theatrical dialogue to heighten emotional impact.</p>
+                        </div>
+                      </div>
                     </div>
                     <div>
-                      <span className="font-semibold">Symbolism:</span>
-                      <p className="text-amber-700">Dense symbolic structure where every element carries multiple meanings</p>
+                      <h4 className="text-lg font-bold text-amber-800 mb-3">🔍 Literary Devices</h4>
+                      <div className="space-y-4">
+                        <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
+                          <h5 className="font-bold text-amber-900 mb-2">Dense Symbolism</h5>
+                          <p className="text-amber-700 leading-relaxed">Every element carries multiple meanings, creating a rich symbolic network that rewards close reading.</p>
+                        </div>
+                        <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
+                          <h5 className="font-bold text-amber-900 mb-2">Biblical Allusion</h5>
+                          <p className="text-amber-700 leading-relaxed">Extensive use of biblical references and parallels, particularly from Job, Jonah, and Genesis.</p>
+                        </div>
+                        <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
+                          <h5 className="font-bold text-amber-900 mb-2">Foreshadowing</h5>
+                          <p className="text-amber-700 leading-relaxed">Prophetic warnings and omens throughout create a sense of inevitable doom.</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
