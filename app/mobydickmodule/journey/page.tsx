@@ -463,7 +463,7 @@ export default function Journey() {
       )}
 
       {/* Begin Visual Journey Card - Left Side */}
-      <div className="fixed left-4 top-1/3 transform -translate-y-1/2 z-40 audio-panel">
+      <div className="fixed left-4 top-32 z-40 audio-panel">
         <div className="bg-blue-900/90 backdrop-blur-sm rounded-lg p-3 shadow-2xl border-2 border-blue-600" style={{ width: '120px' }}>
           <div className="text-center mb-3">
             <h3 className="text-blue-100 font-serif font-bold text-xs mb-2">Visual Journey</h3>
@@ -493,7 +493,7 @@ export default function Journey() {
       </div>
 
       {/* Volume Control Panel - Left Side */}
-      <div className="fixed left-4 top-2/3 transform -translate-y-1/2 z-40 audio-panel">
+      <div className="fixed left-4 top-96 z-20 audio-panel">
         <div className="bg-amber-900/90 backdrop-blur-sm rounded-lg p-3 shadow-2xl border-2 border-amber-600" style={{ width: '120px' }}>
           <div className="text-center mb-3">
             <h3 className="text-amber-100 font-serif font-bold text-xs mb-2">Nantucket Harbor</h3>
@@ -561,32 +561,11 @@ export default function Journey() {
             </button>
             <div className="text-amber-100 text-xs font-serif mt-1">Mute</div>
           </div>
-          
-
         </div>
       </div>
       
-      {/* Narration Controls - Separate Button */}
-      <div className="fixed left-4 bottom-0 z-40 audio-panel">
-        <div className="bg-gray-800/90 backdrop-blur-sm rounded-lg p-3 shadow-2xl border-2 border-gray-600" style={{ width: '120px' }}>
-          <div className="text-center">
-            <h3 className="text-gray-100 font-serif font-bold text-xs mb-2">Narration Controls</h3>
-            <button
-              disabled
-              className="w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-300 shadow-md bg-gray-600 text-white border border-gray-400 cursor-not-allowed opacity-60"
-              title="Narration Controls - Coming Soon"
-            >
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-              </svg>
-            </button>
-            <div className="text-gray-100 text-xs font-serif mt-1">Coming Soon</div>
-          </div>
-        </div>
-      </div>
-      
-      {/* Narration Controls - Separate Button */}
-      <div className="fixed left-4 bottom-0 z-40 audio-panel">
+      {/* Narration Controls */}
+      <div className="fixed left-4 top-[40rem] z-40 audio-panel">
         <div className="bg-gray-800/90 backdrop-blur-sm rounded-lg p-3 shadow-2xl border-2 border-gray-600" style={{ width: '120px' }}>
           <div className="text-center">
             <h3 className="text-gray-100 font-serif font-bold text-xs mb-2">Narration Controls</h3>
