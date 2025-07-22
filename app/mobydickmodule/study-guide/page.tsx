@@ -171,29 +171,57 @@ export default function StudyGuide() {
                     name: 'Captain Ahab',
                     icon: '👨‍✈️',
                     role: 'Protagonist/Antagonist',
-                    description: 'The monomaniacal captain whose obsession with Moby Dick drives the narrative. Represents the dangers of unchecked ambition and revenge.',
-                    quote: '"To the last, I grapple with thee; From Hell\'s heart, I stab at thee; For hate\'s sake, I spit my last breath at thee."'
+                    description: 'The monomaniacal captain whose obsession with Moby Dick drives the narrative. A complex figure who transforms from a respected whaling captain into a figure of mythic proportions, willing to sacrifice everything—including his crew—for revenge. His ivory leg, made from whale bone, symbolizes his literal and metaphorical connection to his nemesis.',
+                    quote: '"Talk not to me of blasphemy, man; I\'d strike the sun if it insulted me. For could the sun do that, then could I do the other; since there is ever a sort of fair play herein, jealousy presiding over all creations."'
                   },
                   {
                     name: 'Ishmael',
                     icon: '📝',
-                    role: 'Narrator',
-                    description: 'Our storyteller and philosophical guide. A contemplative observer who provides both personal experience and universal insights.',
-                    quote: '"Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse..."'
+                    role: 'Narrator & Survivor',
+                    description: 'Our philosophical storyteller and the novel\'s sole survivor. A contemplative observer who provides both personal experience and universal insights. His name, meaning "God hears," suggests his role as a witness and storyteller. Ishmael represents the everyman who seeks adventure but becomes a chronicler of human folly and the sea\'s indifference.',
+                    quote: '"Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world."'
                   },
                   {
                     name: 'Queequeg',
                     icon: '🗡️',
-                    role: 'Harpooner',
-                    description: 'A Polynesian prince and skilled harpooner who becomes Ishmael\'s closest friend, representing nobility and natural wisdom.',
+                    role: 'Harpooner & Prince',
+                    description: 'A Polynesian prince and skilled harpooner who becomes Ishmael\'s closest friend. His character challenges cultural prejudices and represents natural nobility and wisdom. Queequeg\'s coffin, which later becomes Ishmael\'s life preserver, symbolizes the transformation of death into salvation and the enduring power of friendship.',
                     quote: '"It\'s better to sleep with a sober cannibal than a drunken Christian."'
                   },
                   {
                     name: 'Starbuck',
                     icon: '⚖️',
                     role: 'First Mate',
-                    description: 'The voice of reason and morality aboard the Pequod. Represents the conflict between duty and conscience.',
-                    quote: '"I will have no man in my boat who is not afraid of a whale."'
+                    description: 'The voice of reason and morality aboard the Pequod. A devout Quaker who represents the conflict between duty and conscience. Starbuck\'s attempts to reason with Ahab and his growing awareness of the voyage\'s danger make him the novel\'s moral center, though ultimately powerless against Ahab\'s obsession.',
+                    quote: '"Vengeance on a dumb brute! cried Starbuck, that simply smote thee from blindest instinct! Madness! To be enraged with a dumb thing, Captain Ahab, seems blasphemous."'
+                  },
+                  {
+                    name: 'Stubb',
+                    icon: '🎭',
+                    role: 'Second Mate',
+                    description: 'The jovial second mate who represents the crew\'s acceptance of their fate. Unlike Starbuck, Stubb doesn\'t question Ahab\'s decisions and maintains a carefree attitude even in dangerous situations. His character shows how people can become complicit in destructive behavior through passivity and humor.',
+                    quote: '"I don\'t know exactly what\'s the matter with me, but I feel kind of funny; do you know what I mean?"'
+                  },
+                  {
+                    name: 'Flask',
+                    icon: '⚡',
+                    role: 'Third Mate',
+                    description: 'The aggressive third mate who compensates for his small stature with fierce determination. Flask represents the crew\'s transformation under Ahab\'s influence, becoming increasingly reckless and bloodthirsty. His character shows how the captain\'s obsession spreads to the entire crew.',
+                    quote: '"I don\'t care who it is that has the other end of this line. But there now ain\'t any other way, and so I tell ye what."'
+                  },
+                  {
+                    name: 'Pip',
+                    icon: '🎪',
+                    role: 'Cabin Boy',
+                    description: 'The young African American cabin boy who goes mad after being abandoned in the ocean. Pip\'s descent into madness and his prophetic ramblings make him a figure of both tragedy and wisdom. His character represents the human cost of the voyage and the thin line between sanity and madness.',
+                    quote: '"They have let me see the world, and I have seen the world."'
+                  },
+                  {
+                    name: 'Father Mapple',
+                    icon: '⛪',
+                    role: 'Preacher',
+                    description: 'The whaleman\'s chapel preacher whose sermon on Jonah foreshadows the voyage\'s fate. His powerful oratory and biblical knowledge establish the novel\'s religious and moral framework. Father Mapple represents the voice of divine warning that goes unheeded.',
+                    quote: '"Shipmates, God has laid but one hand upon you; both his hands press upon me. I have read ye by what murky light may be mine the lesson that Jonah teaches to all sinful men."'
                   }
                 ].map((character, index) => (
                   <div key={index} className="bg-white/70 p-6 rounded-lg border border-amber-300">
