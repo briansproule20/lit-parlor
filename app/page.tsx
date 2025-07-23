@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { ThreeDMarquee } from '@/components/ui/3d-marquee'
+import { Marquee } from '@/components/ui/marquee'
 import { TypewriterEffect } from '@/components/ui/typewriter-effect'
 import { BackgroundBeams } from '@/components/ui/background-beams'
 import { DotBackground } from '@/components/ui/dot-background'
@@ -484,95 +485,175 @@ export default function Home() {
 
         {/* Current Challenges */}
         <div className="mb-12">
-          <div className="bg-white rounded-xl shadow-xl p-6 border-2 border-amber-200">
-            <h2 className="text-2xl font-bold text-amber-900 mb-6 font-serif text-center">Current Challenges</h2>
-            
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* Weekly Challenges */}
-              <div>
-                <h3 className="text-lg font-semibold text-blue-800 font-serif mb-4 flex items-center gap-2">
-                  <span className="text-xl">📅</span>
-                  Weekly Global Challenges
-                </h3>
-                <div className="space-y-4">
-                                      <div className="p-4 bg-blue-50 rounded-lg border-2 border-blue-200 shadow-md">
-                      <div className="flex items-center justify-between mb-2">
-                        <h4 className="font-semibold text-blue-800 font-serif">Speed Reading Sprint</h4>
-                        <span className="text-blue-600 text-sm font-bold">2/3 days</span>
-                      </div>
-                      <p className="text-blue-700 text-sm font-serif mb-3">Read 15 pages daily for 3 consecutive days</p>
-                      <div className="w-full bg-blue-200 rounded-full h-2">
-                        <div className="bg-blue-500 h-2 rounded-full" style={{width: '67%'}}></div>
-                      </div>
-                    </div>
-                  
-                  <div className="p-4 bg-green-50 rounded-lg border-2 border-green-200 shadow-md">
-                    <div className="flex items-center justify-between mb-2">
-                      <h4 className="font-semibold text-green-800 font-serif">Character Analysis Deep Dive</h4>
-                      <span className="text-green-600 text-sm font-bold">2/3 tasks</span>
-                    </div>
-                    <p className="text-green-700 text-sm font-serif mb-3">Complete 3 character analysis exercises</p>
-                    <div className="w-full bg-green-200 rounded-full h-2">
-                      <div className="bg-green-500 h-2 rounded-full" style={{width: '67%'}}></div>
-                    </div>
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-amber-100 mb-2 font-serif" style={{
+              textShadow: '2px 2px 4px rgba(0,0,0,0.6)'
+            }}>
+              Current Challenges
+            </h2>
+            <div className="w-32 h-1 bg-amber-400 mx-auto rounded"></div>
+          </div>
+
+          <Marquee pauseOnHover className="[--duration:30s]">
+            {/* Weekly Challenges */}
+            <div className="mx-4 bg-blue-50 rounded-xl shadow-xl p-6 border-2 border-blue-200 min-w-[300px]">
+              <h3 className="text-lg font-semibold text-blue-800 font-serif mb-4 flex items-center gap-2">
+                <span className="text-xl">📅</span>
+                Weekly Global Challenges
+              </h3>
+              <div className="space-y-3">
+                <div className="p-3 bg-blue-100 rounded-lg border border-blue-300">
+                  <div className="flex items-center justify-between mb-1">
+                    <h4 className="font-semibold text-blue-800 font-serif text-sm">Speed Reading Sprint</h4>
+                    <span className="text-blue-600 text-xs font-bold">2/3 days</span>
                   </div>
-                  
-                  <div className="p-4 bg-purple-50 rounded-lg border-2 border-purple-200 shadow-md">
-                    <div className="flex items-center justify-between mb-2">
-                      <h4 className="font-semibold text-purple-800 font-serif">Theme Hunter</h4>
-                      <span className="text-purple-600 text-sm font-bold">1/4 themes</span>
-                    </div>
-                    <p className="text-purple-700 text-sm font-serif mb-3">Identify and analyze 4 recurring themes</p>
-                    <div className="w-full bg-purple-200 rounded-full h-2">
-                      <div className="bg-purple-500 h-2 rounded-full" style={{width: '25%'}}></div>
-                    </div>
+                  <p className="text-blue-700 text-xs font-serif mb-2">Read 15 pages daily for 3 consecutive days</p>
+                  <div className="w-full bg-blue-200 rounded-full h-1.5">
+                    <div className="bg-blue-500 h-1.5 rounded-full" style={{width: '67%'}}></div>
                   </div>
                 </div>
-              </div>
-
-              {/* Assigned Challenges */}
-              <div>
-                <h3 className="text-lg font-semibold text-orange-800 font-serif mb-4 flex items-center gap-2">
-                  <span className="text-xl">📋</span>
-                  Your Assigned Challenges
-                </h3>
-                <div className="space-y-4">
-                  <div className="p-4 bg-orange-50 rounded-lg border-2 border-orange-200 shadow-md">
-                    <div className="flex items-center justify-between mb-2">
-                      <h4 className="font-semibold text-orange-800 font-serif">Moby Dick Chapter Analysis</h4>
-                      <span className="text-orange-600 text-sm font-bold">Due: 3 days</span>
-                    </div>
-                    <p className="text-orange-700 text-sm font-serif mb-3">Analyze chapters 15-20 for symbolism and themes</p>
-                    <div className="w-full bg-orange-200 rounded-full h-2">
-                      <div className="bg-orange-500 h-2 rounded-full" style={{width: '40%'}}></div>
-                    </div>
+                
+                <div className="p-3 bg-green-100 rounded-lg border border-green-300">
+                  <div className="flex items-center justify-between mb-1">
+                    <h4 className="font-semibold text-green-800 font-serif text-sm">Character Analysis</h4>
+                    <span className="text-green-600 text-xs font-bold">2/3 tasks</span>
                   </div>
-                  
-                  <div className="p-4 bg-red-50 rounded-lg border-2 border-red-200 shadow-md">
-                    <div className="flex items-center justify-between mb-2">
-                      <h4 className="font-semibold text-red-800 font-serif">Essay Writing Practice</h4>
-                      <span className="text-red-600 text-sm font-bold">Due: 1 week</span>
-                    </div>
-                    <p className="text-red-700 text-sm font-serif mb-3">Write a 1000-word essay on character development</p>
-                    <div className="w-full bg-red-200 rounded-full h-2">
-                      <div className="bg-red-500 h-2 rounded-full" style={{width: '20%'}}></div>
-                    </div>
+                  <p className="text-green-700 text-xs font-serif mb-2">Complete 3 character analysis exercises</p>
+                  <div className="w-full bg-green-200 rounded-full h-1.5">
+                    <div className="bg-green-500 h-1.5 rounded-full" style={{width: '67%'}}></div>
                   </div>
-                  
-                  <div className="p-4 bg-teal-50 rounded-lg border-2 border-teal-200 shadow-md">
-                    <div className="flex items-center justify-between mb-2">
-                      <h4 className="font-semibold text-teal-800 font-serif">Discussion Participation</h4>
-                      <span className="text-teal-600 text-sm font-bold">Due: Ongoing</span>
-                    </div>
-                    <p className="text-teal-700 text-sm font-serif mb-3">Participate in 5 Socratic Forum discussions</p>
-                    <div className="w-full bg-teal-200 rounded-full h-2">
-                      <div className="bg-teal-500 h-2 rounded-full" style={{width: '80%'}}></div>
-                    </div>
+                </div>
+                
+                <div className="p-3 bg-purple-100 rounded-lg border border-purple-300">
+                  <div className="flex items-center justify-between mb-1">
+                    <h4 className="font-semibold text-purple-800 font-serif text-sm">Theme Hunter</h4>
+                    <span className="text-purple-600 text-xs font-bold">1/4 themes</span>
+                  </div>
+                  <p className="text-purple-700 text-xs font-serif mb-2">Identify and analyze 4 recurring themes</p>
+                  <div className="w-full bg-purple-200 rounded-full h-1.5">
+                    <div className="bg-purple-500 h-1.5 rounded-full" style={{width: '25%'}}></div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+
+            {/* Assigned Challenges */}
+            <div className="mx-4 bg-orange-50 rounded-xl shadow-xl p-6 border-2 border-orange-200 min-w-[300px]">
+              <h3 className="text-lg font-semibold text-orange-800 font-serif mb-4 flex items-center gap-2">
+                <span className="text-xl">📋</span>
+                Your Assigned Challenges
+              </h3>
+              <div className="space-y-3">
+                <div className="p-3 bg-orange-100 rounded-lg border border-orange-300">
+                  <div className="flex items-center justify-between mb-1">
+                    <h4 className="font-semibold text-orange-800 font-serif text-sm">Moby Dick Analysis</h4>
+                    <span className="text-orange-600 text-xs font-bold">Due: 3 days</span>
+                  </div>
+                  <p className="text-orange-700 text-xs font-serif mb-2">Analyze chapters 15-20 for symbolism</p>
+                  <div className="w-full bg-orange-200 rounded-full h-1.5">
+                    <div className="bg-orange-500 h-1.5 rounded-full" style={{width: '40%'}}></div>
+                  </div>
+                </div>
+                
+                <div className="p-3 bg-red-100 rounded-lg border border-red-300">
+                  <div className="flex items-center justify-between mb-1">
+                    <h4 className="font-semibold text-red-800 font-serif text-sm">Essay Writing</h4>
+                    <span className="text-red-600 text-xs font-bold">Due: 1 week</span>
+                  </div>
+                  <p className="text-red-700 text-xs font-serif mb-2">1000-word essay on character development</p>
+                  <div className="w-full bg-red-200 rounded-full h-1.5">
+                    <div className="bg-red-500 h-1.5 rounded-full" style={{width: '20%'}}></div>
+                  </div>
+                </div>
+                
+                <div className="p-3 bg-teal-100 rounded-lg border border-teal-300">
+                  <div className="flex items-center justify-between mb-1">
+                    <h4 className="font-semibold text-teal-800 font-serif text-sm">Forum Participation</h4>
+                    <span className="text-teal-600 text-xs font-bold">Ongoing</span>
+                  </div>
+                  <p className="text-teal-700 text-xs font-serif mb-2">Participate in 5 Socratic discussions</p>
+                  <div className="w-full bg-teal-200 rounded-full h-1.5">
+                    <div className="bg-teal-500 h-1.5 rounded-full" style={{width: '80%'}}></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Achievement Showcase */}
+            <div className="mx-4 bg-yellow-50 rounded-xl shadow-xl p-6 border-2 border-yellow-200 min-w-[300px]">
+              <h3 className="text-lg font-semibold text-yellow-800 font-serif mb-4 flex items-center gap-2">
+                <span className="text-xl">🏆</span>
+                Recent Achievements
+              </h3>
+              <div className="space-y-3">
+                <div className="p-3 bg-yellow-100 rounded-lg border border-yellow-300">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-yellow-600">🥇</span>
+                    <h4 className="font-semibold text-yellow-800 font-serif text-sm">Master Analyst</h4>
+                  </div>
+                  <p className="text-yellow-700 text-xs font-serif">Completed 10 character analyses</p>
+                </div>
+                
+                <div className="p-3 bg-amber-100 rounded-lg border border-amber-300">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-amber-600">📚</span>
+                    <h4 className="font-semibold text-amber-800 font-serif text-sm">Speed Reader</h4>
+                  </div>
+                  <p className="text-amber-700 text-xs font-serif">Read 100 pages in one week</p>
+                </div>
+                
+                <div className="p-3 bg-lime-100 rounded-lg border border-lime-300">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-lime-600">💬</span>
+                    <h4 className="font-semibold text-lime-800 font-serif text-sm">Discussion Leader</h4>
+                  </div>
+                  <p className="text-lime-700 text-xs font-serif">Led 5 forum discussions</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Study Groups */}
+            <div className="mx-4 bg-indigo-50 rounded-xl shadow-xl p-6 border-2 border-indigo-200 min-w-[300px]">
+              <h3 className="text-lg font-semibold text-indigo-800 font-serif mb-4 flex items-center gap-2">
+                <span className="text-xl">👥</span>
+                Active Study Groups
+              </h3>
+              <div className="space-y-3">
+                <div className="p-3 bg-indigo-100 rounded-lg border border-indigo-300">
+                  <h4 className="font-semibold text-indigo-800 font-serif text-sm mb-1">Moby Dick Scholars</h4>
+                  <p className="text-indigo-700 text-xs font-serif mb-2">5 members • Next meeting: Tomorrow</p>
+                  <div className="flex gap-1">
+                    <div className="w-4 h-4 bg-indigo-400 rounded-full"></div>
+                    <div className="w-4 h-4 bg-indigo-500 rounded-full"></div>
+                    <div className="w-4 h-4 bg-indigo-600 rounded-full"></div>
+                    <span className="text-indigo-600 text-xs">+2</span>
+                  </div>
+                </div>
+                
+                <div className="p-3 bg-violet-100 rounded-lg border border-violet-300">
+                  <h4 className="font-semibold text-violet-800 font-serif text-sm mb-1">Classic Literature Club</h4>
+                  <p className="text-violet-700 text-xs font-serif mb-2">12 members • Weekly discussions</p>
+                  <div className="flex gap-1">
+                    <div className="w-4 h-4 bg-violet-400 rounded-full"></div>
+                    <div className="w-4 h-4 bg-violet-500 rounded-full"></div>
+                    <div className="w-4 h-4 bg-violet-600 rounded-full"></div>
+                    <span className="text-violet-600 text-xs">+9</span>
+                  </div>
+                </div>
+                
+                <div className="p-3 bg-pink-100 rounded-lg border border-pink-300">
+                  <h4 className="font-semibold text-pink-800 font-serif text-sm mb-1">Essay Writing Workshop</h4>
+                  <p className="text-pink-700 text-xs font-serif mb-2">8 members • Peer reviews</p>
+                  <div className="flex gap-1">
+                    <div className="w-4 h-4 bg-pink-400 rounded-full"></div>
+                    <div className="w-4 h-4 bg-pink-500 rounded-full"></div>
+                    <div className="w-4 h-4 bg-pink-600 rounded-full"></div>
+                    <span className="text-pink-600 text-xs">+5</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Marquee>
         </div>
 
         {/* Learning Modalities Mission Card */}
