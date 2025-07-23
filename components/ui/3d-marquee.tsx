@@ -83,7 +83,7 @@ export const ThreeDMarquee = ({
                           : book.id === 'theireyeswerewatchinggod'
                           ? 'linear-gradient(135deg, #0F766E 0%, #0891B2 100%)'
                           : book.id === 'animalfarm'
-                          ? 'linear-gradient(135deg, #DC2626 0%, #EA580C 100%)'
+                          ? 'linear-gradient(135deg, #7F1D1D 0%, #991B1B 50%, #C2410C 100%)'
                           : book.id === 'crimeandpunishment'
                           ? 'linear-gradient(135deg, #581C87 0%, #7C2D12 100%)'
                           : 'linear-gradient(135deg, #374151 0%, #4B5563 100%)'
@@ -103,6 +103,11 @@ export const ThreeDMarquee = ({
                           )}
                           <div className="text-center text-amber-300 text-sm font-serif mt-2">
                             {book.author}
+                          </div>
+                          <div className="mt-3 text-center">
+                            <p className="text-white/90 text-xs font-serif leading-relaxed line-clamp-3">
+                              {book.description}
+                            </p>
                           </div>
                         </div>
                         <div className="text-center">
