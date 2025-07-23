@@ -36,17 +36,17 @@ export const ThreeDMarquee = ({
   return (
     <div
       className={cn(
-        "mx-auto block h-[600px] overflow-hidden rounded-2xl max-sm:h-100",
+        "mx-auto block h-[600px] overflow-x-visible overflow-y-hidden rounded-2xl max-sm:h-100",
         className,
       )}
     >
       <div className="flex size-full items-center justify-center">
-        <div className="size-[1720px] shrink-0 scale-50 sm:scale-75 lg:scale-100">
+        <div className="size-[1720px] shrink-0 scale-50 sm:scale-70 lg:scale-90">
           <div
             style={{
               transform: "rotateX(55deg) rotateY(0deg) rotateZ(-45deg)",
             }}
-            className="relative top-40 left-[10%] grid size-full origin-center-top grid-cols-4 gap-12 transform-3d"
+            className="relative top-40 left-[25%] grid size-full origin-center-top grid-cols-4 gap-12 transform-3d"
           >
             {chunks.map((subarray, colIndex) => (
               <motion.div
