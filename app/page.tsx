@@ -245,7 +245,7 @@ export default function Home() {
           <div className="max-w-4xl mx-auto">
             <div className="inline-block p-8 bg-gradient-to-r from-blue-900/90 to-blue-700/90 border-4 border-blue-400 rounded-2xl shadow-2xl relative overflow-hidden h-[300px]">
               {/* Background Beams Effect */}
-              <BackgroundBeams className="opacity-40" />
+              <BackgroundBeams className="opacity-70" />
               
               <div className="relative z-10 h-full flex flex-col justify-center">
                 <h2 className="text-3xl font-bold text-white mb-6 font-serif">
@@ -572,17 +572,11 @@ export default function Home() {
         {/* Learning Modalities Mission Card */}
         <div className="text-center mb-12">
           <div className="max-w-4xl mx-auto">
-            <div className="inline-block p-8 bg-gradient-to-r from-indigo-900/90 to-purple-800/90 border-4 border-indigo-400 rounded-2xl shadow-2xl relative overflow-hidden">
-              {/* Decorative background pattern */}
-              <div className="absolute inset-0 opacity-5">
-                <div className="absolute top-4 left-4 w-12 h-12 bg-indigo-300 rounded-full"></div>
-                <div className="absolute top-4 right-4 w-8 h-8 bg-purple-300 rounded-full"></div>
-                <div className="absolute bottom-4 left-4 w-10 h-10 bg-indigo-400 rounded-full"></div>
-                <div className="absolute bottom-4 right-4 w-6 h-6 bg-purple-400 rounded-full"></div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-indigo-200 rounded-full"></div>
-              </div>
+            <div className="inline-block p-8 bg-gradient-to-r from-indigo-900/90 to-purple-800/90 border-4 border-indigo-400 rounded-2xl shadow-2xl relative overflow-hidden h-[500px]">
+              {/* Background Beams Effect */}
+              <BackgroundBeams className="opacity-70" />
               
-              <div className="relative z-10">
+              <div className="relative z-10 h-full flex flex-col justify-center">
                 <h2 className="text-3xl font-bold text-white mb-6 font-serif">
                   The Power of Different Modalities & Mediums
                 </h2>
@@ -625,17 +619,11 @@ export default function Home() {
         {/* Resources Section */}
         <div className="text-center mb-12">
           <div className="max-w-4xl mx-auto">
-            <div className="inline-block p-8 bg-gradient-to-r from-orange-900/90 to-red-800/90 border-4 border-orange-400 rounded-2xl shadow-2xl relative overflow-hidden">
-              {/* Decorative background pattern */}
-              <div className="absolute inset-0 opacity-5">
-                <div className="absolute top-4 left-4 w-12 h-12 bg-orange-300 rounded-full"></div>
-                <div className="absolute top-4 right-4 w-8 h-8 bg-red-300 rounded-full"></div>
-                <div className="absolute bottom-4 left-4 w-10 h-10 bg-orange-400 rounded-full"></div>
-                <div className="absolute bottom-4 right-4 w-6 h-6 bg-red-400 rounded-full"></div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-orange-200 rounded-full"></div>
-              </div>
+            <div className="inline-block p-8 bg-gradient-to-r from-orange-900/90 to-red-800/90 border-4 border-orange-400 rounded-2xl shadow-2xl relative overflow-hidden h-[300px]">
+              {/* Background Beams Effect */}
+              <BackgroundBeams className="opacity-70" />
               
-              <div className="relative z-10">
+              <div className="relative z-10 h-full flex flex-col justify-center">
                 <h2 className="text-3xl font-bold text-white mb-6 font-serif">
                   Resources
                 </h2>
@@ -657,17 +645,11 @@ export default function Home() {
         {/* Lit Salon Workflow Section */}
         <div className="text-center mb-12">
           <div className="max-w-4xl mx-auto">
-            <div className="inline-block p-8 bg-gradient-to-r from-pink-900/90 to-pink-700/90 border-4 border-pink-400 rounded-2xl shadow-2xl relative overflow-hidden">
-              {/* Decorative background pattern */}
-              <div className="absolute inset-0 opacity-5">
-                <div className="absolute top-4 left-4 w-12 h-12 bg-pink-300 rounded-full"></div>
-                <div className="absolute top-4 right-4 w-8 h-8 bg-pink-400 rounded-full"></div>
-                <div className="absolute bottom-4 left-4 w-10 h-10 bg-pink-500 rounded-full"></div>
-                <div className="absolute bottom-4 right-4 w-6 h-6 bg-pink-600 rounded-full"></div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-pink-200 rounded-full"></div>
-              </div>
+            <div className="inline-block p-8 bg-gradient-to-r from-pink-900/90 to-pink-700/90 border-4 border-pink-400 rounded-2xl shadow-2xl relative overflow-hidden h-[1000px]">
+              {/* Background Beams Effect */}
+              <BackgroundBeams className="opacity-70" />
               
-              <div className="relative z-10">
+              <div className="relative z-10 h-full flex flex-col justify-start pt-4">
                 <h2 className="text-3xl font-bold text-white mb-6 font-serif">
                   Lit Salon Workflow
                 </h2>
@@ -783,13 +765,16 @@ export default function Home() {
 
         {/* AI Tutor Section */}
         <div className="text-center mb-12">
-          <div className="inline-block p-8 bg-gradient-to-r from-emerald-900/90 to-teal-800/90 border-4 border-emerald-400 rounded-2xl shadow-2xl">
-            <h2 className="text-3xl font-bold text-white mb-4 font-serif">
-              Need Help with Literary Analysis, Writing, or Test Prep?
-            </h2>
-            <p className="text-emerald-200 text-lg mb-6 font-serif">
-              Meet your AI Literary Tutor - Claude Hemingway - powered by famous authors and designed for educational excellence
-            </p>
+          <div className="inline-block p-8 bg-gradient-to-r from-emerald-900/90 to-teal-800/90 border-4 border-emerald-400 rounded-2xl shadow-2xl relative overflow-hidden h-[300px]">
+            {/* Background Beams Effect */}
+            <BackgroundBeams className="opacity-70" />
+            <div className="relative z-10 h-full flex flex-col justify-center">
+              <h2 className="text-3xl font-bold text-white mb-4 font-serif">
+                Need Help with Literary Analysis, Writing, or Test Prep?
+              </h2>
+              <p className="text-emerald-200 text-lg mb-6 font-serif">
+                Meet your AI Literary Tutor - Claude Hemingway - powered by famous authors and designed for educational excellence
+              </p>
             <div className="flex flex-wrap justify-center gap-4 mb-6">
               <div className="flex items-center gap-2 text-emerald-200">
                 <span className="text-green-400">✓</span>
@@ -819,6 +804,7 @@ export default function Home() {
             <p className="text-emerald-300 text-sm mt-3 font-serif italic">
               Integration coming soon.
             </p>
+            </div>
           </div>
         </div>
 
