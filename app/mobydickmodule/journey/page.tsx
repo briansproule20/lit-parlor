@@ -494,6 +494,36 @@ export default function Journey() {
         </div>
       </div>
 
+      {/* Read Along Button - Right Side */}
+      <div className="fixed right-4 top-32 z-40">
+        <div className="bg-green-900/90 backdrop-blur-sm rounded-lg p-3 shadow-2xl border-2 border-green-600" style={{ width: '120px' }}>
+          <div className="text-center">
+            <h3 className="text-green-100 font-serif font-bold text-xs mb-2">Reading Companion</h3>
+            <button
+              onClick={() => {
+                const gutenbergLink = getGutenbergLink("Chapter 1");
+                window.open(gutenbergLink, '_blank');
+              }}
+              className="w-full bg-green-600 hover:bg-green-700 text-white font-serif font-bold py-2 px-1 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg border-2 border-green-400 text-xs leading-tight"
+              title="Open Project Gutenberg to explore the full text"
+            >
+              📖 Explore the<br />Full Text
+            </button>
+          </div>
+          
+          {/* Reading Status */}
+          <div className="text-center mt-3">
+            <div className="text-green-100 text-xs font-serif mb-1">Status</div>
+            <div className="w-6 h-6 rounded-lg bg-green-600 flex items-center justify-center mx-auto shadow-md border border-green-400">
+              <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+              </svg>
+            </div>
+            <div className="text-green-100 text-xs font-serif mt-1">Ready</div>
+          </div>
+        </div>
+      </div>
+
       {/* Volume Control Panel - Left Side */}
       <div className="fixed left-4 top-96 z-20 audio-panel">
         <div className="bg-amber-900/90 backdrop-blur-sm rounded-lg p-3 shadow-2xl border-2 border-amber-600" style={{ width: '120px' }}>
