@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { ThreeDMarquee } from '@/components/ui/3d-marquee'
+import { TypewriterEffect } from '@/components/ui/typewriter-effect'
 
 export default function Home() {
   const [openModal, setOpenModal] = useState<string | null>(null)
@@ -197,11 +198,38 @@ export default function Home() {
               inset 0 -2px 4px rgba(139, 69, 19, 0.2)
             `
           }}>
-            <h1 className="text-5xl font-bold text-amber-900 mb-4 font-serif" style={{
-              textShadow: '3px 3px 6px rgba(0,0,0,0.3)'
-            }}>
-              The Literary Parlor // Lit Salon
-            </h1>
+            <div className="mb-4">
+              <TypewriterEffect 
+                words={[
+                  {
+                    text: "The",
+                    className: "text-amber-900",
+                  },
+                  {
+                    text: "Literary",
+                    className: "text-amber-900",
+                  },
+                  {
+                    text: "Parlor",
+                    className: "text-amber-800",
+                  },
+                  {
+                    text: "//",
+                    className: "text-amber-900",
+                  },
+                  {
+                    text: "Lit",
+                    className: "text-amber-900",
+                  },
+                  {
+                    text: "Salon",
+                    className: "text-amber-800",
+                  },
+                ]}
+                className="text-5xl font-bold font-serif"
+                cursorClassName="bg-amber-700"
+              />
+            </div>
             <p className="text-xl text-amber-800 max-w-3xl mx-auto leading-relaxed font-serif">
               A cozy corner where great stories come alive. Making long form narratives available in contemporary short forms. We are a project still in development. An umbrella site for learning tools and education projects undertaken by Brian Sproule.
             </p>
