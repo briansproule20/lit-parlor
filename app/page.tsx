@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { ThreeDMarquee } from '@/components/ui/3d-marquee'
 import { TypewriterEffect } from '@/components/ui/typewriter-effect'
 import { BackgroundBeams } from '@/components/ui/background-beams'
+import { DotBackground } from '@/components/ui/dot-background'
 
 export default function Home() {
   const [openModal, setOpenModal] = useState<string | null>(null)
@@ -63,6 +64,8 @@ export default function Home() {
       backgroundImage: 'linear-gradient(135deg, #8B4513 0%, #A0522D 25%, #CD853F 50%, #D2691E 75%, #8B4513 100%)',
       backgroundAttachment: 'fixed'
     }}>
+      {/* Dot Background Overlay */}
+      <DotBackground className="opacity-30" />
       {/* Cozy lighting overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-amber-50/20 via-transparent to-amber-900/30 pointer-events-none"></div>
       
