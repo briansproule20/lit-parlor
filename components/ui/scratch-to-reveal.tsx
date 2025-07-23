@@ -33,11 +33,6 @@ export const ScratchToReveal: React.FC<ScratchToRevealProps> = ({
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext("2d");
     if (canvas && ctx) {
-      // Set canvas size to match container
-      const rect = canvas.getBoundingClientRect();
-      canvas.width = rect.width;
-      canvas.height = rect.height;
-      
       ctx.fillStyle = "#ccc";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       const gradient = ctx.createLinearGradient(
@@ -104,11 +99,11 @@ export const ScratchToReveal: React.FC<ScratchToRevealProps> = ({
     const ctx = canvas?.getContext("2d");
     if (canvas && ctx) {
       const rect = canvas.getBoundingClientRect();
-      const x = clientX - rect.left + 16;
-      const y = clientY - rect.top + 16;
+      const x = ((clientX - rect.left) / rect.width) * canvas.width;
+      const y = ((clientY - rect.top) / rect.height) * canvas.height;
       ctx.globalCompositeOperation = "destination-out";
       ctx.beginPath();
-      ctx.arc(x, y, 30, 0, Math.PI * 2);
+      ctx.arc(x, y, 50, 0, Math.PI * 2);
       ctx.fill();
     }
   };
@@ -162,7 +157,9 @@ export const ScratchToReveal: React.FC<ScratchToRevealProps> = ({
     >
       <canvas
         ref={canvasRef}
-        className="absolute left-0 top-0 w-full h-full"
+        width={width}
+        height={height}
+        className="absolute left-0 top-0"
         onMouseDown={handleMouseDown}
         onTouchStart={handleTouchStart}
       ></canvas>
