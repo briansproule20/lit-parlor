@@ -336,6 +336,24 @@ export default function Home() {
           }}>
                           <ThreeDMarquee 
               books={[
+                // Column 1: Coming Soon cards
+                {
+                  id: 'coming-soon-1',
+                  title: 'Coming Soon',
+                  subtitle: 'New Classics',
+                  author: 'Stay Tuned',
+                  description: 'More literary masterpieces are being prepared for your exploration.',
+                  coverImage: '/images/wood-texture.jpg'
+                },
+                {
+                  id: 'coming-soon-2',
+                  title: 'Coming Soon',
+                  subtitle: 'Interactive Modules',
+                  author: 'In Development',
+                  description: 'New interactive learning experiences are on the horizon.',
+                  coverImage: '/images/wood-texture.jpg'
+                },
+                // Column 2: Main books (3 books)
                 {
                   id: 'mobydick',
                   title: 'Moby-Dick',
@@ -360,14 +378,7 @@ export default function Home() {
                   description: 'Journey into pre-colonial Nigeria. Witness the clash of cultures and the tragic consequences of change in this powerful narrative.',
                   coverImage: '/images/delight.png'
                 },
-                {
-                  id: 'crimeandpunishment',
-                  title: 'Crime and Punishment',
-                  subtitle: 'A Novel',
-                  author: 'Fyodor Dostoevsky',
-                  description: 'Delve into the psychological depths of guilt and redemption. Follow Raskolnikov\'s tormented journey through moral philosophy and consequence.',
-                  coverImage: '/images/coffin.png'
-                },
+                // Column 3: Main books (3 books)
                 {
                   id: 'theireyeswerewatchinggod',
                   title: 'Their Eyes Were Watching God',
@@ -385,11 +396,45 @@ export default function Home() {
                   coverImage: '/images/pequod.png'
                 },
                 {
-                  id: 'coming-soon',
+                  id: 'crimeandpunishment',
+                  title: 'Crime and Punishment',
+                  subtitle: 'A Novel',
+                  author: 'Fyodor Dostoevsky',
+                  description: 'Delve into the psychological depths of guilt and redemption. Follow Raskolnikov\'s tormented journey through moral philosophy and consequence.',
+                  coverImage: '/images/coffin.png'
+                },
+                // Column 4: Coming Soon cards
+                {
+                  id: 'coming-soon-3',
                   title: 'Coming Soon',
-                  subtitle: 'More Classics',
+                  subtitle: 'Advanced Features',
+                  author: 'In Development',
+                  description: 'Enhanced learning tools and analytics are coming soon.',
+                  coverImage: '/images/wood-texture.jpg'
+                },
+                {
+                  id: 'coming-soon-4',
+                  title: 'Coming Soon',
+                  subtitle: 'More Content',
                   author: 'Stay Tuned',
-                  description: 'More literary masterpieces are being prepared for your exploration. New titles and interactive experiences coming regularly.',
+                  description: 'Additional literary works and interactive experiences.',
+                  coverImage: '/images/wood-texture.jpg'
+                },
+                // Column 4: Coming Soon cards
+                {
+                  id: 'coming-soon-5',
+                  title: 'Coming Soon',
+                  subtitle: 'Premium Features',
+                  author: 'In Development',
+                  description: 'Advanced analytics and personalized learning paths.',
+                  coverImage: '/images/wood-texture.jpg'
+                },
+                {
+                  id: 'coming-soon-6',
+                  title: 'Coming Soon',
+                  subtitle: 'Community Features',
+                  author: 'Stay Tuned',
+                  description: 'Collaborative learning and discussion forums.',
                   coverImage: '/images/wood-texture.jpg'
                 }
               ]}
