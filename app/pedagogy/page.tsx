@@ -50,7 +50,12 @@ export default function Pedagogy() {
             <div className="space-y-6 text-gray-800 font-serif">
               <p className="text-lg leading-relaxed">
                 The word "pedagogy" derives from the Greek <em>paidagogos</em>, meaning "leader of children." 
-                In ancient Greece, a paidagogos was a slave who escorted children to school and supervised their conduct.
+                In ancient Greece, a paidagogos was a slave who escorted children to school and supervised their conduct. 
+                However, their role extended far beyond mere academic supervision. The paidagogos was responsible for 
+                the child's complete development—academic, moral, social, and personal. They served as mentors, 
+                disciplinarians, and moral guides, shaping not only what children learned but who they became as 
+                individuals. This holistic approach to education, where intellectual growth was inseparable from 
+                character development, established the foundation for what we now recognize as comprehensive pedagogy.
               </p>
               <p className="text-lg leading-relaxed">
                 <strong>Socrates (470-399 BCE)</strong> revolutionized teaching through his method of questioning, 
