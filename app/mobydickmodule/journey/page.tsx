@@ -353,12 +353,17 @@ export default function Journey() {
       
       // Don't touch harbor sounds at all - let user control them manually
       
-      readCurrentContent();
+      // Start reading immediately
+      setTimeout(() => {
+        console.log('About to read content...');
+        // Pass true to bypass the isScreenReaderActive check
+        readCurrentContent(true);
+      }, 100);
     }
   };
 
-  const readCurrentContent = () => {
-    if (!isScreenReaderActive) return;
+  const readCurrentContent = (forceRead = false) => {
+    if (!isScreenReaderActive && !forceRead) return;
 
     // Get the current chapter content to read
     let textToRead = '';
@@ -366,45 +371,23 @@ export default function Journey() {
     if (selectedChapter) {
       textToRead = `${selectedChapter.title}. ${selectedChapter.quote}. ${selectedChapter.significance}`;
     } else {
-      // Read the journey introduction
+      // Read the journey introduction with title
       textToRead = "The Journey Begins. Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. This is the beginning of Moby Dick, Herman Melville's masterpiece of American literature.";
     }
+
+    console.log('Reading text:', textToRead); // Debug log
+    console.log('Screen reader active:', isScreenReaderActive); // Debug log
 
     // Cancel any existing speech
     if (window.speechSynthesis) {
       window.speechSynthesis.cancel();
     }
 
-    // Create new speech utterance
+    // Create new speech utterance - simplified like the test button
     const utterance = new SpeechSynthesisUtterance(textToRead);
-    utterance.rate = 0.9; // Slightly slower for better comprehension
+    utterance.rate = 0.9;
     utterance.pitch = 1.0;
     utterance.volume = 0.8;
-    
-    // Initialize voices if needed
-    const initVoices = () => {
-      const voices = window.speechSynthesis.getVoices();
-      const preferredVoice = voices.find(voice => 
-        voice.name.includes('Alex') || 
-        voice.name.includes('Daniel') || 
-        voice.name.includes('Google UK English Male') ||
-        voice.name.includes('Samantha') ||
-        voice.name.includes('Tom')
-      );
-      if (preferredVoice) {
-        utterance.voice = preferredVoice;
-      }
-      
-      // Start speaking
-      window.speechSynthesis.speak(utterance);
-    };
-
-    // Handle voice loading
-    if (window.speechSynthesis.getVoices().length > 0) {
-      initVoices();
-    } else {
-      window.speechSynthesis.onvoiceschanged = initVoices;
-    }
 
     utterance.onend = () => {
       setIsScreenReaderActive(false);
@@ -419,18 +402,17 @@ export default function Journey() {
 
     utterance.onstart = () => {
       console.log('Speech started');
+      console.log('Speaking text:', textToRead);
       setCurrentReadingText(textToRead.substring(0, 50) + '...');
     };
 
     speechRef.current = utterance;
+    console.log('Calling speechSynthesis.speak...');
+    window.speechSynthesis.speak(utterance);
+    console.log('Speech synthesis called');
   };
 
-  // Update reading when modal opens
-  useEffect(() => {
-    if (isScreenReaderActive && selectedChapter) {
-      readCurrentContent();
-    }
-  }, [selectedChapter, isScreenReaderActive]);
+
 
   // Initialize audio when component mounts
   useEffect(() => {
@@ -654,17 +636,7 @@ export default function Journey() {
             >
               🔊 Read With<br />Me
             </button>
-            <button
-              onClick={() => {
-                const testUtterance = new SpeechSynthesisUtterance("Hello, this is a test of the screen reader.");
-                window.speechSynthesis.speak(testUtterance);
-              }}
-              data-screen-reader="true"
-              className="w-full mt-2 bg-purple-500 hover:bg-purple-600 text-white font-serif font-bold py-1 px-1 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg border-2 border-purple-400 text-xs leading-tight"
-              title="Test speech synthesis"
-            >
-              🧪 Test
-            </button>
+
           </div>
           
           {/* Screen Reader Status */}
@@ -690,12 +662,7 @@ export default function Journey() {
             </div>
           </div>
           
-          {/* Current Reading Text */}
-          {isScreenReaderActive && currentReadingText && (
-            <div className="mt-2 p-2 bg-purple-800/50 rounded text-xs text-purple-100 font-serif">
-              {currentReadingText}
-            </div>
-          )}
+
         </div>
       </div>
 
