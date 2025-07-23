@@ -103,16 +103,19 @@ export default function Storyworlds() {
               inset 0 -2px 4px rgba(139, 69, 19, 0.2)
             `
           }}>
-            <h1 className="text-4xl font-bold text-amber-900 mb-4 font-serif" style={{
+            <h1 className="text-4xl font-bold text-amber-900 mb-6 font-serif" style={{
               textShadow: '3px 3px 6px rgba(0,0,0,0.3)'
             }}>
-              Storyworlds // Literary Geography
+              Storytelling is a Global, Human Experience
             </h1>
             <p className="text-lg text-amber-800 max-w-3xl mx-auto leading-relaxed font-serif">
               Explore the geographic landscapes where our literary journeys unfold. From the whaling ports of New England to the drawing rooms of England, discover the real-world settings that shaped these timeless stories.
             </p>
           </div>
         </div>
+
+        {/* Interactive Literary Globe */}
+        <GlobeDemo />
 
         {/* World Map Container */}
         <div className="bg-white/95 rounded-xl shadow-2xl p-8 border-2 border-amber-200 mb-8">
@@ -183,9 +186,6 @@ export default function Storyworlds() {
             </div>
           </div>
         </div>
-
-        {/* Interactive Literary Globe */}
-        <GlobeDemo />
 
         {/* Story Locations Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8 mt-16">
