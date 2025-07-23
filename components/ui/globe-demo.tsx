@@ -1,10 +1,12 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import dynamic from "next/dynamic";
+import { LoaderOne } from "@/components/ui/loader";
 
 const World = dynamic(() => import("@/components/ui/globe").then((m) => m.World), {
   ssr: false,
+  loading: () => <LoaderOne size="lg" className="mx-auto" />
 });
 
 export default function GlobeDemo() {
@@ -97,12 +99,32 @@ export default function GlobeDemo() {
   // Use only the arcs data - the points will be generated from the arcs
   const allLiteraryData = literaryArcs;
 
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading time for the globe component
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000); // 2 second loading time
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="flex flex-row items-center justify-center py-8 h-screen md:h-auto relative w-full">
       <div className="max-w-7xl mx-auto w-full relative overflow-hidden h-full md:h-[40rem] px-4">
-        <div className="w-full h-full z-10">
-          <World data={allLiteraryData} globeConfig={globeConfig} />
-        </div>
+        {isLoading ? (
+          <div className="w-full h-full flex items-center justify-center">
+            <div className="text-center">
+              <LoaderOne size="lg" className="mx-auto mb-4" />
+              <p className="text-amber-800 font-serif text-lg">Loading Literary Globe...</p>
+            </div>
+          </div>
+        ) : (
+          <div className="w-full h-full z-10">
+            <World data={allLiteraryData} globeConfig={globeConfig} />
+          </div>
+        )}
       </div>
     </div>
   );
