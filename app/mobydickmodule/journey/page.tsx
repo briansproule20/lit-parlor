@@ -642,19 +642,40 @@ export default function Journey() {
           {/* Screen Reader Status */}
           <div className="text-center mt-3">
             <div className="text-purple-100 text-xs font-serif mb-1">Status</div>
-            <div className={`w-6 h-6 rounded-lg flex items-center justify-center mx-auto shadow-md border ${
-              isScreenReaderActive 
-                ? 'bg-purple-600 border-purple-400' 
-                : 'bg-purple-600 border-purple-400'
-            }`}>
-              {isScreenReaderActive ? (
-                <svg className="w-3 h-3 text-white animate-pulse" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
-                </svg>
-              ) : (
-                <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
-                </svg>
+            <div className="flex items-center justify-center gap-2">
+              <div className={`w-6 h-6 rounded-lg flex items-center justify-center shadow-md border ${
+                isScreenReaderActive 
+                  ? 'bg-purple-600 border-purple-400' 
+                  : 'bg-purple-600 border-purple-400'
+              }`}>
+                {isScreenReaderActive ? (
+                  <svg className="w-3 h-3 text-white animate-pulse" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                  </svg>
+                ) : (
+                  <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                  </svg>
+                )}
+              </div>
+              {isScreenReaderActive && (
+                <button
+                  onClick={() => {
+                    if (speechRef.current) {
+                      window.speechSynthesis.cancel();
+                      speechRef.current = null;
+                    }
+                    setIsScreenReaderActive(false);
+                    setCurrentReadingText('');
+                  }}
+                  data-screen-reader="true"
+                  className="w-6 h-6 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-md border border-red-400 bg-red-600 hover:bg-red-700 text-white"
+                  title="Stop reading"
+                >
+                  <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                  </svg>
+                </button>
               )}
             </div>
             <div className="text-purple-100 text-xs font-serif mt-1">
