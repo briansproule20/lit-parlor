@@ -353,6 +353,14 @@ export default function Home() {
                   description: 'New interactive learning experiences are on the horizon.',
                   coverImage: '/images/wood-texture.jpg'
                 },
+                {
+                  id: 'coming-soon-3',
+                  title: 'Coming Soon',
+                  subtitle: 'Advanced Features',
+                  author: 'In Development',
+                  description: 'Enhanced learning tools and analytics are coming soon.',
+                  coverImage: '/images/wood-texture.jpg'
+                },
                 // Column 2: Main books (3 books)
                 {
                   id: 'mobydick',
@@ -405,14 +413,6 @@ export default function Home() {
                 },
                 // Column 4: Coming Soon cards
                 {
-                  id: 'coming-soon-3',
-                  title: 'Coming Soon',
-                  subtitle: 'Advanced Features',
-                  author: 'In Development',
-                  description: 'Enhanced learning tools and analytics are coming soon.',
-                  coverImage: '/images/wood-texture.jpg'
-                },
-                {
                   id: 'coming-soon-4',
                   title: 'Coming Soon',
                   subtitle: 'More Content',
@@ -420,7 +420,6 @@ export default function Home() {
                   description: 'Additional literary works and interactive experiences.',
                   coverImage: '/images/wood-texture.jpg'
                 },
-                // Column 4: Coming Soon cards
                 {
                   id: 'coming-soon-5',
                   title: 'Coming Soon',

@@ -45,7 +45,7 @@ export const ThreeDMarquee = ({
             style={{
               transform: "rotateX(55deg) rotateY(0deg) rotateZ(-45deg)",
             }}
-            className="relative top-78 left-[10%] grid size-full origin-center-top grid-cols-4 gap-8 transform-3d"
+            className="relative top-40 left-[10%] grid size-full origin-center-top grid-cols-4 gap-8 transform-3d"
           >
             {chunks.map((subarray, colIndex) => (
               <motion.div
@@ -70,7 +70,7 @@ export const ThreeDMarquee = ({
                         duration: 0.3,
                         ease: "easeInOut",
                       }}
-                      className="group relative aspect-[3/4] rounded-lg overflow-hidden ring ring-gray-950/5 hover:shadow-2xl bg-gradient-to-br from-gray-900 to-gray-800"
+                      className="group relative aspect-[4/3] rounded-lg overflow-hidden ring ring-gray-950/5 hover:shadow-2xl bg-gradient-to-br from-gray-900 to-gray-800"
                     >
                       <img
                         src={book.coverImage}
