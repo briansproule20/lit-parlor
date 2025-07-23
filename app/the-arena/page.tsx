@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import { DotBackground } from '@/components/ui/dot-background'
 
 export default function TheArena() {
   return (
@@ -7,6 +8,11 @@ export default function TheArena() {
       backgroundImage: 'linear-gradient(135deg, #7f1d1d 0%, #991b1b 25%, #dc2626 50%, #ea580c 75%, #f59e0b 100%)',
       backgroundAttachment: 'fixed'
     }}>
+      {/* Dot Background */}
+      <div className="opacity-30 absolute inset-0 pointer-events-none">
+        <DotBackground />
+      </div>
+      
       {/* Battle lighting overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-red-50/20 via-transparent to-red-900/40 pointer-events-none"></div>
       

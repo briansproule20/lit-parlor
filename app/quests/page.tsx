@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import { DotBackground } from '@/components/ui/dot-background'
 
 export default function Quests() {
   return (
@@ -7,6 +8,11 @@ export default function Quests() {
       backgroundImage: 'linear-gradient(135deg, #065f46 0%, #047857 25%, #059669 50%, #10b981 75%, #34d399 100%)',
       backgroundAttachment: 'fixed'
     }}>
+      {/* Dot Background */}
+      <div className="opacity-30 absolute inset-0 pointer-events-none">
+        <DotBackground />
+      </div>
+      
       {/* Adventure lighting overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-emerald-50/20 via-transparent to-emerald-900/30 pointer-events-none"></div>
       

@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import { DotBackground } from '@/components/ui/dot-background'
 
 export default function SocraticForum() {
   return (
@@ -7,6 +8,11 @@ export default function SocraticForum() {
       backgroundImage: 'linear-gradient(135deg, #1e3a8a 0%, #3730a3 25%, #4338ca 50%, #5b21b6 75%, #7c2d12 100%)',
       backgroundAttachment: 'fixed'
     }}>
+      {/* Dot Background */}
+      <div className="opacity-30 absolute inset-0 pointer-events-none">
+        <DotBackground />
+      </div>
+      
       {/* Intellectual lighting overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-blue-50/20 via-transparent to-purple-900/30 pointer-events-none"></div>
       
