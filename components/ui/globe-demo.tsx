@@ -9,7 +9,7 @@ const World = dynamic(() => import("@/components/ui/globe").then((m) => m.World)
 
 export default function GlobeDemo() {
   const globeConfig = {
-    pointSize: 4,
+    pointSize: 1.5,
     globeColor: "#1a365d",
     showAtmosphere: true,
     atmosphereColor: "#FFFFFF",
@@ -17,7 +17,7 @@ export default function GlobeDemo() {
     emissive: "#1a365d",
     emissiveIntensity: 0.1,
     shininess: 0.9,
-    polygonColor: "rgba(255,255,255,0.9)",
+    polygonColor: "rgba(255,255,255,0.7)",
     ambientLight: "#38bdf8",
     directionalLeftLight: "#ffffff",
     directionalTopLight: "#ffffff",
@@ -50,7 +50,7 @@ export default function GlobeDemo() {
       endLat: 6.5244,
       endLng: 3.3792,
       arcAlt: 0.3,
-      color: "#ea580c",
+      color: "#f97316",
     },
     // Things Fall Apart - Nigeria (6.5244, 3.3792) - Purple
     {
@@ -82,7 +82,7 @@ export default function GlobeDemo() {
       arcAlt: 0.2,
       color: "#16a34a",
     },
-    // Animal Farm - English Countryside (51.5072, -0.1276) - Dark Red
+    // Animal Farm - English Countryside (51.5072, -0.1276) - Red
     {
       order: 6,
       startLat: 51.5072,
@@ -90,9 +90,12 @@ export default function GlobeDemo() {
       endLat: 41.2835,
       endLng: -70.0995,
       arcAlt: 0.3,
-      color: "#b91c1c",
+      color: "#dc2626",
     },
   ];
+
+  // Use only the arcs data - the points will be generated from the arcs
+  const allLiteraryData = literaryArcs;
 
   return (
     <div className="flex flex-row items-center justify-center py-20 h-screen md:h-auto dark:bg-black bg-white relative w-full">
@@ -117,7 +120,7 @@ export default function GlobeDemo() {
         </motion.div>
         <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent dark:to-black to-white z-40" />
         <div className="absolute w-full -bottom-20 h-72 md:h-full z-10">
-          <World data={literaryArcs} globeConfig={globeConfig} />
+          <World data={allLiteraryData} globeConfig={globeConfig} />
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { Color, Scene, Fog, PerspectiveCamera, Vector3 } from "three";
+import { Color, Scene, Fog, PerspectiveCamera, Vector3, Group } from "three";
 import ThreeGlobe from "three-globe";
 import { useThree, Canvas, extend } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
@@ -67,7 +67,7 @@ let numbersOfRings = [0];
 
 export function Globe({ globeConfig, data }: WorldProps) {
   const globeRef = useRef<ThreeGlobe | null>(null);
-  const groupRef = useRef();
+  const groupRef = useRef<Group>(null);
   const [isInitialized, setIsInitialized] = useState(false);
 
   const defaultProps = {
@@ -120,48 +120,70 @@ export function Globe({ globeConfig, data }: WorldProps) {
 
   // Build data when globe is initialized or when data changes
   useEffect(() => {
-    if (!globeRef.current || !isInitialized || !data) return;
+    if (!globeRef.current || !isInitialized) return;
 
-    const arcs = data;
-    let points = [];
-    for (let i = 0; i < arcs.length; i++) {
-      const arc = arcs[i];
-      const rgb = hexToRgb(arc.color) as { r: number; g: number; b: number };
-      points.push({
+    // Hardcoded points for literary locations
+    const finalPoints = [
+      // Moby Dick - Nantucket, Massachusetts (41.2835, -70.0995) - Blue
+      {
         size: defaultProps.pointSize,
-        order: arc.order,
-        color: arc.color,
-        lat: arc.startLat,
-        lng: arc.startLng,
-      });
-      points.push({
+        order: 1,
+        color: "#2563eb",
+        lat: 41.2835,
+        lng: -70.0995,
+      },
+      // Pride and Prejudice - South England (51.3, -0.7) - Pink
+      {
         size: defaultProps.pointSize,
-        order: arc.order,
-        color: arc.color,
-        lat: arc.endLat,
-        lng: arc.endLng,
-      });
-    }
-
-    // remove duplicates for same lat and lng
-    const filteredPoints = points.filter(
-      (v, i, a) =>
-        a.findIndex((v2) =>
-          ["lat", "lng"].every(
-            (k) => v2[k as "lat" | "lng"] === v[k as "lat" | "lng"],
-          ),
-        ) === i,
-    );
+        order: 2,
+        color: "#ec4899",
+        lat: 51.3,
+        lng: -0.7,
+      },
+      // Things Fall Apart - Nigeria (6.5244, 3.3792) - Orange
+      {
+        size: defaultProps.pointSize,
+        order: 3,
+        color: "#f97316",
+        lat: 6.5244,
+        lng: 3.3792,
+      },
+      // Crime and Punishment - St. Petersburg, Russia (59.9311, 30.3609) - Purple
+      {
+        size: defaultProps.pointSize,
+        order: 4,
+        color: "#9333ea",
+        lat: 59.9311,
+        lng: 30.3609,
+      },
+      // Their Eyes Were Watching God - Florida (27.6648, -81.5158) - Green
+      {
+        size: defaultProps.pointSize,
+        order: 5,
+        color: "#16a34a",
+        lat: 27.6648,
+        lng: -81.5158,
+      },
+      // Animal Farm - North England (53.5, -1.5) - Red
+      {
+        size: defaultProps.pointSize,
+        order: 6,
+        color: "#dc2626",
+        lat: 53.5,
+        lng: -1.5,
+      },
+    ];
 
     globeRef.current
       .hexPolygonsData(countriesData.features)
-      .hexPolygonResolution(2)
-      .hexPolygonMargin(0.5)
+      .hexPolygonResolution(4)
+      .hexPolygonMargin(0.3)
       .showAtmosphere(defaultProps.showAtmosphere)
       .atmosphereColor(defaultProps.atmosphereColor)
       .atmosphereAltitude(defaultProps.atmosphereAltitude)
       .hexPolygonColor(() => defaultProps.polygonColor);
 
+    // Use incoming data only for arcs
     globeRef.current
       .arcsData(data)
       .arcStartLat((d) => (d as { startLat: number }).startLat * 1)
@@ -176,12 +198,13 @@ export function Globe({ globeConfig, data }: WorldProps) {
       .arcDashGap(15)
       .arcDashAnimateTime(() => defaultProps.arcTime);
 
+    // Use only the hardcoded finalPoints for the dots
     globeRef.current
-      .pointsData(filteredPoints)
+      .pointsData(finalPoints)
       .pointColor((e) => (e as { color: string }).color)
       .pointsMerge(true)
       .pointAltitude(0.0)
-      .pointRadius(2);
+      .pointRadius(1.5);
 
     globeRef.current
       .ringsData([])
