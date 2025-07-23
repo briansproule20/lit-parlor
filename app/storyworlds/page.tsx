@@ -116,27 +116,7 @@ export default function Storyworlds() {
         {/* World Map Container */}
         <div className="bg-white/95 rounded-xl shadow-2xl p-8 border-2 border-amber-200 mb-8">
           <div className="relative">
-            <div className="text-center mb-8">
-              <p className="font-bold text-xl md:text-4xl text-amber-900 font-serif mb-4">
-                Literary{" "}
-                <span className="text-amber-600">
-                  {"Geography".split("").map((word, idx) => (
-                    <motion.span
-                      key={idx}
-                      className="inline-block"
-                      initial={{ x: -10, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      transition={{ duration: 0.5, delay: idx * 0.04 }}
-                    >
-                      {word}
-                    </motion.span>
-                  ))}
-                </span>
-              </p>
-              <p className="text-sm md:text-lg text-amber-700 max-w-2xl mx-auto py-4 font-serif">
-                Explore the geographic landscapes where our literary journeys unfold. From the whaling ports of New England to the drawing rooms of England, discover the real-world settings that shaped these timeless stories.
-              </p>
-            </div>
+
             
             {/* Interactive World Map */}
             <div className="relative">
@@ -168,9 +148,9 @@ export default function Storyworlds() {
                   },
                 ]}
                 lineColor="#8B4513"
-                useManualPositioning={true}
+                                useManualPositioning={true}
                 locationData={locationData}
-              />
+                />
               
               {/* Story Location Legend */}
               <div className="mt-6 grid grid-cols-2 md:grid-cols-3 gap-4">

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { motion } from "motion/react";
 import DottedMap from "dotted-map";
 
@@ -29,7 +29,6 @@ export default function WorldMap({
   useManualPositioning = false,
   locationData = [],
 }: MapProps) {
-  const [hoveredLocation, setHoveredLocation] = useState<string | null>(null);
   const svgRef = useRef<SVGSVGElement>(null);
   const map = new DottedMap({ height: 100, grid: "diagonal" });
 
@@ -178,9 +177,6 @@ export default function WorldMap({
                   cy={startPoint.y}
                   r="4"
                   fill={startLocation?.color || lineColor}
-                  style={{ cursor: 'pointer' }}
-                  onMouseEnter={() => setHoveredLocation(startLocation?.id || `start-${i}`)}
-                  onMouseLeave={() => setHoveredLocation(null)}
                 />
                 <circle
                   cx={startPoint.x}
@@ -188,9 +184,6 @@ export default function WorldMap({
                   r="4"
                   fill={startLocation?.color || lineColor}
                   opacity="0.3"
-                  style={{ cursor: 'pointer' }}
-                  onMouseEnter={() => setHoveredLocation(startLocation?.id || `start-${i}`)}
-                  onMouseLeave={() => setHoveredLocation(null)}
                 >
                   <animate
                     attributeName="r"
@@ -216,9 +209,6 @@ export default function WorldMap({
                   cy={endPoint.y}
                   r="4"
                   fill={endLocation?.color || lineColor}
-                  style={{ cursor: 'pointer' }}
-                  onMouseEnter={() => setHoveredLocation(endLocation?.id || `end-${i}`)}
-                  onMouseLeave={() => setHoveredLocation(null)}
                 />
                 <circle
                   cx={endPoint.x}
@@ -226,9 +216,6 @@ export default function WorldMap({
                   r="4"
                   fill={endLocation?.color || lineColor}
                   opacity="0.3"
-                  style={{ cursor: 'pointer' }}
-                  onMouseEnter={() => setHoveredLocation(endLocation?.id || `end-${i}`)}
-                  onMouseLeave={() => setHoveredLocation(null)}
                 >
                   <animate
                     attributeName="r"
@@ -253,52 +240,7 @@ export default function WorldMap({
         })}
       </svg>
       
-      {/* Hover Modals */}
-      {hoveredLocation && (
-        <div className="absolute pointer-events-none z-10">
-          {locationData.map((location) => {
-            if (location.id === hoveredLocation) {
-              const dotIndex = locationData.indexOf(location);
-              const dot = dots[Math.floor(dotIndex / 2)];
-              const point = dotIndex % 2 === 0 ? getPoint(dot.start) : getPoint(dot.end);
-              
-              return (
-                <motion.div
-                  key={location.id}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  className="bg-white/95 border-2 border-gray-300 rounded-lg p-4 shadow-xl max-w-xs"
-                  style={{
-                    left: `${point.x + 20}px`,
-                    top: `${point.y - 60}px`,
-                    position: 'absolute',
-                    transform: 'translateX(-50%)',
-                  }}
-                >
-                  <div className="flex items-center gap-2 mb-2">
-                    <div 
-                      className="w-3 h-3 rounded-full" 
-                      style={{ backgroundColor: location.color }}
-                    ></div>
-                    <h3 className="font-bold text-gray-900 text-sm">{location.title}</h3>
-                  </div>
-                  <p className="text-gray-600 text-xs mb-1">
-                    <span className="font-semibold">Author:</span> {location.author}
-                  </p>
-                  <p className="text-gray-600 text-xs mb-2">
-                    <span className="font-semibold">Location:</span> {location.location}
-                  </p>
-                  <p className="text-gray-700 text-xs leading-relaxed">
-                    {location.description}
-                  </p>
-                </motion.div>
-              );
-            }
-            return null;
-          })}
-        </div>
-      )}
+
     </div>
   );
 }
