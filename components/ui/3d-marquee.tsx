@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 interface BookCard {
   id: string;
@@ -62,33 +63,34 @@ export const ThreeDMarquee = ({
                 {subarray.map((book, bookIndex) => (
                   <div className="relative" key={book.id}>
                     <GridLineHorizontal className="-top-4" offset="20px" />
-                    <motion.div
-                      whileHover={{
-                        y: -10,
-                      }}
-                      transition={{
-                        duration: 0.3,
-                        ease: "easeInOut",
-                      }}
-                      className="group relative w-full h-64 rounded-lg overflow-hidden ring ring-gray-950/5 hover:shadow-2xl"
-                      style={{
-                        background: book.id.includes('coming-soon') 
-                          ? 'linear-gradient(135deg, #374151 0%, #4B5563 100%)'
-                          : book.id === 'mobydick'
-                          ? 'linear-gradient(135deg, #1E293B 0%, #334155 100%)'
-                          : book.id === 'prideandprejudice'
-                          ? 'linear-gradient(135deg, #BE185D 0%, #E11D48 100%)'
-                          : book.id === 'thingsfallapart'
-                          ? 'linear-gradient(135deg, #EA580C 0%, #DC2626 100%)'
-                          : book.id === 'theireyeswerewatchinggod'
-                          ? 'linear-gradient(135deg, #0F766E 0%, #0891B2 100%)'
-                          : book.id === 'animalfarm'
-                          ? 'linear-gradient(135deg, #7F1D1D 0%, #991B1B 50%, #C2410C 100%)'
-                          : book.id === 'crimeandpunishment'
-                          ? 'linear-gradient(135deg, #581C87 0%, #7C2D12 100%)'
-                          : 'linear-gradient(135deg, #374151 0%, #4B5563 100%)'
-                      }}
-                    >
+                    <Link href={book.href || `/${book.id}`} className="block">
+                      <motion.div
+                        whileHover={{
+                          y: -10,
+                        }}
+                        transition={{
+                          duration: 0.3,
+                          ease: "easeInOut",
+                        }}
+                        className="group relative w-full h-64 rounded-lg overflow-hidden ring ring-gray-950/5 hover:shadow-2xl cursor-pointer"
+                        style={{
+                          background: book.id.includes('coming-soon') 
+                            ? 'linear-gradient(135deg, #374151 0%, #4B5563 100%)'
+                            : book.id === 'mobydick'
+                            ? 'linear-gradient(135deg, #1E293B 0%, #334155 100%)'
+                            : book.id === 'prideandprejudice'
+                            ? 'linear-gradient(135deg, #BE185D 0%, #E11D48 100%)'
+                            : book.id === 'thingsfallapart'
+                            ? 'linear-gradient(135deg, #EA580C 0%, #DC2626 100%)'
+                            : book.id === 'theireyeswerewatchinggod'
+                            ? 'linear-gradient(135deg, #0F766E 0%, #0891B2 100%)'
+                            : book.id === 'animalfarm'
+                            ? 'linear-gradient(135deg, #7F1D1D 0%, #991B1B 50%, #C2410C 100%)'
+                            : book.id === 'crimeandpunishment'
+                            ? 'linear-gradient(135deg, #581C87 0%, #7C2D12 100%)'
+                            : 'linear-gradient(135deg, #374151 0%, #4B5563 100%)'
+                        }}
+                      >
                       <div className="h-full flex flex-col p-4">
                         <div className="bg-gradient-to-br from-black/20 to-transparent p-3 rounded-lg mb-3 relative overflow-hidden flex-grow">
                           <div className="absolute top-2 right-2 w-4 h-4 bg-white opacity-20 rounded-full"></div>
@@ -117,8 +119,9 @@ export const ThreeDMarquee = ({
                             <span className="text-green-400 text-base font-serif">✓ Available</span>
                           )}
                         </div>
-                      </div>
-                    </motion.div>
+                                              </div>
+                      </motion.div>
+                    </Link>
                   </div>
                 ))}
               </motion.div>
