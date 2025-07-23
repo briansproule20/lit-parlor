@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import { ThreeDMarquee } from '@/components/ui/3d-marquee'
 import { TypewriterEffect } from '@/components/ui/typewriter-effect'
+import { BackgroundBeams } from '@/components/ui/background-beams'
 
 export default function Home() {
   const [openModal, setOpenModal] = useState<string | null>(null)
@@ -242,17 +243,11 @@ export default function Home() {
         {/* Mission Statement */}
         <div className="text-center mb-12">
           <div className="max-w-4xl mx-auto">
-            <div className="inline-block p-8 bg-gradient-to-r from-blue-900/90 to-blue-700/90 border-4 border-blue-400 rounded-2xl shadow-2xl relative overflow-hidden">
-              {/* Decorative background pattern */}
-              <div className="absolute inset-0 opacity-5">
-                <div className="absolute top-4 left-4 w-12 h-12 bg-blue-300 rounded-full"></div>
-                <div className="absolute top-4 right-4 w-8 h-8 bg-blue-400 rounded-full"></div>
-                <div className="absolute bottom-4 left-4 w-10 h-10 bg-blue-500 rounded-full"></div>
-                <div className="absolute bottom-4 right-4 w-6 h-6 bg-blue-600 rounded-full"></div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-blue-200 rounded-full"></div>
-              </div>
+            <div className="inline-block p-8 bg-gradient-to-r from-blue-900/90 to-blue-700/90 border-4 border-blue-400 rounded-2xl shadow-2xl relative overflow-hidden h-[300px]">
+              {/* Background Beams Effect */}
+              <BackgroundBeams className="opacity-40" />
               
-              <div className="relative z-10">
+              <div className="relative z-10 h-full flex flex-col justify-center">
                 <h2 className="text-3xl font-bold text-white mb-6 font-serif">
                   Our Mission
                 </h2>
