@@ -63,7 +63,7 @@ export const ThreeDMarquee = ({
                 {subarray.map((book, bookIndex) => (
                   <div className="relative" key={book.id}>
                     <GridLineHorizontal className="-top-4" offset="20px" />
-                    <Link href={book.href || `/${book.id}`} className="block">
+                    <Link href={book.id.includes('coming-soon') ? '/fullcollection' : (book.href || `/${book.id}`)} className="block">
                       <motion.div
                         whileHover={{
                           y: -10,
