@@ -1,5 +1,8 @@
+"use client";
 import React from 'react'
 import Link from 'next/link'
+import WorldMap from '@/components/ui/world-map'
+import { motion } from "motion/react"
 
 export default function Storyworlds() {
   return (
@@ -56,91 +59,87 @@ export default function Storyworlds() {
         {/* World Map Container */}
         <div className="bg-white/95 rounded-xl shadow-2xl p-8 border-2 border-amber-200 mb-8">
           <div className="relative">
-            {/* Real World Map Image */}
-            <div className="relative w-full">
-              <img 
-                src="https://upload.wikimedia.org/wikipedia/commons/8/83/Equirectangular_projection_SW.jpg"
-                alt="World Map"
-                className="w-full h-auto rounded-lg"
-                style={{ 
-                  filter: 'brightness(1.1) saturate(0.9)',
-                  minHeight: '400px',
-                  maxHeight: '600px',
-                  objectFit: 'cover'
-                }}
+            <div className="text-center mb-8">
+              <p className="font-bold text-xl md:text-4xl text-amber-900 font-serif mb-4">
+                Literary{" "}
+                <span className="text-amber-600">
+                  {"Geography".split("").map((word, idx) => (
+                    <motion.span
+                      key={idx}
+                      className="inline-block"
+                      initial={{ x: -10, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ duration: 0.5, delay: idx * 0.04 }}
+                    >
+                      {word}
+                    </motion.span>
+                  ))}
+                </span>
+              </p>
+              <p className="text-sm md:text-lg text-amber-700 max-w-2xl mx-auto py-4 font-serif">
+                Explore the geographic landscapes where our literary journeys unfold. From the whaling ports of New England to the drawing rooms of England, discover the real-world settings that shaped these timeless stories.
+              </p>
+            </div>
+            
+            {/* Interactive World Map */}
+            <div className="relative">
+              <WorldMap
+                dots={[
+                  {
+                    start: { x: 251, y: 153 }, // Nantucket, Massachusetts
+                    end: { x: 394, y: 98 }, // England
+                  },
+                  {
+                    start: { x: 394, y: 98 }, // England
+                    end: { x: 420, y: 220 }, // Nigeria
+                  },
+                  {
+                    start: { x: 420, y: 220 }, // Nigeria
+                    end: { x: 500, y: 100 }, // St. Petersburg, Russia
+                  },
+                  {
+                    start: { x: 500, y: 100 }, // St. Petersburg, Russia
+                    end: { x: 240, y: 180 }, // Florida
+                  },
+                  {
+                    start: { x: 240, y: 180 }, // Florida
+                    end: { x: 400, y: 110 }, // English Countryside
+                  },
+                  {
+                    start: { x: 400, y: 110 }, // English Countryside
+                    end: { x: 251, y: 153 }, // Back to Nantucket
+                  },
+                ]}
+                lineColor="#8B4513"
+                useManualPositioning={true}
               />
               
-              {/* Overlay for story location markers */}
-              <div className="absolute inset-0">
-                
-                {/* Story Location Markers positioned over real map */}
-                
-                {/* Moby Dick - Nantucket, Massachusetts (41.3°N, 70.1°W) */}
-                <div className="absolute" style={{ left: '30.5%', top: '25.7%' }}>
-                  <div className="relative group">
-                    <div className="w-6 h-6 bg-blue-600 rounded-full border-2 border-white shadow-lg cursor-pointer hover:scale-110 transition-transform"></div>
-                    <div className="absolute left-8 top-0 bg-white/95 rounded-lg p-2 shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none min-w-[150px]">
-                      <div className="text-sm font-bold text-blue-900 font-serif">Nantucket</div>
-                      <div className="text-xs text-blue-700 font-serif">Moby Dick</div>
-                    </div>
-                  </div>
+              {/* Story Location Legend */}
+              <div className="mt-6 grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
+                  <span className="text-sm font-serif">Moby Dick - Nantucket</span>
                 </div>
-                
-                {/* Pride and Prejudice - England (52.5°N, 1.5°W) */}
-                <div className="absolute" style={{ left: '49.6%', top: '19.1%' }}>
-                  <div className="relative group">
-                    <div className="w-6 h-6 bg-red-600 rounded-full border-2 border-white shadow-lg cursor-pointer hover:scale-110 transition-transform"></div>
-                    <div className="absolute left-8 top-0 bg-white/95 rounded-lg p-2 shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none min-w-[150px]">
-                      <div className="text-sm font-bold text-red-900 font-serif">England</div>
-                      <div className="text-xs text-red-700 font-serif">Pride & Prejudice</div>
-                    </div>
-                  </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-4 bg-red-600 rounded-full"></div>
+                  <span className="text-sm font-serif">Pride & Prejudice - England</span>
                 </div>
-                
-                {/* Things Fall Apart - Nigeria (9.1°N, 8.7°E) */}
-                <div className="absolute" style={{ left: '52.4%', top: '44.6%' }}>
-                  <div className="relative group">
-                    <div className="w-6 h-6 bg-orange-600 rounded-full border-2 border-white shadow-lg cursor-pointer hover:scale-110 transition-transform"></div>
-                    <div className="absolute left-8 top-0 bg-white/95 rounded-lg p-2 shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none min-w-[150px]">
-                      <div className="text-sm font-bold text-orange-900 font-serif">Nigeria</div>
-                      <div className="text-xs text-orange-700 font-serif">Things Fall Apart</div>
-                    </div>
-                  </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-4 bg-orange-600 rounded-full"></div>
+                  <span className="text-sm font-serif">Things Fall Apart - Nigeria</span>
                 </div>
-                
-                {/* Crime and Punishment - St. Petersburg, Russia (59.9°N, 30.3°E) */}
-                <div className="absolute" style={{ left: '58.4%', top: '14.8%' }}>
-                  <div className="relative group">
-                    <div className="w-6 h-6 bg-purple-600 rounded-full border-2 border-white shadow-lg cursor-pointer hover:scale-110 transition-transform"></div>
-                    <div className="absolute left-8 top-0 bg-white/95 rounded-lg p-2 shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none min-w-[150px]">
-                      <div className="text-sm font-bold text-purple-900 font-serif">St. Petersburg</div>
-                      <div className="text-xs text-purple-700 font-serif">Crime & Punishment</div>
-                    </div>
-                  </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-4 bg-purple-600 rounded-full"></div>
+                  <span className="text-sm font-serif">Crime & Punishment - Russia</span>
                 </div>
-                
-                {/* Their Eyes Were Watching God - Florida (27.8°N, 81.7°W) */}
-                <div className="absolute" style={{ left: '27.3%', top: '33.6%' }}>
-                  <div className="relative group">
-                    <div className="w-6 h-6 bg-green-600 rounded-full border-2 border-white shadow-lg cursor-pointer hover:scale-110 transition-transform"></div>
-                    <div className="absolute left-8 top-0 bg-white/95 rounded-lg p-2 shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none min-w-[150px]">
-                      <div className="text-sm font-bold text-green-900 font-serif">Florida</div>
-                      <div className="text-xs text-green-700 font-serif">Their Eyes Were Watching God</div>
-                    </div>
-                  </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-4 bg-green-600 rounded-full"></div>
+                  <span className="text-sm font-serif">Their Eyes Were Watching God - Florida</span>
                 </div>
-                
-                {/* Animal Farm - English Countryside (52°N, 2°W) */}
-                <div className="absolute" style={{ left: '49.4%', top: '16.5%' }}>
-                  <div className="relative group">
-                    <div className="w-6 h-6 bg-red-700 rounded-full border-2 border-white shadow-lg cursor-pointer hover:scale-110 transition-transform"></div>
-                    <div className="absolute left-8 top-0 bg-white/95 rounded-lg p-2 shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none min-w-[150px]">
-                      <div className="text-sm font-bold text-red-900 font-serif">English Countryside</div>
-                      <div className="text-xs text-red-700 font-serif">Animal Farm</div>
-                    </div>
-                  </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-4 bg-red-700 rounded-full"></div>
+                  <span className="text-sm font-serif">Animal Farm - English Countryside</span>
                 </div>
-
               </div>
             </div>
           </div>
