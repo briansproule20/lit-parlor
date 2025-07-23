@@ -251,7 +251,7 @@ export default function Home() {
           <div className="max-w-4xl mx-auto">
             <div className="inline-block p-8 bg-gradient-to-r from-blue-900/90 to-blue-700/90 border-4 border-blue-400 rounded-2xl shadow-2xl relative overflow-hidden h-[300px] bg-white">
               {/* Background Beams Effect */}
-              <BackgroundBeams className="opacity-70" />
+              <BackgroundBeams className="opacity-90" />
               
               <div className="relative z-10 h-full flex flex-col justify-center">
                 <h2 className="text-3xl font-bold text-white mb-6 font-serif">
@@ -580,7 +580,7 @@ export default function Home() {
           <div className="max-w-4xl mx-auto">
             <div className="inline-block p-8 bg-gradient-to-r from-indigo-900/90 to-purple-800/90 border-4 border-indigo-400 rounded-2xl shadow-2xl relative overflow-hidden h-[500px] bg-white">
               {/* Background Beams Effect */}
-              <BackgroundBeams className="opacity-70" />
+              <BackgroundBeams className="opacity-90" />
               
               <div className="relative z-10 h-full flex flex-col justify-center">
                 <h2 className="text-3xl font-bold text-white mb-6 font-serif">
@@ -627,7 +627,7 @@ export default function Home() {
           <div className="max-w-4xl mx-auto">
             <div className="inline-block p-8 bg-gradient-to-r from-orange-900/90 to-red-800/90 border-4 border-orange-400 rounded-2xl shadow-2xl relative overflow-hidden h-[300px] bg-white">
               {/* Background Beams Effect */}
-              <BackgroundBeams className="opacity-70" />
+              <BackgroundBeams className="opacity-90" />
               
               <div className="relative z-10 h-full flex flex-col justify-center">
                 <h2 className="text-3xl font-bold text-white mb-6 font-serif">
@@ -653,7 +653,7 @@ export default function Home() {
           <div className="max-w-4xl mx-auto">
             <div className="inline-block p-8 bg-gradient-to-r from-pink-900/90 to-pink-700/90 border-4 border-pink-400 rounded-2xl shadow-2xl relative overflow-hidden h-[1000px] bg-white">
               {/* Background Beams Effect */}
-              <BackgroundBeams className="opacity-70" />
+              <BackgroundBeams className="opacity-90" />
               
               <div className="relative z-10 h-full flex flex-col justify-start pt-4">
                 <h2 className="text-3xl font-bold text-white mb-6 font-serif">
@@ -773,7 +773,7 @@ export default function Home() {
         <div className="text-center mb-12">
           <div className="inline-block p-8 bg-gradient-to-r from-emerald-900/90 to-teal-800/90 border-4 border-emerald-400 rounded-2xl shadow-2xl relative overflow-hidden h-[300px] bg-white">
             {/* Background Beams Effect */}
-            <BackgroundBeams className="opacity-70" />
+            <BackgroundBeams className="opacity-90" />
             <div className="relative z-10 h-full flex flex-col justify-center">
               <h2 className="text-3xl font-bold text-white mb-4 font-serif">
                 Need Help with Literary Analysis, Writing, or Test Prep?
