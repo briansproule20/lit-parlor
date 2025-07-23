@@ -66,7 +66,11 @@ export default function Journey() {
   const [showVisualJourney, setShowVisualJourney] = useState(false);
   const [sessionTime, setSessionTime] = useState(0);
   const [isChapter2Revealed, setIsChapter2Revealed] = useState(false);
+  const [isScreenReaderActive, setIsScreenReaderActive] = useState(false);
+  const [currentReadingText, setCurrentReadingText] = useState('');
+
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const speechRef = useRef<SpeechSynthesisUtterance | null>(null);
 
   // Navigation functions for modal
   const navigateToPrevious = () => {
@@ -326,6 +330,108 @@ export default function Journey() {
     }
   };
 
+  // Screen Reader Functions
+  const toggleScreenReader = () => {
+    if (isScreenReaderActive) {
+      // Stop reading
+      if (speechRef.current) {
+        window.speechSynthesis.cancel();
+        speechRef.current = null;
+      }
+      setIsScreenReaderActive(false);
+      setCurrentReadingText('');
+    } else {
+      // Start reading
+      setIsScreenReaderActive(true);
+      
+      // Test speech synthesis first
+      if (!window.speechSynthesis) {
+        alert('Speech synthesis not supported in this browser');
+        setIsScreenReaderActive(false);
+        return;
+      }
+      
+      // Don't touch harbor sounds at all - let user control them manually
+      
+      readCurrentContent();
+    }
+  };
+
+  const readCurrentContent = () => {
+    if (!isScreenReaderActive) return;
+
+    // Get the current chapter content to read
+    let textToRead = '';
+    
+    if (selectedChapter) {
+      textToRead = `${selectedChapter.title}. ${selectedChapter.quote}. ${selectedChapter.significance}`;
+    } else {
+      // Read the journey introduction
+      textToRead = "The Journey Begins. Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. This is the beginning of Moby Dick, Herman Melville's masterpiece of American literature.";
+    }
+
+    // Cancel any existing speech
+    if (window.speechSynthesis) {
+      window.speechSynthesis.cancel();
+    }
+
+    // Create new speech utterance
+    const utterance = new SpeechSynthesisUtterance(textToRead);
+    utterance.rate = 0.9; // Slightly slower for better comprehension
+    utterance.pitch = 1.0;
+    utterance.volume = 0.8;
+    
+    // Initialize voices if needed
+    const initVoices = () => {
+      const voices = window.speechSynthesis.getVoices();
+      const preferredVoice = voices.find(voice => 
+        voice.name.includes('Alex') || 
+        voice.name.includes('Daniel') || 
+        voice.name.includes('Google UK English Male') ||
+        voice.name.includes('Samantha') ||
+        voice.name.includes('Tom')
+      );
+      if (preferredVoice) {
+        utterance.voice = preferredVoice;
+      }
+      
+      // Start speaking
+      window.speechSynthesis.speak(utterance);
+    };
+
+    // Handle voice loading
+    if (window.speechSynthesis.getVoices().length > 0) {
+      initVoices();
+    } else {
+      window.speechSynthesis.onvoiceschanged = initVoices;
+    }
+
+    utterance.onend = () => {
+      setIsScreenReaderActive(false);
+      setCurrentReadingText('');
+    };
+
+    utterance.onerror = (event) => {
+      console.error('Speech synthesis error:', event);
+      setIsScreenReaderActive(false);
+      setCurrentReadingText('');
+    };
+
+    utterance.onstart = () => {
+      console.log('Speech started');
+      setCurrentReadingText(textToRead.substring(0, 50) + '...');
+    };
+
+    speechRef.current = utterance;
+  };
+
+  // Update reading when modal opens
+  useEffect(() => {
+    if (isScreenReaderActive && selectedChapter) {
+      readCurrentContent();
+    }
+  }, [selectedChapter, isScreenReaderActive]);
+
   // Initialize audio when component mounts
   useEffect(() => {
     if (audioRef.current) {
@@ -409,7 +515,13 @@ export default function Journey() {
 
   // Auto-start audio when page loads (with user interaction)
   useEffect(() => {
-    const handleUserInteraction = () => {
+    const handleUserInteraction = (event: Event) => {
+      // Don't auto-start audio if clicking on screen reader or reading buttons
+      const target = event.target as HTMLElement;
+      if (target.closest('[data-screen-reader]') || target.closest('[data-reading-button]')) {
+        return;
+      }
+      
       if (audioRef.current && !isAudioPlaying) {
         audioRef.current.play().catch(error => {
           console.log('Audio autoplay prevented:', error);
@@ -522,6 +634,68 @@ export default function Journey() {
             </div>
             <div className="text-green-100 text-xs font-serif mt-1">Ready</div>
           </div>
+        </div>
+      </div>
+
+      {/* Read With Me Button - Right Side */}
+      <div className="fixed right-4 top-96 z-40">
+        <div className="bg-purple-900/90 backdrop-blur-sm rounded-lg p-3 shadow-2xl border-2 border-purple-600" style={{ width: '120px' }}>
+          <div className="text-center">
+            <h3 className="text-purple-100 font-serif font-bold text-xs mb-2">Screen Reader</h3>
+            <button
+              onClick={toggleScreenReader}
+              data-screen-reader="true"
+              className={`w-full font-serif font-bold py-2 px-1 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg border-2 text-xs leading-tight ${
+                isScreenReaderActive
+                  ? 'bg-purple-600 hover:bg-purple-700 text-white border-purple-400'
+                  : 'bg-purple-600 hover:bg-purple-700 text-white border-purple-400'
+              }`}
+              title={isScreenReaderActive ? 'Stop reading aloud' : 'Start reading aloud'}
+            >
+              🔊 Read With<br />Me
+            </button>
+            <button
+              onClick={() => {
+                const testUtterance = new SpeechSynthesisUtterance("Hello, this is a test of the screen reader.");
+                window.speechSynthesis.speak(testUtterance);
+              }}
+              data-screen-reader="true"
+              className="w-full mt-2 bg-purple-500 hover:bg-purple-600 text-white font-serif font-bold py-1 px-1 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg border-2 border-purple-400 text-xs leading-tight"
+              title="Test speech synthesis"
+            >
+              🧪 Test
+            </button>
+          </div>
+          
+          {/* Screen Reader Status */}
+          <div className="text-center mt-3">
+            <div className="text-purple-100 text-xs font-serif mb-1">Status</div>
+            <div className={`w-6 h-6 rounded-lg flex items-center justify-center mx-auto shadow-md border ${
+              isScreenReaderActive 
+                ? 'bg-purple-600 border-purple-400' 
+                : 'bg-purple-600 border-purple-400'
+            }`}>
+              {isScreenReaderActive ? (
+                <svg className="w-3 h-3 text-white animate-pulse" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                </svg>
+              ) : (
+                <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                </svg>
+              )}
+            </div>
+            <div className="text-purple-100 text-xs font-serif mt-1">
+              {isScreenReaderActive ? 'Reading' : 'Ready'}
+            </div>
+          </div>
+          
+          {/* Current Reading Text */}
+          {isScreenReaderActive && currentReadingText && (
+            <div className="mt-2 p-2 bg-purple-800/50 rounded text-xs text-purple-100 font-serif">
+              {currentReadingText}
+            </div>
+          )}
         </div>
       </div>
 
