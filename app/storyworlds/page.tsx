@@ -2,6 +2,7 @@
 import React from 'react'
 import Link from 'next/link'
 import WorldMap from '@/components/ui/world-map'
+import GlobeDemo from '@/components/ui/globe-demo'
 import { motion } from "motion/react"
 
 export default function Storyworlds() {
@@ -183,8 +184,11 @@ export default function Storyworlds() {
           </div>
         </div>
 
+        {/* Interactive Literary Globe */}
+        <GlobeDemo />
+
         {/* Story Locations Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8 mt-16">
           
           {/* Moby Dick */}
           <Link href="/mobydick" className="group">
