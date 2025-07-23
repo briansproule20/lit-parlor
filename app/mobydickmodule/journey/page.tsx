@@ -369,7 +369,7 @@ export default function Journey() {
     let textToRead = '';
     
     if (selectedChapter) {
-      textToRead = `${selectedChapter.title}. ${selectedChapter.quote}. ${selectedChapter.significance}`;
+      textToRead = `${selectedChapter.title}. ${selectedChapter.chapter}. ${selectedChapter.quote}. Significance: ${selectedChapter.significance}. Detailed Analysis: ${selectedChapter.detailedAnalysis}`;
     } else {
       // Read the journey introduction with title
       textToRead = "The Journey Begins. Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. This is the beginning of Moby Dick, Herman Melville's masterpiece of American literature.";
@@ -560,7 +560,7 @@ export default function Journey() {
       )}
 
       {/* Begin Visual Journey Card - Left Side */}
-      <div className="fixed left-4 top-32 z-40 audio-panel">
+      <div className="fixed left-4 top-32 z-[60] audio-panel">
         <div className="bg-blue-900/90 backdrop-blur-sm rounded-lg p-3 shadow-2xl border-2 border-blue-600" style={{ width: '120px' }}>
           <div className="text-center mb-3">
             <h3 className="text-blue-100 font-serif font-bold text-xs mb-2">Visual Journey</h3>
@@ -590,7 +590,7 @@ export default function Journey() {
       </div>
 
       {/* Read Along Button - Right Side */}
-      <div className="fixed right-4 top-32 z-40">
+      <div className="fixed right-4 top-32 z-[60]">
         <div className="bg-green-900/90 backdrop-blur-sm rounded-lg p-3 shadow-2xl border-2 border-green-600" style={{ width: '120px' }}>
           <div className="text-center">
             <h3 className="text-green-100 font-serif font-bold text-xs mb-2">Reading Companion</h3>
@@ -620,7 +620,7 @@ export default function Journey() {
       </div>
 
       {/* Read With Me Button - Right Side */}
-      <div className="fixed right-4 top-96 z-40">
+      <div className="fixed right-4 top-96 z-[60]">
         <div className="bg-purple-900/90 backdrop-blur-sm rounded-lg p-3 shadow-2xl border-2 border-purple-600" style={{ width: '120px' }}>
           <div className="text-center">
             <h3 className="text-purple-100 font-serif font-bold text-xs mb-2">Screen Reader</h3>
@@ -667,7 +667,7 @@ export default function Journey() {
       </div>
 
       {/* Volume Control Panel - Left Side */}
-      <div className="fixed left-4 top-96 z-20 audio-panel">
+      <div className="fixed left-4 top-96 z-[60] audio-panel">
         <div className="bg-amber-900/90 backdrop-blur-sm rounded-lg p-3 shadow-2xl border-2 border-amber-600" style={{ width: '120px' }}>
           <div className="text-center mb-3">
             <h3 className="text-amber-100 font-serif font-bold text-xs mb-2">Nantucket Harbor</h3>
@@ -741,7 +741,7 @@ export default function Journey() {
       </div>
       
       {/* Narration Controls */}
-      <div className="fixed left-4 top-[40rem] z-40 audio-panel">
+      <div className="fixed left-4 top-[40rem] z-[60] audio-panel">
         <div className="bg-gray-800/90 backdrop-blur-sm rounded-lg p-3 shadow-2xl border-2 border-gray-600" style={{ width: '120px' }}>
           <div className="text-center">
             <h3 className="text-gray-100 font-serif font-bold text-xs mb-2">Narration Controls</h3>
