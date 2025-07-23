@@ -35,55 +35,62 @@ export const ThreeDMarquee = ({
   return (
     <div
       className={cn(
-        "mx-auto block h-[600px] overflow-hidden rounded-2xl max-sm:h-100 relative",
+        "mx-auto block h-[600px] overflow-hidden rounded-2xl max-sm:h-100",
         className,
       )}
-      style={{
-        perspective: "1000px",
-        transformStyle: "preserve-3d"
-      }}
     >
       <div className="flex size-full items-center justify-center">
-        <div className="size-[1200px] shrink-0 scale-75 relative z-10" style={{
-          transformStyle: "preserve-3d"
-        }}>
+        <div className="size-[1720px] shrink-0 scale-50 sm:scale-75 lg:scale-100">
           <div
             style={{
-              transform: "rotateX(45deg) rotateY(0deg) rotateZ(-30deg)",
+              transform: "rotateX(55deg) rotateY(0deg) rotateZ(-45deg)",
             }}
-            className="relative top-32 left-[-25%] grid size-full origin-center grid-cols-3 gap-8 transform-3d"
+            className="relative top-78 left-[10%] grid size-full origin-center-top grid-cols-4 gap-8 transform-3d"
           >
-            {books.map((book, bookIndex) => (
+            {chunks.map((subarray, colIndex) => (
               <motion.div
-                animate={{ y: bookIndex % 2 === 0 ? 50 : -50 }}
+                animate={{ y: colIndex % 2 === 0 ? 100 : -100 }}
                 transition={{
-                  duration: bookIndex % 2 === 0 ? 8 : 12,
+                  duration: colIndex % 2 === 0 ? 10 : 15,
                   repeat: Infinity,
                   repeatType: "reverse",
                 }}
-                key={book.id}
-                whileHover={{
-                  y: -20,
-                  scale: 1.1,
-                }}
-                className="group relative aspect-[3/4] rounded-lg overflow-hidden ring ring-gray-950/5 hover:shadow-2xl bg-gradient-to-br from-gray-900 to-gray-800"
+                key={colIndex + "marquee"}
+                className="flex flex-col items-start gap-8"
               >
-                <img
-                  src={book.coverImage}
-                  alt={`${book.title} by ${book.author}`}
-                  className="w-full h-full object-cover"
-                  width={300}
-                  height={400}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-3">
-                  <h3 className="text-white font-bold text-sm mb-1 line-clamp-2">
-                    {book.title}
-                  </h3>
-                  <p className="text-gray-300 text-xs">
-                    {book.author}
-                  </p>
-                </div>
+                <GridLineVertical className="-left-4" offset="80px" />
+                {subarray.map((book, bookIndex) => (
+                  <div className="relative" key={book.id}>
+                    <GridLineHorizontal className="-top-4" offset="20px" />
+                    <motion.div
+                      whileHover={{
+                        y: -10,
+                      }}
+                      transition={{
+                        duration: 0.3,
+                        ease: "easeInOut",
+                      }}
+                      className="group relative aspect-[3/4] rounded-lg overflow-hidden ring ring-gray-950/5 hover:shadow-2xl bg-gradient-to-br from-gray-900 to-gray-800"
+                    >
+                      <img
+                        src={book.coverImage}
+                        alt={`${book.title} by ${book.author}`}
+                        className="w-full h-full object-cover"
+                        width={300}
+                        height={400}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                      <div className="absolute bottom-0 left-0 right-0 p-3">
+                        <h3 className="text-white font-bold text-sm mb-1 line-clamp-2">
+                          {book.title}
+                        </h3>
+                        <p className="text-gray-300 text-xs">
+                          {book.author}
+                        </p>
+                      </div>
+                    </motion.div>
+                  </div>
+                ))}
               </motion.div>
             ))}
           </div>

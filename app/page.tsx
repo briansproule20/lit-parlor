@@ -334,7 +334,7 @@ export default function Home() {
           <div className="bg-gradient-to-b from-amber-900 to-amber-800 p-8 rounded-xl shadow-2xl border-4 border-amber-700" style={{
             backgroundImage: 'url("data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23654321" fill-opacity="0.1"%3E%3Cpath d="m36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")'
           }}>
-            <ThreeDMarquee 
+                          <ThreeDMarquee 
               books={[
                 {
                   id: 'mobydick',
@@ -383,6 +383,14 @@ export default function Home() {
                   author: 'George Orwell',
                   description: 'A powerful allegory of revolution and corruption. Witness how noble ideals can be twisted by power in this timeless tale of political satire.',
                   coverImage: '/images/pequod.png'
+                },
+                {
+                  id: 'coming-soon',
+                  title: 'Coming Soon',
+                  subtitle: 'More Classics',
+                  author: 'Stay Tuned',
+                  description: 'More literary masterpieces are being prepared for your exploration. New titles and interactive experiences coming regularly.',
+                  coverImage: '/images/wood-texture.jpg'
                 }
               ]}
               className="h-[600px]"
