@@ -45,7 +45,7 @@ export const ThreeDMarquee = ({
             style={{
               transform: "rotateX(55deg) rotateY(0deg) rotateZ(-45deg)",
             }}
-            className="relative top-40 left-[10%] grid size-full origin-center-top grid-cols-4 gap-8 transform-3d"
+            className="relative top-40 left-[10%] grid size-full origin-center-top grid-cols-4 gap-12 transform-3d"
           >
             {chunks.map((subarray, colIndex) => (
               <motion.div
@@ -56,7 +56,7 @@ export const ThreeDMarquee = ({
                   repeatType: "reverse",
                 }}
                 key={colIndex + "marquee"}
-                className="flex flex-col items-start gap-8"
+                className="flex flex-col items-stretch gap-8 w-full"
               >
                 <GridLineVertical className="-left-4" offset="80px" />
                 {subarray.map((book, bookIndex) => (
@@ -70,23 +70,48 @@ export const ThreeDMarquee = ({
                         duration: 0.3,
                         ease: "easeInOut",
                       }}
-                      className="group relative aspect-[4/3] rounded-lg overflow-hidden ring ring-gray-950/5 hover:shadow-2xl bg-gradient-to-br from-gray-900 to-gray-800"
+                      className="group relative w-full h-64 rounded-lg overflow-hidden ring ring-gray-950/5 hover:shadow-2xl"
+                      style={{
+                        background: book.id.includes('coming-soon') 
+                          ? 'linear-gradient(135deg, #374151 0%, #4B5563 100%)'
+                          : book.id === 'mobydick'
+                          ? 'linear-gradient(135deg, #1E293B 0%, #334155 100%)'
+                          : book.id === 'prideandprejudice'
+                          ? 'linear-gradient(135deg, #BE185D 0%, #E11D48 100%)'
+                          : book.id === 'thingsfallapart'
+                          ? 'linear-gradient(135deg, #EA580C 0%, #DC2626 100%)'
+                          : book.id === 'theireyeswerewatchinggod'
+                          ? 'linear-gradient(135deg, #0F766E 0%, #0891B2 100%)'
+                          : book.id === 'animalfarm'
+                          ? 'linear-gradient(135deg, #DC2626 0%, #EA580C 100%)'
+                          : book.id === 'crimeandpunishment'
+                          ? 'linear-gradient(135deg, #581C87 0%, #7C2D12 100%)'
+                          : 'linear-gradient(135deg, #374151 0%, #4B5563 100%)'
+                      }}
                     >
-                      <img
-                        src={book.coverImage}
-                        alt={`${book.title} by ${book.author}`}
-                        className="w-full h-full object-cover"
-                        width={300}
-                        height={400}
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                      <div className="absolute bottom-0 left-0 right-0 p-3">
-                        <h3 className="text-white font-bold text-sm mb-1 line-clamp-2">
-                          {book.title}
-                        </h3>
-                        <p className="text-gray-300 text-xs">
-                          {book.author}
-                        </p>
+                      <div className="h-full flex flex-col p-4">
+                        <div className="bg-gradient-to-br from-black/20 to-transparent p-3 rounded-lg mb-3 relative overflow-hidden flex-grow">
+                          <div className="absolute top-2 right-2 w-4 h-4 bg-white opacity-20 rounded-full"></div>
+                          <div className="absolute bottom-2 left-2 w-3 h-3 bg-white opacity-20 rounded-full"></div>
+                          <h3 className="text-white font-bold text-base mb-2 text-center leading-tight">
+                            {book.title.toUpperCase()}
+                          </h3>
+                          {book.subtitle && (
+                            <p className="text-amber-200 text-center font-serif italic text-sm">
+                              {book.subtitle}
+                            </p>
+                          )}
+                          <div className="text-center text-amber-300 text-sm font-serif mt-2">
+                            {book.author}
+                          </div>
+                        </div>
+                        <div className="text-center">
+                          {book.id.includes('coming-soon') ? (
+                            <span className="text-gray-400 text-base font-serif">🔒 Coming Soon</span>
+                          ) : (
+                            <span className="text-green-400 text-base font-serif">✓ Available</span>
+                          )}
+                        </div>
                       </div>
                     </motion.div>
                   </div>
