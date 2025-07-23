@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
+import { ThreeDMarquee } from '@/components/ui/3d-marquee'
 
 export default function Home() {
   const [openModal, setOpenModal] = useState<string | null>(null)
@@ -329,273 +330,63 @@ export default function Home() {
             <div className="w-32 h-1 bg-amber-400 mx-auto rounded"></div>
           </div>
 
-          {/* Book Shelf */}
+          {/* 3D Marquee */}
           <div className="bg-gradient-to-b from-amber-900 to-amber-800 p-8 rounded-xl shadow-2xl border-4 border-amber-700" style={{
             backgroundImage: 'url("data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23654321" fill-opacity="0.1"%3E%3Cpath d="m36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")'
           }}>
-            <div className="grid gap-8">
-              {/* First Row - Available Books */}
-              <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
-                
-                {/* Moby Dick Book */}
-                <Link href="/mobydick" className="group block">
-                  <div className="relative transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 h-full">
-                    <div className="bg-gradient-to-r from-slate-800 to-slate-700 p-6 rounded-lg shadow-xl border-2 border-slate-600 hover:shadow-2xl transition-all group-hover:from-slate-700 group-hover:to-slate-600 h-full flex flex-col min-h-[340px]">
-                      
-                      {/* Book Cover */}
-                      <div className="bg-gradient-to-br from-blue-900 via-blue-800 to-slate-900 p-6 rounded-lg mb-4 relative overflow-hidden min-h-[160px]">
-                        {/* Decorative elements */}
-                        <div className="absolute top-2 right-2 w-8 h-8 bg-blue-300 opacity-20 rounded-full"></div>
-                        <div className="absolute bottom-2 left-2 w-6 h-6 bg-slate-300 opacity-20 rounded-full"></div>
-                        
-                        <h3 className="text-2xl font-bold text-amber-100 mb-2 font-serif text-center">
-                          MOBY DICK
-                        </h3>
-                        <p className="text-amber-200 text-center font-serif italic mb-3">
-                          or, The Whale
-                        </p>
-                        <div className="text-center text-amber-300 text-sm font-serif">
-                          Herman Melville
-                        </div>
-                        
-                        {/* Vintage decoration */}
-                        <div className="mt-4 flex justify-center">
-                          <div className="w-20 h-0.5 bg-amber-400"></div>
-                        </div>
-                      </div>
-                      
-                      {/* Book Description */}
-                      <p className="text-amber-100 text-sm leading-relaxed font-serif flex-grow">
-                        Journey into the depths of obsession and the sea. Explore themes of fate, 
-                        nature, and the human condition aboard the Pequod.
-                      </p>
-                      
-                      {/* Reading Status */}
-                      <div className="mt-4 flex items-center justify-between">
-                        <span className="text-green-400 text-xs font-serif">✓ Interactive Edition</span>
-                        <span className="text-amber-400 text-xs font-serif">→ Enter</span>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-
-                {/* Pride and Prejudice Book */}
-                <Link href="/prideandprejudice" className="group block">
-                  <div className="relative transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 h-full">
-                    <div className="bg-gradient-to-r from-rose-800 to-rose-700 p-6 rounded-lg shadow-xl border-2 border-rose-600 hover:shadow-2xl transition-all group-hover:from-rose-700 group-hover:to-rose-600 h-full flex flex-col min-h-[340px]">
-                      
-                      {/* Book Cover */}
-                      <div className="bg-gradient-to-br from-rose-900 via-rose-800 to-pink-900 p-6 rounded-lg mb-4 relative overflow-hidden min-h-[160px]">
-                        {/* Decorative elements */}
-                        <div className="absolute top-2 right-2 w-8 h-8 bg-rose-300 opacity-20 rounded-full"></div>
-                        <div className="absolute bottom-2 left-2 w-6 h-6 bg-pink-300 opacity-20 rounded-full"></div>
-                        
-                        <h3 className="text-xl font-bold text-amber-100 mb-2 font-serif text-center leading-tight">
-                          PRIDE & PREJUDICE
-                        </h3>
-                        <p className="text-amber-200 text-center font-serif italic mb-3">
-                          A Novel
-                        </p>
-                        <div className="text-center text-amber-300 text-sm font-serif">
-                          Jane Austen
-                        </div>
-                        
-                        {/* Vintage decoration */}
-                        <div className="mt-4 flex justify-center">
-                          <div className="w-20 h-0.5 bg-amber-400"></div>
-                        </div>
-                      </div>
-                      
-                      {/* Book Description */}
-                      <p className="text-amber-100 text-sm leading-relaxed font-serif flex-grow">
-                        Navigate the social complexities of Georgian England. Explore love, 
-                        marriage, and the power of first impressions in this beloved classic.
-                      </p>
-                      
-                      {/* Reading Status */}
-                      <div className="mt-4 flex items-center justify-between">
-                        <span className="text-green-400 text-xs font-serif">✓ Interactive Edition</span>
-                        <span className="text-amber-400 text-xs font-serif">→ Enter</span>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-
-                {/* Things Fall Apart Book */}
-                <Link href="/thingsfallapart" className="group block">
-                  <div className="relative transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 h-full">
-                    <div className="bg-gradient-to-r from-orange-800 to-orange-700 p-6 rounded-lg shadow-xl border-2 border-orange-600 hover:shadow-2xl transition-all group-hover:from-orange-700 group-hover:to-orange-600 h-full flex flex-col min-h-[340px]">
-                      
-                      {/* Book Cover */}
-                      <div className="bg-gradient-to-br from-orange-900 via-orange-800 to-red-900 p-6 rounded-lg mb-4 relative overflow-hidden min-h-[160px]">
-                        {/* Decorative elements */}
-                        <div className="absolute top-2 right-2 w-8 h-8 bg-orange-300 opacity-20 rounded-full"></div>
-                        <div className="absolute bottom-2 left-2 w-6 h-6 bg-red-300 opacity-20 rounded-full"></div>
-                        
-                        <h3 className="text-xl font-bold text-amber-100 mb-2 font-serif text-center leading-tight">
-                          THINGS FALL APART
-                        </h3>
-                        <p className="text-amber-200 text-center font-serif italic mb-3">
-                          A Novel
-                        </p>
-                        <div className="text-center text-amber-300 text-sm font-serif">
-                          Chinua Achebe
-                        </div>
-                        
-                        {/* Vintage decoration */}
-                        <div className="mt-4 flex justify-center">
-                          <div className="w-20 h-0.5 bg-amber-400"></div>
-                        </div>
-                      </div>
-                      
-                      {/* Book Description */}
-                      <p className="text-amber-100 text-sm leading-relaxed font-serif flex-grow">
-                        Journey into pre-colonial Nigeria. Witness the clash of cultures 
-                        and the tragic consequences of change in this powerful narrative.
-                      </p>
-                      
-                      {/* Reading Status */}
-                      <div className="mt-4 flex items-center justify-between">
-                        <span className="text-green-400 text-xs font-serif">✓ Interactive Edition</span>
-                        <span className="text-amber-400 text-xs font-serif">→ Enter</span>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-
-              </div>
-
-              {/* Second Row - More Featured Books */}
-              <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
-                
-                {/* Crime and Punishment Book */}
-                <Link href="/crimeandpunishment" className="group block">
-                  <div className="relative transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 h-full">
-                    <div className="bg-gradient-to-r from-purple-900 to-purple-800 p-6 rounded-lg shadow-xl border-2 border-purple-700 hover:shadow-2xl transition-all group-hover:from-purple-800 group-hover:to-purple-700 h-full flex flex-col min-h-[340px]">
-                      
-                      {/* Book Cover */}
-                      <div className="bg-gradient-to-br from-purple-950 via-purple-900 to-red-950 p-6 rounded-lg mb-4 relative overflow-hidden min-h-[160px]">
-                        {/* Decorative elements */}
-                        <div className="absolute top-2 right-2 w-8 h-8 bg-purple-300 opacity-20 rounded-full"></div>
-                        <div className="absolute bottom-2 left-2 w-6 h-6 bg-red-300 opacity-20 rounded-full"></div>
-                        
-                        <h3 className="text-lg font-bold text-amber-100 mb-2 font-serif text-center leading-tight">
-                          CRIME & PUNISHMENT
-                        </h3>
-                        <p className="text-amber-200 text-center font-serif italic mb-3">
-                          A Novel
-                        </p>
-                        <div className="text-center text-amber-300 text-sm font-serif">
-                          Fyodor Dostoevsky
-                        </div>
-                        
-                        {/* Vintage decoration */}
-                        <div className="mt-4 flex justify-center">
-                          <div className="w-20 h-0.5 bg-amber-400"></div>
-                        </div>
-                      </div>
-                      
-                      {/* Book Description */}
-                      <p className="text-amber-100 text-sm leading-relaxed font-serif flex-grow">
-                        Delve into the psychological depths of guilt and redemption. 
-                        Follow Raskolnikov's tormented journey through moral philosophy and consequence.
-                      </p>
-                      
-                      {/* Reading Status */}
-                      <div className="mt-4 flex items-center justify-between">
-                        <span className="text-green-400 text-xs font-serif">✓ Interactive Edition</span>
-                        <span className="text-amber-400 text-xs font-serif">→ Enter</span>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-
-                {/* Their Eyes Were Watching God Book */}
-                <Link href="/theireyeswerewatchinggod" className="group block">
-                  <div className="relative transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 h-full">
-                    <div className="bg-gradient-to-r from-teal-800 to-teal-700 p-6 rounded-lg shadow-xl border-2 border-teal-600 hover:shadow-2xl transition-all group-hover:from-teal-700 group-hover:to-teal-600 h-full flex flex-col min-h-[340px]">
-                      
-                      {/* Book Cover */}
-                      <div className="bg-gradient-to-br from-teal-900 via-teal-800 to-cyan-900 p-6 rounded-lg mb-4 relative overflow-hidden min-h-[160px]">
-                        {/* Decorative elements */}
-                        <div className="absolute top-2 right-2 w-8 h-8 bg-teal-300 opacity-20 rounded-full"></div>
-                        <div className="absolute bottom-2 left-2 w-6 h-6 bg-cyan-300 opacity-20 rounded-full"></div>
-                        
-                        <h3 className="text-base font-bold text-amber-100 mb-2 font-serif text-center leading-tight">
-                          THEIR EYES WERE WATCHING GOD
-                        </h3>
-                        <p className="text-amber-200 text-center font-serif italic mb-3">
-                          A Novel
-                        </p>
-                        <div className="text-center text-amber-300 text-sm font-serif">
-                          Zora Neale Hurston
-                        </div>
-                        
-                        {/* Vintage decoration */}
-                        <div className="mt-4 flex justify-center">
-                          <div className="w-20 h-0.5 bg-amber-400"></div>
-                        </div>
-                      </div>
-                      
-                      {/* Book Description */}
-                      <p className="text-amber-100 text-sm leading-relaxed font-serif flex-grow">
-                        Follow Janie Crawford's journey of self-discovery through love, loss, 
-                        and liberation in the American South. A powerful exploration of identity and independence.
-                      </p>
-                      
-                      {/* Reading Status */}
-                      <div className="mt-4 flex items-center justify-between">
-                        <span className="text-green-400 text-xs font-serif">✓ Interactive Edition</span>
-                        <span className="text-amber-400 text-xs font-serif">→ Enter</span>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-
-                {/* Animal Farm Book */}
-                <Link href="/animalfarm" className="group block">
-                  <div className="relative transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 h-full">
-                    <div className="bg-gradient-to-r from-red-800 to-red-700 p-6 rounded-lg shadow-xl border-2 border-red-600 hover:shadow-2xl transition-all group-hover:from-red-700 group-hover:to-red-600 h-full flex flex-col min-h-[340px]">
-                      
-                      {/* Book Cover */}
-                      <div className="bg-gradient-to-br from-red-900 via-red-800 to-orange-900 p-6 rounded-lg mb-4 relative overflow-hidden min-h-[160px]">
-                        {/* Decorative elements */}
-                        <div className="absolute top-2 right-2 w-8 h-8 bg-red-300 opacity-20 rounded-full"></div>
-                        <div className="absolute bottom-2 left-2 w-6 h-6 bg-orange-300 opacity-20 rounded-full"></div>
-                        
-                        <h3 className="text-2xl font-bold text-amber-100 mb-2 font-serif text-center">
-                          ANIMAL FARM
-                        </h3>
-                        <p className="text-amber-200 text-center font-serif italic mb-3">
-                          Satirical Novella
-                        </p>
-                        <div className="text-center text-amber-300 text-sm font-serif">
-                          George Orwell
-                        </div>
-                        
-                        {/* Vintage decoration */}
-                        <div className="mt-4 flex justify-center">
-                          <div className="w-20 h-0.5 bg-amber-400"></div>
-                        </div>
-                      </div>
-                      
-                      {/* Book Description */}
-                      <p className="text-amber-100 text-sm leading-relaxed font-serif flex-grow">
-                        A powerful allegory of revolution and corruption. Witness how noble ideals 
-                        can be twisted by power in this timeless tale of political satire.
-                      </p>
-                      
-                      {/* Reading Status */}
-                      <div className="mt-4 flex items-center justify-between">
-                        <span className="text-green-400 text-xs font-serif">✓ Interactive Edition</span>
-                        <span className="text-amber-400 text-xs font-serif">→ Enter</span>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-
-              </div>
-            </div>
+            <ThreeDMarquee 
+              books={[
+                {
+                  id: 'mobydick',
+                  title: 'Moby-Dick',
+                  subtitle: 'or, The Whale',
+                  author: 'Herman Melville',
+                  description: 'Journey into the depths of obsession and the sea. Explore themes of fate, nature, and the human condition aboard the Pequod.',
+                  coverImage: '/images/ahab.png'
+                },
+                {
+                  id: 'prideandprejudice',
+                  title: 'Pride and Prejudice',
+                  subtitle: 'A Novel',
+                  author: 'Jane Austen',
+                  description: 'Navigate the social complexities of Georgian England. Explore love, marriage, and the power of first impressions in this beloved classic.',
+                  coverImage: '/images/chapter2.png'
+                },
+                {
+                  id: 'thingsfallapart',
+                  title: 'Things Fall Apart',
+                  subtitle: 'A Novel',
+                  author: 'Chinua Achebe',
+                  description: 'Journey into pre-colonial Nigeria. Witness the clash of cultures and the tragic consequences of change in this powerful narrative.',
+                  coverImage: '/images/delight.png'
+                },
+                {
+                  id: 'crimeandpunishment',
+                  title: 'Crime and Punishment',
+                  subtitle: 'A Novel',
+                  author: 'Fyodor Dostoevsky',
+                  description: 'Delve into the psychological depths of guilt and redemption. Follow Raskolnikov\'s tormented journey through moral philosophy and consequence.',
+                  coverImage: '/images/coffin.png'
+                },
+                {
+                  id: 'theireyeswerewatchinggod',
+                  title: 'Their Eyes Were Watching God',
+                  subtitle: 'A Novel',
+                  author: 'Zora Neale Hurston',
+                  description: 'Follow Janie Crawford\'s journey of self-discovery through love, loss, and liberation in the American South. A powerful exploration of identity and independence.',
+                  coverImage: '/images/elijah.png'
+                },
+                {
+                  id: 'animalfarm',
+                  title: 'Animal Farm',
+                  subtitle: 'Satirical Novella',
+                  author: 'George Orwell',
+                  description: 'A powerful allegory of revolution and corruption. Witness how noble ideals can be twisted by power in this timeless tale of political satire.',
+                  coverImage: '/images/pequod.png'
+                }
+              ]}
+              className="h-[600px]"
+            />
           </div>
         </div>
 

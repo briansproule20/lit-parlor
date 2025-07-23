@@ -98,6 +98,12 @@
 }
 
 /* Audio control panel animations */
+
+/* 3D Transform utilities for the marquee */
+.transform-3d {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
 @keyframes slideInFromLeft {
   from {
     opacity: 0;
