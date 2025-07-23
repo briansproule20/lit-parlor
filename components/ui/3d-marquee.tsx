@@ -95,7 +95,7 @@ export const ThreeDMarquee = ({
                         <div className="bg-gradient-to-br from-black/20 to-transparent p-3 rounded-lg mb-3 relative overflow-hidden flex-grow">
                           <div className="absolute top-2 right-2 w-4 h-4 bg-white opacity-20 rounded-full"></div>
                           <div className="absolute bottom-2 left-2 w-3 h-3 bg-white opacity-20 rounded-full"></div>
-                          <h3 className="text-white font-bold text-base mb-2 text-center leading-tight">
+                          <h3 className="text-white font-bold text-base mb-2 text-center leading-tight font-garamond">
                             {book.title.toUpperCase()}
                           </h3>
                           {book.subtitle && (
