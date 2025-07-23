@@ -4,6 +4,7 @@ import Link from 'next/link'
 import WorldMap from '@/components/ui/world-map'
 import GlobeDemo from '@/components/ui/globe-demo'
 import { motion } from "motion/react"
+import { DotBackground } from '@/components/ui/dot-background'
 
 export default function Storyworlds() {
   const locationData = [
@@ -68,6 +69,11 @@ export default function Storyworlds() {
       backgroundImage: 'linear-gradient(135deg, #8B4513 0%, #A0522D 25%, #CD853F 50%, #D2691E 75%, #8B4513 100%)',
       backgroundAttachment: 'fixed'
     }}>
+      {/* Dot Background */}
+      <div className="opacity-30 absolute inset-0 pointer-events-none">
+        <DotBackground />
+      </div>
+      
       {/* Cozy lighting overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-amber-50/20 via-transparent to-amber-900/30 pointer-events-none"></div>
       
