@@ -417,7 +417,7 @@ export default function Quiz() {
           <div className="text-center mt-4">
             <div className="inline-block px-6 py-3 bg-amber-50/95 border-2 border-amber-600 rounded-lg shadow-md">
               <span className="text-amber-900 font-bold text-lg">
-                Question {currentQuestion + 1} of {questions.length}
+            Question {currentQuestion + 1} of {questions.length}
               </span>
             </div>
           </div>

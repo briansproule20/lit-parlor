@@ -5,6 +5,63 @@ import WorldMap from '@/components/ui/world-map'
 import { motion } from "motion/react"
 
 export default function Storyworlds() {
+  const locationData = [
+    // Nantucket, Massachusetts (Moby Dick) - Blue
+    {
+      id: "moby-dick-nantucket",
+      title: "Moby Dick",
+      author: "Herman Melville",
+      location: "Nantucket, Massachusetts",
+      description: "The whaling capital of the world in 1851, where Ishmael begins his fateful journey aboard the Pequod. This small island off the coast of Massachusetts was the center of the American whaling industry.",
+      color: "#2563eb"
+    },
+    // England (Pride and Prejudice) - Red
+    {
+      id: "pride-prejudice-england",
+      title: "Pride and Prejudice",
+      author: "Jane Austen",
+      location: "Regency England",
+      description: "The countryside estates and drawing rooms of Georgian England, where social class and manners reign supreme. The novel explores the marriage market and social hierarchy of early 19th century England.",
+      color: "#dc2626"
+    },
+    // Nigeria (Things Fall Apart) - Orange
+    {
+      id: "things-fall-apart-nigeria",
+      title: "Things Fall Apart",
+      author: "Chinua Achebe",
+      location: "Igboland, Nigeria",
+      description: "Pre-colonial Igbo villages in southeastern Nigeria, where traditional culture meets European colonialism. The novel explores the clash between traditional African culture and European imperialism.",
+      color: "#ea580c"
+    },
+    // St. Petersburg, Russia (Crime and Punishment) - Purple
+    {
+      id: "crime-punishment-russia",
+      title: "Crime and Punishment",
+      author: "Fyodor Dostoevsky",
+      location: "St. Petersburg, Russia",
+      description: "The crowded, oppressive streets of 19th century St. Petersburg, reflecting the psychological turmoil within. The city's poverty and social inequality mirror Raskolnikov's internal conflict.",
+      color: "#9333ea"
+    },
+    // Florida (Their Eyes Were Watching God) - Green
+    {
+      id: "their-eyes-florida",
+      title: "Their Eyes Were Watching God",
+      author: "Zora Neale Hurston",
+      location: "Florida, USA",
+      description: "The rural South and Florida Everglades, where Janie Crawford discovers her voice and independence. The novel explores African American life in the early 20th century American South.",
+      color: "#16a34a"
+    },
+    // English Countryside (Animal Farm) - Dark Red
+    {
+      id: "animal-farm-england",
+      title: "Animal Farm",
+      author: "George Orwell",
+      location: "English Countryside",
+      description: "A pastoral English farm that becomes the stage for political allegory and revolutionary ideals. The farm setting serves as a microcosm for political systems and power dynamics.",
+      color: "#b91c1c"
+    }
+  ];
+
   return (
     <main className="min-h-screen py-8 px-4 relative" style={{
       backgroundImage: 'linear-gradient(135deg, #8B4513 0%, #A0522D 25%, #CD853F 50%, #D2691E 75%, #8B4513 100%)',
@@ -112,6 +169,7 @@ export default function Storyworlds() {
                 ]}
                 lineColor="#8B4513"
                 useManualPositioning={true}
+                locationData={locationData}
               />
               
               {/* Story Location Legend */}
