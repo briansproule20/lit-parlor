@@ -30,13 +30,35 @@ export default function Pedagogy() {
         </div>
 
         {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-amber-900 font-serif mb-4">
-            The Art of Teaching: A History of Pedagogy
-          </h1>
-          <p className="text-amber-700 text-lg font-serif">
-            Exploring the evolution of educational philosophy and practice
-          </p>
+        <div className="mb-12">
+          <div className="bg-gradient-to-br from-amber-50 via-orange-50 to-amber-100 rounded-2xl shadow-2xl border-2 border-amber-300 p-8 relative overflow-hidden">
+            {/* Decorative background elements */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-amber-200/30 rounded-full -translate-y-16 translate-x-16"></div>
+            <div className="absolute bottom-0 left-0 w-24 h-24 bg-orange-200/40 rounded-full translate-y-12 -translate-x-12"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-amber-300/20 rounded-full"></div>
+            
+            <div className="relative z-10 text-center">
+              <div className="mb-6">
+                <h1 className="text-5xl md:text-6xl font-bold text-amber-900 font-serif leading-tight mb-4 tracking-tight">
+                  The Art of Teaching
+                </h1>
+                <div className="w-24 h-1 bg-gradient-to-r from-amber-400 to-orange-500 mx-auto rounded-full mb-4"></div>
+                <h2 className="text-3xl md:text-4xl font-semibold text-amber-800 font-serif leading-tight">
+                  A History of Pedagogy
+                </h2>
+              </div>
+              
+              <p className="text-amber-700 text-xl md:text-2xl font-serif leading-relaxed max-w-4xl mx-auto">
+                Exploring the evolution of educational philosophy and practice
+              </p>
+              
+              <div className="mt-6 flex justify-center items-center gap-4 text-amber-600">
+                <div className="w-8 h-0.5 bg-amber-400"></div>
+                <span className="text-sm font-medium uppercase tracking-wider">Educational Excellence</span>
+                <div className="w-8 h-0.5 bg-amber-400"></div>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Content */}
