@@ -64,8 +64,11 @@ export default function Home() {
       backgroundImage: 'linear-gradient(135deg, #8B4513 0%, #A0522D 25%, #CD853F 50%, #D2691E 75%, #8B4513 100%)',
       backgroundAttachment: 'fixed'
     }}>
-      {/* Dot Background Overlay */}
-      <DotBackground className="opacity-30" />
+      {/* Dot Background */}
+      <div className="opacity-30 absolute inset-0 pointer-events-none">
+        <DotBackground />
+      </div>
+      
       {/* Cozy lighting overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-amber-50/20 via-transparent to-amber-900/30 pointer-events-none"></div>
       
@@ -189,7 +192,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="inline-block p-8 rounded-xl shadow-2xl relative" style={{
+          <div className="inline-block p-8 rounded-xl shadow-2xl relative bg-white" style={{
             background: `
               radial-gradient(circle at 25% 20%, rgba(252, 248, 227, 0.95) 0%, transparent 60%),
               radial-gradient(circle at 75% 80%, rgba(245, 222, 179, 0.9) 0%, transparent 60%),
@@ -246,7 +249,7 @@ export default function Home() {
         {/* Mission Statement */}
         <div className="text-center mb-12">
           <div className="max-w-4xl mx-auto">
-            <div className="inline-block p-8 bg-gradient-to-r from-blue-900/90 to-blue-700/90 border-4 border-blue-400 rounded-2xl shadow-2xl relative overflow-hidden h-[300px]">
+            <div className="inline-block p-8 bg-gradient-to-r from-blue-900/90 to-blue-700/90 border-4 border-blue-400 rounded-2xl shadow-2xl relative overflow-hidden h-[300px] bg-white">
               {/* Background Beams Effect */}
               <BackgroundBeams className="opacity-70" />
               
@@ -481,7 +484,7 @@ export default function Home() {
 
         {/* Current Challenges */}
         <div className="mb-12">
-          <div className="bg-white/95 rounded-xl shadow-xl p-6 border-2 border-amber-200">
+          <div className="bg-white rounded-xl shadow-xl p-6 border-2 border-amber-200">
             <h2 className="text-2xl font-bold text-amber-900 mb-6 font-serif text-center">Current Challenges</h2>
             
             <div className="grid md:grid-cols-2 gap-8">
@@ -575,7 +578,7 @@ export default function Home() {
         {/* Learning Modalities Mission Card */}
         <div className="text-center mb-12">
           <div className="max-w-4xl mx-auto">
-            <div className="inline-block p-8 bg-gradient-to-r from-indigo-900/90 to-purple-800/90 border-4 border-indigo-400 rounded-2xl shadow-2xl relative overflow-hidden h-[500px]">
+            <div className="inline-block p-8 bg-gradient-to-r from-indigo-900/90 to-purple-800/90 border-4 border-indigo-400 rounded-2xl shadow-2xl relative overflow-hidden h-[500px] bg-white">
               {/* Background Beams Effect */}
               <BackgroundBeams className="opacity-70" />
               
@@ -622,7 +625,7 @@ export default function Home() {
         {/* Resources Section */}
         <div className="text-center mb-12">
           <div className="max-w-4xl mx-auto">
-            <div className="inline-block p-8 bg-gradient-to-r from-orange-900/90 to-red-800/90 border-4 border-orange-400 rounded-2xl shadow-2xl relative overflow-hidden h-[300px]">
+            <div className="inline-block p-8 bg-gradient-to-r from-orange-900/90 to-red-800/90 border-4 border-orange-400 rounded-2xl shadow-2xl relative overflow-hidden h-[300px] bg-white">
               {/* Background Beams Effect */}
               <BackgroundBeams className="opacity-70" />
               
@@ -648,7 +651,7 @@ export default function Home() {
         {/* Lit Salon Workflow Section */}
         <div className="text-center mb-12">
           <div className="max-w-4xl mx-auto">
-            <div className="inline-block p-8 bg-gradient-to-r from-pink-900/90 to-pink-700/90 border-4 border-pink-400 rounded-2xl shadow-2xl relative overflow-hidden h-[1000px]">
+            <div className="inline-block p-8 bg-gradient-to-r from-pink-900/90 to-pink-700/90 border-4 border-pink-400 rounded-2xl shadow-2xl relative overflow-hidden h-[1000px] bg-white">
               {/* Background Beams Effect */}
               <BackgroundBeams className="opacity-70" />
               
@@ -768,7 +771,7 @@ export default function Home() {
 
         {/* AI Tutor Section */}
         <div className="text-center mb-12">
-          <div className="inline-block p-8 bg-gradient-to-r from-emerald-900/90 to-teal-800/90 border-4 border-emerald-400 rounded-2xl shadow-2xl relative overflow-hidden h-[300px]">
+          <div className="inline-block p-8 bg-gradient-to-r from-emerald-900/90 to-teal-800/90 border-4 border-emerald-400 rounded-2xl shadow-2xl relative overflow-hidden h-[300px] bg-white">
             {/* Background Beams Effect */}
             <BackgroundBeams className="opacity-70" />
             <div className="relative z-10 h-full flex flex-col justify-center">
