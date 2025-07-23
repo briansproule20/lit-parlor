@@ -579,35 +579,47 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Achievement Showcase */}
-            <div className="mx-4 bg-yellow-50 rounded-xl shadow-xl p-6 border-2 border-yellow-200 min-w-[300px]">
-              <h3 className="text-lg font-semibold text-yellow-800 font-serif mb-4 flex items-center gap-2">
-                <span className="text-xl">🏆</span>
-                Recent Achievements
+            {/* Ongoing Arena Tournaments */}
+            <div className="mx-4 bg-red-50 rounded-xl shadow-xl p-6 border-2 border-red-200 min-w-[300px]">
+              <h3 className="text-lg font-semibold text-red-800 font-serif mb-4 flex items-center gap-2">
+                <span className="text-xl">⚔️</span>
+                Ongoing Arena Tournaments
               </h3>
               <div className="space-y-3">
+                <div className="p-3 bg-red-100 rounded-lg border border-red-300">
+                  <div className="flex items-center justify-between mb-1">
+                    <h4 className="font-semibold text-red-800 font-serif text-sm">Moby Dick Boss Battle</h4>
+                    <span className="text-red-600 text-xs font-bold">Live Now</span>
+                  </div>
+                  <p className="text-red-700 text-xs font-serif mb-2">32 participants • Final exam challenge</p>
+                  <div className="flex justify-between text-xs">
+                    <span className="text-red-600">🔥 Leaderboard: #7</span>
+                    <span className="text-red-500">2h 15m left</span>
+                  </div>
+                </div>
+                
+                <div className="p-3 bg-orange-100 rounded-lg border border-orange-300">
+                  <div className="flex items-center justify-between mb-1">
+                    <h4 className="font-semibold text-orange-800 font-serif text-sm">Literary Trivia Clash</h4>
+                    <span className="text-orange-600 text-xs font-bold">Starting Soon</span>
+                  </div>
+                  <p className="text-orange-700 text-xs font-serif mb-2">18 participants • Quick-fire questions</p>
+                  <div className="flex justify-between text-xs">
+                    <span className="text-orange-600">⚡ Speed Round</span>
+                    <span className="text-orange-500">Starts in 45m</span>
+                  </div>
+                </div>
+                
                 <div className="p-3 bg-yellow-100 rounded-lg border border-yellow-300">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-yellow-600">🥇</span>
-                    <h4 className="font-semibold text-yellow-800 font-serif text-sm">Master Analyst</h4>
+                  <div className="flex items-center justify-between mb-1">
+                    <h4 className="font-semibold text-yellow-800 font-serif text-sm">Character Duel Arena</h4>
+                    <span className="text-yellow-600 text-xs font-bold">Weekly</span>
                   </div>
-                  <p className="text-yellow-700 text-xs font-serif">Completed 10 character analyses</p>
-                </div>
-                
-                <div className="p-3 bg-amber-100 rounded-lg border border-amber-300">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-amber-600">📚</span>
-                    <h4 className="font-semibold text-amber-800 font-serif text-sm">Speed Reader</h4>
+                  <p className="text-yellow-700 text-xs font-serif mb-2">Debate character motivations & actions</p>
+                  <div className="flex justify-between text-xs">
+                    <span className="text-yellow-600">🗡️ 1v1 Debates</span>
+                    <span className="text-yellow-500">Join Queue</span>
                   </div>
-                  <p className="text-amber-700 text-xs font-serif">Read 100 pages in one week</p>
-                </div>
-                
-                <div className="p-3 bg-lime-100 rounded-lg border border-lime-300">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-lime-600">💬</span>
-                    <h4 className="font-semibold text-lime-800 font-serif text-sm">Discussion Leader</h4>
-                  </div>
-                  <p className="text-lime-700 text-xs font-serif">Led 5 forum discussions</p>
                 </div>
               </div>
             </div>
