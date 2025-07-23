@@ -148,4 +148,23 @@
       transform: translateY(calc(-100% - var(--gap)));
     }
   }
+}
+
+/* Fallback marquee animations for production */
+@keyframes marquee-fallback {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee-vertical-fallback {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-100%);
+  }
 } 

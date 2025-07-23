@@ -18,8 +18,8 @@ const config: Config = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       animation: {
-        marquee: 'marquee var(--duration) linear infinite',
-        'marquee-vertical': 'marquee-vertical var(--duration) linear infinite',
+        marquee: 'marquee-fallback 30s linear infinite',
+        'marquee-vertical': 'marquee-vertical-fallback 30s linear infinite',
       },
       keyframes: {
         marquee: {
