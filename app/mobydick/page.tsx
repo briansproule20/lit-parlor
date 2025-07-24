@@ -770,64 +770,55 @@ export default function MobyDick() {
 
         {/* Module Explored Card */}
         <div className="fixed bottom-4 right-4 z-40">
-          <div className="bg-gradient-to-r from-indigo-600 to-purple-700 p-4 rounded-xl shadow-2xl border-2 border-indigo-400 min-w-[280px]">
-            <div className="text-white">
-              <div className="flex items-center justify-between mb-3">
-                <h3 className="font-bold text-lg font-serif">📊 Module Explored</h3>
-                <span className="text-2xl font-bold">{explorationPercentage}%</span>
+          <div className="bg-white/95 backdrop-blur-sm p-3 rounded-lg shadow-lg border-2 border-amber-600 w-48">
+            <div className="text-amber-900">
+              {/* Header */}
+              <div className="flex items-center justify-between mb-2">
+                <h3 className="font-bold text-sm font-serif">Progress</h3>
+                <span className="text-lg font-bold text-amber-800">{explorationPercentage}%</span>
               </div>
               
               {/* Progress Bar */}
-              <div className="w-full bg-indigo-800 rounded-full h-3 mb-3">
+              <div className="w-full bg-amber-100 rounded-full h-1.5 mb-2">
                 <div 
-                  className="bg-gradient-to-r from-green-400 to-blue-400 h-3 rounded-full transition-all duration-500 ease-out"
+                  className="bg-gradient-to-r from-amber-500 to-amber-700 h-1.5 rounded-full transition-all duration-500"
                   style={{width: `${explorationPercentage}%`}}
                 ></div>
               </div>
               
               {/* Stats */}
-              <div className="grid grid-cols-2 gap-3 text-sm">
-                <div className="bg-indigo-800/50 p-2 rounded">
-                  <div className="text-indigo-200">Items Qualified</div>
-                  <div className="font-bold">{qualifiedItems.size}/{totalItems}</div>
-                  <div className="text-indigo-300 text-xs">({clickedItems.size} clicked)</div>
-                </div>
-                <div className="bg-purple-800/50 p-2 rounded">
-                  <div className="text-purple-200">Time Spent</div>
-                  <div className="font-bold">{Math.floor(timeSpent / 60)}:{(timeSpent % 60).toString().padStart(2, '0')}</div>
+              <div className="text-xs text-amber-700 font-serif">
+                <div className="flex justify-between">
+                  <span>Items: {qualifiedItems.size}/{totalItems}</span>
+                  <span>{Math.floor(timeSpent / 60)}:{(timeSpent % 60).toString().padStart(2, '0')}</span>
                 </div>
               </div>
               
-              {/* Reading Progress Indicator */}
+              {/* Reading Progress */}
               {currentItem && (
-                <div className="mt-3 p-2 bg-yellow-600/80 rounded text-center text-sm">
-                  <div className="text-xs mb-2">
-                    {itemReadingTimes.get(currentItem) || 0}s / {minReadingTime}s required
+                <div className="mt-2 text-xs text-amber-600">
+                  <div className="flex justify-between mb-1">
+                    <span>Reading</span>
+                    <span>{itemReadingTimes.get(currentItem) || 0}s/{minReadingTime}s</span>
                   </div>
-                  <div className="w-full bg-yellow-800 rounded-full h-2">
+                  <div className="w-full bg-amber-200 rounded-full h-1">
                     <div 
-                      className="bg-yellow-300 h-2 rounded-full transition-all duration-1000"
+                      className="bg-amber-600 h-1 rounded-full transition-all duration-1000"
                       style={{width: `${Math.min(((itemReadingTimes.get(currentItem) || 0) / minReadingTime) * 100, 100)}%`}}
                     ></div>
                   </div>
                 </div>
               )}
               
-              {/* Completion Message */}
+              {/* Status */}
               {explorationPercentage >= 90 && (
-                <div className="mt-3 p-2 bg-green-600 rounded text-center text-sm font-semibold">
-                  🎉 Excellent Exploration!
-                </div>
+                <div className="mt-2 text-xs text-green-700 font-semibold text-center">Excellent</div>
               )}
               {explorationPercentage >= 70 && explorationPercentage < 90 && (
-                <div className="mt-3 p-2 bg-blue-600 rounded text-center text-sm font-semibold">
-                  🌟 Great Progress!
-                </div>
+                <div className="mt-2 text-xs text-blue-700 font-semibold text-center">Great Progress</div>
               )}
               {explorationPercentage >= 50 && explorationPercentage < 70 && (
-                <div className="mt-3 p-2 bg-yellow-600 rounded text-center text-sm font-semibold">
-                  📚 Keep Exploring!
-                </div>
+                <div className="mt-2 text-xs text-yellow-700 font-semibold text-center">Keep Exploring</div>
               )}
             </div>
           </div>
