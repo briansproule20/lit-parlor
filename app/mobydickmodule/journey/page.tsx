@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { ScratchToReveal } from '@/components/ui/scratch-to-reveal'
+import MobyDickNavbar from '@/components/ui/moby-dick-navbar'
 
 interface ChapterData {
   id: number;
@@ -559,243 +560,26 @@ export default function Journey() {
         ></div>
       )}
 
-      {/* Begin Visual Journey Card - Left Side */}
-      <div className="fixed left-4 top-32 z-[60] audio-panel">
-        <div className="bg-blue-900/90 backdrop-blur-sm rounded-lg p-3 shadow-2xl border-2 border-blue-600" style={{ width: '120px' }}>
-          <div className="text-center mb-3">
-            <h3 className="text-blue-100 font-serif font-bold text-xs mb-2">Visual Journey</h3>
-            <button
-              onClick={beginVisualJourney}
-              disabled={isFading}
-              className={`w-full bg-blue-600 hover:bg-blue-700 text-white font-serif font-bold py-2 px-1 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg border-2 border-blue-400 text-xs leading-tight ${
-                isFading ? 'opacity-50 cursor-not-allowed' : ''
-              }`}
-              title="Begin the visual journey through Moby Dick"
-            >
-              Begin<br />Visual Journey
-            </button>
-          </div>
-          
-          {/* Visual Journey Status */}
-          <div className="text-center">
-            <div className="text-blue-100 text-xs font-serif mb-1">Status</div>
-            <div className="w-6 h-6 rounded-lg bg-blue-600 flex items-center justify-center mx-auto shadow-md border border-blue-400">
-              <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-              </svg>
-            </div>
-            <div className="text-blue-100 text-xs font-serif mt-1">Ready</div>
-          </div>
-        </div>
-      </div>
-
-      {/* Read Along Button - Right Side */}
-      <div className="fixed right-4 top-32 z-[60]">
-        <div className="bg-green-900/90 backdrop-blur-sm rounded-lg p-3 shadow-2xl border-2 border-green-600" style={{ width: '120px' }}>
-          <div className="text-center">
-            <h3 className="text-green-100 font-serif font-bold text-xs mb-2">Reading Companion</h3>
-            <button
-              onClick={() => {
-                const gutenbergLink = getGutenbergLink("Chapter 1");
-                window.open(gutenbergLink, '_blank');
-              }}
-              className="w-full bg-green-600 hover:bg-green-700 text-white font-serif font-bold py-2 px-1 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg border-2 border-green-400 text-xs leading-tight"
-              title="Open Project Gutenberg to explore the full text"
-            >
-              📖 Explore the<br />Full Text
-            </button>
-          </div>
-          
-          {/* Reading Status */}
-          <div className="text-center mt-3">
-            <div className="text-green-100 text-xs font-serif mb-1">Status</div>
-            <div className="w-6 h-6 rounded-lg bg-green-600 flex items-center justify-center mx-auto shadow-md border border-green-400">
-              <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-              </svg>
-            </div>
-            <div className="text-green-100 text-xs font-serif mt-1">Ready</div>
-          </div>
-        </div>
-      </div>
-
-      {/* Read With Me Button - Right Side */}
-      <div className="fixed right-4 top-96 z-[60]">
-        <div className="bg-purple-900/90 backdrop-blur-sm rounded-lg p-3 shadow-2xl border-2 border-purple-600" style={{ width: '120px' }}>
-          <div className="text-center">
-            <h3 className="text-purple-100 font-serif font-bold text-xs mb-2">Screen Reader</h3>
-            <button
-              onClick={toggleScreenReader}
-              data-screen-reader="true"
-              className={`w-full font-serif font-bold py-2 px-1 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg border-2 text-xs leading-tight ${
-                isScreenReaderActive
-                  ? 'bg-purple-600 hover:bg-purple-700 text-white border-purple-400'
-                  : 'bg-purple-600 hover:bg-purple-700 text-white border-purple-400'
-              }`}
-              title={isScreenReaderActive ? 'Stop reading aloud' : 'Start reading aloud'}
-            >
-              🔊 Read With<br />Me
-            </button>
-
-          </div>
-          
-          {/* Screen Reader Status */}
-          <div className="text-center mt-3">
-            <div className="text-purple-100 text-xs font-serif mb-1">Status</div>
-            <div className="flex items-center justify-center gap-2">
-              <div className={`w-6 h-6 rounded-lg flex items-center justify-center shadow-md border ${
-                isScreenReaderActive 
-                  ? 'bg-purple-600 border-purple-400' 
-                  : 'bg-purple-600 border-purple-400'
-              }`}>
-                {isScreenReaderActive ? (
-                  <svg className="w-3 h-3 text-white animate-pulse" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
-                  </svg>
-                ) : (
-                  <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
-                  </svg>
-                )}
-              </div>
-              {isScreenReaderActive && (
-                <button
-                  onClick={() => {
-                    if (speechRef.current) {
-                      window.speechSynthesis.cancel();
-                      speechRef.current = null;
-                    }
-                    setIsScreenReaderActive(false);
-                    setCurrentReadingText('');
-                  }}
-                  data-screen-reader="true"
-                  className="w-6 h-6 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-md border border-red-400 bg-red-600 hover:bg-red-700 text-white"
-                  title="Stop reading"
-                >
-                  <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
-                  </svg>
-                </button>
-              )}
-            </div>
-            <div className="text-purple-100 text-xs font-serif mt-1">
-              {isScreenReaderActive ? 'Reading' : 'Ready'}
-            </div>
-          </div>
-          
-
-        </div>
-      </div>
-
-      {/* Volume Control Panel - Left Side */}
-      <div className="fixed left-4 top-96 z-[60] audio-panel">
-        <div className="bg-amber-900/90 backdrop-blur-sm rounded-lg p-3 shadow-2xl border-2 border-amber-600" style={{ width: '120px' }}>
-          <div className="text-center mb-3">
-            <h3 className="text-amber-100 font-serif font-bold text-xs mb-2">Nantucket Harbor</h3>
-            <button
-              onClick={toggleAudio}
-              className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg ${
-                isAudioPlaying 
-                  ? 'bg-green-600 hover:bg-green-700 text-white border-2 border-green-400' 
-                  : 'bg-amber-600 hover:bg-amber-700 text-white border-2 border-amber-400'
-              }`}
-              title={isAudioPlaying ? 'Pause Harbor Sounds' : 'Play Harbor Sounds'}
-            >
-              {isAudioPlaying ? (
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
-                </svg>
-              ) : (
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z"/>
-                </svg>
-              )}
-            </button>
-          </div>
-          
-          {/* Volume Slider */}
-          <div className="mb-3">
-            <div className="text-amber-100 text-xs font-serif mb-1 text-center">Vol</div>
-            <input
-              type="range"
-              min="0"
-              max="1"
-              step="0.1"
-              value={volume}
-              onChange={(e) => handleVolumeChange(parseFloat(e.target.value))}
-              className="w-full h-1.5 bg-amber-200 rounded-lg appearance-none cursor-pointer slider"
-              style={{
-                background: `linear-gradient(to right, #f59e0b 0%, #f59e0b ${volume * 100}%, #fbbf24 ${volume * 100}%, #fbbf24 100%)`
-              }}
-            />
-            <div className="text-amber-100 text-xs font-serif mt-1 text-center">
-              {Math.round(volume * 100)}%
-            </div>
-          </div>
-          
-          {/* Mute Button */}
-          <div className="text-center">
-            <button
-              onClick={toggleMute}
-              className={`w-6 h-6 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-md ${
-                isMuted 
-                  ? 'bg-gray-600 hover:bg-gray-700 text-white border border-gray-400' 
-                  : 'bg-amber-600 hover:bg-amber-700 text-white border border-amber-400'
-              }`}
-              title={isMuted ? 'Unmute' : 'Mute'}
-            >
-              {isMuted ? (
-                <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                </svg>
-              ) : (
-                <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
-                </svg>
-              )}
-            </button>
-            <div className={`text-xs font-serif mt-1 ${isMuted ? 'text-gray-300' : 'text-amber-100'}`}>
-              {isMuted ? 'Muted' : 'Mute'}
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* Moby Dick Navbar */}
+      <MobyDickNavbar
+        onBeginVisualJourney={beginVisualJourney}
+        onToggleAudio={toggleAudio}
+        onVolumeChange={handleVolumeChange}
+        onToggleMute={toggleMute}
+        onToggleScreenReader={toggleScreenReader}
+        onExploreFullText={() => {
+          const gutenbergLink = getGutenbergLink("Chapter 1");
+          window.open(gutenbergLink, '_blank');
+        }}
+        isAudioPlaying={isAudioPlaying}
+        isScreenReaderActive={isScreenReaderActive}
+        volume={volume}
+        isMuted={isMuted}
+        isFading={isFading}
+      />
       
-      {/* Narration Controls */}
-      <div className="fixed left-4 top-[40rem] z-[60] audio-panel">
-        <div className="bg-gray-800/90 backdrop-blur-sm rounded-lg p-3 shadow-2xl border-2 border-gray-600" style={{ width: '120px' }}>
-          <div className="text-center">
-            <h3 className="text-gray-100 font-serif font-bold text-xs mb-2">Narration Controls</h3>
-            <button
-              disabled
-              className="w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-300 shadow-md bg-gray-600 text-white border border-gray-400 cursor-not-allowed opacity-60"
-              title="Narration Controls - Coming Soon"
-            >
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-              </svg>
-            </button>
-            <div className="text-gray-100 text-xs font-serif mt-1">Coming Soon</div>
-          </div>
-        </div>
-      </div>
-      
-      {/* Navigation */}
-      <div className="flex justify-between items-start mb-8">
-        <Link 
-          href="/mobydickmodule" 
-          className="inline-flex items-center gap-2 text-amber-800 hover:text-amber-900 font-bold text-lg px-6 py-3 bg-amber-50/90 rounded-lg border-2 border-amber-600 shadow-md hover:shadow-lg transition-all"
-        >
-          ⚓ Return to Pequod
-        </Link>
-        
-        <Link 
-          href="/" 
-          className="inline-flex items-center gap-2 text-amber-800 hover:text-amber-900 font-bold text-lg px-6 py-3 bg-amber-50/90 rounded-lg border-2 border-amber-600 shadow-md hover:shadow-lg transition-all"
-        >
-          🏠 Return to Parlor
-        </Link>
-      </div>
+      {/* Main Content */}
+      <div className="pt-20">
 
       <div className="max-w-4xl mx-auto">
         
@@ -1155,6 +939,7 @@ export default function Journey() {
             {Math.floor(sessionTime / 60)}:{(sessionTime % 60).toString().padStart(2, '0')}
           </div>
         </div>
+      </div>
       </div>
     </main>
   )
