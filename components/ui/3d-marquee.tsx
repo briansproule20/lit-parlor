@@ -22,9 +22,15 @@ interface BookCard {
 export const ThreeDMarquee = ({
   books,
   className,
+  transform,
+  containerPosition,
+  columnMovement,
 }: {
   books: BookCard[];
   className?: string;
+  transform?: string;
+  containerPosition?: string;
+  columnMovement?: string;
 }) => {
   // Split the books array into 4 equal parts
   const chunkSize = Math.ceil(books.length / 4);
@@ -44,9 +50,12 @@ export const ThreeDMarquee = ({
         <div className="size-[1720px] shrink-0 scale-50 sm:scale-70 lg:scale-90">
           <div
             style={{
-              transform: "rotateX(55deg) rotateY(0deg) rotateZ(-45deg)",
+              transform: transform || "rotateX(55deg) rotateY(0deg) rotateZ(-45deg)",
             }}
-            className="relative top-40 left-[25%] grid size-full origin-center-top grid-cols-4 gap-12 transform-3d"
+            className={cn(
+              "relative grid size-full origin-center-top grid-cols-4 gap-12 transform-3d",
+              containerPosition || "top-16 left-[10%]" // Moved up and left more
+            )}
           >
             {chunks.map((subarray, colIndex) => (
               <motion.div

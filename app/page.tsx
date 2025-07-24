@@ -365,7 +365,7 @@ export default function Home() {
             <div className="relative bg-black/10 backdrop-blur-md rounded-2xl p-4">
               <ThreeDMarquee 
                 books={[
-                // Column 1: Coming Soon cards
+                // Column 1: Coming Soon cards (5 cards)
                 {
                   id: 'coming-soon-1',
                   title: 'Coming Soon',
@@ -390,7 +390,31 @@ export default function Home() {
                   description: 'Enhanced learning tools and analytics are coming soon.',
                   coverImage: '/images/wood-texture.jpg'
                 },
-                // Column 2: Main books (3 books)
+                {
+                  id: 'coming-soon-4',
+                  title: 'Coming Soon',
+                  subtitle: 'Study Guides',
+                  author: 'In Development',
+                  description: 'Comprehensive study materials and analysis tools.',
+                  coverImage: '/images/wood-texture.jpg'
+                },
+                {
+                  id: 'coming-soon-5',
+                  title: 'Coming Soon',
+                  subtitle: 'Mobile App',
+                  author: 'In Development',
+                  description: 'Take your learning on the go with our mobile application.',
+                  coverImage: '/images/wood-texture.jpg'
+                },
+                // Column 2: Coming Soon ABOVE, then 3 main books, then Coming Soon BELOW
+                {
+                  id: 'coming-soon-6',
+                  title: 'Coming Soon',
+                  subtitle: 'Romeo & Juliet',
+                  author: 'William Shakespeare',
+                  description: 'The timeless tale of star-crossed lovers. Explore themes of love, fate, and family conflict.',
+                  coverImage: '/images/wood-texture.jpg'
+                },
                 {
                   id: 'mobydick',
                   title: 'Moby-Dick',
@@ -415,7 +439,23 @@ export default function Home() {
                   description: 'Journey into pre-colonial Nigeria. Witness the clash of cultures and the tragic consequences of change in this powerful narrative.',
                   coverImage: '/images/delight.png'
                 },
-                // Column 3: Main books (3 books)
+                {
+                  id: 'coming-soon-7',
+                  title: 'Coming Soon',
+                  subtitle: 'The Great Gatsby',
+                  author: 'F. Scott Fitzgerald',
+                  description: 'A tragic love story set in the Jazz Age. Explore themes of the American Dream and social class.',
+                  coverImage: '/images/wood-texture.jpg'
+                },
+                // Column 3: Coming Soon ABOVE, then 3 main books, then Coming Soon BELOW
+                {
+                  id: 'coming-soon-8',
+                  title: 'Coming Soon',
+                  subtitle: 'The Odyssey',
+                  author: 'Homer',
+                  description: 'The epic journey of Odysseus. Explore themes of heroism, homecoming, and the human condition.',
+                  coverImage: '/images/wood-texture.jpg'
+                },
                 {
                   id: 'theireyeswerewatchinggod',
                   title: 'Their Eyes Were Watching God',
@@ -440,9 +480,17 @@ export default function Home() {
                   description: 'Delve into the psychological depths of guilt and redemption. Follow Raskolnikov\'s tormented journey through moral philosophy and consequence.',
                   coverImage: '/images/coffin.png'
                 },
-                // Column 4: Coming Soon cards
                 {
-                  id: 'coming-soon-4',
+                  id: 'coming-soon-9',
+                  title: 'Coming Soon',
+                  subtitle: 'To Kill a Mockingbird',
+                  author: 'Harper Lee',
+                  description: 'A powerful story about racial injustice and growing up in the American South.',
+                  coverImage: '/images/wood-texture.jpg'
+                },
+                // Column 4: Coming Soon cards (5 cards)
+                {
+                  id: 'coming-soon-10',
                   title: 'Coming Soon',
                   subtitle: 'More Content',
                   author: 'Stay Tuned',
@@ -450,7 +498,7 @@ export default function Home() {
                   coverImage: '/images/wood-texture.jpg'
                 },
                 {
-                  id: 'coming-soon-5',
+                  id: 'coming-soon-11',
                   title: 'Coming Soon',
                   subtitle: 'Premium Features',
                   author: 'In Development',
@@ -458,15 +506,34 @@ export default function Home() {
                   coverImage: '/images/wood-texture.jpg'
                 },
                 {
-                  id: 'coming-soon-6',
+                  id: 'coming-soon-12',
                   title: 'Coming Soon',
                   subtitle: 'Community Features',
                   author: 'Stay Tuned',
                   description: 'Collaborative learning and discussion forums.',
                   coverImage: '/images/wood-texture.jpg'
+                },
+                {
+                  id: 'coming-soon-13',
+                  title: 'Coming Soon',
+                  subtitle: 'Analytics Dashboard',
+                  author: 'In Development',
+                  description: 'Track your learning progress and achievements.',
+                  coverImage: '/images/wood-texture.jpg'
+                },
+                {
+                  id: 'coming-soon-14',
+                  title: 'Coming Soon',
+                  subtitle: 'AI Tutor',
+                  author: 'In Development',
+                  description: 'Personalized learning assistance powered by AI.',
+                  coverImage: '/images/wood-texture.jpg'
                 }
               ]}
               className="h-[600px]"
+              transform="rotateX(55deg) rotateY(0deg) rotateZ(-45deg)"
+              containerPosition="top-8 left-[5%]"
+              columnMovement="animate={{ y: colIndex % 2 === 0 ? 100 : -100 }} duration={{ colIndex % 2 === 0 ? 10 : 15 }}"
             />
             </div>
           </div>
