@@ -178,7 +178,7 @@ export default function StudentSuccessPage() {
               and generate comprehensive, print-ready displays that celebrate student achievements.
             </p>
             <div className="mt-4 text-amber-700 font-serif italic">
-              "The best way to predict the future is to create it" — Peter Drucker
+              "Think Long Term. Execute Short Term. Experience Now."
             </div>
           </div>
         </div>
@@ -340,6 +340,140 @@ export default function StudentSuccessPage() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Socratic Circles & Collaborative Analyses */}
+        <div className="mb-8">
+          <div className="bg-white/95 rounded-xl shadow-xl p-6 border-2 border-amber-200">
+            <h2 className="text-2xl font-bold text-amber-900 mb-6 font-serif text-center">Prominent Socratic Circles & Collaborative Analyses</h2>
+            
+            <div className="grid lg:grid-cols-2 gap-6">
+              {/* Socratic Circles */}
+              <div>
+                <h3 className="text-xl font-semibold text-amber-900 mb-4 font-serif border-b-2 border-purple-200 pb-2">Socratic Circles</h3>
+                <div className="space-y-4">
+                  <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-4 rounded-lg border border-blue-200">
+                    <div className="flex items-center justify-between mb-2">
+                      <h4 className="font-semibold text-blue-900 font-serif">Moby Dick - Fate vs. Free Will</h4>
+                      <span className="text-xs bg-blue-600 text-white px-2 py-1 rounded-full font-serif">12 participants</span>
+                    </div>
+                    <p className="text-blue-800 text-sm font-serif mb-2">Deep philosophical discussion on Ahab's choices and cosmic determinism</p>
+                    <div className="flex items-center gap-2 text-xs text-blue-700 font-serif">
+                      <span>• 45 min duration</span>
+                      <span>• 8 key insights generated</span>
+                    </div>
+                    <button className="mt-3 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded text-sm font-serif transition-all duration-300 hover:scale-105">
+                      Add to Vision Board
+                    </button>
+                  </div>
+                  
+                  <div className="bg-gradient-to-r from-pink-50 to-pink-100 p-4 rounded-lg border border-pink-200">
+                    <div className="flex items-center justify-between mb-2">
+                      <h4 className="font-semibold text-pink-900 font-serif">Pride and Prejudice - Social Mobility</h4>
+                      <span className="text-xs bg-pink-600 text-white px-2 py-1 rounded-full font-serif">15 participants</span>
+                    </div>
+                    <p className="text-pink-800 text-sm font-serif mb-2">Examination of class dynamics and marriage as economic strategy</p>
+                    <div className="flex items-center gap-2 text-xs text-pink-700 font-serif">
+                      <span>• 52 min duration</span>
+                      <span>• 11 key insights generated</span>
+                    </div>
+                    <button className="mt-3 w-full bg-pink-600 hover:bg-pink-700 text-white font-bold py-2 px-3 rounded text-sm font-serif transition-all duration-300 hover:scale-105">
+                      Add to Vision Board
+                    </button>
+                  </div>
+                  
+                  <div className="bg-gradient-to-r from-purple-50 to-purple-100 p-4 rounded-lg border border-purple-200">
+                    <div className="flex items-center justify-between mb-2">
+                      <h4 className="font-semibold text-purple-900 font-serif">Crime and Punishment - Moral Psychology</h4>
+                      <span className="text-xs bg-purple-600 text-white px-2 py-1 rounded-full font-serif">18 participants</span>
+                    </div>
+                    <p className="text-purple-800 text-sm font-serif mb-2">Analysis of Raskolnikov's psychological transformation</p>
+                    <div className="flex items-center gap-2 text-xs text-purple-700 font-serif">
+                      <span>• 38 min duration</span>
+                      <span>• 9 key insights generated</span>
+                    </div>
+                    <button className="mt-3 w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-3 rounded text-sm font-serif transition-all duration-300 hover:scale-105">
+                      Add to Vision Board
+                    </button>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Collaborative Analyses */}
+              <div>
+                <h3 className="text-xl font-semibold text-amber-900 mb-4 font-serif border-b-2 border-orange-200 pb-2">Collaborative Analyses</h3>
+                <div className="space-y-4">
+                  <div className="bg-gradient-to-r from-red-50 to-red-100 p-4 rounded-lg border border-red-200">
+                    <div className="flex items-center justify-between mb-2">
+                      <h4 className="font-semibold text-red-900 font-serif">Animal Farm - Political Allegory</h4>
+                      <span className="text-xs bg-red-600 text-white px-2 py-1 rounded-full font-serif">22 students</span>
+                    </div>
+                    <p className="text-red-800 text-sm font-serif mb-2">Group analysis of Orwell's critique of totalitarianism</p>
+                    <div className="flex items-center gap-2 text-xs text-red-700 font-serif">
+                      <span>• 3-day project</span>
+                      <span>• 15 collaborative insights</span>
+                    </div>
+                    <button className="mt-3 w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-3 rounded text-sm font-serif transition-all duration-300 hover:scale-105">
+                      Add to Vision Board
+                    </button>
+                  </div>
+                  
+                  <div className="bg-gradient-to-r from-green-50 to-green-100 p-4 rounded-lg border border-green-200">
+                    <div className="flex items-center justify-between mb-2">
+                      <h4 className="font-semibold text-green-900 font-serif">Their Eyes Were Watching God - Feminist Themes</h4>
+                      <span className="text-xs bg-green-600 text-white px-2 py-1 rounded-full font-serif">19 students</span>
+                    </div>
+                    <p className="text-green-800 text-sm font-serif mb-2">Collective exploration of Janie's journey to self-discovery</p>
+                    <div className="flex items-center gap-2 text-xs text-green-700 font-serif">
+                      <span>• 4-day project</span>
+                      <span>• 12 collaborative insights</span>
+                    </div>
+                    <button className="mt-3 w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-3 rounded text-sm font-serif transition-all duration-300 hover:scale-105">
+                      Add to Vision Board
+                    </button>
+                  </div>
+                  
+                  <div className="bg-gradient-to-r from-orange-50 to-orange-100 p-4 rounded-lg border border-orange-200">
+                    <div className="flex items-center justify-between mb-2">
+                      <h4 className="font-semibold text-orange-900 font-serif">Things Fall Apart - Cultural Collision</h4>
+                      <span className="text-xs bg-orange-600 text-white px-2 py-1 rounded-full font-serif">16 students</span>
+                    </div>
+                    <p className="text-orange-800 text-sm font-serif mb-2">Team analysis of colonialism's impact on traditional societies</p>
+                    <div className="flex items-center gap-2 text-xs text-orange-700 font-serif">
+                      <span>• 5-day project</span>
+                      <span>• 18 collaborative insights</span>
+                    </div>
+                    <button className="mt-3 w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-3 rounded text-sm font-serif transition-all duration-300 hover:scale-105">
+                      Add to Vision Board
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Summary Stats */}
+            <div className="mt-6 bg-gradient-to-r from-amber-50 to-amber-100 p-4 rounded-lg border border-amber-200">
+              <h4 className="text-lg font-semibold text-amber-900 mb-3 font-serif">Collaborative Learning Summary</h4>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                <div>
+                  <div className="text-2xl font-bold text-amber-800">6</div>
+                  <div className="text-sm text-amber-700 font-serif">Active Circles</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-amber-800">102</div>
+                  <div className="text-sm text-amber-700 font-serif">Total Participants</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-amber-800">73</div>
+                  <div className="text-sm text-amber-700 font-serif">Key Insights</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-amber-800">12</div>
+                  <div className="text-sm text-amber-700 font-serif">Days Duration</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Display Preview */}
