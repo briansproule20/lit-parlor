@@ -15,10 +15,13 @@ import {
 export default function Menubar() {
   const pathname = usePathname()
   const isHomePage = pathname === '/'
+  const isQuizPage = pathname.includes('/quiz')
   const [isVisible, setIsVisible] = useState(isHomePage)
   const [lastScrollY, setLastScrollY] = useState(0)
   const [isHovered, setIsHovered] = useState(false)
   const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+  
+
 
   // Auto-hide after 3 seconds of inactivity
   useEffect(() => {
@@ -58,21 +61,33 @@ export default function Menubar() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY
+      const scrollDifference = Math.abs(currentScrollY - lastScrollY)
       
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        // Scrolling down and past initial 100px
-        setIsVisible(false)
-      } else if (currentScrollY < lastScrollY && currentScrollY > 0) {
-        // Scrolling up (but not at the very top)
-        setIsVisible(true)
+      // Only respond to significant scroll movements (more than 5px)
+      if (scrollDifference > 5) {
+        if (currentScrollY > lastScrollY && currentScrollY > 100) {
+          // Scrolling down and past initial 100px
+          setIsVisible(false)
+        } else if (currentScrollY < lastScrollY && currentScrollY > 0) {
+          // Scrolling up (but not at the very top)
+          // On quiz pages, only show on larger scroll movements to avoid interference
+          if (!isQuizPage || scrollDifference > 20) {
+            setIsVisible(true)
+          }
+        }
+        
+        setLastScrollY(currentScrollY)
       }
-      
-      setLastScrollY(currentScrollY)
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [lastScrollY])
+
+  // Don't render menubar on quiz pages at all
+  if (isQuizPage) {
+    return null
+  }
 
   return (
     <>

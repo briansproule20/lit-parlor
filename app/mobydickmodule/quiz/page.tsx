@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 
 export default function Quiz() {
@@ -183,6 +183,19 @@ export default function Quiz() {
     }
   }
 
+  // Handle keyboard events
+  useEffect(() => {
+    const handleKeyPress = (event: KeyboardEvent) => {
+      if (showFeedback && (event.key === 'Enter' || event.key === ' ')) {
+        event.preventDefault()
+        goToNextQuestion()
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyPress)
+    return () => window.removeEventListener('keydown', handleKeyPress)
+  }, [showFeedback, currentQuestion, questions.length])
+
   const calculateScore = () => {
     let correct = 0
     questions.forEach((q, index) => {
@@ -270,7 +283,7 @@ export default function Quiz() {
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl text-center">
+          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl text-center" data-quiz-results>
             <h1 className="text-4xl font-bold text-amber-900 mb-6 font-serif">🎯 Quiz Results</h1>
             
             <div className="text-6xl mb-6">
@@ -407,7 +420,7 @@ export default function Quiz() {
         </div>
 
         {/* Progress Bar */}
-        <div className="mb-8">
+        <div className="mb-8" data-quiz-progress>
           <div className="bg-amber-200 rounded-full h-4 shadow-inner">
             <div 
               className="bg-amber-600 h-4 rounded-full transition-all duration-300 shadow-lg"
@@ -424,7 +437,7 @@ export default function Quiz() {
         </div>
 
         {/* Quiz Question */}
-        <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl">
+        <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl" data-quiz-question>
           <h2 className="text-2xl font-bold text-amber-900 mb-6 font-serif">
             {questions[currentQuestion].question}
           </h2>
