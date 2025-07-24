@@ -62,17 +62,17 @@ export function CardPatternEnhanced({ mouseX, mouseY, randomString }: any) {
   let style = { maskImage, WebkitMaskImage: maskImage };
 
   return (
-    <div className="pointer-events-none absolute inset-0">
-      <div className="absolute inset-0 rounded-xl [mask-image:linear-gradient(white,transparent)] group-hover/card:opacity-50"></div>
+    <div className="pointer-events-none absolute inset-0 z-20">
+      <div className="absolute inset-0 rounded-lg [mask-image:linear-gradient(white,transparent)] group-hover/card:opacity-30"></div>
       <motion.div
-        className="absolute inset-0 rounded-xl bg-gradient-to-r from-green-500 to-blue-700 opacity-0 group-hover/card:opacity-100 backdrop-blur-xl transition duration-500"
+        className="absolute inset-0 rounded-lg bg-gradient-to-r from-green-500 to-blue-700 opacity-0 group-hover/card:opacity-40 backdrop-blur-sm transition duration-300"
         style={style}
       />
       <motion.div
-        className="absolute inset-0 rounded-xl opacity-0 mix-blend-overlay group-hover/card:opacity-100"
+        className="absolute inset-0 rounded-lg opacity-0 mix-blend-overlay group-hover/card:opacity-30"
         style={style}
       >
-        <p className="absolute inset-x-0 text-xs h-full break-words whitespace-pre-wrap text-white font-mono font-bold transition duration-500 rounded-xl">
+        <p className="absolute inset-x-0 text-xs h-full break-words whitespace-pre-wrap text-white font-mono font-bold transition duration-300 rounded-lg">
           {randomString}
         </p>
       </motion.div>

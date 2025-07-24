@@ -171,7 +171,7 @@ export default function Home() {
                   className="w-full h-full"
                 >
                   <button 
-                    className="w-full p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer" 
+                    className="w-full p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer group-hover/card:bg-opacity-70" 
                     style={{
                       background: 'rgba(254, 251, 240, 0.95)'
                     }}
@@ -195,7 +195,7 @@ export default function Home() {
                   className="w-full h-full"
                 >
                   <button 
-                    className="w-full p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer" 
+                    className="w-full p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer group-hover/card:bg-opacity-70" 
                     style={{
                       background: 'rgba(236, 254, 255, 0.95)'
                     }}
@@ -219,7 +219,7 @@ export default function Home() {
                   className="w-full h-full"
                 >
                   <button 
-                    className="w-full p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer" 
+                    className="w-full p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer group-hover/card:bg-opacity-70" 
                     style={{
                       background: 'rgba(254, 242, 242, 0.95)'
                     }}
@@ -243,7 +243,7 @@ export default function Home() {
                   className="w-full h-full"
                 >
                   <button 
-                    className="w-full p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer" 
+                    className="w-full p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer group-hover/card:bg-opacity-70" 
                     style={{
                       background: 'rgba(240, 253, 244, 0.95)'
                     }}
