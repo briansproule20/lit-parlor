@@ -576,6 +576,7 @@ export default function Journey() {
         volume={volume}
         isMuted={isMuted}
         isFading={isFading}
+        showVisualJourney={showVisualJourney}
       />
       
       {/* Main Content */}

@@ -16,6 +16,7 @@ interface MobyDickNavbarProps {
   volume: number;
   isMuted: boolean;
   isFading: boolean;
+  showVisualJourney: boolean;
 }
 
 export default function MobyDickNavbar({
@@ -30,12 +31,19 @@ export default function MobyDickNavbar({
   isScreenReaderActive,
   volume,
   isMuted,
-  isFading
+  isFading,
+  showVisualJourney
 }: MobyDickNavbarProps) {
   const [active, setActive] = useState<string | null>(null);
 
   return (
-    <div className={cn("fixed top-4 inset-x-0 max-w-4xl mx-auto z-[80]", className)}>
+    <div className={cn(
+      "fixed top-4 z-[80] transition-all duration-500",
+      showVisualJourney 
+        ? "right-4 max-w-md" 
+        : "inset-x-0 max-w-4xl mx-auto",
+      className
+    )}>
       <Menu setActive={setActive}>
         <MenuItem setActive={setActive} active={active} item="Visual Journey">
           <div className="flex flex-col space-y-4 text-sm">
@@ -45,7 +53,7 @@ export default function MobyDickNavbar({
               className={`text-left w-full px-3 py-2 rounded-lg transition-all duration-300 ${
                 isFading 
                   ? 'bg-gray-200 text-gray-500 cursor-not-allowed' 
-                  : 'bg-blue-100 hover:bg-blue-200 text-blue-800 hover:text-blue-900'
+                  : 'bg-blue-600 hover:bg-blue-700 text-white'
               }`}
             >
               🎬 Begin Visual Journey
@@ -65,8 +73,8 @@ export default function MobyDickNavbar({
               onClick={onToggleAudio}
               className={`text-left w-full px-3 py-2 rounded-lg transition-all duration-300 ${
                 isAudioPlaying 
-                  ? 'bg-green-100 hover:bg-green-200 text-green-800' 
-                  : 'bg-amber-100 hover:bg-amber-200 text-amber-800'
+                  ? 'bg-green-600 hover:bg-green-700 text-white' 
+                  : 'bg-amber-600 hover:bg-amber-700 text-white'
               }`}
             >
               {isAudioPlaying ? '⏸️ Pause Harbor Sounds' : '▶️ Play Harbor Sounds'}
@@ -88,8 +96,8 @@ export default function MobyDickNavbar({
               onClick={onToggleMute}
               className={`text-left w-full px-3 py-2 rounded-lg transition-all duration-300 ${
                 isMuted 
-                  ? 'bg-red-100 hover:bg-red-200 text-red-800' 
-                  : 'bg-gray-100 hover:bg-gray-200 text-gray-800'
+                  ? 'bg-red-600 hover:bg-red-700 text-white' 
+                  : 'bg-gray-600 hover:bg-gray-700 text-white'
               }`}
             >
               {isMuted ? '🔊 Unmute' : '🔇 Mute'}
@@ -103,15 +111,15 @@ export default function MobyDickNavbar({
               onClick={onToggleScreenReader}
               className={`text-left w-full px-3 py-2 rounded-lg transition-all duration-300 ${
                 isScreenReaderActive 
-                  ? 'bg-purple-100 hover:bg-purple-200 text-purple-800' 
-                  : 'bg-purple-100 hover:bg-purple-200 text-purple-800'
+                  ? 'bg-purple-600 hover:bg-purple-700 text-white' 
+                  : 'bg-purple-600 hover:bg-purple-700 text-white'
               }`}
             >
               🔊 {isScreenReaderActive ? 'Stop Reading Aloud' : 'Read With Me'}
             </button>
             <button
               onClick={onExploreFullText}
-              className="text-left w-full px-3 py-2 rounded-lg transition-all duration-300 bg-green-100 hover:bg-green-200 text-green-800"
+              className="text-left w-full px-3 py-2 rounded-lg transition-all duration-300 bg-green-600 hover:bg-green-700 text-white"
             >
               📖 Explore Full Text
             </button>
