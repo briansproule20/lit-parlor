@@ -1,7 +1,6 @@
 "use client";
 import React from 'react'
 import Link from 'next/link'
-import WorldMap from '@/components/ui/world-map'
 import GlobeDemo from '@/components/ui/globe-demo'
 import { motion } from "motion/react"
 import { DotBackground } from '@/components/ui/dot-background'
@@ -123,72 +122,33 @@ export default function Storyworlds() {
         {/* Interactive Literary Globe */}
         <GlobeDemo />
 
-        {/* World Map Container */}
+        {/* Story Location Legend */}
         <div className="bg-white/95 rounded-xl shadow-2xl p-8 border-2 border-amber-200 mb-8">
-          <div className="relative">
-
-            
-            {/* Interactive World Map */}
-            <div className="relative">
-              <WorldMap
-                dots={[
-                  {
-                    start: { x: 251, y: 153 }, // Nantucket, Massachusetts
-                    end: { x: 394, y: 98 }, // England
-                  },
-                  {
-                    start: { x: 394, y: 98 }, // England
-                    end: { x: 420, y: 220 }, // Nigeria
-                  },
-                  {
-                    start: { x: 420, y: 220 }, // Nigeria
-                    end: { x: 500, y: 100 }, // St. Petersburg, Russia
-                  },
-                  {
-                    start: { x: 500, y: 100 }, // St. Petersburg, Russia
-                    end: { x: 240, y: 180 }, // Florida
-                  },
-                  {
-                    start: { x: 240, y: 180 }, // Florida
-                    end: { x: 400, y: 110 }, // English Countryside
-                  },
-                  {
-                    start: { x: 400, y: 110 }, // English Countryside
-                    end: { x: 251, y: 153 }, // Back to Nantucket
-                  },
-                ]}
-                lineColor="#8B4513"
-                                useManualPositioning={true}
-                locationData={locationData}
-                />
-              
-              {/* Story Location Legend */}
-              <div className="mt-6 grid grid-cols-2 md:grid-cols-3 gap-4">
-                <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
-                  <span className="text-sm font-serif">Moby Dick - Nantucket</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 bg-red-600 rounded-full"></div>
-                  <span className="text-sm font-serif">Pride & Prejudice - England</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 bg-orange-600 rounded-full"></div>
-                  <span className="text-sm font-serif">Things Fall Apart - Nigeria</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 bg-purple-600 rounded-full"></div>
-                  <span className="text-sm font-serif">Crime & Punishment - Russia</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 bg-green-600 rounded-full"></div>
-                  <span className="text-sm font-serif">Their Eyes Were Watching God - Florida</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 bg-red-700 rounded-full"></div>
-                  <span className="text-sm font-serif">Animal Farm - English Countryside</span>
-                </div>
-              </div>
+          <h2 className="text-2xl font-bold text-amber-900 mb-6 font-serif text-center">Literary Locations</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
+              <span className="text-sm font-serif">Moby Dick - Nantucket</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 bg-red-600 rounded-full"></div>
+              <span className="text-sm font-serif">Pride & Prejudice - England</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 bg-orange-600 rounded-full"></div>
+              <span className="text-sm font-serif">Things Fall Apart - Nigeria</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 bg-purple-600 rounded-full"></div>
+              <span className="text-sm font-serif">Crime & Punishment - Russia</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 bg-green-600 rounded-full"></div>
+              <span className="text-sm font-serif">Their Eyes Were Watching God - Florida</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 bg-red-700 rounded-full"></div>
+              <span className="text-sm font-serif">Animal Farm - English Countryside</span>
             </div>
           </div>
         </div>
