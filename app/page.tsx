@@ -61,7 +61,7 @@ export default function Home() {
     }
   }
   return (
-    <main className="min-h-screen py-8 px-4 relative" style={{
+    <main className="min-h-screen py-8 px-4 pt-20 relative" style={{
       backgroundImage: 'linear-gradient(135deg, #8B4513 0%, #A0522D 25%, #CD853F 50%, #D2691E 75%, #8B4513 100%)',
       backgroundAttachment: 'fixed'
     }}>
@@ -75,16 +75,6 @@ export default function Home() {
       
       <div className="max-w-6xl mx-auto relative">
         
-        {/* Quote */}
-        <div className="text-center mb-8">
-          <p className="text-amber-100 text-2xl font-serif italic mb-2">
-            "The unexamined life is not worth living"
-          </p>
-          <p className="text-amber-200 text-sm font-serif">
-            — Socrates
-          </p>
-        </div>
-
         {/* Bookstore Header */}
         <div className="text-center mb-12 relative">
           
@@ -241,6 +231,16 @@ export default function Home() {
               "A home without books is like a body without a soul" — Cicero
             </div>
           </div>
+        </div>
+
+        {/* Quote */}
+        <div className="text-center mb-8">
+          <p className="text-amber-100 text-2xl font-serif italic mb-2">
+            "The unexamined life is not worth living"
+          </p>
+          <p className="text-amber-200 text-sm font-serif">
+            — Socrates
+          </p>
         </div>
 
         {/* Mission Statement */}
