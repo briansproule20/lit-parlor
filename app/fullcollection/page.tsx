@@ -387,6 +387,56 @@ export default function FullCollectionPage() {
           </div>
         </div>
 
+        {/* Other Media Forms Section */}
+        <div className="mb-12">
+          <h2 className="text-3xl font-bold text-amber-100 mb-8 text-center font-serif" style={{
+            textShadow: '2px 2px 4px rgba(0,0,0,0.6)'
+          }}>
+            Future Expansions
+          </h2>
+          
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-gradient-to-r from-amber-800 to-amber-700 p-8 rounded-xl shadow-2xl border-2 border-amber-600 relative overflow-hidden">
+              <div className="absolute top-4 right-4 w-8 h-8 bg-amber-300 opacity-20 rounded-full"></div>
+              <div className="absolute bottom-4 left-4 w-6 h-6 bg-amber-200 opacity-20 rounded-full"></div>
+              
+              <h3 className="text-2xl font-bold text-amber-100 mb-4 font-serif text-center">
+                Exploring New Narrative Forms
+              </h3>
+              
+              <p className="text-amber-200 text-lg leading-relaxed font-serif mb-6 text-center">
+                We're considering expanding our collection to include other powerful forms of storytelling:
+              </p>
+              
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="text-center">
+                  <div className="text-3xl mb-2">🎵</div>
+                  <h4 className="text-amber-100 font-bold font-serif mb-2">Music</h4>
+                  <p className="text-amber-300 text-sm font-serif">Classical compositions, folk ballads, and protest songs that tell stories through melody and lyrics</p>
+                </div>
+                
+                <div className="text-center">
+                  <div className="text-3xl mb-2">🎬</div>
+                  <h4 className="text-amber-100 font-bold font-serif mb-2">Films</h4>
+                  <p className="text-amber-300 text-sm font-serif">Cinematic masterpieces that explore themes of human nature, society, and the human condition</p>
+                </div>
+                
+                <div className="text-center">
+                  <div className="text-3xl mb-2">📺</div>
+                  <h4 className="text-amber-100 font-bold font-serif mb-2">TV Series</h4>
+                  <p className="text-amber-300 text-sm font-serif">Serial storytelling that develops complex characters and themes over multiple episodes</p>
+                </div>
+              </div>
+              
+              <div className="text-center mt-6">
+                <span className="text-amber-300 text-sm font-serif italic">
+                  "The future of storytelling is boundless..."
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Return to Parlor */}
         <div className="text-center">
           <Link 
