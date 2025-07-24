@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -12,32 +13,37 @@ import {
 } from "@/components/ui/navigation-menu"
 
 export default function Menubar() {
-  const [isVisible, setIsVisible] = useState(true)
+  const pathname = usePathname()
+  const isHomePage = pathname === '/'
+  const [isVisible, setIsVisible] = useState(isHomePage)
   const [lastScrollY, setLastScrollY] = useState(0)
   const [isHovered, setIsHovered] = useState(false)
   const timeoutRef = useRef<NodeJS.Timeout | null>(null)
 
-  // Auto-hide after 5 seconds of inactivity
+  // Auto-hide after 3 seconds of inactivity
   useEffect(() => {
     const resetTimer = () => {
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current)
       }
       timeoutRef.current = setTimeout(() => {
-              if (!isHovered) {
-        setIsVisible(false)
-      }
-    }, 3000)
+        if (!isHovered) {
+          setIsVisible(false)
+        }
+      }, 3000)
     }
 
-    resetTimer()
+    // Only start timer if menubar is visible and not being hovered
+    if (isVisible && !isHovered) {
+      resetTimer()
+    }
 
     return () => {
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current)
       }
     }
-  }, [isHovered])
+  }, [isVisible, isHovered])
 
   // Show on hover
   const handleMouseEnter = () => {
@@ -56,8 +62,8 @@ export default function Menubar() {
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
         // Scrolling down and past initial 100px
         setIsVisible(false)
-      } else if (currentScrollY < lastScrollY) {
-        // Scrolling up
+      } else if (currentScrollY < lastScrollY && currentScrollY > 0) {
+        // Scrolling up (but not at the very top)
         setIsVisible(true)
       }
       
