@@ -145,9 +145,9 @@ const GridLineHorizontal = ({
       style={
         {
           "--background": "#ffffff",
-          "--color": "rgba(0, 0, 0, 0.2)",
-          "--height": "1px",
-          "--width": "5px",
+          "--color": "rgba(0, 0, 0, 0.95)",
+          "--height": "2px",
+          "--width": "8px",
           "--fade-stop": "90%",
           "--offset": offset || "200px",
           "--color-dark": "rgba(255, 255, 255, 0.2)",
@@ -180,9 +180,9 @@ const GridLineVertical = ({
       style={
         {
           "--background": "#ffffff",
-          "--color": "rgba(0, 0, 0, 0.2)",
-          "--height": "5px",
-          "--width": "1px",
+          "--color": "rgba(0, 0, 0, 0.95)",
+          "--height": "8px",
+          "--width": "2px",
           "--fade-stop": "90%",
           "--offset": offset || "150px",
           "--color-dark": "rgba(255, 255, 255, 0.2)",

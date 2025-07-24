@@ -357,13 +357,14 @@ export default function Home() {
             }}>
               Featured Collection
             </h2>
-            <div className="w-32 h-1 bg-amber-400 mx-auto rounded"></div>
+            <div className="w-32 h-1 bg-amber-600 mx-auto rounded"></div>
           </div>
 
           {/* 3D Marquee */}
           <div className="p-8">
-                          <ThreeDMarquee 
-              books={[
+            <div className="relative bg-black/10 backdrop-blur-md rounded-2xl p-4">
+              <ThreeDMarquee 
+                books={[
                 // Column 1: Coming Soon cards
                 {
                   id: 'coming-soon-1',
@@ -467,6 +468,7 @@ export default function Home() {
               ]}
               className="h-[600px]"
             />
+            </div>
           </div>
         </div>
 
@@ -491,7 +493,7 @@ export default function Home() {
             }}>
               Current Challenges
             </h2>
-            <div className="w-32 h-1 bg-amber-400 mx-auto rounded"></div>
+            <div className="w-32 h-1 bg-amber-600 mx-auto rounded"></div>
           </div>
 
           <Marquee pauseOnHover className="[--duration:30s]">
