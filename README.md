@@ -2,6 +2,9 @@
 
 An immersive, gamified educational platform that transforms classic literature into interactive learning experiences. Built with modern web technologies and AI integration, this platform makes literary analysis engaging and accessible for students and teachers alike.
 
+![Screenshot 2025-07-24 at 2 19 45 PM](https://github.com/user-attachments/assets/4e61499c-4968-41ae-a447-8d7c85ae0b06)
+
+
 ## 🎯 Mission
 
 Take long-form narrative, distill it into important quotes, visuals, structural elements, syntax, and teach it in a short-form medium through interactive, gamified experiences.
