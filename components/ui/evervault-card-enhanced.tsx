@@ -8,10 +8,12 @@ export const EvervaultCardEnhanced = ({
   children,
   className,
   onClick,
+  gradientColors = "from-green-500 to-blue-700",
 }: {
   children: React.ReactNode;
   className?: string;
   onClick?: () => void;
+  gradientColors?: string;
 }) => {
   let mouseX = useMotionValue(0);
   let mouseY = useMotionValue(0);
@@ -48,6 +50,7 @@ export const EvervaultCardEnhanced = ({
           mouseX={mouseX}
           mouseY={mouseY}
           randomString={randomString}
+          gradientColors={gradientColors}
         />
         <div className="relative z-10 w-full h-full">
           {children}
@@ -57,7 +60,7 @@ export const EvervaultCardEnhanced = ({
   );
 };
 
-export function CardPatternEnhanced({ mouseX, mouseY, randomString }: any) {
+export function CardPatternEnhanced({ mouseX, mouseY, randomString, gradientColors }: any) {
   let maskImage = useMotionTemplate`radial-gradient(250px at ${mouseX}px ${mouseY}px, white, transparent)`;
   let style = { maskImage, WebkitMaskImage: maskImage };
 
@@ -65,7 +68,7 @@ export function CardPatternEnhanced({ mouseX, mouseY, randomString }: any) {
     <div className="pointer-events-none absolute inset-0 z-20">
       <div className="absolute inset-0 rounded-lg [mask-image:linear-gradient(white,transparent)] group-hover/card:opacity-30"></div>
       <motion.div
-        className="absolute inset-0 rounded-lg bg-gradient-to-r from-green-500 to-blue-700 opacity-0 group-hover/card:opacity-40 backdrop-blur-sm transition duration-300"
+        className={`absolute inset-0 rounded-lg bg-gradient-to-r ${gradientColors} opacity-0 group-hover/card:opacity-40 backdrop-blur-sm transition duration-300`}
         style={style}
       />
       <motion.div

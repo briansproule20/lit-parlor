@@ -169,6 +169,7 @@ export default function Home() {
                 <EvervaultCardEnhanced
                   onClick={() => setOpenModal('welcome')}
                   className="w-full h-full"
+                  gradientColors="from-amber-500 to-orange-600"
                 >
                   <button 
                     className="w-full p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer group-hover/card:bg-opacity-70" 
@@ -193,6 +194,7 @@ export default function Home() {
                 <EvervaultCardEnhanced
                   onClick={() => setOpenModal('gamification')}
                   className="w-full h-full"
+                  gradientColors="from-cyan-500 to-blue-600"
                 >
                   <button 
                     className="w-full p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer group-hover/card:bg-opacity-70" 
@@ -217,6 +219,7 @@ export default function Home() {
                 <EvervaultCardEnhanced
                   onClick={() => setOpenModal('education')}
                   className="w-full h-full"
+                  gradientColors="from-red-500 to-pink-600"
                 >
                   <button 
                     className="w-full p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer group-hover/card:bg-opacity-70" 
@@ -241,6 +244,7 @@ export default function Home() {
                 <EvervaultCardEnhanced
                   onClick={() => setOpenModal('teachers')}
                   className="w-full h-full"
+                  gradientColors="from-green-500 to-emerald-600"
                 >
                   <button 
                     className="w-full p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer group-hover/card:bg-opacity-70" 
