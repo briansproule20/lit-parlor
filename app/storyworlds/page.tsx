@@ -168,7 +168,7 @@ export default function Storyworlds() {
                 The whaling capital of the world in 1851, where Ishmael begins his fateful journey aboard the Pequod.
               </p>
               <div className="text-xs text-blue-600 font-serif">
-                🌊 Atlantic Ocean • 🐋 Whaling Industry • ⛵ Maritime Culture
+                Atlantic Ocean • Whaling Industry • Maritime Culture
               </div>
             </div>
           </Link>
@@ -185,7 +185,7 @@ export default function Storyworlds() {
                 The countryside estates and drawing rooms of Georgian England, where social class and manners reign supreme.
               </p>
               <div className="text-xs text-red-600 font-serif">
-                🏰 Country Estates • 💃 Social Gatherings • 📚 Literary Salons
+                Country Estates • Social Gatherings • Literary Salons
               </div>
             </div>
           </Link>
@@ -202,7 +202,7 @@ export default function Storyworlds() {
                 Pre-colonial Igbo villages in southeastern Nigeria, where traditional culture meets European colonialism.
               </p>
               <div className="text-xs text-orange-600 font-serif">
-                🥁 Traditional Culture • 🌾 Agricultural Society • 🏘️ Village Life
+                Traditional Culture • Agricultural Society • Village Life
               </div>
             </div>
           </Link>
@@ -219,7 +219,7 @@ export default function Storyworlds() {
                 The crowded, oppressive streets of 19th century St. Petersburg, reflecting the psychological turmoil within.
               </p>
               <div className="text-xs text-purple-600 font-serif">
-                🏙️ Urban Poverty • 🧠 Psychological Drama • ❄️ Russian Winter
+                Urban Poverty • Psychological Drama • Russian Winter
               </div>
             </div>
           </Link>
@@ -233,10 +233,10 @@ export default function Storyworlds() {
               </div>
               <h4 className="text-lg font-semibold text-amber-900 font-serif mb-2">Their Eyes Were Watching God</h4>
               <p className="text-sm text-gray-700 mb-3">
-                The rural South and Florida Everglades, where Janie Crawford discovers her voice and independence.
+                The rural South and Florida Everglades, where Janie Crawford discovers her voice and independence beaneath a pear tree...
               </p>
               <div className="text-xs text-green-600 font-serif">
-                🌴 Southern Landscape • 🌊 Hurricane Country • 🎭 Harlem Renaissance
+                Southern Landscape • Hurricane Country • Harlem Renaissance
               </div>
             </div>
           </Link>
@@ -250,10 +250,10 @@ export default function Storyworlds() {
               </div>
               <h4 className="text-lg font-semibold text-amber-900 font-serif mb-2">Animal Farm</h4>
               <p className="text-sm text-gray-700 mb-3">
-                A pastoral English farm that becomes the stage for political allegory and revolutionary ideals.
+                A pastoral English farm that becomes the stage for political allegory and revolutionary ideals, warning of the dangers of totalitarianism.
               </p>
               <div className="text-xs text-red-700 font-serif">
-                🐷 Farm Animals • ⚖️ Political Allegory • 🚩 Revolutionary Themes
+                Farm Animals • Political Allegory • Revolutionary Themes
               </div>
             </div>
           </Link>
