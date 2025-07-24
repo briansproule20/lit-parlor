@@ -214,23 +214,19 @@ export default function Home() {
                     className: "text-amber-900",
                   },
                   {
-                    text: "Literary",
-                    className: "text-amber-900",
-                  },
-                  {
                     text: "Parlor",
                     className: "text-amber-800",
                   },
                   {
-                    text: "//",
+                    text: "-",
                     className: "text-amber-900",
                   },
                   {
-                    text: "Lit",
+                    text: "By",
                     className: "text-amber-900",
                   },
                   {
-                    text: "Salon",
+                    text: "LitSalon",
                     className: "text-amber-800",
                   },
                 ]}
