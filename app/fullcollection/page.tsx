@@ -222,7 +222,9 @@ export default function FullCollectionPage() {
               { title: "The Scarlet Letter", author: "Nathaniel Hawthorne", genre: "Historical Fiction" },
               { title: "Brave New World", author: "Aldous Huxley", genre: "Science Fiction" },
               { title: "Slaughterhouse-Five", author: "Kurt Vonnegut", genre: "Science Fiction" },
-              { title: "The Alchemist", author: "Paulo Coelho", genre: "Philosophical Novel" }
+              { title: "The Alchemist", author: "Paulo Coelho", genre: "Philosophical Novel" },
+              { title: "The Metamorphosis", author: "Franz Kafka", genre: "Modernist Fiction" },
+              { title: "The Strange Case of Dr. Jekyll and Mr. Hyde", author: "Robert Louis Stevenson", genre: "Gothic Fiction" }
             ].map((book, index) => (
               <div key={index} className="bg-gradient-to-r from-gray-700 to-gray-600 p-4 rounded-lg shadow-lg border-2 border-gray-500 opacity-75">
                 <div className="bg-gradient-to-br from-gray-800 to-gray-700 p-3 rounded-lg mb-3 relative overflow-hidden">
@@ -250,7 +252,9 @@ export default function FullCollectionPage() {
             {/* Drama Books */}
             {[
               { title: "Romeo & Juliet", author: "William Shakespeare", genre: "Tragedy" },
-              { title: "Othello", author: "William Shakespeare", genre: "Tragedy" }
+              { title: "Othello", author: "William Shakespeare", genre: "Tragedy" },
+              { title: "Death of a Salesman", author: "Arthur Miller", genre: "Modern Tragedy" },
+              { title: "The Crucible", author: "Arthur Miller", genre: "Historical Drama" }
             ].map((book, index) => (
               <div key={index} className="bg-gradient-to-r from-gray-700 to-gray-600 p-4 rounded-lg shadow-lg border-2 border-gray-500 opacity-75">
                 <div className="bg-gradient-to-br from-gray-800 to-gray-700 p-3 rounded-lg mb-3 relative overflow-hidden">
@@ -274,18 +278,25 @@ export default function FullCollectionPage() {
           </h3>
           
           <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-6 mb-12">
-            {/* Placeholder for Short Stories */}
-            <div className="bg-gradient-to-r from-gray-700 to-gray-600 p-4 rounded-lg shadow-lg border-2 border-gray-500 opacity-75">
-              <div className="bg-gradient-to-br from-gray-800 to-gray-700 p-3 rounded-lg mb-3 relative overflow-hidden">
-                <div className="absolute top-2 right-2 w-4 h-4 bg-gray-400 opacity-20 rounded-full"></div>
-                <h3 className="text-sm font-bold text-gray-300 mb-1 font-serif text-center leading-tight">Coming Soon</h3>
-                <p className="text-gray-400 text-center font-serif italic text-xs">Short Fiction</p>
-                <div className="text-center text-gray-400 text-xs font-serif mt-1">Various Authors</div>
+            {/* Short Stories */}
+            {[
+              { title: "The Yellow Wallpaper", author: "Charlotte Perkins Gilman", genre: "Gothic Fiction" },
+              { title: "The Tell-Tale Heart", author: "Edgar Allan Poe", genre: "Gothic Horror" },
+              { title: "A Good Man Is Hard to Find", author: "Flannery O'Connor", genre: "Southern Gothic" },
+              { title: "2BR02B", author: "Kurt Vonnegut", genre: "Science Fiction" }
+            ].map((book, index) => (
+              <div key={index} className="bg-gradient-to-r from-gray-700 to-gray-600 p-4 rounded-lg shadow-lg border-2 border-gray-500 opacity-75">
+                <div className="bg-gradient-to-br from-gray-800 to-gray-700 p-3 rounded-lg mb-3 relative overflow-hidden">
+                  <div className="absolute top-2 right-2 w-4 h-4 bg-gray-400 opacity-20 rounded-full"></div>
+                  <h3 className="text-sm font-bold text-gray-300 mb-1 font-serif text-center leading-tight">{book.title}</h3>
+                  <p className="text-gray-400 text-center font-serif italic text-xs">{book.genre}</p>
+                  <div className="text-center text-gray-400 text-xs font-serif mt-1">{book.author}</div>
+                </div>
+                <div className="text-center">
+                  <span className="text-gray-400 text-xs font-serif">🔒 Coming Soon</span>
+                </div>
               </div>
-              <div className="text-center">
-                <span className="text-gray-400 text-xs font-serif">🔒 Coming Soon</span>
-              </div>
-            </div>
+            ))}
           </div>
           
           {/* Poetry Section */}
@@ -296,18 +307,25 @@ export default function FullCollectionPage() {
           </h3>
           
           <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-6 mb-12">
-            {/* Placeholder for Poetry */}
-            <div className="bg-gradient-to-r from-gray-700 to-gray-600 p-4 rounded-lg shadow-lg border-2 border-gray-500 opacity-75">
-              <div className="bg-gradient-to-br from-gray-800 to-gray-700 p-3 rounded-lg mb-3 relative overflow-hidden">
-                <div className="absolute top-2 right-2 w-4 h-4 bg-gray-400 opacity-20 rounded-full"></div>
-                <h3 className="text-sm font-bold text-gray-300 mb-1 font-serif text-center leading-tight">Coming Soon</h3>
-                <p className="text-gray-400 text-center font-serif italic text-xs">Poetry Collections</p>
-                <div className="text-center text-gray-400 text-xs font-serif mt-1">Various Poets</div>
+            {/* Poetry */}
+            {[
+              { title: "In Flanders Fields", author: "John McCrae", genre: "War Poetry" },
+              { title: "The Raven", author: "Edgar Allan Poe", genre: "Gothic Poetry" },
+              { title: "The Rime of the Ancient Mariner", author: "Samuel Taylor Coleridge", genre: "Romantic Poetry" },
+              { title: "Because I Could Not Stop for Death", author: "Emily Dickinson", genre: "Lyric Poetry" }
+            ].map((book, index) => (
+              <div key={index} className="bg-gradient-to-r from-gray-700 to-gray-600 p-4 rounded-lg shadow-lg border-2 border-gray-500 opacity-75">
+                <div className="bg-gradient-to-br from-gray-800 to-gray-700 p-3 rounded-lg mb-3 relative overflow-hidden">
+                  <div className="absolute top-2 right-2 w-4 h-4 bg-gray-400 opacity-20 rounded-full"></div>
+                  <h3 className="text-sm font-bold text-gray-300 mb-1 font-serif text-center leading-tight">{book.title}</h3>
+                  <p className="text-gray-400 text-center font-serif italic text-xs">{book.genre}</p>
+                  <div className="text-center text-gray-400 text-xs font-serif mt-1">{book.author}</div>
+                </div>
+                <div className="text-center">
+                  <span className="text-gray-400 text-xs font-serif">🔒 Coming Soon</span>
+                </div>
               </div>
-              <div className="text-center">
-                <span className="text-gray-400 text-xs font-serif">🔒 Coming Soon</span>
-              </div>
-            </div>
+            ))}
           </div>
           
           {/* Nonfiction Section */}
@@ -318,18 +336,25 @@ export default function FullCollectionPage() {
           </h3>
           
           <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-6 mb-12">
-            {/* Placeholder for Nonfiction */}
-            <div className="bg-gradient-to-r from-gray-700 to-gray-600 p-4 rounded-lg shadow-lg border-2 border-gray-500 opacity-75">
-              <div className="bg-gradient-to-br from-gray-800 to-gray-700 p-3 rounded-lg mb-3 relative overflow-hidden">
-                <div className="absolute top-2 right-2 w-4 h-4 bg-gray-400 opacity-20 rounded-full"></div>
-                <h3 className="text-sm font-bold text-gray-300 mb-1 font-serif text-center leading-tight">Coming Soon</h3>
-                <p className="text-gray-400 text-center font-serif italic text-xs">Nonfiction Works</p>
-                <div className="text-center text-gray-400 text-xs font-serif mt-1">Various Authors</div>
+            {/* Nonfiction */}
+            {[
+              { title: "Narrative of the Life of Frederick Douglass, an American Slave", author: "Frederick Douglass", genre: "Autobiography" },
+              { title: "Self-Reliance", author: "Ralph Waldo Emerson", genre: "Essay" },
+              { title: "The U.S. Constitution", author: "Founding Fathers", genre: "Legal Document" },
+              { title: "Letter from Birmingham Jail", author: "Martin Luther King Jr.", genre: "Political Essay" }
+            ].map((book, index) => (
+              <div key={index} className="bg-gradient-to-r from-gray-700 to-gray-600 p-4 rounded-lg shadow-lg border-2 border-gray-500 opacity-75">
+                <div className="bg-gradient-to-br from-gray-800 to-gray-700 p-3 rounded-lg mb-3 relative overflow-hidden">
+                  <div className="absolute top-2 right-2 w-4 h-4 bg-gray-400 opacity-20 rounded-full"></div>
+                  <h3 className="text-sm font-bold text-gray-300 mb-1 font-serif text-center leading-tight">{book.title}</h3>
+                  <p className="text-gray-400 text-center font-serif italic text-xs">{book.genre}</p>
+                  <div className="text-center text-gray-400 text-xs font-serif mt-1">{book.author}</div>
+                </div>
+                <div className="text-center">
+                  <span className="text-gray-400 text-xs font-serif">🔒 Coming Soon</span>
+                </div>
               </div>
-              <div className="text-center">
-                <span className="text-gray-400 text-xs font-serif">🔒 Coming Soon</span>
-              </div>
-            </div>
+            ))}
           </div>
           
           {/* Speeches Section */}
@@ -340,18 +365,25 @@ export default function FullCollectionPage() {
           </h3>
           
           <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-6 mb-12">
-            {/* Placeholder for Speeches */}
-            <div className="bg-gradient-to-r from-gray-700 to-gray-600 p-4 rounded-lg shadow-lg border-2 border-gray-500 opacity-75">
-              <div className="bg-gradient-to-br from-gray-800 to-gray-700 p-3 rounded-lg mb-3 relative overflow-hidden">
-                <div className="absolute top-2 right-2 w-4 h-4 bg-gray-400 opacity-20 rounded-full"></div>
-                <h3 className="text-sm font-bold text-gray-300 mb-1 font-serif text-center leading-tight">Coming Soon</h3>
-                <p className="text-gray-400 text-center font-serif italic text-xs">Historic Speeches</p>
-                <div className="text-center text-gray-400 text-xs font-serif mt-1">Various Orators</div>
+            {/* Speeches */}
+            {[
+              { title: "We Shall Fight on the Beaches", author: "Winston Churchill", genre: "War Speech" },
+              { title: "Gettysburg Address", author: "Abraham Lincoln", genre: "Memorial Speech" },
+              { title: "George Washington's Farewell Address", author: "George Washington", genre: "Political Speech" },
+              { title: "Ain't I a Woman?", author: "Sojourner Truth", genre: "Women's Rights Speech" }
+            ].map((book, index) => (
+              <div key={index} className="bg-gradient-to-r from-gray-700 to-gray-600 p-4 rounded-lg shadow-lg border-2 border-gray-500 opacity-75">
+                <div className="bg-gradient-to-br from-gray-800 to-gray-700 p-3 rounded-lg mb-3 relative overflow-hidden">
+                  <div className="absolute top-2 right-2 w-4 h-4 bg-gray-400 opacity-20 rounded-full"></div>
+                  <h3 className="text-sm font-bold text-gray-300 mb-1 font-serif text-center leading-tight">{book.title}</h3>
+                  <p className="text-gray-400 text-center font-serif italic text-xs">{book.genre}</p>
+                  <div className="text-center text-gray-400 text-xs font-serif mt-1">{book.author}</div>
+                </div>
+                <div className="text-center">
+                  <span className="text-gray-400 text-xs font-serif">🔒 Coming Soon</span>
+                </div>
               </div>
-              <div className="text-center">
-                <span className="text-gray-400 text-xs font-serif">🔒 Coming Soon</span>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 
