@@ -556,7 +556,7 @@ export default function Journey() {
       {isFading && (
         <div 
           className="fixed inset-0 bg-black z-50 transition-opacity duration-100"
-          style={{ opacity: fadeOpacity }}
+          style={{ opacity: fadeOpacity, top: '80px' }}
         ></div>
       )}
 
@@ -662,7 +662,7 @@ export default function Journey() {
 
       {/* Modal */}
       {isModalOpen && selectedChapter && (
-        <div className={`fixed inset-0 z-50 flex items-center ${showVisualJourney ? 'justify-start' : 'justify-center'} p-4`}>
+        <div className={`fixed inset-0 z-60 flex items-center ${showVisualJourney ? 'justify-start' : 'justify-center'} p-4`}>
           {/* Backdrop with blur */}
           <div 
             className="absolute inset-0 bg-black/50 backdrop-blur-sm"

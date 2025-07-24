@@ -35,7 +35,7 @@ export default function MobyDickNavbar({
   const [active, setActive] = useState<string | null>(null);
 
   return (
-    <div className={cn("fixed top-4 inset-x-0 max-w-4xl mx-auto z-50", className)}>
+    <div className={cn("fixed top-4 inset-x-0 max-w-4xl mx-auto z-[80]", className)}>
       <Menu setActive={setActive}>
         <MenuItem setActive={setActive} active={active} item="Visual Journey">
           <div className="flex flex-col space-y-4 text-sm">
