@@ -7,6 +7,7 @@ import { Marquee } from '@/components/ui/marquee'
 import { TypewriterEffect } from '@/components/ui/typewriter-effect'
 import { BackgroundBeams } from '@/components/ui/background-beams'
 import { DotBackground } from '@/components/ui/dot-background'
+import { EvervaultCardEnhanced } from '@/components/ui/evervault-card-enhanced'
 
 export default function Home() {
   const [openModal, setOpenModal] = useState<string | null>(null)
@@ -164,78 +165,98 @@ export default function Home() {
             
             {/* Welcome Box */}
             <div className="text-center">
-              <button 
-                onClick={() => setOpenModal('welcome')}
-                className="w-full p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer" 
-                style={{
-                  background: 'rgba(254, 251, 240, 0.95)',
-                  border: '3px solid #8B4513'
-                }}
-              >
-                <h3 className="text-xl font-bold text-amber-900 font-serif leading-tight">
-                  Welcome to Your Literary Journey
-                </h3>
-                <p className="text-amber-700 text-sm font-serif mt-2">
-                  Click to learn more
-                </p>
-              </button>
+              <div className="w-full rounded-xl overflow-hidden" style={{ border: '3px solid #8B4513' }}>
+                <EvervaultCardEnhanced
+                  onClick={() => setOpenModal('welcome')}
+                  className="w-full h-full"
+                >
+                  <button 
+                    className="w-full p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer" 
+                    style={{
+                      background: 'rgba(254, 251, 240, 0.95)'
+                    }}
+                  >
+                    <h3 className="text-xl font-bold text-amber-900 font-serif leading-tight">
+                      Welcome to Your Literary Journey
+                    </h3>
+                    <p className="text-amber-700 text-sm font-serif mt-2">
+                      Click to learn more
+                    </p>
+                  </button>
+                </EvervaultCardEnhanced>
+              </div>
             </div>
 
             {/* Gamification Box */}
             <div className="text-center">
-              <button 
-                onClick={() => setOpenModal('gamification')}
-                className="w-full p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer" 
-                style={{
-                  background: 'rgba(236, 254, 255, 0.95)',
-                  border: '3px solid #0891b2'
-                }}
-              >
-                <h3 className="text-xl font-bold text-cyan-900 font-serif leading-tight">
-                  Gamification in Education
-                </h3>
-                <p className="text-cyan-700 text-sm font-serif mt-2">
-                  Click to learn more
-                </p>
-              </button>
+              <div className="w-full rounded-xl overflow-hidden" style={{ border: '3px solid #0891b2' }}>
+                <EvervaultCardEnhanced
+                  onClick={() => setOpenModal('gamification')}
+                  className="w-full h-full"
+                >
+                  <button 
+                    className="w-full p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer" 
+                    style={{
+                      background: 'rgba(236, 254, 255, 0.95)'
+                    }}
+                  >
+                    <h3 className="text-xl font-bold text-cyan-900 font-serif leading-tight">
+                      Gamification in Education
+                    </h3>
+                    <p className="text-cyan-700 text-sm font-serif mt-2">
+                      Click to learn more
+                    </p>
+                  </button>
+                </EvervaultCardEnhanced>
+              </div>
             </div>
 
             {/* Education & Human Capital Box */}
             <div className="text-center">
-              <button 
-                onClick={() => setOpenModal('education')}
-                className="w-full p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer" 
-                style={{
-                  background: 'rgba(254, 242, 242, 0.95)',
-                  border: '3px solid #dc2626'
-                }}
-              >
-                <h3 className="text-xl font-bold text-red-900 font-serif leading-tight">
-                  Education & Human Capital
-                </h3>
-                <p className="text-red-700 text-sm font-serif mt-2">
-                  Click to learn more
-                </p>
-              </button>
+              <div className="w-full rounded-xl overflow-hidden" style={{ border: '3px solid #dc2626' }}>
+                <EvervaultCardEnhanced
+                  onClick={() => setOpenModal('education')}
+                  className="w-full h-full"
+                >
+                  <button 
+                    className="w-full p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer" 
+                    style={{
+                      background: 'rgba(254, 242, 242, 0.95)'
+                    }}
+                  >
+                    <h3 className="text-xl font-bold text-red-900 font-serif leading-tight">
+                      Education & Human Capital
+                    </h3>
+                    <p className="text-red-700 text-sm font-serif mt-2">
+                      Click to learn more
+                    </p>
+                  </button>
+                </EvervaultCardEnhanced>
+              </div>
             </div>
 
             {/* Tools for Teachers Box */}
             <div className="text-center">
-              <button 
-                onClick={() => setOpenModal('teachers')}
-                className="w-full p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer" 
-                style={{
-                  background: 'rgba(240, 253, 244, 0.95)',
-                  border: '3px solid #16a34a'
-                }}
-              >
-                <h3 className="text-xl font-bold text-green-900 font-serif leading-tight">
-                  Tools for<br />Teachers
-                </h3>
-                <p className="text-green-700 text-sm font-serif mt-2">
-                  Click to learn more
-                </p>
-              </button>
+              <div className="w-full rounded-xl overflow-hidden" style={{ border: '3px solid #16a34a' }}>
+                <EvervaultCardEnhanced
+                  onClick={() => setOpenModal('teachers')}
+                  className="w-full h-full"
+                >
+                  <button 
+                    className="w-full p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer" 
+                    style={{
+                      background: 'rgba(240, 253, 244, 0.95)'
+                    }}
+                  >
+                    <h3 className="text-xl font-bold text-green-900 font-serif leading-tight">
+                      Tools for<br />Teachers
+                    </h3>
+                    <p className="text-green-700 text-sm font-serif mt-2">
+                      Click to learn more
+                    </p>
+                  </button>
+                </EvervaultCardEnhanced>
+              </div>
             </div>
 
           </div>
