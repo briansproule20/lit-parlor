@@ -153,11 +153,19 @@ export default function Menubar() {
                 </div>
               </div>
               <div className="relative group/item">
-                <Link href="/fullcollection" className="block px-4 py-3 text-purple-700 hover:bg-purple-50 font-serif font-semibold rounded-b-lg transition-colors">
+                <Link href="/fullcollection" className="block px-4 py-3 text-purple-700 hover:bg-purple-50 font-serif font-semibold border-b border-gray-100 transition-colors">
                   Full Collection
                 </Link>
                 <div className="absolute left-full top-0 ml-2 bg-purple-800 text-white text-sm rounded-lg px-3 py-2 opacity-0 invisible group-hover/item:opacity-100 group-hover/item:visible transition-all duration-200 pointer-events-none whitespace-nowrap z-60">
                   Browse our complete library of works
+                </div>
+              </div>
+              <div className="relative group/item">
+                <Link href="/storyworlds" className="block px-4 py-3 text-orange-700 hover:bg-orange-50 font-serif font-semibold rounded-b-lg transition-colors">
+                  Storyworlds
+                </Link>
+                <div className="absolute left-full top-0 ml-2 bg-orange-800 text-white text-sm rounded-lg px-3 py-2 opacity-0 invisible group-hover/item:opacity-100 group-hover/item:visible transition-all duration-200 pointer-events-none whitespace-nowrap z-60">
+                  Explore immersive literary worlds and settings
                 </div>
               </div>
             </div>
