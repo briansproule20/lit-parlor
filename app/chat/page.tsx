@@ -42,7 +42,112 @@ function ChatPageContent() {
           mission: 'Proporcionar tutoría personalizada de ELA con IA que ayude a los estudiantes a desarrollar habilidades de pensamiento crítico, mejorar sus habilidades de escritura y fomentar el amor por la literatura mientras mantiene los más altos estándares de integridad académica.',
           cta: '¿Listo para Transformar tus Habilidades de ELA?',
           ctaSubtitle: `Únete a miles de estudiantes que están mejorando sus habilidades de lectura, escritura y análisis con Claude ${selectedAuthor}, tu tutor de ELA con IA.`,
-          startButton: `Comenzar a Aprender con Claude ${selectedAuthor}`
+          startButton: `Comenzar a Aprender con Claude ${selectedAuthor}`,
+          // Hero section
+          heroDescription: 'Tu tutor de Artes del Lenguaje Inglés con IA, inspirado en autores famosos y diseñado para la excelencia educativa. Obtén ayuda personalizada con comprensión de lectura, habilidades de escritura, gramática, vocabulario, análisis literario y más.',
+          aiLearning: 'Aprendizaje con IA',
+          multiLanguage: 'Soporte Multi-idioma',
+          academicIntegrity: 'Integridad Académica',
+          // Mission section
+          missionTitle: 'Nuestra Misión',
+          // Core Features
+          coreFeaturesTitle: 'Características Principales',
+          readingComprehension: 'Lectura y Comprensión',
+          writingGrammar: 'Escritura y Gramática',
+          literatureAnalysis: 'Literatura y Análisis',
+          testPrep: 'Preparación de Exámenes',
+          publicSpeaking: 'Oratoria Pública',
+          ellSupport: 'Apoyo para ELL',
+          vocabularyBuilding: 'Construcción de Vocabulario',
+          researchSkills: 'Habilidades de Investigación',
+          // Feature descriptions
+          textAnalysis: 'Estrategias de Análisis de Texto',
+          mainIdea: 'Identificación de Ideas Principales',
+          criticalThinking: 'Habilidades de Pensamiento Crítico',
+          literaryDevices: 'Reconocimiento de Dispositivos Literarios',
+          comprehensionAssessment: 'Evaluación de Comprensión',
+          essayStructure: 'Estructura y Organización de Ensayos',
+          grammarMechanics: 'Gramática y Mecánica',
+          styleVoice: 'Desarrollo de Estilo y Voz',
+          documentUpload: 'Carga de Documentos y Retroalimentación',
+          revisionStrategies: 'Estrategias de Revisión',
+          characterAnalysis: 'Análisis de Personajes',
+          thematicExploration: 'Exploración Temática',
+          literaryCriticism: 'Crítica Literaria',
+          classicLiterature: 'Estudio de Literatura Clásica',
+          literaryAnalysisSkills: 'Habilidades de Análisis Literario',
+          satActStrategies: 'Estrategias de Lectura SAT/ACT',
+          essayTechniques: 'Técnicas de Escritura de Ensayos',
+          criticalReading: 'Habilidades de Lectura Crítica',
+          grammarUsage: 'Revisión de Gramática y Uso',
+          practiceStrategies: 'Estrategias de Práctica',
+          speechWriting: 'Escritura y Estructura de Discursos',
+          deliveryTechniques: 'Técnicas de Entrega',
+          persuasiveSpeaking: 'Oratoria Persuasiva',
+          presentationSkills: 'Habilidades de Presentación',
+          confidenceBuilding: 'Desarrollo de Confianza',
+          englishLearning: 'Aprendizaje del Idioma Inglés',
+          grammarELL: 'Gramática para Estudiantes ELL',
+          academicWriting: 'Apoyo de Escritura Académica',
+          conversationalEnglish: 'Inglés Conversacional',
+          culturalContext: 'Comprensión del Contexto Cultural',
+          contextClues: 'Estrategias de Pistas Contextuales',
+          wordRootAnalysis: 'Análisis de Raíces de Palabras',
+          academicVocabulary: 'Vocabulario Académico',
+          satActWords: 'Listas de Palabras SAT/ACT',
+          vocabularyRetention: 'Retención de Vocabulario',
+          researchPaper: 'Escritura de Documentos de Investigación',
+          sourceEvaluation: 'Evaluación de Fuentes',
+          citationFormatting: 'Citación y Formato',
+          criticalAnalysis: 'Análisis Crítico',
+          academicWritingSkills: 'Escritura Académica',
+          // Advanced Features
+          advancedFeaturesTitle: 'Características Avanzadas',
+          multiLanguageDesc: 'Inglés, Español, Criollo Haitiano',
+          documentUploadDesc: 'Obtén retroalimentación sobre tu escritura',
+          academicIntegrityDesc: 'Aprendizaje guiado, no trampa',
+          smartSuggestionsDesc: 'Sugerencias de aprendizaje con IA',
+          progressTrackingDesc: 'Monitorea tu viaje de aprendizaje',
+          realtimeChatDesc: 'Respuestas instantáneas de IA',
+          topicSelectionDesc: 'Elige tu enfoque de aprendizaje',
+          errorPreventionDesc: 'Orientación sobre errores comunes',
+          immediateInterventionDesc: 'Apoyo instantáneo cuando lo necesites',
+          extraScaffoldingDesc: 'Apoyo para estudiantes con dificultades',
+          extraExamplesDesc: 'Múltiples ejemplos para claridad',
+          conversationalApproachDesc: 'Pregunta lo que no sabes',
+          // How It Works
+          howItWorksTitle: `Cómo Funciona Claude ${selectedAuthor}`,
+          signInConnect: 'Inicia Sesión y Conecta',
+          signInDesc: 'Autentícate con Echo para acceder a tu tutor de IA personalizado',
+          chooseFocus: 'Elige tu Enfoque',
+          chooseFocusDesc: 'Selecciona entre lectura, escritura, gramática, vocabulario o literatura',
+          getHelp: 'Obtén Ayuda Personalizada',
+          getHelpDesc: 'Recibe orientación y retroalimentación adaptada a tus necesidades específicas',
+          uploadDocuments: 'Carga Documentos',
+          uploadDesc: 'Obtén retroalimentación detallada sobre tus ensayos y tareas de escritura',
+          trackProgress: 'Rastrea el Progreso',
+          trackDesc: 'Monitorea tu mejora y celebra tus logros',
+          learnGrow: 'Aprende y Crece',
+          learnDesc: 'Desarrolla habilidades de ELA más fuertes a través de práctica guiada',
+          // Academic Integrity
+          academicIntegrityTitle: 'Compromiso de Integridad Académica',
+          whatWeDoTitle: 'Lo Que Hacemos',
+          whatWeDontTitle: 'Lo Que No Hacemos',
+          guideWriting: 'Te guiamos a través del proceso de escritura',
+          developIdeas: 'Te ayudamos a desarrollar tus propias ideas',
+          provideFeedback: 'Proporcionamos retroalimentación sobre estructura y claridad',
+          teachGrammar: 'Te enseñamos gramática y técnicas de escritura',
+          supportJourney: 'Apoyamos tu viaje de aprendizaje',
+          writeEssays: 'Escribir ensayos o tareas por ti',
+          completeHomework: 'Completar tareas en tu lugar',
+          provideAnswers: 'Proporcionar respuestas listas',
+          enableDishonesty: 'Habilitar deshonestidad académica',
+          bypassLearning: 'Evadir el proceso de aprendizaje',
+          replaceTeachers: 'Reemplazar maestros',
+          giveTeachersTools: 'Dar a los maestros las herramientas para llegar a más estudiantes',
+          // Footer
+          footerQuote: '"La educación no es llenar una olla sino encender un fuego"',
+          footerAuthor: '— W.B. Yeats'
         };
       case 'ht':
         return {
@@ -51,7 +156,112 @@ function ChatPageContent() {
           mission: 'Bay titoraj ELA pèsonalize ki pouse pa IA ki ede elèv yo devlope konpetans panse kritik, amelyore kapasite ekriti yo, ak fèmè lanmou pou literati pandan y ap kenbe pi wo estanda entegrite akademik.',
           cta: 'Ou Pare pou Transfòme Konpetans ELA Ou yo?',
           ctaSubtitle: `Antre nan dè milye elèv ki ap amelyore konpetans lekti, ekriti, ak analiz yo ak Claude ${selectedAuthor}, pwofesè ELA ou ki pouse pa IA.`,
-          startButton: `Kòmanse Aprann ak Claude ${selectedAuthor}`
+          startButton: `Kòmanse Aprann ak Claude ${selectedAuthor}`,
+          // Hero section
+          heroDescription: 'Pwofesè ELA ou ki pouse pa IA, enspire pa otè selyè yo ak fèt pou ekselans edikatif. Jwenn èd pèsonalize ak konpreyansyon lekti, konpetans ekriti, gramè, vokabilè, analiz literè, ak plis ankò.',
+          aiLearning: 'Aprantisaj ak IA',
+          multiLanguage: 'Sipò Plizyè Lang',
+          academicIntegrity: 'Entegrite Akademik',
+          // Mission section
+          missionTitle: 'Misyon Nou',
+          // Core Features
+          coreFeaturesTitle: 'Karakteristik Prensipal',
+          readingComprehension: 'Lekti ak Konpreyansyon',
+          writingGrammar: 'Ekriti ak Gramè',
+          literatureAnalysis: 'Literati ak Analiz',
+          testPrep: 'Preparasyon Egzamen',
+          publicSpeaking: 'Diskou Piblik',
+          ellSupport: 'Sipò pou ELL',
+          vocabularyBuilding: 'Bati Vokabilè',
+          researchSkills: 'Konpetans Rechèch',
+          // Feature descriptions
+          textAnalysis: 'Estrateji Analiz Tèks',
+          mainIdea: 'Idantifikasyon Ide Prensipal',
+          criticalThinking: 'Konpetans Panse Kritik',
+          literaryDevices: 'Rekonèt Dispozitif Literè',
+          comprehensionAssessment: 'Evalyasyon Konpreyansyon',
+          essayStructure: 'Estrikti ak Òganizasyon Redaksyon',
+          grammarMechanics: 'Gramè ak Mekanik',
+          styleVoice: 'Devlopman Estil ak Vwa',
+          documentUpload: 'Telechaje Dokiman ak Retwou',
+          revisionStrategies: 'Estrateji Revizyon',
+          characterAnalysis: 'Analiz Karaktè',
+          thematicExploration: 'Eksplorasyon Tematik',
+          literaryCriticism: 'Kritik Literè',
+          classicLiterature: 'Etid Literati Klasik',
+          literaryAnalysisSkills: 'Konpetans Analiz Literè',
+          satActStrategies: 'Estrateji Lekti SAT/ACT',
+          essayTechniques: 'Teknik Redaksyon',
+          criticalReading: 'Konpetans Lekti Kritik',
+          grammarUsage: 'Revizyon Gramè ak Itilizasyon',
+          practiceStrategies: 'Estrateji Pratik',
+          speechWriting: 'Redaksyon ak Estrikti Diskou',
+          deliveryTechniques: 'Teknik Livrezon',
+          persuasiveSpeaking: 'Diskou Pèswazif',
+          presentationSkills: 'Konpetans Prezantasyon',
+          confidenceBuilding: 'Bati Konfyans',
+          englishLearning: 'Aprantisaj Lang Anglè',
+          grammarELL: 'Gramè pou Elèv ELL',
+          academicWriting: 'Sipò Redaksyon Akademik',
+          conversationalEnglish: 'Anglè Konvèsasyonèl',
+          culturalContext: 'Konpreyansyon Kontèks Kiltirèl',
+          contextClues: 'Estrateji Endikasyon Kontèks',
+          wordRootAnalysis: 'Analiz Rasin Mo',
+          academicVocabulary: 'Vokabilè Akademik',
+          satActWords: 'Lis Mo SAT/ACT',
+          vocabularyRetention: 'Retansyon Vokabilè',
+          researchPaper: 'Redaksyon Papye Rechèch',
+          sourceEvaluation: 'Evalyasyon Sous',
+          citationFormatting: 'Site ak Fòmataj',
+          criticalAnalysis: 'Analiz Kritik',
+          academicWritingSkills: 'Redaksyon Akademik',
+          // Advanced Features
+          advancedFeaturesTitle: 'Karakteristik Avanse',
+          multiLanguageDesc: 'Anglè, Panyòl, Kreyòl Ayisyen',
+          documentUploadDesc: 'Jwenn retwou sou redaksyon ou',
+          academicIntegrityDesc: 'Aprantisaj gide, pa triche',
+          smartSuggestionsDesc: 'Sijesyon aprantisaj ak IA',
+          progressTrackingDesc: 'Swiv vwayaj aprantisaj ou',
+          realtimeChatDesc: 'Repons IA enstantane',
+          topicSelectionDesc: 'Chwazi konsantre aprantisaj ou',
+          errorPreventionDesc: 'Oryantasyon sou erè komen',
+          immediateInterventionDesc: 'Sipò enstantane lè w bezwen',
+          extraScaffoldingDesc: 'Sipò pou elèv ki gen difikilte',
+          extraExamplesDesc: 'Plizyè egzanp pou klète',
+          conversationalApproachDesc: 'Pose kesyon sa w pa konnen',
+          // How It Works
+          howItWorksTitle: `Kijan Claude ${selectedAuthor} Fonksyone`,
+          signInConnect: 'Konekte ak Konekte',
+          signInDesc: 'Otantifye ak Echo pou aksede pwofesè IA pèsonalize ou',
+          chooseFocus: 'Chwazi Konsantre Ou',
+          chooseFocusDesc: 'Seleksyone ant lekti, ekriti, gramè, vokabilè oswa literati',
+          getHelp: 'Jwenn Èd Pèsonalize',
+          getHelpDesc: 'Resevwa oryantasyon ak retwou adapte pou bezwen espesifik ou',
+          uploadDocuments: 'Telechaje Dokiman',
+          uploadDesc: 'Jwenn retwou detaye sou redaksyon ak devwa ekriti ou',
+          trackProgress: 'Swiv Pwogrè',
+          trackDesc: 'Swiv amelyorasyon ou ak selebre reyalizasyon ou',
+          learnGrow: 'Aprann ak Grandi',
+          learnDesc: 'Devlope konpetans ELA pi fò atravè pratik gide',
+          // Academic Integrity
+          academicIntegrityTitle: 'Engajman Entegrite Akademik',
+          whatWeDoTitle: 'Sa Nou Fè',
+          whatWeDontTitle: 'Sa Nou Pa Fè',
+          guideWriting: 'Nou gide w atravè pwosesis redaksyon an',
+          developIdeas: 'Nou ede w devlope pwòp lide ou',
+          provideFeedback: 'Nou bay retwou sou estrikti ak klète',
+          teachGrammar: 'Nou anseye w gramè ak teknik redaksyon',
+          supportJourney: 'Nou sipòte vwayaj aprantisaj ou',
+          writeEssays: 'Ekri redaksyon oswa devwa pou w',
+          completeHomework: 'Konplete devwa pou w',
+          provideAnswers: 'Bay repons pare',
+          enableDishonesty: 'Pèmèt malonètete akademik',
+          bypassLearning: 'Kontourne pwosesis aprantisaj la',
+          replaceTeachers: 'Ranplase pwofesè',
+          giveTeachersTools: 'Bay pwofesè yo zouti pou rive jwenn plis elèv',
+          // Footer
+          footerQuote: '"Edikasyon se pa ranpli yon po men limen yon dife"',
+          footerAuthor: '— W.B. Yeats'
         };
       default:
         return {
@@ -60,7 +270,112 @@ function ChatPageContent() {
           mission: 'To provide personalized, AI-powered English Language Arts tutoring that helps students develop critical thinking skills, improve their writing abilities, and foster a love for literature while maintaining the highest standards of academic integrity.',
           cta: 'Ready to Transform Your ELA Skills?',
           ctaSubtitle: `Join thousands of students who are improving their reading, writing, and analytical skills with Claude ${selectedAuthor}, your AI-powered ELA tutor.`,
-          startButton: `Start Learning with Claude ${selectedAuthor}`
+          startButton: `Start Learning with Claude ${selectedAuthor}`,
+          // Hero section
+          heroDescription: 'Your AI-powered English Language Arts tutor, inspired by famous authors and designed for educational excellence. Get personalized help with reading comprehension, writing skills, grammar, vocabulary, literary analysis, and more.',
+          aiLearning: 'AI-Powered Learning',
+          multiLanguage: 'Multi-Language Support',
+          academicIntegrity: 'Academic Integrity',
+          // Mission section
+          missionTitle: 'Our Mission',
+          // Core Features
+          coreFeaturesTitle: 'Core Features',
+          readingComprehension: 'Reading & Comprehension',
+          writingGrammar: 'Writing & Grammar',
+          literatureAnalysis: 'Literature & Analysis',
+          testPrep: 'Test Prep',
+          publicSpeaking: 'Public Speaking',
+          ellSupport: 'ELL Support',
+          vocabularyBuilding: 'Vocabulary Building',
+          researchSkills: 'Research Skills',
+          // Feature descriptions
+          textAnalysis: 'Text Analysis Strategies',
+          mainIdea: 'Main Idea Identification',
+          criticalThinking: 'Critical Thinking Skills',
+          literaryDevices: 'Literary Device Recognition',
+          comprehensionAssessment: 'Comprehension Assessment',
+          essayStructure: 'Essay Structure & Organization',
+          grammarMechanics: 'Grammar & Mechanics',
+          styleVoice: 'Style & Voice Development',
+          documentUpload: 'Document Upload & Feedback',
+          revisionStrategies: 'Revision Strategies',
+          characterAnalysis: 'Character Analysis',
+          thematicExploration: 'Thematic Exploration',
+          literaryCriticism: 'Literary Criticism',
+          classicLiterature: 'Classic Literature Study',
+          literaryAnalysisSkills: 'Literary Analysis Skills',
+          satActStrategies: 'SAT/ACT Reading Strategies',
+          essayTechniques: 'Essay Writing Techniques',
+          criticalReading: 'Critical Reading Skills',
+          grammarUsage: 'Grammar & Usage Review',
+          practiceStrategies: 'Practice Test Strategies',
+          speechWriting: 'Speech Writing & Structure',
+          deliveryTechniques: 'Delivery Techniques',
+          persuasiveSpeaking: 'Persuasive Speaking',
+          presentationSkills: 'Presentation Skills',
+          confidenceBuilding: 'Confidence Building',
+          englishLearning: 'English Language Learning',
+          grammarELL: 'Grammar for ELL Students',
+          academicWriting: 'Academic Writing Support',
+          conversationalEnglish: 'Conversational English',
+          culturalContext: 'Cultural Context Understanding',
+          contextClues: 'Context Clue Strategies',
+          wordRootAnalysis: 'Word Root Analysis',
+          academicVocabulary: 'Academic Vocabulary',
+          satActWords: 'SAT/ACT Word Lists',
+          vocabularyRetention: 'Vocabulary Retention',
+          researchPaper: 'Research Paper Writing',
+          sourceEvaluation: 'Source Evaluation',
+          citationFormatting: 'Citation & Formatting',
+          criticalAnalysis: 'Critical Analysis',
+          academicWritingSkills: 'Academic Writing',
+          // Advanced Features
+          advancedFeaturesTitle: 'Advanced Features',
+          multiLanguageDesc: 'English, Spanish, Haitian Creole',
+          documentUploadDesc: 'Get feedback on your writing',
+          academicIntegrityDesc: 'Guided learning, not cheating',
+          smartSuggestionsDesc: 'AI-powered learning prompts',
+          progressTrackingDesc: 'Monitor your learning journey',
+          realtimeChatDesc: 'Instant AI responses',
+          topicSelectionDesc: 'Choose your learning focus',
+          errorPreventionDesc: 'Common mistake guidance',
+          immediateInterventionDesc: 'Instant support when you need it',
+          extraScaffoldingDesc: 'Support for struggling students',
+          extraExamplesDesc: 'Multiple examples for clarity',
+          conversationalApproachDesc: 'Question what you don\'t know',
+          // How It Works
+          howItWorksTitle: `How Claude ${selectedAuthor} Works`,
+          signInConnect: 'Sign In & Connect',
+          signInDesc: 'Authenticate with Echo to access your personalized AI tutor',
+          chooseFocus: 'Choose Your Focus',
+          chooseFocusDesc: 'Select from reading, writing, grammar, vocabulary, or literature',
+          getHelp: 'Get Personalized Help',
+          getHelpDesc: 'Receive tailored guidance and feedback for your specific needs',
+          uploadDocuments: 'Upload Documents',
+          uploadDesc: 'Get detailed feedback on your essays and writing assignments',
+          trackProgress: 'Track Progress',
+          trackDesc: 'Monitor your improvement and celebrate your achievements',
+          learnGrow: 'Learn & Grow',
+          learnDesc: 'Develop stronger ELA skills through guided practice',
+          // Academic Integrity
+          academicIntegrityTitle: 'Academic Integrity Commitment',
+          whatWeDoTitle: 'What We Do',
+          whatWeDontTitle: 'What We Don\'t Do',
+          guideWriting: 'Guide you through the writing process',
+          developIdeas: 'Help you develop your own ideas',
+          provideFeedback: 'Provide feedback on structure and clarity',
+          teachGrammar: 'Teach grammar and writing techniques',
+          supportJourney: 'Support your learning journey',
+          writeEssays: 'Write essays or assignments for you',
+          completeHomework: 'Complete homework on your behalf',
+          provideAnswers: 'Provide ready-made answers',
+          enableDishonesty: 'Enable academic dishonesty',
+          bypassLearning: 'Bypass the learning process',
+          replaceTeachers: 'Replace teachers',
+          giveTeachersTools: 'Give teachers the tools to reach more students',
+          // Footer
+          footerQuote: '"Education is not the filling of a pot but the lighting of a fire"',
+          footerAuthor: '— W.B. Yeats'
         };
     }
   };
@@ -141,26 +456,21 @@ function ChatPageContent() {
               {languageText.title}
             </h2>
             <p className="text-purple-200 mb-8 text-xl font-serif leading-relaxed">
-              {currentLanguage === 'es' 
-                ? 'Tu tutor de Artes del Lenguaje Inglés con IA, inspirado en autores famosos y diseñado para la excelencia educativa. Obtén ayuda personalizada con comprensión de lectura, habilidades de escritura, gramática, vocabulario y análisis literario.'
-                : currentLanguage === 'ht'
-                ? 'Pwofesè ELA ou ki pouse pa IA, enspire pa otè selyè yo ak fèt pou ekselans edikatif. Jwenn èd pèsonalize ak konpreyansyon lekti, konpetans ekriti, gramè, vokabilè, ak analiz literè.'
-                : 'Your AI-powered English Language Arts tutor, inspired by famous authors and designed for educational excellence. Get personalized help with reading comprehension, writing skills, grammar, vocabulary, and literary analysis.'
-              }
+              {languageText.heroDescription}
             </p>
             
             <div className="flex items-center justify-center space-x-4 text-purple-200 mb-8">
               <div className="flex items-center space-x-2">
                 <Brain className="w-5 h-5 text-blue-400" />
-                <span>{currentLanguage === 'es' ? 'Aprendizaje con IA' : currentLanguage === 'ht' ? 'Aprantisaj ak IA' : 'AI-Powered Learning'}</span>
+                <span>{languageText.aiLearning}</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Languages className="w-5 h-5 text-green-400" />
-                <span>{currentLanguage === 'es' ? 'Soporte Multi-idioma' : currentLanguage === 'ht' ? 'Sipò Plizyè Lang' : 'Multi-Language Support'}</span>
+                <span>{languageText.multiLanguage}</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Shield className="w-5 h-5 text-purple-400" />
-                <span>{currentLanguage === 'es' ? 'Integridad Académica' : currentLanguage === 'ht' ? 'Entegrite Akademik' : 'Academic Integrity'}</span>
+                <span>{languageText.academicIntegrity}</span>
               </div>
             </div>
           </div>
@@ -168,7 +478,7 @@ function ChatPageContent() {
 
         {/* Mission Statement */}
         <div className="bg-white/5 border border-white/20 rounded-xl p-8 mb-12">
-          <h3 className="text-2xl font-bold text-white mb-4 font-serif text-center">🎯 {currentLanguage === 'es' ? 'Nuestra Misión' : currentLanguage === 'ht' ? 'Misyon Nou' : 'Our Mission'}</h3>
+          <h3 className="text-2xl font-bold text-white mb-4 font-serif text-center">🎯 {languageText.missionTitle}</h3>
           <p className="text-purple-200 text-lg text-center font-serif leading-relaxed">
             {languageText.mission}
           </p>
@@ -181,28 +491,28 @@ function ChatPageContent() {
           <div className="bg-gradient-to-br from-blue-900/50 to-blue-700/50 border border-blue-400 rounded-xl p-6">
             <div className="text-center mb-4">
               <BookOpen className="w-12 h-12 text-blue-400 mx-auto mb-3" />
-              <h3 className="text-xl font-bold text-white font-serif">Reading & Comprehension</h3>
+              <h3 className="text-xl font-bold text-white font-serif">{languageText.readingComprehension}</h3>
             </div>
             <ul className="space-y-3 text-blue-100 font-serif">
               <li className="flex items-start gap-2">
                 <Eye className="w-5 h-5 text-blue-300 mt-0.5 flex-shrink-0" />
-                <span>Text Analysis Strategies</span>
+                <span>{languageText.textAnalysis}</span>
               </li>
               <li className="flex items-start gap-2">
                 <Target className="w-5 h-5 text-blue-300 mt-0.5 flex-shrink-0" />
-                <span>Main Idea Identification</span>
+                <span>{languageText.mainIdea}</span>
               </li>
               <li className="flex items-start gap-2">
                 <Brain className="w-5 h-5 text-blue-300 mt-0.5 flex-shrink-0" />
-                <span>Critical Thinking Skills</span>
+                <span>{languageText.criticalThinking}</span>
               </li>
               <li className="flex items-start gap-2">
                 <Sparkles className="w-5 h-5 text-blue-300 mt-0.5 flex-shrink-0" />
-                <span>Literary Device Recognition</span>
+                <span>{languageText.literaryDevices}</span>
               </li>
               <li className="flex items-start gap-2">
                 <Award className="w-5 h-5 text-blue-300 mt-0.5 flex-shrink-0" />
-                <span>Comprehension Assessment</span>
+                <span>{languageText.comprehensionAssessment}</span>
               </li>
             </ul>
           </div>
@@ -211,28 +521,28 @@ function ChatPageContent() {
           <div className="bg-gradient-to-br from-purple-900/50 to-purple-700/50 border border-purple-400 rounded-xl p-6">
             <div className="text-center mb-4">
               <GraduationCap className="w-12 h-12 text-purple-400 mx-auto mb-3" />
-              <h3 className="text-xl font-bold text-white font-serif">Writing & Grammar</h3>
+              <h3 className="text-xl font-bold text-white font-serif">{languageText.writingGrammar}</h3>
             </div>
             <ul className="space-y-3 text-purple-100 font-serif">
               <li className="flex items-start gap-2">
                 <FileText className="w-5 h-5 text-purple-300 mt-0.5 flex-shrink-0" />
-                <span>Essay Structure & Organization</span>
+                <span>{languageText.essayStructure}</span>
               </li>
               <li className="flex items-start gap-2">
                 <Code className="w-5 h-5 text-purple-300 mt-0.5 flex-shrink-0" />
-                <span>Grammar & Mechanics</span>
+                <span>{languageText.grammarMechanics}</span>
               </li>
               <li className="flex items-start gap-2">
                 <Palette className="w-5 h-5 text-purple-300 mt-0.5 flex-shrink-0" />
-                <span>Style & Voice Development</span>
+                <span>{languageText.styleVoice}</span>
               </li>
               <li className="flex items-start gap-2">
                 <Upload className="w-5 h-5 text-purple-300 mt-0.5 flex-shrink-0" />
-                <span>Document Upload & Feedback</span>
+                <span>{languageText.documentUpload}</span>
               </li>
               <li className="flex items-start gap-2">
                 <RefreshCw className="w-5 h-5 text-purple-300 mt-0.5 flex-shrink-0" />
-                <span>Revision Strategies</span>
+                <span>{languageText.revisionStrategies}</span>
               </li>
             </ul>
           </div>
@@ -241,28 +551,28 @@ function ChatPageContent() {
           <div className="bg-gradient-to-br from-pink-900/50 to-pink-700/50 border border-pink-400 rounded-xl p-6">
             <div className="text-center mb-4">
               <MessageSquare className="w-12 h-12 text-pink-400 mx-auto mb-3" />
-              <h3 className="text-xl font-bold text-white font-serif">Literature & Analysis</h3>
+              <h3 className="text-xl font-bold text-white font-serif">{languageText.literatureAnalysis}</h3>
             </div>
             <ul className="space-y-3 text-pink-100 font-serif">
               <li className="flex items-start gap-2">
                 <Users className="w-5 h-5 text-pink-300 mt-0.5 flex-shrink-0" />
-                <span>Character Analysis</span>
+                <span>{languageText.characterAnalysis}</span>
               </li>
               <li className="flex items-start gap-2">
                 <Globe className="w-5 h-5 text-pink-300 mt-0.5 flex-shrink-0" />
-                <span>Thematic Exploration</span>
+                <span>{languageText.thematicExploration}</span>
               </li>
               <li className="flex items-start gap-2">
                 <Lightbulb className="w-5 h-5 text-pink-300 mt-0.5 flex-shrink-0" />
-                <span>Literary Criticism</span>
+                <span>{languageText.literaryCriticism}</span>
               </li>
               <li className="flex items-start gap-2">
                 <Star className="w-5 h-5 text-pink-300 mt-0.5 flex-shrink-0" />
-                <span>Classic Literature Study</span>
+                <span>{languageText.classicLiterature}</span>
               </li>
               <li className="flex items-start gap-2">
                 <TrendingUp className="w-5 h-5 text-pink-300 mt-0.5 flex-shrink-0" />
-                <span>Literary Analysis Skills</span>
+                <span>{languageText.literaryAnalysisSkills}</span>
               </li>
             </ul>
           </div>
@@ -271,28 +581,28 @@ function ChatPageContent() {
           <div className="bg-gradient-to-br from-green-900/50 to-green-700/50 border border-green-400 rounded-xl p-6">
             <div className="text-center mb-4">
               <Target className="w-12 h-12 text-green-400 mx-auto mb-3" />
-              <h3 className="text-xl font-bold text-white font-serif">Test Prep</h3>
+              <h3 className="text-xl font-bold text-white font-serif">{languageText.testPrep}</h3>
             </div>
             <ul className="space-y-3 text-green-100 font-serif">
               <li className="flex items-start gap-2">
                 <Award className="w-5 h-5 text-green-300 mt-0.5 flex-shrink-0" />
-                <span>SAT/ACT Reading Strategies</span>
+                <span>{languageText.satActStrategies}</span>
               </li>
               <li className="flex items-start gap-2">
                 <FileText className="w-5 h-5 text-green-300 mt-0.5 flex-shrink-0" />
-                <span>Essay Writing Techniques</span>
+                <span>{languageText.essayTechniques}</span>
               </li>
               <li className="flex items-start gap-2">
                 <Brain className="w-5 h-5 text-green-300 mt-0.5 flex-shrink-0" />
-                <span>Critical Reading Skills</span>
+                <span>{languageText.criticalReading}</span>
               </li>
               <li className="flex items-start gap-2">
                 <Code className="w-5 h-5 text-green-300 mt-0.5 flex-shrink-0" />
-                <span>Grammar & Usage Review</span>
+                <span>{languageText.grammarUsage}</span>
               </li>
               <li className="flex items-start gap-2">
                 <Sparkles className="w-5 h-5 text-green-300 mt-0.5 flex-shrink-0" />
-                <span>Practice Test Strategies</span>
+                <span>{languageText.practiceStrategies}</span>
               </li>
             </ul>
           </div>
@@ -301,28 +611,28 @@ function ChatPageContent() {
           <div className="bg-gradient-to-br from-orange-900/50 to-orange-700/50 border border-orange-400 rounded-xl p-6">
             <div className="text-center mb-4">
               <Users className="w-12 h-12 text-orange-400 mx-auto mb-3" />
-              <h3 className="text-xl font-bold text-white font-serif">Public Speaking</h3>
+              <h3 className="text-xl font-bold text-white font-serif">{languageText.publicSpeaking}</h3>
             </div>
             <ul className="space-y-3 text-orange-100 font-serif">
               <li className="flex items-start gap-2">
                 <MessageSquare className="w-5 h-5 text-orange-300 mt-0.5 flex-shrink-0" />
-                <span>Speech Writing & Structure</span>
+                <span>{languageText.speechWriting}</span>
               </li>
               <li className="flex items-start gap-2">
                 <Eye className="w-5 h-5 text-orange-300 mt-0.5 flex-shrink-0" />
-                <span>Delivery Techniques</span>
+                <span>{languageText.deliveryTechniques}</span>
               </li>
               <li className="flex items-start gap-2">
                 <Brain className="w-5 h-5 text-orange-300 mt-0.5 flex-shrink-0" />
-                <span>Persuasive Speaking</span>
+                <span>{languageText.persuasiveSpeaking}</span>
               </li>
               <li className="flex items-start gap-2">
                 <Star className="w-5 h-5 text-orange-300 mt-0.5 flex-shrink-0" />
-                <span>Presentation Skills</span>
+                <span>{languageText.presentationSkills}</span>
               </li>
               <li className="flex items-start gap-2">
                 <TrendingUp className="w-5 h-5 text-orange-300 mt-0.5 flex-shrink-0" />
-                <span>Confidence Building</span>
+                <span>{languageText.confidenceBuilding}</span>
               </li>
             </ul>
           </div>
@@ -331,28 +641,28 @@ function ChatPageContent() {
           <div className="bg-gradient-to-br from-teal-900/50 to-teal-700/50 border border-teal-400 rounded-xl p-6">
             <div className="text-center mb-4">
               <Languages className="w-12 h-12 text-teal-400 mx-auto mb-3" />
-              <h3 className="text-xl font-bold text-white font-serif">ELL Support</h3>
+              <h3 className="text-xl font-bold text-white font-serif">{languageText.ellSupport}</h3>
             </div>
             <ul className="space-y-3 text-teal-100 font-serif">
               <li className="flex items-start gap-2">
                 <BookOpen className="w-5 h-5 text-teal-300 mt-0.5 flex-shrink-0" />
-                <span>English Language Learning</span>
+                <span>{languageText.englishLearning}</span>
               </li>
               <li className="flex items-start gap-2">
                 <Code className="w-5 h-5 text-teal-300 mt-0.5 flex-shrink-0" />
-                <span>Grammar for ELL Students</span>
+                <span>{languageText.grammarELL}</span>
               </li>
               <li className="flex items-start gap-2">
                 <FileText className="w-5 h-5 text-teal-300 mt-0.5 flex-shrink-0" />
-                <span>Academic Writing Support</span>
+                <span>{languageText.academicWriting}</span>
               </li>
               <li className="flex items-start gap-2">
                 <MessageSquare className="w-5 h-5 text-teal-300 mt-0.5 flex-shrink-0" />
-                <span>Conversational English</span>
+                <span>{languageText.conversationalEnglish}</span>
               </li>
               <li className="flex items-start gap-2">
                 <Sparkles className="w-5 h-5 text-teal-300 mt-0.5 flex-shrink-0" />
-                <span>Cultural Context Understanding</span>
+                <span>{languageText.culturalContext}</span>
               </li>
             </ul>
           </div>
@@ -361,28 +671,28 @@ function ChatPageContent() {
           <div className="bg-gradient-to-br from-indigo-900/50 to-indigo-700/50 border border-indigo-400 rounded-xl p-6">
             <div className="text-center mb-4">
               <Sparkles className="w-12 h-12 text-indigo-400 mx-auto mb-3" />
-              <h3 className="text-xl font-bold text-white font-serif">Vocabulary Building</h3>
+              <h3 className="text-xl font-bold text-white font-serif">{languageText.vocabularyBuilding}</h3>
             </div>
             <ul className="space-y-3 text-indigo-100 font-serif">
               <li className="flex items-start gap-2">
                 <BookOpen className="w-5 h-5 text-indigo-300 mt-0.5 flex-shrink-0" />
-                <span>Context Clue Strategies</span>
+                <span>{languageText.contextClues}</span>
               </li>
               <li className="flex items-start gap-2">
                 <Brain className="w-5 h-5 text-indigo-300 mt-0.5 flex-shrink-0" />
-                <span>Word Root Analysis</span>
+                <span>{languageText.wordRootAnalysis}</span>
               </li>
               <li className="flex items-start gap-2">
                 <Target className="w-5 h-5 text-indigo-300 mt-0.5 flex-shrink-0" />
-                <span>Academic Vocabulary</span>
+                <span>{languageText.academicVocabulary}</span>
               </li>
               <li className="flex items-start gap-2">
                 <Star className="w-5 h-5 text-indigo-300 mt-0.5 flex-shrink-0" />
-                <span>SAT/ACT Word Lists</span>
+                <span>{languageText.satActWords}</span>
               </li>
               <li className="flex items-start gap-2">
                 <TrendingUp className="w-5 h-5 text-indigo-300 mt-0.5 flex-shrink-0" />
-                <span>Vocabulary Retention</span>
+                <span>{languageText.vocabularyRetention}</span>
               </li>
             </ul>
           </div>
@@ -391,28 +701,28 @@ function ChatPageContent() {
           <div className="bg-gradient-to-br from-red-900/50 to-red-700/50 border border-red-400 rounded-xl p-6">
             <div className="text-center mb-4">
               <ChevronDown className="w-12 h-12 text-red-400 mx-auto mb-3" />
-              <h3 className="text-xl font-bold text-white font-serif">Research Skills</h3>
+              <h3 className="text-xl font-bold text-white font-serif">{languageText.researchSkills}</h3>
             </div>
             <ul className="space-y-3 text-red-100 font-serif">
               <li className="flex items-start gap-2">
                 <BookOpen className="w-5 h-5 text-red-300 mt-0.5 flex-shrink-0" />
-                <span>Research Paper Writing</span>
+                <span>{languageText.researchPaper}</span>
               </li>
               <li className="flex items-start gap-2">
                 <Target className="w-5 h-5 text-red-300 mt-0.5 flex-shrink-0" />
-                <span>Source Evaluation</span>
+                <span>{languageText.sourceEvaluation}</span>
               </li>
               <li className="flex items-start gap-2">
                 <FileText className="w-5 h-5 text-red-300 mt-0.5 flex-shrink-0" />
-                <span>Citation & Formatting</span>
+                <span>{languageText.citationFormatting}</span>
               </li>
               <li className="flex items-start gap-2">
                 <Brain className="w-5 h-5 text-red-300 mt-0.5 flex-shrink-0" />
-                <span>Critical Analysis</span>
+                <span>{languageText.criticalAnalysis}</span>
               </li>
               <li className="flex items-start gap-2">
                 <Sparkles className="w-5 h-5 text-red-300 mt-0.5 flex-shrink-0" />
-                <span>Academic Writing</span>
+                <span>{languageText.academicWritingSkills}</span>
               </li>
             </ul>
           </div>
@@ -420,95 +730,95 @@ function ChatPageContent() {
 
         {/* Advanced Features */}
         <div className="bg-white/5 border border-white/20 rounded-xl p-8 mb-12">
-          <h3 className="text-2xl font-bold text-white mb-6 font-serif text-center">🚀 Advanced Features</h3>
+          <h3 className="text-2xl font-bold text-white mb-6 font-serif text-center">🚀 {languageText.advancedFeaturesTitle}</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="text-center">
               <Languages className="w-8 h-8 text-blue-400 mx-auto mb-2" />
               <h4 className="text-white font-semibold mb-1">Multi-Language</h4>
-              <p className="text-purple-200 text-sm">English, Spanish, Haitian Creole</p>
+              <p className="text-purple-200 text-sm">{languageText.multiLanguageDesc}</p>
             </div>
             <div className="text-center">
               <Upload className="w-8 h-8 text-green-400 mx-auto mb-2" />
               <h4 className="text-white font-semibold mb-1">Document Upload</h4>
-              <p className="text-purple-200 text-sm">Get feedback on your writing</p>
+              <p className="text-purple-200 text-sm">{languageText.documentUploadDesc}</p>
             </div>
             <div className="text-center">
               <Shield className="w-8 h-8 text-purple-400 mx-auto mb-2" />
               <h4 className="text-white font-semibold mb-1">Academic Integrity</h4>
-              <p className="text-purple-200 text-sm">Guided learning, not cheating</p>
+              <p className="text-purple-200 text-sm">{languageText.academicIntegrityDesc}</p>
             </div>
             <div className="text-center">
               <Brain className="w-8 h-8 text-pink-400 mx-auto mb-2" />
               <h4 className="text-white font-semibold mb-1">Smart Suggestions</h4>
-              <p className="text-purple-200 text-sm">AI-powered learning prompts</p>
+              <p className="text-purple-200 text-sm">{languageText.smartSuggestionsDesc}</p>
             </div>
             <div className="text-center">
               <CheckCircle className="w-8 h-8 text-yellow-400 mx-auto mb-2" />
               <h4 className="text-white font-semibold mb-1">Progress Tracking</h4>
-              <p className="text-purple-200 text-sm">Monitor your learning journey</p>
+              <p className="text-purple-200 text-sm">{languageText.progressTrackingDesc}</p>
             </div>
             <div className="text-center">
               <Send className="w-8 h-8 text-indigo-400 mx-auto mb-2" />
               <h4 className="text-white font-semibold mb-1">Real-time Chat</h4>
-              <p className="text-purple-200 text-sm">Instant AI responses</p>
+              <p className="text-purple-200 text-sm">{languageText.realtimeChatDesc}</p>
             </div>
             <div className="text-center">
               <ChevronDown className="w-8 h-8 text-teal-400 mx-auto mb-2" />
               <h4 className="text-white font-semibold mb-1">Topic Selection</h4>
-              <p className="text-purple-200 text-sm">Choose your learning focus</p>
+              <p className="text-purple-200 text-sm">{languageText.topicSelectionDesc}</p>
             </div>
             <div className="text-center">
               <AlertTriangle className="w-8 h-8 text-orange-400 mx-auto mb-2" />
               <h4 className="text-white font-semibold mb-1">Error Prevention</h4>
-              <p className="text-purple-200 text-sm">Common mistake guidance</p>
+              <p className="text-purple-200 text-sm">{languageText.errorPreventionDesc}</p>
             </div>
             <div className="text-center">
               <Zap className="w-8 h-8 text-red-400 mx-auto mb-2" />
               <h4 className="text-white font-semibold mb-1">Immediate Academic Intervention</h4>
-              <p className="text-purple-200 text-sm">Instant support when you need it</p>
+              <p className="text-purple-200 text-sm">{languageText.immediateInterventionDesc}</p>
             </div>
             <div className="text-center">
               <Users className="w-8 h-8 text-emerald-400 mx-auto mb-2" />
               <h4 className="text-white font-semibold mb-1">Extra Scaffolding</h4>
-              <p className="text-purple-200 text-sm">Support for struggling students</p>
+              <p className="text-purple-200 text-sm">{languageText.extraScaffoldingDesc}</p>
             </div>
             <div className="text-center">
               <BookOpen className="w-8 h-8 text-cyan-400 mx-auto mb-2" />
               <h4 className="text-white font-semibold mb-1">Extra Examples</h4>
-              <p className="text-purple-200 text-sm">Multiple examples for clarity</p>
+              <p className="text-purple-200 text-sm">{languageText.extraExamplesDesc}</p>
             </div>
             <div className="text-center">
               <MessageSquare className="w-8 h-8 text-violet-400 mx-auto mb-2" />
               <h4 className="text-white font-semibold mb-1">Conversational Approach</h4>
-              <p className="text-purple-200 text-sm">Question what you don't know</p>
+              <p className="text-purple-200 text-sm">{languageText.conversationalApproachDesc}</p>
             </div>
           </div>
         </div>
 
-        {/* How It Works */}
+                {/* How It Works */}
         <div className="bg-white/5 border border-white/20 rounded-xl p-8 mb-12">
-                      <h3 className="text-2xl font-bold text-white mb-6 font-serif text-center">💡 How Claude {selectedAuthor} Works</h3>
+          <h3 className="text-2xl font-bold text-white mb-6 font-serif text-center">💡 {languageText.howItWorksTitle}</h3>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-6">
               <div className="flex items-start gap-4">
                 <div className="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold flex-shrink-0">1</div>
                 <div>
-                  <h4 className="text-white font-semibold mb-2">Sign In & Connect</h4>
-                  <p className="text-purple-200 text-sm">Authenticate with Echo to access your personalized AI tutor</p>
+                  <h4 className="text-white font-semibold mb-2">{languageText.signInConnect}</h4>
+                  <p className="text-purple-200 text-sm">{languageText.signInDesc}</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
                 <div className="bg-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold flex-shrink-0">2</div>
                 <div>
-                  <h4 className="text-white font-semibold mb-2">Choose Your Focus</h4>
-                  <p className="text-purple-200 text-sm">Select from reading, writing, grammar, vocabulary, or literature</p>
+                  <h4 className="text-white font-semibold mb-2">{languageText.chooseFocus}</h4>
+                  <p className="text-purple-200 text-sm">{languageText.chooseFocusDesc}</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
                 <div className="bg-pink-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold flex-shrink-0">3</div>
                 <div>
-                  <h4 className="text-white font-semibold mb-2">Get Personalized Help</h4>
-                  <p className="text-purple-200 text-sm">Receive tailored guidance and feedback for your specific needs</p>
+                  <h4 className="text-white font-semibold mb-2">{languageText.getHelp}</h4>
+                  <p className="text-purple-200 text-sm">{languageText.getHelpDesc}</p>
                 </div>
               </div>
             </div>
@@ -516,22 +826,22 @@ function ChatPageContent() {
               <div className="flex items-start gap-4">
                 <div className="bg-green-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold flex-shrink-0">4</div>
                 <div>
-                  <h4 className="text-white font-semibold mb-2">Upload Documents</h4>
-                  <p className="text-purple-200 text-sm">Get detailed feedback on your essays and writing assignments</p>
+                  <h4 className="text-white font-semibold mb-2">{languageText.uploadDocuments}</h4>
+                  <p className="text-purple-200 text-sm">{languageText.uploadDesc}</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
                 <div className="bg-yellow-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold flex-shrink-0">5</div>
                 <div>
-                  <h4 className="text-white font-semibold mb-2">Track Progress</h4>
-                  <p className="text-purple-200 text-sm">Monitor your improvement and celebrate your achievements</p>
+                  <h4 className="text-white font-semibold mb-2">{languageText.trackProgress}</h4>
+                  <p className="text-purple-200 text-sm">{languageText.trackDesc}</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
                 <div className="bg-indigo-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold flex-shrink-0">6</div>
                 <div>
-                  <h4 className="text-white font-semibold mb-2">Learn & Grow</h4>
-                  <p className="text-purple-200 text-sm">Develop stronger ELA skills through guided practice</p>
+                  <h4 className="text-white font-semibold mb-2">{languageText.learnGrow}</h4>
+                  <p className="text-purple-200 text-sm">{languageText.learnDesc}</p>
                 </div>
               </div>
             </div>
@@ -540,71 +850,71 @@ function ChatPageContent() {
 
         {/* Academic Integrity */}
         <div className="bg-gradient-to-r from-emerald-900/50 to-teal-800/50 border border-emerald-400 rounded-xl p-8 mb-12">
-          <h3 className="text-2xl font-bold text-white mb-6 font-serif text-center">🛡️ Academic Integrity Commitment</h3>
+          <h3 className="text-2xl font-bold text-white mb-6 font-serif text-center">🛡️ {languageText.academicIntegrityTitle}</h3>
           
           {/* What We Do / What We Don't Do */}
           <div className="grid md:grid-cols-2 gap-8 mb-8">
             <div>
               <h4 className="text-emerald-200 font-semibold mb-4 flex items-center gap-2">
                 <CheckCircle className="w-5 h-5" />
-                What We Do
+                {languageText.whatWeDoTitle}
               </h4>
               <ul className="space-y-3 text-emerald-100 font-serif">
                 <li className="flex items-start gap-2">
                   <span className="text-emerald-300">✓</span>
-                  <span>Guide you through the writing process</span>
+                  <span>{languageText.guideWriting}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-emerald-300">✓</span>
-                  <span>Help you develop your own ideas</span>
+                  <span>{languageText.developIdeas}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-emerald-300">✓</span>
-                  <span>Provide feedback on structure and clarity</span>
+                  <span>{languageText.provideFeedback}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-emerald-300">✓</span>
-                  <span>Teach grammar and writing techniques</span>
+                  <span>{languageText.teachGrammar}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-emerald-300">✓</span>
-                  <span>Support your learning journey</span>
+                  <span>{languageText.supportJourney}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-emerald-300">✓</span>
-                  <span>Give teachers the tools to reach more students</span>
+                  <span>{languageText.giveTeachersTools}</span>
                 </li>
               </ul>
             </div>
             <div>
               <h4 className="text-red-200 font-semibold mb-4 flex items-center gap-2">
                 <AlertTriangle className="w-5 h-5" />
-                What We Don't Do
+                {languageText.whatWeDontTitle}
               </h4>
               <ul className="space-y-3 text-red-100 font-serif">
                 <li className="flex items-start gap-2">
                   <span className="text-red-300">✗</span>
-                  <span>Write essays or assignments for you</span>
+                  <span>{languageText.writeEssays}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-red-300">✗</span>
-                  <span>Complete homework on your behalf</span>
+                  <span>{languageText.completeHomework}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-red-300">✗</span>
-                  <span>Provide ready-made answers</span>
+                  <span>{languageText.provideAnswers}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-red-300">✗</span>
-                  <span>Enable academic dishonesty</span>
+                  <span>{languageText.enableDishonesty}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-red-300">✗</span>
-                  <span>Bypass the learning process</span>
+                  <span>{languageText.bypassLearning}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-red-300">✗</span>
-                  <span>Replace teachers</span>
+                  <span>{languageText.replaceTeachers}</span>
                 </li>
               </ul>
             </div>
@@ -875,10 +1185,10 @@ function ChatPageContent() {
         {/* Footer Quote */}
         <div className="text-center mt-12">
           <p className="text-purple-200 text-xl font-serif italic mb-2">
-            "The only way to do great work is to love what you do"
+            {languageText.footerQuote}
           </p>
           <p className="text-purple-300 text-sm font-serif">
-            — Steve Jobs
+            {languageText.footerAuthor}
           </p>
         </div>
 
