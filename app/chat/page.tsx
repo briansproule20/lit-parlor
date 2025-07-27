@@ -462,6 +462,26 @@ function ChatPageContent() {
               <h4 className="text-white font-semibold mb-1">Error Prevention</h4>
               <p className="text-purple-200 text-sm">Common mistake guidance</p>
             </div>
+            <div className="text-center">
+              <Zap className="w-8 h-8 text-red-400 mx-auto mb-2" />
+              <h4 className="text-white font-semibold mb-1">Immediate Academic Intervention</h4>
+              <p className="text-purple-200 text-sm">Instant support when you need it</p>
+            </div>
+            <div className="text-center">
+              <Users className="w-8 h-8 text-emerald-400 mx-auto mb-2" />
+              <h4 className="text-white font-semibold mb-1">Extra Scaffolding</h4>
+              <p className="text-purple-200 text-sm">Support for struggling students</p>
+            </div>
+            <div className="text-center">
+              <BookOpen className="w-8 h-8 text-cyan-400 mx-auto mb-2" />
+              <h4 className="text-white font-semibold mb-1">Extra Examples</h4>
+              <p className="text-purple-200 text-sm">Multiple examples for clarity</p>
+            </div>
+            <div className="text-center">
+              <MessageSquare className="w-8 h-8 text-violet-400 mx-auto mb-2" />
+              <h4 className="text-white font-semibold mb-1">Conversational Approach</h4>
+              <p className="text-purple-200 text-sm">Question what you don't know</p>
+            </div>
           </div>
         </div>
 
