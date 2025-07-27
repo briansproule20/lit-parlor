@@ -850,7 +850,7 @@ export default function Home() {
 
         {/* AI Tutor Section */}
         <div className="text-center mb-12">
-          <div className="inline-block p-8 bg-gradient-to-r from-emerald-900/90 to-teal-800/90 border-4 border-emerald-400 rounded-2xl shadow-2xl relative overflow-hidden h-[300px] bg-white">
+          <div className="inline-block p-8 bg-gradient-to-r from-emerald-900/90 to-teal-800/90 border-4 border-emerald-400 rounded-2xl shadow-2xl relative overflow-hidden h-[400px] bg-white">
             {/* Background Beams Effect */}
             <BackgroundBeams className="opacity-90" />
             <div className="relative z-10 h-full flex flex-col justify-center">
@@ -878,14 +878,24 @@ export default function Home() {
                 <span>Literary Analysis</span>
               </div>
             </div>
-            <a 
-              href="https://github.com/briansproule20/claude_hemingway" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 inline-block text-lg"
-            >
-              See Project on GitHub
-            </a>
+            <div className="space-y-4">
+              <a 
+                href="https://github.com/briansproule20/claude_hemingway" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 inline-block text-lg"
+              >
+                See Project on GitHub
+              </a>
+              <div className="mt-4">
+                <Link 
+                  href="/chat" 
+                  className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 inline-block text-lg font-serif"
+                >
+                  Checkout Our ELA Tutor Chat Page for a Sneakpeak of things to come
+                </Link>
+              </div>
+            </div>
             <p className="text-emerald-300 text-sm mt-3 font-serif italic">
               Integration coming soon.
             </p>
