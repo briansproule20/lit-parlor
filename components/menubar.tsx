@@ -106,16 +106,18 @@ export default function Menubar() {
       onMouseLeave={handleMouseLeave}>
         <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
           
-          {/* Return to Parlor Button - Far Left */}
-          <div className="flex-shrink-0">
-            <Link href="/" className="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white font-bold py-2 px-4 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 font-serif flex items-center space-x-2">
-              <span>🏠</span>
-              <span>Return to Parlor</span>
-            </Link>
-          </div>
+          {/* Return to Parlor Button - Far Left (only show when not on home page) */}
+          {!isHomePage && (
+            <div className="flex-shrink-0">
+              <Link href="/" className="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white font-bold py-2 px-4 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 font-serif flex items-center space-x-2">
+                <span>🏠</span>
+                <span>Return to Parlor</span>
+              </Link>
+            </div>
+          )}
 
           {/* Center Navigation Menu */}
-          <div className="flex justify-center space-x-8">
+          <div className={`flex justify-center space-x-8 ${isHomePage ? 'flex-1' : ''}`}>
             
             {/* Students Dropdown */}
             <div className="group relative">
