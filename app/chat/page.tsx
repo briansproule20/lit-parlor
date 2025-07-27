@@ -489,7 +489,9 @@ function ChatPageContent() {
         {/* Academic Integrity */}
         <div className="bg-gradient-to-r from-emerald-900/50 to-teal-800/50 border border-emerald-400 rounded-xl p-8 mb-12">
           <h3 className="text-2xl font-bold text-white mb-6 font-serif text-center">🛡️ Academic Integrity Commitment</h3>
-          <div className="grid md:grid-cols-2 gap-8">
+          
+          {/* What We Do / What We Don't Do */}
+          <div className="grid md:grid-cols-2 gap-8 mb-8">
             <div>
               <h4 className="text-emerald-200 font-semibold mb-4 flex items-center gap-2">
                 <CheckCircle className="w-5 h-5" />
@@ -515,6 +517,10 @@ function ChatPageContent() {
                 <li className="flex items-start gap-2">
                   <span className="text-emerald-300">✓</span>
                   <span>Support your learning journey</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-300">✓</span>
+                  <span>Give teachers the tools to reach more students</span>
                 </li>
               </ul>
             </div>
@@ -543,6 +549,252 @@ function ChatPageContent() {
                 <li className="flex items-start gap-2">
                   <span className="text-red-300">✗</span>
                   <span>Bypass the learning process</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-red-300">✗</span>
+                  <span>Replace teachers</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* How It Works - Technical Details */}
+          <div className="bg-white/5 border border-white/20 rounded-xl p-6 mb-6">
+            <h4 className="text-2xl font-bold text-white mb-4 font-serif text-center">⚙️ How It Works</h4>
+            
+            {/* API Integration */}
+            <div className="mb-6">
+              <h5 className="text-lg font-semibold text-emerald-200 mb-3 flex items-center gap-2">
+                <Zap className="w-5 h-5" />
+                API Integration
+              </h5>
+              <ul className="space-y-2 text-emerald-100 text-sm">
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-300">•</span>
+                  <span>Uses GPT-4o via Echo's AI router for consistent billing and management</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-300">•</span>
+                  <span>Maintains conversation context across messages</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-300">•</span>
+                  <span>Enforces academic integrity rules through system prompts</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-300">•</span>
+                  <span>Provides educational fallback responses when API is unavailable</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Error Handling */}
+            <div className="mb-6">
+              <h5 className="text-lg font-semibold text-blue-200 mb-3 flex items-center gap-2">
+                <AlertTriangle className="w-5 h-5" />
+                Error Handling
+              </h5>
+              <ul className="space-y-2 text-blue-100 text-sm">
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-300">•</span>
+                  <span><strong>Missing API Key:</strong> Provides clear setup instructions</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-300">•</span>
+                  <span><strong>Authentication Errors:</strong> Guides users to check their API key</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-300">•</span>
+                  <span><strong>Rate Limits:</strong> Handles API rate limiting gracefully</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-300">•</span>
+                  <span><strong>Connection Issues:</strong> Falls back to educational resources</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Academic Integrity Features */}
+          <div className="bg-white/5 border border-white/20 rounded-xl p-6 mb-6">
+            <h4 className="text-2xl font-bold text-white mb-4 font-serif text-center">🎯 Academic Integrity Features</h4>
+            <p className="text-purple-200 text-center mb-6">The chatbot includes robust protections against academic dishonesty with educational guidance:</p>
+            
+            {/* Enhanced Writing Request Detection */}
+            <div className="mb-6">
+              <h5 className="text-lg font-semibold text-purple-200 mb-3 flex items-center gap-2">
+                <Target className="w-5 h-5" />
+                Enhanced Writing Request Detection
+              </h5>
+              <ul className="space-y-2 text-purple-100 text-sm">
+                <li className="flex items-start gap-2">
+                  <span className="text-purple-300">•</span>
+                  <span>Comprehensive pattern matching for various writing request types</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-purple-300">•</span>
+                  <span>Educational redirection instead of simple blocking</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-purple-300">•</span>
+                  <span>Alternative learning strategies and skill development guidance</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-purple-300">•</span>
+                  <span>Process-focused assistance rather than content generation</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Proofreading Guidance System */}
+            <div className="mb-6">
+              <h5 className="text-lg font-semibold text-pink-200 mb-3 flex items-center gap-2">
+                <FileText className="w-5 h-5" />
+                Proofreading Guidance System
+              </h5>
+              <ul className="space-y-2 text-pink-100 text-sm">
+                <li className="flex items-start gap-2">
+                  <span className="text-pink-300">•</span>
+                  <span>Self-proofreading skill development instead of direct corrections</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-pink-300">•</span>
+                  <span>Paragraph-specific guidance (e.g., "Check Paragraph 1 for clear topic sentences")</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-pink-300">•</span>
+                  <span>Proofreading techniques and best practices</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-pink-300">•</span>
+                  <span>Error type categorization (grammar, punctuation, spelling)</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Educational Response Types */}
+            <div className="mb-6">
+              <h5 className="text-lg font-semibold text-green-200 mb-3 flex items-center gap-2">
+                <GraduationCap className="w-5 h-5" />
+                Educational Response Types
+              </h5>
+              <ul className="space-y-2 text-green-100 text-sm">
+                <li className="flex items-start gap-2">
+                  <span className="text-green-300">•</span>
+                  <span><strong>Writing Requests:</strong> Guidance on brainstorming, outlining, thesis development</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-300">•</span>
+                  <span><strong>Proofreading Requests:</strong> Self-proofreading tips and area-specific guidance</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-300">•</span>
+                  <span><strong>General Requests:</strong> Learning process focus and skill development</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Multilingual Academic Integrity */}
+            <div className="mb-6">
+              <h5 className="text-lg font-semibold text-indigo-200 mb-3 flex items-center gap-2">
+                <Languages className="w-5 h-5" />
+                Multilingual Academic Integrity
+              </h5>
+              <ul className="space-y-2 text-indigo-100 text-sm">
+                <li className="flex items-start gap-2">
+                  <span className="text-indigo-300">•</span>
+                  <span>English, Spanish, and Haitian Creole academic integrity messages</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-indigo-300">•</span>
+                  <span>Culturally appropriate educational guidance</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-indigo-300">•</span>
+                  <span>Localized violation explanations and learning strategies</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Content Moderation System */}
+          <div className="bg-white/5 border border-white/20 rounded-xl p-6">
+            <h4 className="text-2xl font-bold text-white mb-4 font-serif text-center">🛡️ Content Moderation System</h4>
+            
+            {/* Technical Safety Design */}
+            <div className="mb-6">
+              <h5 className="text-lg font-semibold text-yellow-200 mb-3 flex items-center gap-2">
+                <Shield className="w-5 h-5" />
+                Technical Safety Design
+              </h5>
+              <ul className="space-y-2 text-yellow-100 text-sm">
+                <li className="flex items-start gap-2">
+                  <span className="text-yellow-300">•</span>
+                  <span>Pattern-based filtering (avoids explicit word lists in codebase)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-yellow-300">•</span>
+                  <span>Comprehensive error handling</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-yellow-300">•</span>
+                  <span>Safe state management</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-yellow-300">•</span>
+                  <span>Clean code practices without offensive content</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Violation Management */}
+            <div className="mb-6">
+              <h5 className="text-lg font-semibold text-orange-200 mb-3 flex items-center gap-2">
+                <AlertTriangle className="w-5 h-5" />
+                Violation Management
+              </h5>
+              <ul className="space-y-2 text-orange-100 text-sm">
+                <li className="flex items-start gap-2">
+                  <span className="text-orange-300">•</span>
+                  <span>Progressive violation tracking and counting</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-orange-300">•</span>
+                  <span>Educational moderation modals with clear guidance</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-orange-300">•</span>
+                  <span>Safe learning environment indicators</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-orange-300">•</span>
+                  <span>Multiple violation warnings with escalating responses</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Safety Guidelines */}
+            <div className="mb-6">
+              <h5 className="text-lg font-semibold text-red-200 mb-3 flex items-center gap-2">
+                <CheckCircle className="w-5 h-5" />
+                Safety Guidelines
+              </h5>
+              <ul className="space-y-2 text-red-100 text-sm">
+                <li className="flex items-start gap-2">
+                  <span className="text-red-300">•</span>
+                  <span>Age-appropriate content enforcement</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-red-300">•</span>
+                  <span>Educational topic guidance and redirection</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-red-300">•</span>
+                  <span>Privacy protection for personal information</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-red-300">•</span>
+                  <span>Spam and commercial content filtering</span>
                 </li>
               </ul>
             </div>
