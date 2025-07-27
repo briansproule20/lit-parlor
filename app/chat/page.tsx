@@ -5,8 +5,28 @@ import { LogIn, MessageSquare, Bot, Sparkles, BookOpen, Users, Award, Globe, Bra
 import { useLanguage } from '@/components/chat/language-context';
 import { LanguageProvider } from '@/components/chat/language-context';
 
+// Famous author last names for random selection
+const famousAuthors: string[] = [
+  'Hemingway', 'Fitzgerald', 'Dickens', 'Austen', 'Tolstoy', 'Dostoevsky', 
+  'Shakespeare', 'Poe', 'Twain', 'Steinbeck', 'Faulkner', 'Joyce', 
+  'Woolf', 'Orwell', 'Bradbury', 'Vonnegut', 'Salinger', 'Kerouac',
+  'Ginsberg', 'Plath', 'Angelou', 'Morrison', 'King', 'Rowling',
+  'Tolkien', 'Lewis', 'Wilde', 'Bronte', 'Eliot', 'Yeats'
+];
+
 function ChatPageContent() {
   const { currentLanguage, setCurrentLanguage, languageOptions } = useLanguage();
+  
+  // Use state to track if component has mounted
+  const [mounted, setMounted] = React.useState(false);
+  const [selectedAuthor, setSelectedAuthor] = React.useState<string>('Hemingway'); // Default fallback
+  
+  // Set author after component mounts to avoid hydration mismatch
+  React.useEffect(() => {
+    const randomIndex = Math.floor(Math.random() * famousAuthors.length);
+    setSelectedAuthor(famousAuthors[randomIndex]);
+    setMounted(true);
+  }, []);
   
   const handleSignIn = async () => {
     // Simple placeholder for now
@@ -17,35 +37,47 @@ function ChatPageContent() {
     switch (currentLanguage) {
       case 'es':
         return {
-          title: 'Claude Hemingway',
+          title: `Claude ${selectedAuthor}`,
           subtitle: 'Tutor de ELA con IA y Asistente Literario',
           mission: 'Proporcionar tutoría personalizada de ELA con IA que ayude a los estudiantes a desarrollar habilidades de pensamiento crítico, mejorar sus habilidades de escritura y fomentar el amor por la literatura mientras mantiene los más altos estándares de integridad académica.',
           cta: '¿Listo para Transformar tus Habilidades de ELA?',
-          ctaSubtitle: 'Únete a miles de estudiantes que están mejorando sus habilidades de lectura, escritura y análisis con Claude Hemingway, tu tutor de ELA con IA.',
-          startButton: 'Comenzar a Aprender con Claude Hemingway'
+          ctaSubtitle: `Únete a miles de estudiantes que están mejorando sus habilidades de lectura, escritura y análisis con Claude ${selectedAuthor}, tu tutor de ELA con IA.`,
+          startButton: `Comenzar a Aprender con Claude ${selectedAuthor}`
         };
       case 'ht':
         return {
-          title: 'Claude Hemingway',
+          title: `Claude ${selectedAuthor}`,
           subtitle: 'Pwofesè ELA ak Asistan Literè ki Pouse pa IA',
           mission: 'Bay titoraj ELA pèsonalize ki pouse pa IA ki ede elèv yo devlope konpetans panse kritik, amelyore kapasite ekriti yo, ak fèmè lanmou pou literati pandan y ap kenbe pi wo estanda entegrite akademik.',
           cta: 'Ou Pare pou Transfòme Konpetans ELA Ou yo?',
-          ctaSubtitle: 'Antre nan dè milye elèv ki ap amelyore konpetans lekti, ekriti, ak analiz yo ak Claude Hemingway, pwofesè ELA ou ki pouse pa IA.',
-          startButton: 'Kòmanse Aprann ak Claude Hemingway'
+          ctaSubtitle: `Antre nan dè milye elèv ki ap amelyore konpetans lekti, ekriti, ak analiz yo ak Claude ${selectedAuthor}, pwofesè ELA ou ki pouse pa IA.`,
+          startButton: `Kòmanse Aprann ak Claude ${selectedAuthor}`
         };
       default:
         return {
-          title: 'Claude Hemingway',
+          title: `Claude ${selectedAuthor}`,
           subtitle: 'AI-Powered ELA Tutor & Literary Assistant',
           mission: 'To provide personalized, AI-powered English Language Arts tutoring that helps students develop critical thinking skills, improve their writing abilities, and foster a love for literature while maintaining the highest standards of academic integrity.',
           cta: 'Ready to Transform Your ELA Skills?',
-          ctaSubtitle: 'Join thousands of students who are improving their reading, writing, and analytical skills with Claude Hemingway, your AI-powered ELA tutor.',
-          startButton: 'Start Learning with Claude Hemingway'
+          ctaSubtitle: `Join thousands of students who are improving their reading, writing, and analytical skills with Claude ${selectedAuthor}, your AI-powered ELA tutor.`,
+          startButton: `Start Learning with Claude ${selectedAuthor}`
         };
     }
   };
 
   const languageText = getLanguageText();
+
+  // Show loading state until component is mounted to prevent hydration mismatch
+  if (!mounted) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white mx-auto mb-4"></div>
+          <p className="text-white text-lg">Loading Claude Hemingway...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
@@ -435,7 +467,7 @@ function ChatPageContent() {
 
         {/* How It Works */}
         <div className="bg-white/5 border border-white/20 rounded-xl p-8 mb-12">
-          <h3 className="text-2xl font-bold text-white mb-6 font-serif text-center">💡 How Claude Hemingway Works</h3>
+                      <h3 className="text-2xl font-bold text-white mb-6 font-serif text-center">💡 How Claude {selectedAuthor} Works</h3>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-6">
               <div className="flex items-start gap-4">
