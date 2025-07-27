@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState } from 'react';
-import { MessageSquare, X, Send, Bot, User } from 'lucide-react';
+import { MessageSquare, X, Send, Bot, User, ExternalLink } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 interface Message {
   id: number;
@@ -11,6 +12,7 @@ interface Message {
 }
 
 const ChatWidget: React.FC = () => {
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -63,6 +65,10 @@ const ChatWidget: React.FC = () => {
     }
   };
 
+  const handleLaunchFullChat = () => {
+    router.push('/chat');
+  };
+
   return (
     <div className="fixed bottom-4 right-4 z-50">
       {/* Chat Widget Button */}
@@ -84,12 +90,21 @@ const ChatWidget: React.FC = () => {
               <Bot className="w-5 h-5" />
               <span className="font-semibold">ELA Tutor</span>
             </div>
-            <button
-              onClick={() => setIsOpen(false)}
-              className="text-white hover:text-gray-200 transition-colors"
-            >
-              <X className="w-5 h-5" />
-            </button>
+            <div className="flex items-center space-x-2">
+              <button
+                onClick={handleLaunchFullChat}
+                className="text-white hover:text-gray-200 transition-colors p-1 rounded hover:bg-white/10"
+                title="Launch Full Chat"
+              >
+                <ExternalLink className="w-4 h-4" />
+              </button>
+              <button
+                onClick={() => setIsOpen(false)}
+                className="text-white hover:text-gray-200 transition-colors"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
           </div>
 
           {/* Messages */}
