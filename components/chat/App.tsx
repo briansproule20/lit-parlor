@@ -1,8 +1,8 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { EchoSignIn, useEcho } from '@zdql/echo-react-sdk';
-import EchoControlHeader from './components/EchoControlHeader';
-import ELATutorChatbot from './components/ELATutorChatbot';
-import ErrorBoundary from './components/ErrorBoundary';
+import EchoControlHeader from './EchoControlHeader';
+import ELATutorChatbot from './ELATutorChatbot';
+import ErrorBoundary from './ErrorBoundary';
 
 // Language Context
 interface LanguageContextType {
