@@ -1,13 +1,51 @@
 "use client"
 
 import * as React from 'react';
-import { LogIn, MessageSquare, Bot, Sparkles, BookOpen, Users, Award, Globe, Brain, Code, Database, Zap, Target, Lightbulb, Shield, TrendingUp, Palette, Music, Eye, Heart, Star, GraduationCap, FileText, Languages, CheckCircle, AlertTriangle, Upload, Send, RefreshCw, ChevronDown, ChevronUp } from 'lucide-react';
+import { LogIn, MessageSquare, Bot, Sparkles, BookOpen, Users, Award, Globe, Brain, Code, Database, Zap, Target, Lightbulb, Shield, TrendingUp, Palette, Music, Eye, Heart, Star, GraduationCap, FileText, Languages, CheckCircle, AlertTriangle, Upload, Send, RefreshCw, ChevronDown, ChevronUp, Globe as GlobeIcon } from 'lucide-react';
+import { useLanguage } from '@/components/chat/language-context';
+import { LanguageProvider } from '@/components/chat/language-context';
 
-export default function ChatPage() {
+function ChatPageContent() {
+  const { currentLanguage, setCurrentLanguage, languageOptions } = useLanguage();
+  
   const handleSignIn = async () => {
     // Simple placeholder for now
     alert('Echo login functionality coming soon!');
   };
+
+  const getLanguageText = () => {
+    switch (currentLanguage) {
+      case 'es':
+        return {
+          title: 'Claude Hemingway',
+          subtitle: 'Tutor de ELA con IA y Asistente Literario',
+          mission: 'Proporcionar tutoría personalizada de ELA con IA que ayude a los estudiantes a desarrollar habilidades de pensamiento crítico, mejorar sus habilidades de escritura y fomentar el amor por la literatura mientras mantiene los más altos estándares de integridad académica.',
+          cta: '¿Listo para Transformar tus Habilidades de ELA?',
+          ctaSubtitle: 'Únete a miles de estudiantes que están mejorando sus habilidades de lectura, escritura y análisis con Claude Hemingway, tu tutor de ELA con IA.',
+          startButton: 'Comenzar a Aprender con Claude Hemingway'
+        };
+      case 'ht':
+        return {
+          title: 'Claude Hemingway',
+          subtitle: 'Pwofesè ELA ak Asistan Literè ki Pouse pa IA',
+          mission: 'Bay titoraj ELA pèsonalize ki pouse pa IA ki ede elèv yo devlope konpetans panse kritik, amelyore kapasite ekriti yo, ak fèmè lanmou pou literati pandan y ap kenbe pi wo estanda entegrite akademik.',
+          cta: 'Ou Pare pou Transfòme Konpetans ELA Ou yo?',
+          ctaSubtitle: 'Antre nan dè milye elèv ki ap amelyore konpetans lekti, ekriti, ak analiz yo ak Claude Hemingway, pwofesè ELA ou ki pouse pa IA.',
+          startButton: 'Kòmanse Aprann ak Claude Hemingway'
+        };
+      default:
+        return {
+          title: 'Claude Hemingway',
+          subtitle: 'AI-Powered ELA Tutor & Literary Assistant',
+          mission: 'To provide personalized, AI-powered English Language Arts tutoring that helps students develop critical thinking skills, improve their writing abilities, and foster a love for literature while maintaining the highest standards of academic integrity.',
+          cta: 'Ready to Transform Your ELA Skills?',
+          ctaSubtitle: 'Join thousands of students who are improving their reading, writing, and analytical skills with Claude Hemingway, your AI-powered ELA tutor.',
+          startButton: 'Start Learning with Claude Hemingway'
+        };
+    }
+  };
+
+  const languageText = getLanguageText();
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
@@ -20,12 +58,31 @@ export default function ChatPage() {
                 <Bot className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-white">Claude Hemingway</h1>
-                <p className="text-purple-200 text-sm">AI-Powered ELA Tutor & Literary Assistant</p>
+                <h1 className="text-2xl font-bold text-white">{languageText.title}</h1>
+                <p className="text-purple-200 text-sm">{languageText.subtitle}</p>
               </div>
             </div>
             
             <div className="flex items-center space-x-4">
+              {/* Language Selector */}
+              <div className="relative">
+                <select
+                  value={currentLanguage}
+                  onChange={(e) => setCurrentLanguage(e.target.value)}
+                  className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-4 py-2 rounded-lg appearance-none cursor-pointer hover:bg-white/20 transition-colors"
+                  style={{ paddingRight: '2.5rem' }}
+                >
+                  {languageOptions.map((lang) => (
+                    <option key={lang.code} value={lang.code} className="bg-gray-800 text-white">
+                      {lang.flag} {lang.name}
+                    </option>
+                  ))}
+                </select>
+                <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                  <ChevronDown className="w-4 h-4 text-white" />
+                </div>
+              </div>
+              
               <button
                 onClick={handleSignIn}
                 className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 hover:scale-105 flex items-center space-x-2"
@@ -49,25 +106,29 @@ export default function ChatPage() {
             </div>
             
             <h2 className="text-5xl font-bold text-white mb-6 font-serif">
-              Claude Hemingway
+              {languageText.title}
             </h2>
             <p className="text-purple-200 mb-8 text-xl font-serif leading-relaxed">
-              Your AI-powered English Language Arts tutor, inspired by famous authors and designed for educational excellence. 
-              Get personalized help with reading comprehension, writing skills, grammar, vocabulary, and literary analysis.
+              {currentLanguage === 'es' 
+                ? 'Tu tutor de Artes del Lenguaje Inglés con IA, inspirado en autores famosos y diseñado para la excelencia educativa. Obtén ayuda personalizada con comprensión de lectura, habilidades de escritura, gramática, vocabulario y análisis literario.'
+                : currentLanguage === 'ht'
+                ? 'Pwofesè ELA ou ki pouse pa IA, enspire pa otè selyè yo ak fèt pou ekselans edikatif. Jwenn èd pèsonalize ak konpreyansyon lekti, konpetans ekriti, gramè, vokabilè, ak analiz literè.'
+                : 'Your AI-powered English Language Arts tutor, inspired by famous authors and designed for educational excellence. Get personalized help with reading comprehension, writing skills, grammar, vocabulary, and literary analysis.'
+              }
             </p>
             
             <div className="flex items-center justify-center space-x-4 text-purple-200 mb-8">
               <div className="flex items-center space-x-2">
                 <Brain className="w-5 h-5 text-blue-400" />
-                <span>AI-Powered Learning</span>
+                <span>{currentLanguage === 'es' ? 'Aprendizaje con IA' : currentLanguage === 'ht' ? 'Aprantisaj ak IA' : 'AI-Powered Learning'}</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Languages className="w-5 h-5 text-green-400" />
-                <span>Multi-Language Support</span>
+                <span>{currentLanguage === 'es' ? 'Soporte Multi-idioma' : currentLanguage === 'ht' ? 'Sipò Plizyè Lang' : 'Multi-Language Support'}</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Shield className="w-5 h-5 text-purple-400" />
-                <span>Academic Integrity</span>
+                <span>{currentLanguage === 'es' ? 'Integridad Académica' : currentLanguage === 'ht' ? 'Entegrite Akademik' : 'Academic Integrity'}</span>
               </div>
             </div>
           </div>
@@ -75,15 +136,14 @@ export default function ChatPage() {
 
         {/* Mission Statement */}
         <div className="bg-white/5 border border-white/20 rounded-xl p-8 mb-12">
-          <h3 className="text-2xl font-bold text-white mb-4 font-serif text-center">🎯 Our Mission</h3>
+          <h3 className="text-2xl font-bold text-white mb-4 font-serif text-center">🎯 {currentLanguage === 'es' ? 'Nuestra Misión' : currentLanguage === 'ht' ? 'Misyon Nou' : 'Our Mission'}</h3>
           <p className="text-purple-200 text-lg text-center font-serif leading-relaxed">
-            To provide personalized, AI-powered English Language Arts tutoring that helps students develop critical thinking skills, 
-            improve their writing abilities, and foster a love for literature while maintaining the highest standards of academic integrity.
+            {languageText.mission}
           </p>
         </div>
 
         {/* Core Features Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           
           {/* Reading & Comprehension */}
           <div className="bg-gradient-to-br from-blue-900/50 to-blue-700/50 border border-blue-400 rounded-xl p-6">
@@ -170,7 +230,157 @@ export default function ChatPage() {
               </li>
               <li className="flex items-start gap-2">
                 <TrendingUp className="w-5 h-5 text-pink-300 mt-0.5 flex-shrink-0" />
-                <span>Test Preparation</span>
+                <span>Literary Analysis Skills</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Test Prep */}
+          <div className="bg-gradient-to-br from-green-900/50 to-green-700/50 border border-green-400 rounded-xl p-6">
+            <div className="text-center mb-4">
+              <Target className="w-12 h-12 text-green-400 mx-auto mb-3" />
+              <h3 className="text-xl font-bold text-white font-serif">Test Prep</h3>
+            </div>
+            <ul className="space-y-3 text-green-100 font-serif">
+              <li className="flex items-start gap-2">
+                <Award className="w-5 h-5 text-green-300 mt-0.5 flex-shrink-0" />
+                <span>SAT/ACT Reading Strategies</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <FileText className="w-5 h-5 text-green-300 mt-0.5 flex-shrink-0" />
+                <span>Essay Writing Techniques</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Brain className="w-5 h-5 text-green-300 mt-0.5 flex-shrink-0" />
+                <span>Critical Reading Skills</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Code className="w-5 h-5 text-green-300 mt-0.5 flex-shrink-0" />
+                <span>Grammar & Usage Review</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Sparkles className="w-5 h-5 text-green-300 mt-0.5 flex-shrink-0" />
+                <span>Practice Test Strategies</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Public Speaking */}
+          <div className="bg-gradient-to-br from-orange-900/50 to-orange-700/50 border border-orange-400 rounded-xl p-6">
+            <div className="text-center mb-4">
+              <Users className="w-12 h-12 text-orange-400 mx-auto mb-3" />
+              <h3 className="text-xl font-bold text-white font-serif">Public Speaking</h3>
+            </div>
+            <ul className="space-y-3 text-orange-100 font-serif">
+              <li className="flex items-start gap-2">
+                <MessageSquare className="w-5 h-5 text-orange-300 mt-0.5 flex-shrink-0" />
+                <span>Speech Writing & Structure</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Eye className="w-5 h-5 text-orange-300 mt-0.5 flex-shrink-0" />
+                <span>Delivery Techniques</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Brain className="w-5 h-5 text-orange-300 mt-0.5 flex-shrink-0" />
+                <span>Persuasive Speaking</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Star className="w-5 h-5 text-orange-300 mt-0.5 flex-shrink-0" />
+                <span>Presentation Skills</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <TrendingUp className="w-5 h-5 text-orange-300 mt-0.5 flex-shrink-0" />
+                <span>Confidence Building</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* ELL Support */}
+          <div className="bg-gradient-to-br from-teal-900/50 to-teal-700/50 border border-teal-400 rounded-xl p-6">
+            <div className="text-center mb-4">
+              <Languages className="w-12 h-12 text-teal-400 mx-auto mb-3" />
+              <h3 className="text-xl font-bold text-white font-serif">ELL Support</h3>
+            </div>
+            <ul className="space-y-3 text-teal-100 font-serif">
+              <li className="flex items-start gap-2">
+                <BookOpen className="w-5 h-5 text-teal-300 mt-0.5 flex-shrink-0" />
+                <span>English Language Learning</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Code className="w-5 h-5 text-teal-300 mt-0.5 flex-shrink-0" />
+                <span>Grammar for ELL Students</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <FileText className="w-5 h-5 text-teal-300 mt-0.5 flex-shrink-0" />
+                <span>Academic Writing Support</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <MessageSquare className="w-5 h-5 text-teal-300 mt-0.5 flex-shrink-0" />
+                <span>Conversational English</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Sparkles className="w-5 h-5 text-teal-300 mt-0.5 flex-shrink-0" />
+                <span>Cultural Context Understanding</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Vocabulary Building */}
+          <div className="bg-gradient-to-br from-indigo-900/50 to-indigo-700/50 border border-indigo-400 rounded-xl p-6">
+            <div className="text-center mb-4">
+              <Sparkles className="w-12 h-12 text-indigo-400 mx-auto mb-3" />
+              <h3 className="text-xl font-bold text-white font-serif">Vocabulary Building</h3>
+            </div>
+            <ul className="space-y-3 text-indigo-100 font-serif">
+              <li className="flex items-start gap-2">
+                <BookOpen className="w-5 h-5 text-indigo-300 mt-0.5 flex-shrink-0" />
+                <span>Context Clue Strategies</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Brain className="w-5 h-5 text-indigo-300 mt-0.5 flex-shrink-0" />
+                <span>Word Root Analysis</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Target className="w-5 h-5 text-indigo-300 mt-0.5 flex-shrink-0" />
+                <span>Academic Vocabulary</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Star className="w-5 h-5 text-indigo-300 mt-0.5 flex-shrink-0" />
+                <span>SAT/ACT Word Lists</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <TrendingUp className="w-5 h-5 text-indigo-300 mt-0.5 flex-shrink-0" />
+                <span>Vocabulary Retention</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Research Skills */}
+          <div className="bg-gradient-to-br from-red-900/50 to-red-700/50 border border-red-400 rounded-xl p-6">
+            <div className="text-center mb-4">
+              <ChevronDown className="w-12 h-12 text-red-400 mx-auto mb-3" />
+              <h3 className="text-xl font-bold text-white font-serif">Research Skills</h3>
+            </div>
+            <ul className="space-y-3 text-red-100 font-serif">
+              <li className="flex items-start gap-2">
+                <BookOpen className="w-5 h-5 text-red-300 mt-0.5 flex-shrink-0" />
+                <span>Research Paper Writing</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Target className="w-5 h-5 text-red-300 mt-0.5 flex-shrink-0" />
+                <span>Source Evaluation</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <FileText className="w-5 h-5 text-red-300 mt-0.5 flex-shrink-0" />
+                <span>Citation & Formatting</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Brain className="w-5 h-5 text-red-300 mt-0.5 flex-shrink-0" />
+                <span>Critical Analysis</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Sparkles className="w-5 h-5 text-red-300 mt-0.5 flex-shrink-0" />
+                <span>Academic Writing</span>
               </li>
             </ul>
           </div>
@@ -343,18 +553,17 @@ export default function ChatPage() {
         <div className="text-center py-12">
           <div className="bg-gradient-to-r from-blue-900/50 to-purple-800/50 border border-blue-400 rounded-xl p-8">
             <h3 className="text-2xl font-bold text-white mb-4 font-serif">
-              Ready to Transform Your ELA Skills?
+              {languageText.cta}
             </h3>
             <p className="text-blue-200 text-lg mb-6 font-serif">
-              Join thousands of students who are improving their reading, writing, and analytical skills 
-              with Claude Hemingway, your AI-powered ELA tutor.
+              {languageText.ctaSubtitle}
             </p>
             <button
               onClick={handleSignIn}
               className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-lg font-medium text-lg transition-all duration-200 hover:scale-105 flex items-center space-x-3 mx-auto"
             >
               <Sparkles className="w-6 h-6" />
-              <span>Start Learning with Claude Hemingway</span>
+              <span>{languageText.startButton}</span>
             </button>
           </div>
         </div>
@@ -371,5 +580,13 @@ export default function ChatPage() {
 
       </div>
     </div>
+  );
+}
+
+export default function ChatPage() {
+  return (
+    <LanguageProvider>
+      <ChatPageContent />
+    </LanguageProvider>
   );
 } 
