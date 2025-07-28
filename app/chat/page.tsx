@@ -29,8 +29,8 @@ function ChatPageContent() {
   }, []);
   
   const handleSignIn = async () => {
-    // Simple placeholder for now
-    alert('Echo login functionality coming soon!');
+    // Redirect to Merit's Echo platform
+    window.open('https://echo.merit.systems/', '_blank');
   };
 
   const getLanguageText = () => {
