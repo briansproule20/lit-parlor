@@ -14,12 +14,7 @@ export default function FullCollectionPage() {
         
         {/* Navigation */}
         <div className="mb-8">
-          <Link 
-            href="/" 
-            className="inline-flex items-center gap-2 text-amber-800 hover:text-amber-900 font-bold text-lg px-6 py-3 bg-amber-50/90 rounded-lg border-2 border-amber-600 shadow-md hover:shadow-lg transition-all"
-          >
-            🏠 Return to Parlor
-          </Link>
+          {/* Removed return to parlor button - now handled in menu bar */}
         </div>
 
         {/* Page Header */}
