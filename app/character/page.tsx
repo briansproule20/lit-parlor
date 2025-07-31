@@ -54,19 +54,7 @@ export default function CharacterPage() {
         
         {/* Navigation */}
         <div className="flex justify-between items-start mb-8">
-          <Link 
-            href="/" 
-            className="inline-flex items-center gap-2 text-amber-800 hover:text-amber-900 font-bold text-lg px-6 py-3 bg-amber-50/90 rounded-lg border-2 border-amber-600 shadow-md hover:shadow-lg transition-all"
-          >
-            🏠 Return to Parlor
-          </Link>
-          
-          <Link 
-            href="/student-dashboard" 
-            className="inline-flex items-center gap-2 text-amber-800 hover:text-amber-900 font-bold text-lg px-6 py-3 bg-amber-50/90 rounded-lg border-2 border-amber-600 shadow-md hover:shadow-lg transition-all"
-          >
-            📊 Back to Dashboard
-          </Link>
+          {/* Removed return to parlor button and back to dashboard link - now handled in menu bar */}
         </div>
 
         {/* Character Profile Header */}
