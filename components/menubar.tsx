@@ -104,7 +104,7 @@ export default function Menubar() {
       }`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}>
-        <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
+        <div className={`max-w-7xl mx-auto px-4 py-2 flex items-center ${isHomePage ? 'justify-center' : 'justify-between'}`}>
           
           {/* Return to Parlor Button - Far Left (only show when not on home page) */}
           {!isHomePage && (
@@ -117,7 +117,7 @@ export default function Menubar() {
           )}
 
           {/* Center Navigation Menu */}
-          <div className="flex justify-center space-x-8 flex-1">
+          <div className="flex justify-center space-x-8">
             
             {/* Students Dropdown */}
             <div className="group relative">
