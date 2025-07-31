@@ -103,15 +103,7 @@ export default function Classes() {
           </div>
         </div>
 
-        {/* Back to Home Button */}
-        <div className="text-center mb-8">
-          <Link 
-            href="/" 
-            className="inline-flex items-center gap-2 bg-amber-700 hover:bg-amber-800 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 font-serif"
-          >
-            ← Back to Home
-          </Link>
-        </div>
+        {/* Removed back to home button - now handled in menu bar */}
 
         {/* Classes Grid */}
         <div className="grid lg:grid-cols-2 gap-8 mb-12">
