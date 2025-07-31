@@ -117,7 +117,7 @@ export default function Menubar() {
           )}
 
           {/* Center Navigation Menu */}
-          <div className={`flex justify-center space-x-8 ${isHomePage ? 'flex-1' : ''}`}>
+          <div className="flex justify-center space-x-8 flex-1">
             
             {/* Students Dropdown */}
             <div className="group relative">
@@ -264,8 +264,8 @@ export default function Menubar() {
           {/* Level Info - Far Right (only show on specific pages with levels) */}
           {!isHomePage && (
             <div className="flex-shrink-0 text-right">
-              <div className="text-amber-100 font-bold text-sm">🗺️ Quest Master</div>
-              <div className="text-amber-200 text-xs">Level 12 Adventurer</div>
+              <div className="text-amber-100 font-bold text-sm">📚 Literary Scholar</div>
+              <div className="text-amber-200 text-xs">Level 8</div>
             </div>
           )}
 
