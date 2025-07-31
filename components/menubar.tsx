@@ -261,6 +261,14 @@ export default function Menubar() {
           {/* Spacer for right side balance */}
           <div className="flex-shrink-0 w-[140px]"></div>
 
+          {/* Level Info - Far Right (only show on specific pages with levels) */}
+          {!isHomePage && (
+            <div className="flex-shrink-0 text-right">
+              <div className="text-amber-100 font-bold text-sm">🗺️ Quest Master</div>
+              <div className="text-amber-200 text-xs">Level 12 Adventurer</div>
+            </div>
+          )}
+
         </div>
       </div>
     </>
