@@ -101,20 +101,16 @@ export default function Home() {
                     className: "text-amber-900",
                   },
                   {
-                    text: "Parlor",
+                    text: "Salon",
                     className: "text-amber-800",
                   },
                   {
-                    text: "-",
+                    text: "by",
                     className: "text-amber-900",
                   },
                   {
-                    text: "By",
-                    className: "text-amber-900",
-                  },
-                  {
-                    text: "LitSalon",
-                    className: "text-amber-800",
+                    text: "LitParlor",
+                    className: "text-amber-700",
                   },
                 ]}
                 className="text-5xl font-bold font-serif"

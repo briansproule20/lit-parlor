@@ -8,7 +8,7 @@ import ChatWidget from '@/components/chat/chat-widget'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Narrative Exploration',
+  title: 'LitParlor',
   description: 'Transform long-form narratives into digestible insights',
 }
 
