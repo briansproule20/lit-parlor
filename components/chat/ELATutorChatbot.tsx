@@ -220,7 +220,11 @@ const ELATutorChatbot: React.FC = () => {
 
 
   const scrollToBottom = (): void => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    // Only scroll within the chat messages container, not the whole page
+    const messagesContainer = document.querySelector('.chat-messages-container');
+    if (messagesContainer) {
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
   };
 
   useEffect(() => {
@@ -1053,7 +1057,7 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
         {/* Chat Area - Left Side */}
         <div className="flex-1 flex flex-col min-h-0">
           {/* Chat Messages */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-4 min-h-0">
+          <div className="flex-1 overflow-y-auto p-4 space-y-4 min-h-0 chat-messages-container">
         {messages.map((message) => (
           <div
             key={message.id}
