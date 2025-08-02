@@ -16,7 +16,7 @@ export default function MobyDickModule() {
       <div className="max-w-6xl mx-auto">
         
         {/* Captain's Log Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 mt-16">
           <div className="inline-block p-8 shadow-2xl transform relative overflow-visible transition-all duration-300 hover:scale-105 hover:shadow-3xl cursor-pointer" style={{
             border: '4px solid #8B4513',
             borderRadius: '12px',
