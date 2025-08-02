@@ -393,7 +393,7 @@ function ChatPageContent() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 overflow-visible">
       {/* Header */}
       <div className="bg-purple-900/20 backdrop-blur-md border-b border-white/10 pt-12">
         <div className="max-w-7xl mx-auto px-4 py-6">
