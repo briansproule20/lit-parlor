@@ -1218,8 +1218,70 @@ function ChatPageContent() {
               {languageText.ctaSubtitle}
             </p>
             {isAuthenticated ? (
-              <div className="text-green-200 text-lg font-serif">
-                ✓ You're signed in and ready to learn!
+              <div className="w-full max-w-4xl mx-auto">
+                <div className="text-green-200 text-lg font-serif mb-6">
+                  ✓ You're signed in and ready to learn!
+                </div>
+                
+                {/* Large Chatbot Window */}
+                <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-2xl">
+                  {/* Chat Header */}
+                  <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 rounded-t-xl flex items-center justify-between">
+                    <div className="flex items-center space-x-3">
+                      <Bot className="w-6 h-6" />
+                      <div>
+                        <h3 className="font-semibold text-lg">Claude {selectedAuthor}</h3>
+                        <p className="text-blue-100 text-sm">Your AI-powered ELA Tutor</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <div className="bg-white/20 px-3 py-1 rounded-full text-sm">
+                        {typeof balance === 'number' ? balance : balance?.credits || 0} credits
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Chat Messages */}
+                  <div className="h-96 overflow-y-auto p-4 space-y-4">
+                    {/* Welcome Message */}
+                    <div className="flex justify-start">
+                      <div className="bg-blue-600/20 border border-blue-400/30 text-white px-4 py-3 rounded-lg max-w-3xl">
+                        <p className="font-serif">
+                          Hello! I'm Claude {selectedAuthor}, your AI-powered ELA tutor. I'm here to help you with reading comprehension, writing skills, grammar, vocabulary, and literary analysis. 
+                        </p>
+                        <p className="font-serif mt-2">
+                          What would you like to work on today? You can ask me about:
+                        </p>
+                        <ul className="mt-2 space-y-1 text-sm">
+                          <li>• Essay writing and structure</li>
+                          <li>• Reading comprehension strategies</li>
+                          <li>• Grammar and punctuation</li>
+                          <li>• Literary analysis and themes</li>
+                          <li>• Vocabulary building</li>
+                          <li>• Test preparation (SAT/ACT)</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Chat Input */}
+                  <div className="p-4 border-t border-white/20">
+                    <div className="flex space-x-3">
+                      <input
+                        type="text"
+                        placeholder="Ask me anything about ELA..."
+                        className="flex-1 bg-white/10 border border-white/20 text-white placeholder-white/60 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      />
+                      <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 hover:scale-105 flex items-center space-x-2">
+                        <Send className="w-5 h-5" />
+                        <span>Send</span>
+                      </button>
+                    </div>
+                    <p className="text-white/60 text-xs mt-2 text-center">
+                      Powered by Echo • Your conversation is private and secure
+                    </p>
+                  </div>
+                </div>
               </div>
             ) : (
               <EchoSignIn 
