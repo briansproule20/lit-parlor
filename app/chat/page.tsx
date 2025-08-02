@@ -1225,7 +1225,7 @@ function ChatPageContent() {
                 </div>
                 
                 {/* Large Chatbot Window */}
-                <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-2xl h-[80vh] min-h-[700px] w-full">
+                <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-2xl h-[90vh] min-h-[1200px] w-full">
                   <ELATutorChatbot />
                 </div>
               </div>
