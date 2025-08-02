@@ -109,15 +109,7 @@ export default function MobyDick() {
         backgroundAttachment: 'fixed'
       }}>
       
-      {/* Navigation - Top Left */}
-      <div className="absolute top-4 left-4 z-50">
-        <Link 
-          href="/" 
-          className="inline-flex items-center gap-2 text-amber-800 hover:text-amber-900 font-bold text-lg px-6 py-3 bg-amber-50/90 rounded-lg border-2 border-amber-600 shadow-md hover:shadow-lg transition-all"
-        >
-          🏠 Return to Parlor
-        </Link>
-      </div>
+
 
       <div className="max-w-5xl mx-auto relative">
         
