@@ -1073,7 +1073,7 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
               }}
               onContextMenu={message.type === 'bot' ? (e) => e.preventDefault() : undefined}
             >
-              <p className="whitespace-pre-wrap">{message.content}</p>
+              <p className="whitespace-pre-wrap text-left">{message.content}</p>
               <p className="text-xs mt-1 opacity-70">
                 {message.timestamp.toLocaleTimeString()}
               </p>
@@ -1105,7 +1105,7 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder={uiText.inputPlaceholder}
-                className="flex-1 bg-white/10 border border-white/20 rounded-md px-4 py-2 text-white placeholder-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                className="flex-1 bg-white/10 border border-white/20 rounded-md px-4 py-2 text-white text-left placeholder-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
               />
               <button
                 onClick={handleSend}
