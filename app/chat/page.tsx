@@ -383,8 +383,8 @@ function ChatPageContent() {
   // Show loading state until component is mounted to prevent hydration mismatch
   if (!mounted) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 flex items-center justify-center">
-        <div className="text-center">
+      <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 flex items-start justify-center py-8">
+        <div className="text-center w-full">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white mx-auto mb-4"></div>
           <p className="text-white text-lg">Loading Claude Hemingway...</p>
         </div>
@@ -489,10 +489,10 @@ function ChatPageContent() {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 py-8">
+      <div className="max-w-7xl mx-auto px-4 py-4">
         
         {/* Hero Section */}
-        <div className="text-center py-12">
+        <div className="text-center py-6">
           <div className="max-w-4xl mx-auto">
             <div className="w-24 h-24 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
               <BookOpen className="w-12 h-12 text-white" />
@@ -523,7 +523,7 @@ function ChatPageContent() {
         </div>
 
         {/* Mission Statement */}
-        <div className="bg-white/5 border border-white/20 rounded-xl p-8 mb-12">
+        <div className="bg-white/5 border border-white/20 rounded-xl p-6 mb-6">
           <h3 className="text-2xl font-bold text-white mb-4 font-serif text-center">🎯 {languageText.missionTitle}</h3>
           <p className="text-purple-200 text-lg text-center font-serif leading-relaxed">
             {languageText.mission}
@@ -531,7 +531,7 @@ function ChatPageContent() {
         </div>
 
         {/* Core Features Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
           
           {/* Reading & Comprehension */}
           <div className="bg-gradient-to-br from-blue-900/50 to-blue-700/50 border border-blue-400 rounded-xl p-6">
@@ -1219,13 +1219,13 @@ function ChatPageContent() {
               {languageText.ctaSubtitle}
             </p>
             {isAuthenticated ? (
-              <div className="w-full max-w-4xl mx-auto">
+              <div className="w-full max-w-7xl mx-auto px-4">
                 <div className="text-green-200 text-lg font-serif mb-6">
                   ✓ You're signed in and ready to learn!
                 </div>
                 
                 {/* Large Chatbot Window */}
-                <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-2xl h-[600px]">
+                <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-2xl h-[80vh] min-h-[700px] w-full">
                   <ELATutorChatbot />
                 </div>
               </div>

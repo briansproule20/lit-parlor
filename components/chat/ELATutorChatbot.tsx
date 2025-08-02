@@ -966,7 +966,7 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
   const uiText = getUIText();
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
+    <div className="flex flex-col h-full bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
       {/* Header */}
       <div className="bg-black/20 backdrop-blur-md border-b border-white/10 p-4 flex justify-between items-center">
         <div className="flex items-center space-x-3">
@@ -1049,11 +1049,11 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
       </div>
 
       {/* Main Content Area - Split Layout */}
-      <div className="flex h-[calc(100vh-200px)]">
+      <div className="flex flex-1 min-h-0">
         {/* Chat Area - Left Side */}
-        <div className="flex-1 flex flex-col">
+        <div className="flex-1 flex flex-col min-h-0">
           {/* Chat Messages */}
-          <div className="h-[calc(100vh-120px)] overflow-y-auto p-4 space-y-4">
+          <div className="flex-1 overflow-y-auto p-4 space-y-4 min-h-0">
         {messages.map((message) => (
           <div
             key={message.id}
@@ -1119,7 +1119,7 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
         </div>
 
         {/* Right Sidebar - Quick Tips */}
-        <div className="w-80 lg:w-80 md:w-64 hidden md:flex bg-black/30 backdrop-blur-md border-l border-white/10 flex-col overflow-hidden">
+        <div className="w-80 lg:w-80 md:w-64 hidden md:flex bg-black/30 backdrop-blur-md border-l border-white/10 flex-col overflow-hidden min-h-0">
           <div className="p-4 border-b border-white/10">
             <div className="flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-yellow-400" />
@@ -1128,7 +1128,7 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
           </div>
           
           {currentSuggestions.length > 0 && (
-            <div className="flex-1 overflow-y-auto p-4">
+            <div className="flex-1 overflow-y-auto p-4 min-h-0">
               <div className="space-y-2">
                                   {currentSuggestions.map((suggestion: string, index: number) => (
                     <button
@@ -1154,7 +1154,7 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
           )}
           
           {currentSuggestions.length === 0 && (
-            <div className="flex-1 flex items-center justify-center p-4">
+            <div className="flex-1 flex items-center justify-center p-4 min-h-0">
               <div className="text-center text-purple-300 text-sm">
                 <Sparkles className="w-8 h-8 mx-auto mb-2 opacity-50" />
                 <p>{uiText.startConversation}</p>
@@ -1165,17 +1165,17 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
       </div>
 
       {/* Document Upload Section */}
-      <div className="bg-black/20 backdrop-blur-md border-t border-white/10 p-4">
+      <div className="bg-black/20 backdrop-blur-md border-t border-white/10 p-3">
         <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-2 mb-3">
-            <FileText className="w-5 h-5 text-purple-400" />
-            <h3 className="text-lg font-semibold text-white">{uiText.documentUpload.title}</h3>
+          <div className="flex items-center gap-2 mb-2">
+            <FileText className="w-4 h-4 text-purple-400" />
+            <h3 className="text-base font-semibold text-white">{uiText.documentUpload.title}</h3>
           </div>
-          <p className="text-sm text-purple-200 mb-4">{uiText.documentUpload.subtitle}</p>
+          <p className="text-xs text-purple-200 mb-3">{uiText.documentUpload.subtitle}</p>
           
           {/* Upload Area */}
           <div
-            className={`border-2 border-dashed rounded-lg p-6 text-center transition-all duration-200 ${
+            className={`border-2 border-dashed rounded-lg p-4 text-center transition-all duration-200 ${
               isDragOver
                 ? 'border-purple-400 bg-purple-900/20'
                 : 'border-white/20 hover:border-purple-400/50'
@@ -1196,13 +1196,13 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
             
             {isUploading ? (
               <div className="flex flex-col items-center">
-                <Loader2 className="w-8 h-8 text-purple-400 animate-spin mb-2" />
-                <p className="text-purple-200">{uiText.documentUpload.uploading}</p>
+                <Loader2 className="w-6 h-6 text-purple-400 animate-spin mb-1" />
+                <p className="text-purple-200 text-sm">{uiText.documentUpload.uploading}</p>
               </div>
             ) : (
               <div className="flex flex-col items-center">
-                <Upload className="w-8 h-8 text-purple-400 mb-2" />
-                <p className="text-white font-medium mb-1">{uiText.documentUpload.dragDropText}</p>
+                <Upload className="w-6 h-6 text-purple-400 mb-1" />
+                <p className="text-white font-medium mb-1 text-sm">{uiText.documentUpload.dragDropText}</p>
                 <p className="text-xs text-purple-300">{uiText.documentUpload.supportedFormats}</p>
               </div>
             )}
