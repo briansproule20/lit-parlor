@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { MessageSquare, X, Send, Bot, User, ExternalLink } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { EchoProvider, useEcho, useEchoOpenAI, EchoSignIn } from '@zdql/echo-react-sdk';
@@ -27,6 +27,15 @@ const ChatWidgetContent: React.FC = () => {
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages, isLoading]);
 
   const handleSend = async () => {
     if (!inputValue.trim() || isLoading) return;
@@ -183,6 +192,7 @@ const ChatWidgetContent: React.FC = () => {
                     </div>
                   </div>
                 )}
+                <div ref={messagesEndRef} />
               </div>
 
               {/* Input */}

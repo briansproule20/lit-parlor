@@ -64,10 +64,10 @@ export default function MobyDickModule() {
               </h1>
               <div className="w-full h-2 bg-amber-700 mb-4"></div>
               <p className="text-2xl text-amber-800 font-serif leading-relaxed">
-                "The sea had jeeringly kept his finite body up, but drowned the infinite of his soul"
+                "Welcome Aboard the Pequod..."
               </p>
               <div className="mt-4 text-lg text-amber-700 font-serif italic">
-                — Herman Melville
+                — Captain Ahab
               </div>
             </div>
           </div>
