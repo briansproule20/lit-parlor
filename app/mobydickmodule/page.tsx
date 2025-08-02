@@ -11,22 +11,7 @@ export default function MobyDickModule() {
         backgroundAttachment: 'fixed'
       }}>
       
-      {/* Navigation */}
-      <div className="flex justify-between items-start mb-8">
-        <Link 
-          href="/mobydick" 
-          className="inline-flex items-center gap-2 text-amber-800 hover:text-amber-900 font-bold text-lg px-6 py-3 bg-amber-50/90 rounded-lg border-2 border-amber-600 shadow-md hover:shadow-lg transition-all"
-        >
-          ⚓ Return to Port
-        </Link>
-        
-        <Link 
-          href="/" 
-          className="inline-flex items-center gap-2 text-amber-800 hover:text-amber-900 font-bold text-lg px-6 py-3 bg-amber-50/90 rounded-lg border-2 border-amber-600 shadow-md hover:shadow-lg transition-all"
-        >
-          🏠 Return to Parlor
-        </Link>
-      </div>
+
 
       <div className="max-w-6xl mx-auto">
         
@@ -97,7 +82,7 @@ export default function MobyDickModule() {
             <p className="text-blue-200 text-lg mb-6 font-serif">
               Choose your course through Melville's maritime masterpiece
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-wrap justify-center gap-4 mb-6">
               <Link href="/mobydickmodule/journey" className="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 inline-block">
                 🧭 Start Journey
               </Link>
@@ -106,6 +91,14 @@ export default function MobyDickModule() {
               </Link>
               <Link href="/mobydickmodule/quiz" className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 inline-block">
                 🎯 Quick Quiz
+              </Link>
+            </div>
+            <div className="border-t border-blue-300 pt-4">
+              <Link 
+                href="/mobydick" 
+                className="inline-flex items-center gap-2 text-blue-200 hover:text-white font-bold text-lg px-6 py-3 bg-blue-800/50 hover:bg-blue-700/70 rounded-lg border-2 border-blue-400 shadow-md hover:shadow-lg transition-all"
+              >
+                ⚓ Return to Port
               </Link>
             </div>
           </div>
