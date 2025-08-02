@@ -1,9 +1,10 @@
 "use client"
 
 import * as React from 'react';
-import { LogIn, MessageSquare, Bot, Sparkles, BookOpen, Users, Award, Globe, Brain, Code, Database, Zap, Target, Lightbulb, Shield, TrendingUp, Palette, Music, Eye, Heart, Star, GraduationCap, FileText, Languages, CheckCircle, AlertTriangle, Upload, Send, RefreshCw, ChevronDown, ChevronUp, Globe as GlobeIcon } from 'lucide-react';
+import { LogIn, MessageSquare, Bot, Sparkles, BookOpen, Users, Award, Globe, Brain, Code, Database, Zap, Target, Lightbulb, Shield, TrendingUp, Palette, Music, Eye, Heart, Star, GraduationCap, FileText, Languages, CheckCircle, AlertTriangle, Upload, Send, RefreshCw, ChevronDown, ChevronUp, Globe as GlobeIcon, User, CreditCard, LogOut } from 'lucide-react';
 import { useLanguage } from '@/components/chat/language-context';
 import { LanguageProvider } from '@/components/chat/language-context';
+import { EchoProvider, useEcho, EchoSignIn, EchoTokenPurchase } from '@zdql/echo-react-sdk';
 
 // Famous author last names for random selection
 const famousAuthors: string[] = [
@@ -16,6 +17,7 @@ const famousAuthors: string[] = [
 
 function ChatPageContent() {
   const { currentLanguage, setCurrentLanguage, languageOptions } = useLanguage();
+  const { isAuthenticated, isLoading, user, balance, signOut } = useEcho();
   
   // Use state to track if component has mounted
   const [mounted, setMounted] = React.useState(false);
@@ -27,11 +29,6 @@ function ChatPageContent() {
     setSelectedAuthor(famousAuthors[randomIndex]);
     setMounted(true);
   }, []);
-  
-  const handleSignIn = async () => {
-    // Redirect to Merit's Echo platform
-    window.open('https://echo.merit.systems/', '_blank');
-  };
 
   const getLanguageText = () => {
     switch (currentLanguage) {
@@ -430,13 +427,61 @@ function ChatPageContent() {
                 </div>
               </div>
               
-              <button
-                onClick={handleSignIn}
-                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 hover:scale-105 flex items-center space-x-2"
-              >
-                <LogIn className="w-5 h-5" />
-                <span>Sign In to Echo</span>
-              </button>
+              {/* Echo Authentication */}
+              {isLoading ? (
+                <div className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-6 py-3 rounded-lg">
+                  <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                </div>
+              ) : isAuthenticated ? (
+                <div className="flex items-center space-x-4">
+                  {/* User Info */}
+                  <div className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-4 py-2 rounded-lg">
+                    <div className="flex items-center space-x-2">
+                      <User className="w-4 h-4" />
+                      <span className="text-sm">{user?.name || user?.email || 'User'}</span>
+                    </div>
+                  </div>
+                  
+                  {/* Balance */}
+                  <div className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-4 py-2 rounded-lg">
+                    <div className="flex items-center space-x-2">
+                      <CreditCard className="w-4 h-4" />
+                      <span className="text-sm">
+                        {balance ? (
+                          typeof balance === 'number' ? 
+                            `${balance} credits` : 
+                            `${balance.credits || 0} credits`
+                        ) : (
+                          '0 credits'
+                        )}
+                      </span>
+                    </div>
+                  </div>
+                  
+                  {/* Token Purchase */}
+                  <EchoTokenPurchase className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors text-sm">
+                    Buy Credits
+                  </EchoTokenPurchase>
+                  
+                  {/* Sign Out */}
+                  <button
+                    onClick={signOut}
+                    className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition-colors flex items-center space-x-2"
+                  >
+                    <LogOut className="w-4 h-4" />
+                    <span className="text-sm">Sign Out</span>
+                  </button>
+                </div>
+              ) : (
+                <EchoSignIn 
+                  onSuccess={(user) => console.log('Signed in:', user)}
+                  onError={(error) => console.error('Sign in failed:', error)}
+                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 hover:scale-105 flex items-center space-x-2"
+                >
+                  <LogIn className="w-5 h-5" />
+                  <span>Sign In to Echo</span>
+                </EchoSignIn>
+              )}
             </div>
           </div>
         </div>
@@ -1172,13 +1217,20 @@ function ChatPageContent() {
             <p className="text-blue-200 text-lg mb-6 font-serif">
               {languageText.ctaSubtitle}
             </p>
-            <button
-              onClick={handleSignIn}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-lg font-medium text-lg transition-all duration-200 hover:scale-105 flex items-center space-x-3 mx-auto"
-            >
-              <Sparkles className="w-6 h-6" />
-              <span>{languageText.startButton}</span>
-            </button>
+            {isAuthenticated ? (
+              <div className="text-green-200 text-lg font-serif">
+                ✓ You're signed in and ready to learn!
+              </div>
+            ) : (
+              <EchoSignIn 
+                onSuccess={(user) => console.log('Signed in:', user)}
+                onError={(error) => console.error('Sign in failed:', error)}
+                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-lg font-medium text-lg transition-all duration-200 hover:scale-105 flex items-center space-x-3 mx-auto"
+              >
+                <Sparkles className="w-6 h-6" />
+                <span>{languageText.startButton}</span>
+              </EchoSignIn>
+            )}
           </div>
         </div>
 
@@ -1198,9 +1250,17 @@ function ChatPageContent() {
 }
 
 export default function ChatPage() {
+  const echoConfig = {
+    appId: process.env.NEXT_PUBLIC_ECHO_APP_ID || '',
+    apiUrl: 'https://echo.merit.systems',
+    redirectUri: typeof window !== 'undefined' ? window.location.origin : '',
+  };
+
   return (
-    <LanguageProvider>
-      <ChatPageContent />
-    </LanguageProvider>
+    <EchoProvider config={echoConfig}>
+      <LanguageProvider>
+        <ChatPageContent />
+      </LanguageProvider>
+    </EchoProvider>
   );
 } 
