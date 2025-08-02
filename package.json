@@ -13,7 +13,7 @@
     "@radix-ui/react-navigation-menu": "^1.2.13",
     "@react-three/drei": "^9.88.0",
     "@react-three/fiber": "^8.15.0",
-    "@zdql/echo-react-sdk": "^0.1.19",
+    "@zdql/echo-react-sdk": "^0.1.25",
     "ai": "^4.3.19",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
