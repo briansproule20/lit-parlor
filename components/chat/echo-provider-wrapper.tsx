@@ -17,7 +17,7 @@ export default function EchoProviderWrapper({ children }: EchoProviderWrapperPro
   const echoConfig = {
     appId: process.env.NEXT_PUBLIC_ECHO_APP_ID || '',
     apiUrl: "https://echo.merit.systems",
-    redirectUri: process.env.NEXT_PUBLIC_ECHO_REDIRECT_URI || (mounted ? `${window.location.origin}/chat` : 'http://localhost:3000/chat'),
+    redirectUri: process.env.NEXT_PUBLIC_ECHO_REDIRECT_URI || (mounted ? `${window.location.origin}/chat` : 'https://narrative-exploration.vercel.app/chat'),
   };
 
   if (!mounted) {
