@@ -35,12 +35,12 @@ function ChatPageContent() {
     switch (currentLanguage) {
       case 'es':
         return {
-          title: `Claude ${selectedAuthor}`,
+          title: 'ELA Tutor Chatbot',
           subtitle: 'Tutor de ELA con IA y Asistente Literario',
           mission: 'Proporcionar tutoría personalizada de ELA con IA que ayude a los estudiantes a desarrollar habilidades de pensamiento crítico, mejorar sus habilidades de escritura y fomentar el amor por la literatura mientras mantiene los más altos estándares de integridad académica.',
           cta: '¿Listo para Transformar tus Habilidades de ELA?',
-          ctaSubtitle: `Únete a miles de estudiantes que están mejorando sus habilidades de lectura, escritura y análisis con Claude ${selectedAuthor}, tu tutor de ELA con IA.`,
-          startButton: `Comenzar a Aprender con Claude ${selectedAuthor}`,
+          ctaSubtitle: 'Únete a miles de estudiantes que están mejorando sus habilidades de lectura, escritura y análisis con ELA Tutor Chatbot, tu tutor de ELA con IA.',
+          startButton: 'Comenzar a Aprender con ELA Tutor Chatbot',
           // Hero section
           heroDescription: 'Tu tutor de Artes del Lenguaje Inglés con IA, inspirado en autores famosos y diseñado para la excelencia educativa. Obtén ayuda personalizada con comprensión de lectura, habilidades de escritura, gramática, vocabulario, análisis literario y más.',
           aiLearning: 'Aprendizaje con IA',
@@ -114,7 +114,7 @@ function ChatPageContent() {
           extraExamplesDesc: 'Múltiples ejemplos para claridad',
           conversationalApproachDesc: 'Pregunta lo que no sabes',
           // How It Works
-          howItWorksTitle: `Cómo Funciona Claude ${selectedAuthor}`,
+          howItWorksTitle: 'Cómo Funciona ELA Tutor Chatbot',
           signInConnect: 'Inicia Sesión y Conecta',
           signInDesc: 'Autentícate con Echo para acceder a tu tutor de IA personalizado',
           chooseFocus: 'Elige tu Enfoque',
@@ -149,12 +149,12 @@ function ChatPageContent() {
         };
       case 'ht':
         return {
-          title: `Claude ${selectedAuthor}`,
+          title: 'ELA Tutor Chatbot',
           subtitle: 'Pwofesè ELA ak Asistan Literè ki Pouse pa IA',
           mission: 'Bay titoraj ELA pèsonalize ki pouse pa IA ki ede elèv yo devlope konpetans panse kritik, amelyore kapasite ekriti yo, ak fèmè lanmou pou literati pandan y ap kenbe pi wo estanda entegrite akademik.',
           cta: 'Ou Pare pou Transfòme Konpetans ELA Ou yo?',
-          ctaSubtitle: `Antre nan dè milye elèv ki ap amelyore konpetans lekti, ekriti, ak analiz yo ak Claude ${selectedAuthor}, pwofesè ELA ou ki pouse pa IA.`,
-          startButton: `Kòmanse Aprann ak Claude ${selectedAuthor}`,
+          ctaSubtitle: 'Antre nan dè milye elèv ki ap amelyore konpetans lekti, ekriti, ak analiz yo ak ELA Tutor Chatbot, pwofesè ELA ou ki pouse pa IA.',
+          startButton: 'Kòmanse Aprann ak ELA Tutor Chatbot',
           // Hero section
           heroDescription: 'Pwofesè ELA ou ki pouse pa IA, enspire pa otè selyè yo ak fèt pou ekselans edikatif. Jwenn èd pèsonalize ak konpreyansyon lekti, konpetans ekriti, gramè, vokabilè, analiz literè, ak plis ankò.',
           aiLearning: 'Aprantisaj ak IA',
@@ -228,7 +228,7 @@ function ChatPageContent() {
           extraExamplesDesc: 'Plizyè egzanp pou klète',
           conversationalApproachDesc: 'Pose kesyon sa w pa konnen',
           // How It Works
-          howItWorksTitle: `Kijan Claude ${selectedAuthor} Fonksyone`,
+          howItWorksTitle: 'Kijan ELA Tutor Chatbot Fonksyone',
           signInConnect: 'Konekte ak Konekte',
           signInDesc: 'Otantifye ak Echo pou aksede pwofesè IA pèsonalize ou',
           chooseFocus: 'Chwazi Konsantre Ou',
@@ -263,12 +263,12 @@ function ChatPageContent() {
         };
       default:
         return {
-          title: `Claude ${selectedAuthor}`,
+          title: 'ELA Tutor Chatbot',
           subtitle: 'AI-Powered ELA Tutor & Literary Assistant',
           mission: 'To provide personalized, AI-powered English Language Arts tutoring that helps students develop critical thinking skills, improve their writing abilities, and foster a love for literature while maintaining the highest standards of academic integrity.',
           cta: 'Ready to Transform Your ELA Skills?',
-          ctaSubtitle: `Join thousands of students who are improving their reading, writing, and analytical skills with Claude ${selectedAuthor}, your AI-powered ELA tutor.`,
-          startButton: `Start Learning with Claude ${selectedAuthor}`,
+          ctaSubtitle: 'Join thousands of students who are improving their reading, writing, and analytical skills with ELA Tutor Chatbot, your AI-powered ELA tutor.',
+          startButton: 'Start Learning with ELA Tutor Chatbot',
           // Hero section
           heroDescription: 'Your AI-powered English Language Arts tutor, inspired by famous authors and designed for educational excellence. Get personalized help with reading comprehension, writing skills, grammar, vocabulary, literary analysis, and more.',
           aiLearning: 'AI-Powered Learning',
@@ -342,7 +342,7 @@ function ChatPageContent() {
           extraExamplesDesc: 'Multiple examples for clarity',
           conversationalApproachDesc: 'Question what you don\'t know',
           // How It Works
-          howItWorksTitle: `How Claude ${selectedAuthor} Works`,
+          howItWorksTitle: 'How ELA Tutor Chatbot Works',
           signInConnect: 'Sign In & Connect',
           signInDesc: 'Authenticate with Echo to access your personalized AI tutor',
           chooseFocus: 'Choose Your Focus',
@@ -1225,7 +1225,7 @@ function ChatPageContent() {
                 </div>
                 
                 {/* Large Chatbot Window */}
-                <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-2xl h-[90vh] min-h-[1200px] w-full">
+                <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-2xl h-[90vh] min-h-[1200px] w-full overflow-hidden">
                   <ELATutorChatbot />
                 </div>
               </div>

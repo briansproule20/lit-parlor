@@ -970,17 +970,16 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
   const uiText = getUIText();
 
   return (
-    <div className="flex flex-col h-full bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
+    <div className="flex flex-col h-full bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 rounded-xl">
       {/* Header */}
       <div className="bg-black/20 backdrop-blur-md border-b border-white/10 p-4 flex justify-between items-center">
         <div className="flex items-center space-x-3">
           <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
             <BookOpen className="w-5 h-5 text-white" />
           </div>
-          <div>
-            <h1 className="text-xl font-bold text-white">Claude {selectedAuthor}</h1>
-            <p className="text-sm text-purple-200">{uiText.tutorSubtitle}</p>
-          </div>
+                      <div>
+              <h1 className="text-xl font-bold text-white">ELA Tutor Chatbot</h1>
+            </div>
         </div>
         
         <div className="flex items-center space-x-4">
