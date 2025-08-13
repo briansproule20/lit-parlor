@@ -776,11 +776,11 @@ export default function Home() {
                             <p className="text-purple-300 text-xs mt-1">Add collaborative quests where students can form "guilds" or study groups to tackle certain challenges together. This builds community and supports different learning styles while maintaining the gamified structure.</p>
                           </div>
                           <div className="ml-2 mt-2 p-3 bg-purple-800/30 rounded-lg border-l-2 border-purple-400">
-                            <p className="text-purple-200 text-xs font-semibold">🏆 Micro-Credentialing System:</p>
+                            <p className="text-purple-200 text-xs font-semibold">Micro-Credentialing System:</p>
                             <p className="text-purple-300 text-xs mt-1">Break down the XP system into specific skill badges (close reading, textual analysis, creative response) that students can showcase and teachers can track for more granular assessment.</p>
                           </div>
                           <div className="ml-2 mt-2 p-3 bg-purple-800/30 rounded-lg border-l-2 border-purple-400">
-                            <p className="text-purple-200 text-xs font-semibold">🎯 Student Agency Integration:</p>
+                            <p className="text-purple-200 text-xs font-semibold">Student Agency Integration:</p>
                             <p className="text-purple-300 text-xs mt-1">Add a "Quest Creation" feature where advanced students can design challenges for peers, increasing ownership and deeper engagement with the material.</p>
                           </div>
                         </div>
@@ -796,7 +796,7 @@ export default function Home() {
                           <span className="font-semibold">Higher Levels Unlock More Difficult Assignments</span>
                           <p className="text-sm text-purple-200 mt-1">Progressive difficulty based on achievement</p>
                           <div className="ml-2 mt-2 p-3 bg-purple-800/30 rounded-lg border-l-2 border-purple-400">
-                            <p className="text-purple-200 text-xs font-semibold">🎭 Adaptive Pathways:</p>
+                            <p className="text-purple-200 text-xs font-semibold">Adaptive Pathways:</p>
                             <p className="text-purple-300 text-xs mt-1">Instead of purely linear progression, allow students to choose between different "character classes" (analytical reader, creative interpreter, historical researcher) that offer varied approaches to the same literary content.</p>
                           </div>
                         </div>
@@ -816,7 +816,7 @@ export default function Home() {
                           <span className="font-semibold">Teacher Assessment Options</span>
                           <p className="text-sm text-purple-200 mt-1">Individual assignments, level ranges, or participation grades</p>
                           <div className="ml-2 mt-2 p-3 bg-purple-800/30 rounded-lg border-l-2 border-purple-400">
-                            <p className="text-purple-200 text-xs font-semibold">⚡ Teacher Workflow Optimization:</p>
+                            <p className="text-purple-200 text-xs font-semibold">Teacher Workflow Optimization:</p>
                             <p className="text-purple-300 text-xs mt-1">Include automated report generation that translates gamified achievements into traditional grade formats, and bulk assignment tools for managing multiple classes efficiently.</p>
                           </div>
                         </div>
@@ -827,7 +827,7 @@ export default function Home() {
 
                 {/* Real-Time Progress Monitoring */}
                 <div className="mb-6 p-4 bg-violet-800/30 rounded-lg border-l-4 border-violet-400">
-                  <h3 className="text-violet-100 font-serif font-semibold mb-2">📊 Real-Time Progress Monitoring (Parallel to Steps 4-6)</h3>
+                  <h3 className="text-violet-100 font-serif font-semibold mb-2">Real-Time Progress Monitoring (Parallel to Steps 4-6)</h3>
                   <p className="text-violet-200 text-sm font-serif">
                     Create a dashboard that gives both teachers and students live feedback on progress, struggle points, and achievement patterns. This enables timely interventions rather than waiting for final assessments.
                   </p>
@@ -835,7 +835,7 @@ export default function Home() {
                 
                 <div className="bg-violet-800/50 rounded-lg p-4 backdrop-blur-sm">
                   <p className="text-violet-100 font-serif text-sm">
-                    <span className="font-semibold">🎯 Goal:</span> Transform traditional literary education into an engaging, 
+                    <span className="font-semibold">Goal:</span> Transform traditional literary education into an engaging, 
                     gamified experience that motivates students while providing teachers with powerful assessment tools.
                   </p>
                 </div>
