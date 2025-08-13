@@ -4,7 +4,7 @@ import * as React from 'react';
 import { LogIn, MessageSquare, Bot, Sparkles, BookOpen, Users, Award, Globe, Brain, Code, Database, Zap, Target, Lightbulb, Shield, TrendingUp, Palette, Music, Eye, Heart, Star, GraduationCap, FileText, Languages, CheckCircle, AlertTriangle, Upload, Send, RefreshCw, ChevronDown, ChevronUp, Globe as GlobeIcon, User, CreditCard, LogOut } from 'lucide-react';
 import { useLanguage } from '@/components/chat/language-context';
 import { LanguageProvider } from '@/components/chat/language-context';
-import { EchoProvider, useEcho, EchoSignIn, EchoTokenPurchase } from '@zdql/echo-react-sdk';
+import { useEcho, EchoSignIn, EchoTokenPurchase } from '@zdql/echo-react-sdk';
 import ELATutorChatbot from '@/components/chat/ELATutorChatbot';
 
 // Famous author last names for random selection
@@ -1258,17 +1258,9 @@ function ChatPageContent() {
 }
 
 export default function ChatPage() {
-  const echoConfig = {
-    appId: process.env.NEXT_PUBLIC_ECHO_APP_ID || '',
-    apiUrl: 'https://echo.merit.systems',
-    redirectUri: "https://narrative-exploration.vercel.app/chat",
-  };
-
   return (
-    <EchoProvider config={echoConfig}>
-      <LanguageProvider>
-        <ChatPageContent />
-      </LanguageProvider>
-    </EchoProvider>
+    <LanguageProvider>
+      <ChatPageContent />
+    </LanguageProvider>
   );
-} 
+}

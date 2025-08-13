@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { MessageSquare, X, Send, Bot, User, ExternalLink } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { EchoProvider, useEcho, useEchoOpenAI, EchoSignIn } from '@zdql/echo-react-sdk';
+import { useEcho, useEchoOpenAI, EchoSignIn } from '@zdql/echo-react-sdk';
 
 interface Message {
   id: number;
@@ -227,17 +227,7 @@ const ChatWidgetContent: React.FC = () => {
 
 
 const ChatWidget: React.FC = () => {
-  const echoConfig = {
-    appId: process.env.NEXT_PUBLIC_ECHO_APP_ID || '',
-    apiUrl: 'https://echo.merit.systems',
-    redirectUri: process.env.NEXT_PUBLIC_ECHO_REDIRECT_URI || (typeof window !== 'undefined' ? `${window.location.origin}/chat` : 'https://narrative-exploration.vercel.app/chat'),
-  };
-
-  return (
-    <EchoProvider config={echoConfig}>
-      <ChatWidgetContent />
-    </EchoProvider>
-  );
+  return <ChatWidgetContent />;
 };
 
 export default ChatWidget; 

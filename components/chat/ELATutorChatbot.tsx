@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useEcho } from '@zdql/echo-react-sdk';
-import { createOpenAI } from '@ai-sdk/openai';
-import { generateText } from 'ai';
+import { useEcho, useEchoOpenAI } from '@zdql/echo-react-sdk';
 import { useLanguage } from './language-context';
 import { 
   BookOpen, 
@@ -304,68 +302,27 @@ const ELATutorChatbot: React.FC = () => {
     return found;
   };
 
-  // Call Echo LLM using AI SDK approach
+  // Call Echo LLM using SDK's OpenAI adapter
+  const { openai, isReady } = useEchoOpenAI();
   const callEchoLLM = async (userMessage: string): Promise<string> => {
-    console.log('🔮 Calling Echo LLM using AI SDK...');
-    
+    const uiText = getUIText();
+    if (!isAuthenticated) return uiText.authRequired;
+    if (balance && balance.credits <= 0) return uiText.creditsLow;
+    if (!isReady) return uiText.connectionError;
+
     try {
-      const uiText = getUIText();
-      
-      // Check if user is authenticated with Echo
-      if (!isAuthenticated) {
-        return uiText.authRequired;
-      }
-
-      // Check if user has credits
-      if (balance && balance.credits <= 0) {
-        return uiText.creditsLow;
-      }
-
-      if (!token) {
-        return uiText.tokenMissing;
-      }
-
-      console.log('🌐 Using AI SDK with Echo router...');
-      
-      // Create OpenAI client pointing to Echo's router
-      const openai = createOpenAI({
-        apiKey: token,
-        baseURL: 'https://echo.router.merit.systems',
-      });
-
-      // Generate text using AI SDK
-      const { text } = await generateText({
-        model: openai('gpt-4o'),
-        prompt: `${getLanguageInstructions()}
-
-You are a helpful AI assistant specializing in English Language Arts (ELA) tutoring. You help students with reading comprehension, writing, grammar, vocabulary, and literary analysis. Always be encouraging and provide clear explanations.
-
-User message: ${userMessage}
-
-Respond helpfully and educationally to assist the student with their ELA learning.`,
+      const response = await openai.chat.completions.create({
+        model: 'gpt-4o',
+        messages: [
+          { role: 'system', content: getLanguageInstructions() + '\nYou are a helpful ELA tutor.' },
+          { role: 'user', content: userMessage }
+        ],
         temperature: 0.7,
-        maxTokens: 2000,
       });
-
-      console.log('✅ AI SDK Response received');
-      return text;
-      
+      const text = response.choices?.[0]?.message?.content ?? '';
+      return text || uiText.connectionError;
     } catch (error) {
-      console.error('❌ Echo LLM Error:', error);
-      
-      const uiText = getUIText();
-      
-      // Handle specific error types
-      if (error instanceof Error) {
-        if (error.message.includes('401') || error.message.includes('Unauthorized')) {
-          return uiText.authError;
-        } else if (error.message.includes('402') || error.message.includes('Payment')) {
-          return uiText.paymentRequired;
-        } else if (error.message.includes('429') || error.message.includes('Rate')) {
-          return uiText.rateLimited;
-        }
-      }
-      
+      console.error('Echo LLM Error:', error);
       return uiText.connectionError;
     }
   };

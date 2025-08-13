@@ -3,6 +3,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Menubar from '@/components/menubar'
+import EchoProviderWrapper from '@/components/chat/echo-provider-wrapper'
 import ChatWidget from '@/components/chat/chat-widget'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -20,9 +21,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Menubar />
-        {children}
-        <ChatWidget />
+        <EchoProviderWrapper>
+          <Menubar />
+          {children}
+          <ChatWidget />
+        </EchoProviderWrapper>
       </body>
     </html>
   )
