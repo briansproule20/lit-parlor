@@ -16,7 +16,7 @@ export default function MobyDickModule() {
       <div className="max-w-6xl mx-auto">
         
         {/* Captain's Log Header */}
-        <div className="text-center mb-12 mt-16">
+        <div className="text-center mb-16 mt-24">
           <div className="inline-block p-8 shadow-2xl transform relative overflow-visible transition-all duration-300 hover:scale-105 hover:shadow-3xl cursor-pointer" style={{
             border: '4px solid #8B4513',
             borderRadius: '12px',
@@ -29,8 +29,8 @@ export default function MobyDickModule() {
             {/* Parchment background */}
             <div className="absolute inset-0" style={{
               background: `
-                radial-gradient(circle at 30% 20%, rgba(252, 248, 227, 0.95) 0%, transparent 70%),
-                radial-gradient(circle at 70% 80%, rgba(245, 222, 179, 0.9) 0%, transparent 70%),
+                radial-gradient(circle at 25% 20%, rgba(252, 248, 227, 0.95) 0%, transparent 70%),
+                radial-gradient(circle at 75% 80%, rgba(245, 222, 179, 0.9) 0%, transparent 70%),
                 radial-gradient(circle at 20% 70%, rgba(238, 203, 161, 0.8) 0%, transparent 60%),
                 linear-gradient(135deg, #FEFBF0 0%, #F5DEB3 25%, #DEB887 50%, #F5DEB3 75%, #FEFBF0 100%)
               `
@@ -74,7 +74,7 @@ export default function MobyDickModule() {
         </div>
 
         {/* Call to Adventure - Moved to Center */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <div className="inline-block p-8 bg-gradient-to-r from-blue-900/90 to-slate-800/90 border-4 border-blue-400 rounded-2xl shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl">
             <h2 className="text-3xl font-bold text-white mb-4 font-serif">
               Ready to Navigate These Waters?
