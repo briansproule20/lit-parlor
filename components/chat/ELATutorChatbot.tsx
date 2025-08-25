@@ -77,11 +77,11 @@ const ELATutorChatbot: React.FC = () => {
     const lang = getCurrentLanguage();
     switch (lang.code) {
       case 'es':
-        return 'Responde en español de manera conversacional y útil. Eres un tutor de ELA que proporciona información detallada cuando el estudiante pregunta por conceptos específicos. Da respuestas de 2 párrafos cuando expliques conceptos, pero mantén un tono conversacional. Solo haz preguntas cuando sea necesario para aclarar algo específico. IMPORTANTE: Siempre recuerda el contexto de la conversación y refiere temas, preguntas o conceptos que se discutieron anteriormente en la conversación.';
+        return 'Responde en español de manera conversacional y útil. Eres un tutor de ELA que ajusta dinámicamente la longitud de la respuesta según la complejidad de la pregunta del estudiante. Para preguntas simples o breves, da respuestas concisas de 1-2 oraciones. Para preguntas detalladas o complejas, proporciona explicaciones completas de 2-3 párrafos. Siempre mantén un tono conversacional y solo haz preguntas cuando sea necesario para aclarar algo específico. IMPORTANTE: Siempre recuerda el contexto de la conversación y refiere temas, preguntas o conceptos que se discutieron anteriormente en la conversación.';
       case 'ht':
-        return 'Reponn nan Kreyòl Ayisyen yon fason konvèsasyonèl ak itil. Ou se yon pwofesè ELA ki bay enfòmasyon detaye lè elèv la poze kesyon sou konsèp espesifik. Bay repons 2 paragraf lè w eksplike konsèp yo, men kenbe yon ton konvèsasyonèl. Sèlman poze kesyon lè sa nesesè pou klèifye yon bagay espesifik. ENPÒTAN: Toujou sonje kontèks konvèsasyon an epi referans sijè, kesyon oswa konsèp ki te diskite pi bonè nan konvèsasyon an.';
+        return 'Reponn nan Kreyòl Ayisyen yon fason konvèsasyonèl ak itil. Ou se yon pwofesè ELA ki ajiste dinamikman longè repons la selon konpleksite kesyon elèv la. Pou kesyon senp oswa kout, bay repons kout 1-2 fraz. Pou kesyon detaye oswa konplèks, bay eksplikasyon konplè 2-3 paragraf. Toujou kenbe yon ton konvèsasyonèl epi sèlman poze kesyon lè sa nesesè pou klèifye yon bagay espesifik. ENPÒTAN: Toujou sonje kontèks konvèsasyon an epi referans sijè, kesyon oswa konsèp ki te diskite pi bonè nan konvèsasyon an.';
       default:
-        return 'Respond in English in a conversational and helpful style. You are an ELA tutor who provides detailed information when the student asks about specific concepts. Give 2-paragraph responses when explaining concepts, but maintain a conversational tone. Only ask questions when necessary to clarify something specific. IMPORTANT: Always remember the conversation context and refer back to previous topics, questions, or concepts that were discussed earlier in the conversation.';
+        return 'Respond in English in a conversational and helpful style. You are an ELA tutor who dynamically adjusts response length based on the complexity of the student\'s question. For simple or brief questions, give concise 1-2 sentence answers. For detailed or complex questions, provide comprehensive 2-3 paragraph explanations. Always maintain a conversational tone and only ask questions when necessary to clarify something specific. IMPORTANT: Always remember the conversation context and refer back to previous topics, questions, or concepts that were discussed earlier in the conversation.';
     }
   };
   
@@ -302,6 +302,41 @@ const ELATutorChatbot: React.FC = () => {
     return found;
   };
 
+  // Function to detect question complexity
+  const detectQuestionComplexity = (message: string): 'simple' | 'complex' => {
+    const lowerMessage = message.toLowerCase();
+    
+    // Simple indicators
+    const simpleIndicators = [
+      'what is', 'what are', 'how do', 'can you', 'is this', 'does this',
+      'yes', 'no', 'okay', 'thanks', 'thank you', 'got it', 'i see',
+      'what', 'how', 'why', 'when', 'where', 'which'
+    ];
+    
+    // Complex indicators
+    const complexIndicators = [
+      'explain', 'describe', 'analyze', 'compare', 'contrast', 'discuss',
+      'elaborate', 'detailed', 'comprehensive', 'thorough', 'in depth',
+      'step by step', 'walk me through', 'break down', 'help me understand',
+      'what are the differences', 'how does this work', 'can you show me'
+    ];
+    
+    // Check for complex patterns first
+    const hasComplexPatterns = complexIndicators.some(indicator => 
+      lowerMessage.includes(indicator)
+    );
+    
+    if (hasComplexPatterns) return 'complex';
+    
+    // Check for simple patterns
+    const hasSimplePatterns = simpleIndicators.some(indicator => 
+      lowerMessage.includes(indicator)
+    );
+    
+    // Default to complex for longer messages, simple for shorter ones
+    return message.length > 50 ? 'complex' : 'simple';
+  };
+
   // Call Echo LLM using Echo SDK OpenAI adapter
   const { openai, isReady } = useEchoOpenAI();
   const callEchoLLM = async (userMessage: string): Promise<string> => {
@@ -311,21 +346,29 @@ const ELATutorChatbot: React.FC = () => {
     if (!isReady) return uiText.connectionError;
 
     try {
+      // Detect question complexity
+      const complexity = detectQuestionComplexity(userMessage);
+      
       // Build conversation history for context
       const conversationHistory = messages.map(msg => ({
         role: msg.type === 'user' ? 'user' as const : 'assistant' as const,
         content: msg.content
       }));
 
+      // Adjust system prompt based on complexity
+      const complexityInstruction = complexity === 'simple' 
+        ? 'The student has asked a simple question. Provide a concise, helpful answer in 1-2 sentences.'
+        : 'The student has asked a detailed question. Provide a comprehensive explanation in 2-3 paragraphs with examples and context.';
+
       const response = await openai.chat.completions.create({
         model: 'gpt-4o',
         messages: [
-          { role: 'system', content: `${getLanguageInstructions()}\nYou are a helpful ELA tutor. Remember the conversation context and refer back to previous topics when relevant.` },
+          { role: 'system', content: `${getLanguageInstructions()}\nYou are a helpful ELA tutor. Remember the conversation context and refer back to previous topics when relevant. ${complexityInstruction}` },
           ...conversationHistory,
           { role: 'user', content: userMessage }
         ],
         temperature: 0.7,
-        max_tokens: 800, // Allow for longer responses when needed
+        max_tokens: complexity === 'simple' ? 200 : 800, // Adjust tokens based on complexity
       });
       const text = response.choices?.[0]?.message?.content ?? '';
       return text || uiText.connectionError;
