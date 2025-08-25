@@ -126,15 +126,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Quote */}
-        <div className="text-center mb-8">
-          <p className="text-amber-100 text-2xl font-serif italic mb-2">
-            "The unexamined life is not worth living"
-          </p>
-          <p className="text-amber-200 text-sm font-serif">
-            — Socrates
-          </p>
-        </div>
+
 
         {/* Mission Statement */}
         <div className="text-center mb-12">
@@ -147,9 +139,17 @@ export default function Home() {
                 <h2 className="text-3xl font-bold text-white mb-6 font-serif">
                   Our Mission
                 </h2>
-                <p className="text-blue-200 text-lg leading-relaxed font-serif max-w-3xl mx-auto">
+                <p className="text-blue-200 text-lg leading-relaxed font-serif max-w-3xl mx-auto mb-6">
                   We're revolutionizing literary education by combining gamification, multi-modal learning, and intelligent teaching tools to transform how students experience classic works - building critical thinking and cultural literacy while providing teachers with powerful tools that streamline lesson planning, classroom management, and student analytics.
                 </p>
+                <div className="text-center">
+                  <p className="text-blue-100 text-xl font-serif italic mb-2">
+                    "The unexamined life is not worth living"
+                  </p>
+                  <p className="text-blue-200 text-sm font-serif">
+                    — Socrates
+                  </p>
+                </div>
               </div>
             </div>
           </div>
