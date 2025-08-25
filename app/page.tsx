@@ -62,7 +62,7 @@ export default function Home() {
     }
   }
   return (
-    <main className="min-h-screen py-8 px-4 pt-20 relative" style={{
+    <main className="min-h-screen py-8 px-4 pt-24 relative" style={{
       backgroundImage: 'linear-gradient(135deg, #8B4513 0%, #A0522D 25%, #CD853F 50%, #D2691E 75%, #8B4513 100%)',
       backgroundAttachment: 'fixed'
     }}>
