@@ -1260,6 +1260,7 @@ function ChatPageContent() {
 export default function ChatPage() {
   const echoConfig = {
     appId: process.env.NEXT_PUBLIC_ECHO_APP_ID || '',
+    clientId: process.env.NEXT_PUBLIC_ECHO_APP_ID || '', // Add client_id for OAuth
     apiUrl: 'https://echo.merit.systems',
     redirectUri: "https://narrative-exploration.vercel.app/chat",
   };

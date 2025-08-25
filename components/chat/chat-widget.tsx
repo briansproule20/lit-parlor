@@ -176,7 +176,7 @@ const ChatWidgetContent: React.FC = () => {
                       }`}
                     >
                       <p className="text-sm">{message.content}</p>
-                      <p className="text-xs opacity-70 mt-1">
+                      <p className="text-xs opacity-70 mt-1 text-right">
                         {message.timestamp.toLocaleTimeString()}
                       </p>
                     </div>
@@ -229,6 +229,7 @@ const ChatWidgetContent: React.FC = () => {
 const ChatWidget: React.FC = () => {
   const echoConfig = {
     appId: process.env.NEXT_PUBLIC_ECHO_APP_ID || '',
+    clientId: process.env.NEXT_PUBLIC_ECHO_APP_ID || '', // Add client_id for OAuth
     apiUrl: 'https://echo.merit.systems',
     redirectUri: process.env.NEXT_PUBLIC_ECHO_REDIRECT_URI || (typeof window !== 'undefined' ? `${window.location.origin}/chat` : 'https://narrative-exploration.vercel.app/chat'),
   };
