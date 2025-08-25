@@ -148,10 +148,24 @@ export default function Quiz() {
   const [questions, setQuestions] = useState<typeof questionBank>([])
 
   // Initialize questions on client side only
-  React.useEffect(() => {
-    const shuffled = [...questionBank].sort(() => Math.random() - 0.5)
-    setQuestions(shuffled.slice(0, 10))
+  useEffect(() => {
+    // Ensure we're on the client side
+    if (typeof window !== 'undefined') {
+      const shuffled = [...questionBank].sort(() => Math.random() - 0.5)
+      setQuestions(shuffled.slice(0, 10))
+    }
   }, [])
+
+  // Fallback: if questions still empty after a delay, use first 10
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (questions.length === 0) {
+        setQuestions(questionBank.slice(0, 10))
+      }
+    }, 1000)
+    
+    return () => clearTimeout(timer)
+  }, [questions.length])
 
   const handleAnswerSelect = (answerIndex: number) => {
     setSelectedAnswers(prev => ({
@@ -226,21 +240,21 @@ export default function Quiz() {
         }}>
         
         {/* Navigation */}
-        <div className="flex justify-between items-start mb-8">
+        <div className="mb-8">
           <Link 
             href="/mobydickmodule" 
-            className="inline-flex items-center gap-2 text-amber-800 hover:text-amber-900 font-bold text-lg px-6 py-3 bg-amber-50/90 rounded-lg border-2 border-amber-600 shadow-md hover:shadow-lg transition-all"
+            className="inline-flex items-center gap-2 text-amber-800 hover:text-amber-900 font-semibold px-4 py-2 bg-amber-50/90 rounded-lg border border-amber-600 hover:bg-amber-100 transition-all"
           >
-            ⚓ Return to Pequod
+            ← Back to Pequod
           </Link>
-          
-          <Link 
-            href="/" 
-            className="inline-flex items-center gap-2 text-amber-800 hover:text-amber-900 font-bold text-lg px-6 py-3 bg-amber-50/90 rounded-lg border-2 border-amber-600 shadow-md hover:shadow-lg transition-all"
-          >
-          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl text-center">
-            <h1 className="text-4xl font-bold text-amber-900 mb-6 font-serif">🎯 Loading Quiz...</h1>
-            <div className="text-2xl text-amber-700">Preparing your questions...</div>
+        </div>
+        
+        {/* Loading State */}
+        <div className="max-w-md mx-auto text-center">
+          <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-amber-200">
+            <div className="text-4xl mb-4">🎯</div>
+            <h1 className="text-2xl font-bold text-amber-900 mb-2">Loading Quiz...</h1>
+            <p className="text-amber-700">Preparing your questions...</p>
           </div>
         </div>
       </main>
@@ -261,71 +275,59 @@ export default function Quiz() {
         }}>
         
         {/* Navigation */}
-        <div className="flex justify-between items-start mb-8">
+        <div className="mb-8">
           <Link 
             href="/mobydickmodule" 
-            className="inline-flex items-center gap-2 text-amber-800 hover:text-amber-900 font-bold text-lg px-6 py-3 bg-amber-50/90 rounded-lg border-2 border-amber-600 shadow-md hover:shadow-lg transition-all"
+            className="inline-flex items-center gap-2 text-amber-800 hover:text-amber-900 font-semibold px-4 py-2 bg-amber-50/90 rounded-lg border border-amber-600 hover:bg-amber-100 transition-all"
           >
-            ⚓ Return to Pequod
+            ← Back to Pequod
           </Link>
-          
-          <Link 
-            href="/" 
-            className="inline-flex items-center gap-2 text-amber-800 hover:text-amber-900 font-bold text-lg px-6 py-3 bg-amber-50/90 rounded-lg border-2 border-amber-600 shadow-md hover:shadow-lg transition-all"
-          >
-          <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl text-center" data-quiz-results>
-            <h1 className="text-4xl font-bold text-amber-900 mb-6 font-serif">🎯 Quiz Results</h1>
+        </div>
+        
+        {/* Results */}
+        <div className="max-w-2xl mx-auto">
+          <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-amber-200 text-center">
+            <h1 className="text-3xl font-bold text-amber-900 mb-4">Quiz Complete!</h1>
             
-            <div className="text-6xl mb-6">
+            <div className="text-6xl mb-4">
               {percentage >= 80 ? '🏆' : percentage >= 60 ? '⚓' : '🌊'}
             </div>
             
-            <div className="text-3xl font-bold text-amber-900 mb-4">
-              You scored {score} out of {questions.length}
+            <div className="text-2xl font-semibold text-amber-900 mb-2">
+              {score} out of {questions.length}
             </div>
             
-            <div className="text-xl text-amber-700 mb-8">
+            <div className="text-lg text-amber-700 mb-6">
               {percentage >= 80 ? 'Excellent! You truly understand the depths of Moby Dick!' :
                percentage >= 60 ? 'Good work! You have a solid grasp of the novel.' :
                'Keep studying! The whale still has more to teach you.'}
             </div>
 
-            <div className="space-y-4 mb-8">
+            <div className="space-y-3 mb-6 max-h-64 overflow-y-auto">
               {questions.map((q, index) => (
-                <div key={index} className="bg-white/70 p-4 rounded-lg border border-amber-300 text-left">
-                  <div className="font-bold text-amber-900 mb-2">
-                    Question {index + 1}: {q.question}
+                <div key={index} className="bg-gray-50 p-3 rounded-lg border border-gray-200 text-left text-sm">
+                  <div className="font-medium text-gray-900 mb-1">
+                    Q{index + 1}: {q.question}
                   </div>
-                  <div className={`mb-2 ${selectedAnswers[index] === q.correct ? 'text-green-700' : 'text-red-700'}`}>
+                  <div className={`mb-1 ${selectedAnswers[index] === q.correct ? 'text-green-700' : 'text-red-700'}`}>
                     Your answer: {q.options[selectedAnswers[index] || 0]}
                     {selectedAnswers[index] === q.correct ? ' ✓' : ' ✗'}
                   </div>
                   {selectedAnswers[index] !== q.correct && (
-                    <div className="text-green-700 mb-2">
-                      Correct answer: {q.options[q.correct]}
+                    <div className="text-green-700 text-xs">
+                      Correct: {q.options[q.correct]}
                     </div>
                   )}
-                  <div className="text-sm text-amber-600">
-                    {q.explanation}
-                  </div>
                 </div>
               ))}
             </div>
 
-            <div className="flex flex-wrap justify-center gap-4">
-              <button 
-                onClick={resetQuiz}
-                className="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105"
-              >
-                🔄 Take Quiz Again
-              </button>
-              <Link 
-                href="/mobydickmodule/study-guide"
-                className="inline-block bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105"
-              >
-                📚 Study More
-              </Link>
-            </div>
+            <button
+              onClick={resetQuiz}
+              className="px-6 py-2 bg-amber-600 hover:bg-amber-700 text-white font-semibold rounded-lg transition-all duration-200 hover:scale-105"
+            >
+              Take Quiz Again
+            </button>
           </div>
         </div>
       </main>
@@ -342,168 +344,107 @@ export default function Quiz() {
       }}>
       
       {/* Navigation */}
-      <div className="flex justify-between items-start mb-8">
+      <div className="mb-8">
         <Link 
           href="/mobydickmodule" 
-          className="inline-flex items-center gap-2 text-amber-800 hover:text-amber-900 font-bold text-lg px-6 py-3 bg-amber-50/90 rounded-lg border-2 border-amber-600 shadow-md hover:shadow-lg transition-all"
+          className="inline-flex items-center gap-2 text-amber-800 hover:text-amber-900 font-semibold px-4 py-2 bg-amber-50/90 rounded-lg border border-amber-600 hover:bg-amber-100 transition-all"
         >
-          ⚓ Return to Pequod
+          ← Back to Pequod
         </Link>
+      </div>
         
-        <Link 
-          href="/" 
-          className="inline-flex items-center gap-2 text-amber-800 hover:text-amber-900 font-bold text-lg px-6 py-3 bg-amber-50/90 rounded-lg border-2 border-amber-600 shadow-md hover:shadow-lg transition-all"
-        >
-        
-        {/* Quiz Header */}
-        <div className="text-center mb-8">
-          <div className="inline-block p-8 shadow-2xl relative overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-3xl" style={{
-            border: '4px solid #8B4513',
-            borderRadius: '12px',
-            boxShadow: `
-              0 8px 32px rgba(0, 0, 0, 0.5),
-              inset 0 4px 8px rgba(255, 255, 255, 0.3),
-              inset 0 -4px 8px rgba(139, 69, 19, 0.6)
-            `
-          }}>
-            {/* Parchment background */}
-            <div className="absolute inset-0" style={{
-              background: `
-                radial-gradient(circle at 30% 20%, rgba(252, 248, 227, 0.95) 0%, transparent 70%),
-                radial-gradient(circle at 70% 80%, rgba(245, 222, 179, 0.9) 0%, transparent 70%),
-                radial-gradient(circle at 20% 70%, rgba(238, 203, 161, 0.8) 0%, transparent 60%),
-                linear-gradient(135deg, #FEFBF0 0%, #F5DEB3 25%, #DEB887 50%, #F5DEB3 75%, #FEFBF0 100%)
-              `
-            }}></div>
-            
-            <div className="relative z-10">
-              <h1 className="text-5xl font-bold text-amber-900 mb-4 font-serif" style={{
-                textShadow: '3px 3px 6px rgba(0,0,0,0.4)',
-                letterSpacing: '0.05em'
-              }}>
-                🎯 QUICK QUIZ
-              </h1>
-              <div className="w-full h-2 bg-amber-700 mb-4"></div>
-              <p className="text-2xl text-amber-800 font-serif leading-relaxed">
-                Test your knowledge of the White Whale
-              </p>
-            </div>
-          </div>
+      {/* Quiz Header */}
+      <div className="text-center mb-8">
+        <div className="inline-block bg-amber-50/95 backdrop-blur-sm rounded-2xl p-6 shadow-lg border-2 border-amber-600">
+          <h1 className="text-4xl font-bold text-amber-900 mb-2 font-serif">
+            Moby Dick Quiz
+          </h1>
+          <p className="text-amber-700 text-lg">
+            Test your knowledge of the White Whale
+          </p>
         </div>
+      </div>
 
-        {/* XP and Quest Unlock Card */}
-        <div className="text-center mb-12">
-          <div className="inline-block px-6 py-4 bg-amber-50/95 border-2 border-amber-600 rounded-lg shadow-md">
-            <div className="flex items-center justify-center gap-3">
-              <span className="text-2xl"></span>
-              <span className="text-lg font-bold text-amber-900">
-                Complete Quiz for XP
-              </span>
-              <span className="text-2xl"></span>
-            </div>
+      {/* Progress Bar */}
+      <div className="max-w-2xl mx-auto mb-8">
+        <div className="bg-amber-50/95 backdrop-blur-sm rounded-2xl p-6 shadow-lg border-2 border-amber-600">
+          <div className="flex justify-between items-center mb-3">
+            <span className="text-sm font-medium text-amber-800">
+              Question {currentQuestion + 1} of {questions.length}
+            </span>
+            <span className="text-sm text-amber-600">
+              {Math.round(((currentQuestion + 1) / questions.length) * 100)}%
+            </span>
           </div>
-        </div>
-
-        {/* Progress Bar */}
-        <div className="mb-8" data-quiz-progress>
-          <div className="bg-amber-200 rounded-full h-4 shadow-inner">
+          <div className="w-full bg-amber-200 rounded-full h-2">
             <div 
-              className="bg-amber-600 h-4 rounded-full transition-all duration-300 shadow-lg"
+              className="bg-amber-600 h-2 rounded-full transition-all duration-300"
               style={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
             ></div>
           </div>
-          <div className="text-center mt-4">
-            <div className="inline-block px-6 py-3 bg-amber-50/95 border-2 border-amber-600 rounded-lg shadow-md">
-              <span className="text-amber-900 font-bold text-lg">
-            Question {currentQuestion + 1} of {questions.length}
-              </span>
-            </div>
-          </div>
         </div>
+      </div>
 
-        {/* Quiz Question */}
-        <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl" data-quiz-question>
-          <h2 className="text-2xl font-bold text-amber-900 mb-6 font-serif">
+      {/* Quiz Question */}
+      <div className="max-w-3xl mx-auto">
+        <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-xl border-2 border-amber-600">
+          <h2 className="text-xl font-semibold text-amber-900 mb-6 leading-relaxed">
             {questions[currentQuestion].question}
           </h2>
           
-          <div className="space-y-4 mb-8">
+          <div className="space-y-3 mb-6">
             {questions[currentQuestion].options.map((option, index) => (
               <button
                 key={index}
                 onClick={() => handleAnswerSelect(index)}
-                disabled={showFeedback}
-                className={`w-full p-4 text-left rounded-lg border-2 transition-all duration-300 font-serif ${
+                className={`w-full text-left p-4 rounded-xl border-2 transition-all duration-200 font-medium ${
                   selectedAnswers[currentQuestion] === index
-                    ? showFeedback && feedbackData?.isCorrect === false && index === questions[currentQuestion].correct
-                      ? 'bg-green-200 border-green-600 shadow-lg scale-105'
-                      : showFeedback && feedbackData?.isCorrect === false && selectedAnswers[currentQuestion] === index
-                      ? 'bg-red-200 border-red-600 shadow-lg scale-105'
-                      : 'bg-amber-200 border-amber-600 shadow-lg scale-105'
-                    : 'bg-white/70 border-amber-300 hover:bg-amber-100 hover:border-amber-500 hover:scale-102'
+                    ? 'border-amber-600 bg-amber-50 text-amber-900 shadow-md'
+                    : 'border-amber-300 bg-white hover:border-amber-500 hover:bg-amber-50 text-gray-800'
                 }`}
               >
-                <span className="font-bold text-amber-900 mr-3">
-                  {String.fromCharCode(65 + index)}.
+                <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-amber-100 text-amber-700 font-bold text-sm mr-4 border-2 border-amber-600">
+                  {String.fromCharCode(65 + index)}
                 </span>
-                <span className="text-amber-800">{option}</span>
+                {option}
               </button>
             ))}
           </div>
 
-          {/* Immediate Feedback Intervention */}
-          {showFeedback && feedbackData && !feedbackData.isCorrect && (
-            <div className="mb-8 p-6 bg-red-50 border-2 border-red-300 rounded-lg">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="text-3xl">❌</span>
-                <h3 className="text-xl font-bold text-red-900">Incorrect Answer</h3>
-              </div>
-              
-              <div className="space-y-3 text-red-800">
-                <div>
-                  <span className="font-semibold">Your answer:</span> {feedbackData.selectedAnswer}
+          {/* Feedback Display */}
+          {showFeedback && feedbackData && (
+            <div className={`p-6 rounded-xl border-2 mb-6 ${
+              feedbackData.isCorrect 
+                ? 'border-green-300 bg-green-50' 
+                : 'border-red-300 bg-red-50'
+            }`}>
+              <div className="text-center">
+                <div className="text-3xl mb-3">
+                  {feedbackData.isCorrect ? '✅' : '❌'}
                 </div>
-                <div>
-                  <span className="font-semibold text-green-700">Correct answer:</span> {feedbackData.correctAnswer}
-                </div>
-                <div className="mt-4 p-3 bg-white/70 rounded border-l-4 border-red-400">
-                  <span className="font-semibold">Explanation:</span>
-                  <p className="mt-1">{feedbackData.explanation}</p>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Correct Answer Feedback */}
-          {showFeedback && feedbackData && feedbackData.isCorrect && (
-            <div className="mb-8 p-6 bg-green-50 border-2 border-green-300 rounded-lg">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="text-3xl">✅</span>
-                <h3 className="text-xl font-bold text-green-900">Correct!</h3>
-              </div>
-              
-              <div className="space-y-3 text-green-800">
-                <div className="mt-4 p-3 bg-white/70 rounded border-l-4 border-green-400">
-                  <span className="font-semibold">Explanation:</span>
-                  <p className="mt-1">{feedbackData.explanation}</p>
-                </div>
+                <h3 className={`text-lg font-semibold mb-2 ${
+                  feedbackData.isCorrect ? 'text-green-800' : 'text-red-800'
+                }`}>
+                  {feedbackData.isCorrect ? 'Correct!' : 'Incorrect'}
+                </h3>
+                {!feedbackData.isCorrect && (
+                  <div className="text-red-700 mb-3 text-sm">
+                    <p>Your answer: <strong>{feedbackData.selectedAnswer}</strong></p>
+                    <p>Correct answer: <strong>{feedbackData.correctAnswer}</strong></p>
+                  </div>
+                )}
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  {feedbackData.explanation}
+                </p>
+                <button
+                  onClick={goToNextQuestion}
+                  className="mt-4 px-6 py-2 bg-amber-600 hover:bg-amber-700 text-white font-semibold rounded-lg transition-all duration-200 hover:scale-105"
+                >
+                  {currentQuestion < questions.length - 1 ? 'Next Question' : 'See Results'}
+                </button>
               </div>
             </div>
           )}
-
-          <div className="text-center">
-            <button
-              onClick={goToNextQuestion}
-              disabled={!showFeedback}
-              className={`py-3 px-8 rounded-lg font-bold text-lg transition-all duration-300 ${
-                showFeedback
-                  ? 'bg-amber-600 hover:bg-amber-700 text-white shadow-lg hover:scale-105 cursor-pointer'
-                  : 'bg-gray-400 text-gray-600 cursor-not-allowed'
-              }`}
-            >
-              {currentQuestion === questions.length - 1 ? '📊 See Results' : '➡️ Next Question'}
-            </button>
-          </div>
         </div>
       </div>
     </main>

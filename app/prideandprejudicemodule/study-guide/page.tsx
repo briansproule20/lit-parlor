@@ -20,10 +20,7 @@ export default function PrideAndPrejudiceStudyGuide() {
           🏰 Return to Drawing Room
         </Link>
         
-        <Link 
-          href="/" 
-          className="inline-flex items-center gap-2 text-rose-800 hover:text-rose-900 font-bold text-lg px-6 py-3 bg-rose-50/90 rounded-lg border-2 border-rose-600 shadow-md hover:shadow-lg transition-all"
-        >
+
         
         {/* Study Guide Header */}
         <div className="text-center mb-12">

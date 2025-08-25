@@ -16,9 +16,7 @@ export default function ThingsFallApart() {
         {/* Navigation */}
         <div className="flex justify-between items-start mb-8">
           <Link 
-            href="/" 
-            className="inline-flex items-center gap-2 text-orange-800 hover:text-orange-900 font-bold text-lg px-6 py-3 bg-orange-50/90 rounded-lg border-2 border-orange-600 shadow-md hover:shadow-lg transition-all"
-          >
+            href="/thingsfallapartmodule" 
             className="inline-flex items-center gap-2 text-orange-800 hover:text-orange-900 font-bold text-lg px-6 py-3 bg-orange-50/90 rounded-lg border-2 border-orange-600 shadow-md hover:shadow-lg transition-all"
           >
             🌍 Enter Village

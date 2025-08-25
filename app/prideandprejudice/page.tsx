@@ -16,9 +16,7 @@ export default function PrideAndPrejudice() {
         {/* Navigation */}
         <div className="flex justify-between items-start mb-8">
           <Link 
-            href="/" 
-            className="inline-flex items-center gap-2 text-rose-800 hover:text-rose-900 font-bold text-lg px-6 py-3 bg-rose-50/90 rounded-lg border-2 border-rose-600 shadow-md hover:shadow-lg transition-all"
-          >
+            href="/prideandprejudicemodule" 
             className="inline-flex items-center gap-2 text-rose-800 hover:text-rose-900 font-bold text-lg px-6 py-3 bg-rose-50/90 rounded-lg border-2 border-rose-600 shadow-md hover:shadow-lg transition-all"
           >
             💕 Enter Drawing Room

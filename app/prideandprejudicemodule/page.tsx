@@ -20,11 +20,6 @@ export default function PrideAndPrejudiceModule() {
           🏰 Return to Manor
         </Link>
         
-        <Link 
-          href="/" 
-          className="inline-flex items-center gap-2 text-rose-800 hover:text-rose-900 font-bold text-lg px-6 py-3 bg-rose-50/90 rounded-lg border-2 border-rose-600 shadow-md hover:shadow-lg transition-all"
-        >
-        
         {/* Lady's Notice Header */}
         <div className="text-center mb-12">
           <div className="inline-block p-8 shadow-2xl transform relative overflow-visible transition-all duration-300 hover:scale-105 hover:shadow-3xl cursor-pointer" style={{
