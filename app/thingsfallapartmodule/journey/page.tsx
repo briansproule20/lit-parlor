@@ -24,11 +24,6 @@ export default function ThingsFallApartJourney() {
           href="/" 
           className="inline-flex items-center gap-2 text-orange-800 hover:text-orange-900 font-bold text-lg px-6 py-3 bg-orange-50/90 rounded-lg border-2 border-orange-600 shadow-md hover:shadow-lg transition-all"
         >
-          🏠 Return to Parlor
-        </Link>
-      </div>
-
-      <div className="max-w-4xl mx-auto">
         
         {/* Journey Header */}
         <div className="text-center mb-12">

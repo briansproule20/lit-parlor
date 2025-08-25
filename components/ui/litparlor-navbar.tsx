@@ -108,13 +108,6 @@ export default function LitParlorNavbar() {
 
           {/* Right side buttons */}
           <div className="flex items-center gap-4">
-            {!isHomePage && (
-              <Link href="/">
-                <NavbarButton variant="secondary">
-                  🏠 Return to Parlor
-                </NavbarButton>
-              </Link>
-            )}
             <div className="text-right">
               <div className="text-green-800 font-bold text-sm">
                 📚 Literary Scholar
@@ -183,21 +176,6 @@ export default function LitParlorNavbar() {
                 Coming Soon
               </div>
             </div>
-
-            {/* Return to Parlor Button */}
-            {!isHomePage && (
-              <div className="w-full pt-4">
-                <Link href="/">
-                  <NavbarButton
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    variant="primary"
-                    className="w-full"
-                  >
-                    🏠 Return to Parlor
-                  </NavbarButton>
-                </Link>
-              </div>
-            )}
           </MobileNavMenu>
         </MobileNav>
       </Navbar>

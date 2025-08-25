@@ -13,14 +13,7 @@ export default function AnimalFarmPage() {
       <div className="max-w-4xl mx-auto relative">
         
         {/* Navigation */}
-        <div className="flex justify-between items-start mb-8">
-          <Link 
-            href="/" 
-            className="inline-flex items-center gap-2 text-amber-800 hover:text-amber-900 font-bold text-lg px-6 py-3 bg-amber-50/90 rounded-lg border-2 border-amber-600 shadow-md hover:shadow-lg transition-all"
-          >
-            🏠 Return to Parlor
-          </Link>
-          
+        <div className="flex justify-end items-start mb-8">
           <Link 
             href="/animalfarmmodule" 
             className="inline-flex items-center gap-2 text-amber-800 hover:text-amber-900 font-bold text-lg px-6 py-3 bg-amber-50/90 rounded-lg border-2 border-amber-600 shadow-md hover:shadow-lg transition-all"

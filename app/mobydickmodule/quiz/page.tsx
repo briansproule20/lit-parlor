@@ -238,11 +238,6 @@ export default function Quiz() {
             href="/" 
             className="inline-flex items-center gap-2 text-amber-800 hover:text-amber-900 font-bold text-lg px-6 py-3 bg-amber-50/90 rounded-lg border-2 border-amber-600 shadow-md hover:shadow-lg transition-all"
           >
-            🏠 Return to Parlor
-          </Link>
-        </div>
-
-        <div className="max-w-4xl mx-auto">
           <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl text-center">
             <h1 className="text-4xl font-bold text-amber-900 mb-6 font-serif">🎯 Loading Quiz...</h1>
             <div className="text-2xl text-amber-700">Preparing your questions...</div>
@@ -278,11 +273,6 @@ export default function Quiz() {
             href="/" 
             className="inline-flex items-center gap-2 text-amber-800 hover:text-amber-900 font-bold text-lg px-6 py-3 bg-amber-50/90 rounded-lg border-2 border-amber-600 shadow-md hover:shadow-lg transition-all"
           >
-            🏠 Return to Parlor
-          </Link>
-        </div>
-
-        <div className="max-w-4xl mx-auto">
           <div className="bg-amber-50/95 border-4 border-amber-600 rounded-xl p-8 shadow-2xl text-center" data-quiz-results>
             <h1 className="text-4xl font-bold text-amber-900 mb-6 font-serif">🎯 Quiz Results</h1>
             
@@ -364,11 +354,6 @@ export default function Quiz() {
           href="/" 
           className="inline-flex items-center gap-2 text-amber-800 hover:text-amber-900 font-bold text-lg px-6 py-3 bg-amber-50/90 rounded-lg border-2 border-amber-600 shadow-md hover:shadow-lg transition-all"
         >
-          🏠 Return to Parlor
-        </Link>
-      </div>
-
-      <div className="max-w-4xl mx-auto">
         
         {/* Quiz Header */}
         <div className="text-center mb-8">

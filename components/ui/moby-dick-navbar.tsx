@@ -132,11 +132,6 @@ export default function MobyDickNavbar({
         <MenuItem setActive={setActive} active={active} item="Navigation">
           <div className="flex flex-col space-y-4 text-sm">
             <HoveredLink href="/">
-              🏠 Return to Parlor
-            </HoveredLink>
-            <HoveredLink href="/mobydickmodule">
-              📖 Moby Dick Module
-            </HoveredLink>
             <HoveredLink href="/fullcollection">
               📚 Full Collection
             </HoveredLink>
