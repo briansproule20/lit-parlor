@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useEcho } from '@zdql/echo-react-sdk';
-import { createOpenAI } from '@ai-sdk/openai';
-import { generateText } from 'ai';
+import { useEcho, useEchoOpenAI } from '@zdql/echo-react-sdk';
 import { useLanguage } from './language-context';
 import { 
   BookOpen, 
@@ -79,11 +77,11 @@ const ELATutorChatbot: React.FC = () => {
     const lang = getCurrentLanguage();
     switch (lang.code) {
       case 'es':
-        return 'Responde en español. Eres un tutor de inglés como lengua extranjera (ELA) que ayuda a estudiantes hispanohablantes a aprender inglés. Proporciona explicaciones claras en español y ejemplos en inglés cuando sea apropiado.';
+        return 'Responde en español de manera conversacional y útil. Eres un tutor de ELA que proporciona información detallada cuando el estudiante pregunta por conceptos específicos. Da respuestas de 2 párrafos cuando expliques conceptos, pero mantén un tono conversacional. Solo haz preguntas cuando sea necesario para aclarar algo específico. IMPORTANTE: Siempre recuerda el contexto de la conversación y refiere temas, preguntas o conceptos que se discutieron anteriormente en la conversación.';
       case 'ht':
-        return 'Reponn nan Kreyòl Ayisyen. Ou se yon pwofesè ELA (English Language Arts) ki ap ede elèv yo ki pale Kreyòl aprann anglè. Bay eksplikasyon ki klè nan Kreyòl ak egzanp nan anglè lè sa apropye.';
+        return 'Reponn nan Kreyòl Ayisyen yon fason konvèsasyonèl ak itil. Ou se yon pwofesè ELA ki bay enfòmasyon detaye lè elèv la poze kesyon sou konsèp espesifik. Bay repons 2 paragraf lè w eksplike konsèp yo, men kenbe yon ton konvèsasyonèl. Sèlman poze kesyon lè sa nesesè pou klèifye yon bagay espesifik. ENPÒTAN: Toujou sonje kontèks konvèsasyon an epi referans sijè, kesyon oswa konsèp ki te diskite pi bonè nan konvèsasyon an.';
       default:
-        return 'Respond in English. You are an ELA (English Language Arts) tutor helping students learn English language skills.';
+        return 'Respond in English in a conversational and helpful style. You are an ELA tutor who provides detailed information when the student asks about specific concepts. Give 2-paragraph responses when explaining concepts, but maintain a conversational tone. Only ask questions when necessary to clarify something specific. IMPORTANT: Always remember the conversation context and refer back to previous topics, questions, or concepts that were discussed earlier in the conversation.';
     }
   };
   
@@ -304,68 +302,35 @@ const ELATutorChatbot: React.FC = () => {
     return found;
   };
 
-  // Call Echo LLM using AI SDK approach
+  // Call Echo LLM using Echo SDK OpenAI adapter
+  const { openai, isReady } = useEchoOpenAI();
   const callEchoLLM = async (userMessage: string): Promise<string> => {
-    console.log('🔮 Calling Echo LLM using AI SDK...');
-    
+    const uiText = getUIText();
+    if (!isAuthenticated) return uiText.authRequired;
+    if (balance && balance.credits <= 0) return uiText.creditsLow;
+    if (!isReady) return uiText.connectionError;
+
     try {
-      const uiText = getUIText();
-      
-      // Check if user is authenticated with Echo
-      if (!isAuthenticated) {
-        return uiText.authRequired;
-      }
+      // Build conversation history for context
+      const conversationHistory = messages.map(msg => ({
+        role: msg.type === 'user' ? 'user' as const : 'assistant' as const,
+        content: msg.content
+      }));
 
-      // Check if user has credits
-      if (balance && balance.credits <= 0) {
-        return uiText.creditsLow;
-      }
-
-      if (!token) {
-        return uiText.tokenMissing;
-      }
-
-      console.log('🌐 Using AI SDK with Echo router...');
-      
-      // Create OpenAI client pointing to Echo's router
-      const openai = createOpenAI({
-        apiKey: token,
-        baseURL: 'https://echo.router.merit.systems',
-      });
-
-      // Generate text using AI SDK
-      const { text } = await generateText({
-        model: openai('gpt-4o'),
-        prompt: `${getLanguageInstructions()}
-
-You are a helpful AI assistant specializing in English Language Arts (ELA) tutoring. You help students with reading comprehension, writing, grammar, vocabulary, and literary analysis. Always be encouraging and provide clear explanations.
-
-User message: ${userMessage}
-
-Respond helpfully and educationally to assist the student with their ELA learning.`,
+      const response = await openai.chat.completions.create({
+        model: 'gpt-4o',
+        messages: [
+          { role: 'system', content: `${getLanguageInstructions()}\nYou are a helpful ELA tutor. Remember the conversation context and refer back to previous topics when relevant.` },
+          ...conversationHistory,
+          { role: 'user', content: userMessage }
+        ],
         temperature: 0.7,
-        maxTokens: 2000,
+        max_tokens: 800, // Allow for longer responses when needed
       });
-
-      console.log('✅ AI SDK Response received');
-      return text;
-      
+      const text = response.choices?.[0]?.message?.content ?? '';
+      return text || uiText.connectionError;
     } catch (error) {
-      console.error('❌ Echo LLM Error:', error);
-      
-      const uiText = getUIText();
-      
-      // Handle specific error types
-      if (error instanceof Error) {
-        if (error.message.includes('401') || error.message.includes('Unauthorized')) {
-          return uiText.authError;
-        } else if (error.message.includes('402') || error.message.includes('Payment')) {
-          return uiText.paymentRequired;
-        } else if (error.message.includes('429') || error.message.includes('Rate')) {
-          return uiText.rateLimited;
-        }
-      }
-      
+      console.error('Echo LLM Error:', error);
       return uiText.connectionError;
     }
   };
@@ -419,17 +384,17 @@ Respond helpfully and educationally to assist the student with their ELA learnin
       // Use Echo LLM for suggestions too
       const response = await callEchoLLM(`${suggestionInstructions}
 
-Based on this recent ELA tutoring conversation, generate exactly 6 thoughtful follow-up questions that would naturally extend the discussion and help the student learn more. The questions should be:
-1. Directly related to what's been discussed
-2. Progressively build on the concepts mentioned
-3. Encourage deeper thinking and analysis
-4. Be engaging and age-appropriate
-5. Help the student make connections to broader learning
+Based on this recent ELA tutoring conversation, generate exactly 6 helpful follow-up suggestions that would naturally extend the discussion. The suggestions should be:
+1. Brief and conversational (1-2 sentences each)
+2. Offer specific areas to explore further
+3. Suggest practical next steps for learning
+4. Be encouraging and actionable
+5. Help guide the student's learning journey
 
 Recent conversation:
 ${conversationContext}
 
-Please respond with exactly 6 questions, one per line, without numbering or bullet points. Make them natural follow-up questions that a thoughtful tutor would ask.`);
+Please respond with exactly 6 helpful suggestions, one per line, without numbering. Make them conversational and supportive, like a helpful tutor offering guidance.`);
 
       // Check if response is an error message
       if (response.includes('**') && (response.includes('Error') || response.includes('Failed') || response.includes('Credits') || response.includes('Authentication'))) {
@@ -454,11 +419,11 @@ Please respond with exactly 6 questions, one per line, without numbering or bull
     const lang = getCurrentLanguage();
     switch (lang.code) {
       case 'es':
-        return 'Genera las preguntas de seguimiento en español. Las preguntas deben ser para un estudiante que está aprendiendo inglés como lengua extranjera.';
+        return 'Genera sugerencias útiles en español. Las sugerencias deben ser para un estudiante que está aprendiendo inglés como lengua extranjera.';
       case 'ht':
-        return 'Jenere kesyon yo nan Kreyòl Ayisyen. Kesyon yo dwe pou yon elèv ki ap aprann anglè kòm dezyèm lang.';
+        return 'Jenere sijesyon itil yo nan Kreyòl Ayisyen. Sijesyon yo dwe pou yon elèv ki ap aprann anglè kòm dezyèm lang.';
       default:
-        return 'Generate the follow-up questions in English for an ELA student.';
+        return 'Generate helpful suggestions in English for an ELA student.';
     }
   };
 
@@ -468,30 +433,30 @@ Please respond with exactly 6 questions, one per line, without numbering or bull
     switch (lang.code) {
       case 'es':
         return [
-          "¿En qué es lo más importante que debo enfocarme para mejorar?",
-          "¿Cómo puedo practicar esta habilidad en mi vida diaria?",
-          "¿Qué me ayudaría a sentirme más seguro sobre este tema?",
-          "¿Qué patrones noto en la buena escritura?",
-          "¿Cómo diferentes géneros abordan los mismos temas?",
-          "¿Qué hace que algunos textos sean más memorables que otros?"
+          "Puedes practicar esta habilidad leyendo textos cortos y resumiendo los puntos principales",
+          "Intenta escribir un párrafo usando las técnicas que hemos discutido",
+          "Busca ejemplos de este concepto en libros o artículos que ya hayas leído",
+          "Practica identificando este patrón en diferentes tipos de textos",
+          "Considera cómo aplicar esta idea a tu propia escritura",
+          "Reflexiona sobre cómo este concepto se relaciona con lo que ya sabes"
         ];
       case 'ht':
         return [
-          "Ki bagay ki pi enpòtan pou m konsantre sou li pou m amelyore?",
-          "Kijan m ka pratike kapasite sa a nan lavi m chak jou?",
-          "Ki sa ki ta ede m santi m pi konfyan sou sijè sa a?",
-          "Ki modèl mwen remake nan bon ekri?",
-          "Ki jan diferan kalite tèks yo ap abòde menm sijè yo?",
-          "Ki sa ki fè kèk tèks yo pi fasil pou sonje pase lòt yo?"
+          "Ou ka pratike kapasite sa a lè w li tèks kout epi rezime pwen prensipal yo",
+          "Eseye ekri yon paragraf lè w itilize teknik nou te diskite yo",
+          "Chèche egzanp konsèp sa a nan liv oswa atik ou te li deja yo",
+          "Pratike idantifye modèl sa a nan diferan kalite tèks",
+          "Konsidere kijan ou ka aplike ide sa a nan pwòp ekriti ou",
+          "Reflechi sou kijan konsèp sa a konekte ak sa ou konnen deja"
         ];
       default:
         return [
-          "What's the most important thing I should focus on improving?",
-          "How can I practice this skill in my daily life?",
-          "What would help me feel more confident about this topic?",
-          "What patterns do I notice in good writing?",
-          "How do different genres approach the same themes?",
-          "What makes some texts more memorable than others?"
+          "You can practice this skill by reading short texts and summarizing the main points",
+          "Try writing a paragraph using the techniques we've discussed",
+          "Look for examples of this concept in books or articles you've already read",
+          "Practice identifying this pattern in different types of texts",
+          "Consider how to apply this idea to your own writing",
+          "Think about how this concept relates to what you already know"
         ];
     }
   };
@@ -502,10 +467,10 @@ Please respond with exactly 6 questions, one per line, without numbering or bull
     // Academic integrity check first
     if (checkForWritingRequests(userMessage)) {
       const responses = [
-        "I understand you're looking for help with your writing! However, I can't write your essay, paper, or assignment for you - that would be academic dishonesty and wouldn't help you learn. Instead, let me help you develop your own ideas and structure your writing. Would you like to start by brainstorming your main ideas or creating an outline?",
-        "I'm here to guide you through the writing process, not do the writing for you! Let's work together to develop your ideas. What's your topic, and what are your initial thoughts about it?",
-        "I can't complete assignments for you, but I can definitely help you become a better writer! Let's start with brainstorming - what are the key points you want to make in your writing?",
-        "Academic integrity is important! Instead of writing it for you, let me help you organize your thoughts and create a strong outline. What's your main argument or topic?"
+        "I can't write your assignment for you, but I can help you develop your own ideas! What's your topic, and what are you struggling with most?",
+        "Let's work on your writing skills together instead! What specific part of the writing process do you want to focus on?",
+        "I'm here to guide you, not do the work for you. What's your main challenge with this assignment?",
+        "Let's brainstorm together! What's your topic and what are your initial thoughts?"
       ];
       return responses[Math.floor(Math.random() * responses.length)];
     }
@@ -1077,7 +1042,7 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
               onContextMenu={message.type === 'bot' ? (e) => e.preventDefault() : undefined}
             >
               <p className="whitespace-pre-wrap text-left">{message.content}</p>
-              <p className="text-xs mt-1 opacity-70">
+              <p className="text-xs mt-1 opacity-70 text-right">
                 {message.timestamp.toLocaleTimeString()}
               </p>
             </div>
