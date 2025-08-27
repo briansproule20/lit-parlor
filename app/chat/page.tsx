@@ -44,8 +44,12 @@ function ChatPageContent() {
           cta: '¿Listo para Transformar tus Habilidades de ELA?',
           ctaSubtitle: 'Únete a miles de estudiantes que están mejorando sus habilidades de lectura, escritura y análisis con ELA Tutor Chatbot, tu tutor de ELA con IA.',
           startButton: 'Comenzar a Aprender con ELA Tutor Chatbot',
-
-
+          // Modal text
+          modalTitle: 'Inicia Sesión para Chatear',
+          modalDescription: 'Para acceder a tu tutor de IA personalizado y comenzar a aprender, por favor inicia sesión con tu cuenta de Echo.',
+          modalSignInButton: 'Iniciar Sesión con Echo',
+          modalNoAccount: '¿No tienes una cuenta?',
+          modalCreateAccount: 'Crea una aquí',
         };
       case 'ht':
         return {
@@ -55,9 +59,12 @@ function ChatPageContent() {
           cta: 'Ou Pare pou Transfòme Konpetans ELA Ou yo?',
           ctaSubtitle: 'Antre nan dè milye elèv ki ap amelyore konpetans lekti, ekriti, ak analiz yo ak ELA Tutor Chatbot, pwofesè ELA ou ki pouse pa IA.',
           startButton: 'Kòmanse Aprann ak ELA Tutor Chatbot',
-
-
-
+          // Modal text
+          modalTitle: 'Konekte pou Chat',
+          modalDescription: 'Pou aksede pwofesè IA pèsonalize ou ak kòmanse aprann, tanpri konekte ak kont Echo ou.',
+          modalSignInButton: 'Konekte ak Echo',
+          modalNoAccount: 'Ou pa gen kont?',
+          modalCreateAccount: 'Kreye youn isit la',
         };
       default:
         return {
@@ -67,6 +74,12 @@ function ChatPageContent() {
           cta: 'Ready to Transform Your ELA Skills?',
           ctaSubtitle: 'Join thousands of students who are improving their reading, writing, and analytical skills with ELA Tutor Chatbot, your AI-powered ELA tutor.',
           startButton: 'Start Learning with ELA Tutor Chatbot',
+          // Modal text
+          modalTitle: 'Sign In to Chat',
+          modalDescription: 'To access your personalized AI tutor and start learning, please sign in with your Echo account.',
+          modalSignInButton: 'Sign In with Echo',
+          modalNoAccount: 'Don\'t have an account?',
+          modalCreateAccount: 'Create one here',
 
 
 
@@ -217,8 +230,59 @@ function ChatPageContent() {
         
         {/* ELA Tutor Chatbot */}
         <div className="mb-6 relative z-20">
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-2xl h-[90vh] min-h-[800px] w-full overflow-hidden">
+          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-2xl h-[90vh] min-h-[800px] w-full overflow-hidden relative">
             <ELATutorChatbot />
+            
+            {/* Sign In Modal Overlay */}
+            {!isAuthenticated && !isLoading && (
+              <div className="absolute inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50">
+                <div className="bg-white/95 backdrop-blur-md border border-white/30 rounded-2xl p-8 shadow-2xl max-w-md w-full mx-4 transform transition-all duration-300 scale-100">
+                  <div className="text-center">
+                    {/* Icon */}
+                    <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <LogIn className="w-8 h-8 text-white" />
+                    </div>
+                    
+                    {/* Title */}
+                    <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                      {languageText.modalTitle}
+                    </h3>
+                    
+                    {/* Description */}
+                    <p className="text-gray-600 mb-6 leading-relaxed">
+                      {languageText.modalDescription}
+                    </p>
+                    
+                    {/* Sign In Button */}
+                    <EchoSignIn 
+                      onSuccess={(user) => console.log('Signed in:', user)}
+                      onError={(error) => console.error('Sign in failed:', error)}
+                      className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                    >
+                      <div className="flex items-center justify-center space-x-2">
+                        <LogIn className="w-5 h-5" />
+                        <span>{languageText.modalSignInButton}</span>
+                      </div>
+                    </EchoSignIn>
+                    
+                    {/* Additional Info */}
+                    <div className="mt-6 pt-6 border-t border-gray-200">
+                      <p className="text-sm text-gray-500">
+                        {languageText.modalNoAccount} 
+                        <a 
+                          href="https://echo.merit.systems" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="text-blue-600 hover:text-blue-700 font-medium ml-1 transition-colors"
+                        >
+                          {languageText.modalCreateAccount}
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
