@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useEcho, useEchoOpenAI } from '@zdql/echo-react-sdk';
+import { useEcho, useEchoModelProviders } from '@merit-systems/echo-react-sdk';
 import { useLanguage } from './language-context';
+import { generateText } from 'ai';
 import { 
   BookOpen, 
   Users, 
@@ -338,12 +339,12 @@ const ELATutorChatbot: React.FC = () => {
   };
 
   // Call Echo LLM using Echo SDK OpenAI adapter
-  const { openai, isReady } = useEchoOpenAI();
+  const { openai } = useEchoModelProviders();
   const callEchoLLM = async (userMessage: string): Promise<string> => {
     const uiText = getUIText();
     if (!isAuthenticated) return uiText.authRequired;
-    if (balance && balance.credits <= 0) return uiText.creditsLow;
-    if (!isReady) return uiText.connectionError;
+    if (balance && balance.balance <= 0) return uiText.creditsLow;
+    if (!openai) return uiText.connectionError;
 
     try {
       // Detect question complexity
@@ -360,17 +361,14 @@ const ELATutorChatbot: React.FC = () => {
         ? 'The student has asked a simple question. Provide a concise, helpful answer in 1-2 sentences.'
         : 'The student has asked a detailed question. Provide a comprehensive explanation in 2-3 paragraphs with examples and context.';
 
-      const response = await openai.chat.completions.create({
-        model: 'gpt-4o',
+      const { text } = await generateText({
+        model: await openai('gpt-4o'),
         messages: [
           { role: 'system', content: `${getLanguageInstructions()}\nYou are a helpful ELA tutor. Remember the conversation context and refer back to previous topics when relevant. ${complexityInstruction}` },
           ...conversationHistory,
           { role: 'user', content: userMessage }
-        ],
-        temperature: 0.7,
-        max_tokens: complexity === 'simple' ? 200 : 800, // Adjust tokens based on complexity
+        ]
       });
-      const text = response.choices?.[0]?.message?.content ?? '';
       return text || uiText.connectionError;
     } catch (error) {
       console.error('Echo LLM Error:', error);
@@ -532,7 +530,7 @@ Please respond with exactly 6 helpful suggestions, one per line, without numberi
     if (lowerMessage.includes('writ') || lowerMessage.includes('essay') || lowerMessage.includes('paper')) {
       const responses = [
         "I'd love to help you with your writing! The key to good writing is good planning. Let's start with these steps: 🎯 Clarify your main idea or argument, 📋 Create an outline with your key points, 📝 Write a rough draft focusing on getting your ideas down, ✏️ Revise and edit for clarity. What's your topic?",
-         "Writing is a process, and I'm here to guide you through it! Here's a helpful framework: 🔍 Brainstorm your ideas, 🏗️ Organize them logically, ✍️ Write your first draft, �� Revise for content and clarity, ✅ Proofread for errors. Which step would you like help with?",
+         "Writing is a process, and I'm here to guide you through it! Here's a helpful framework: 🔍 Brainstorm your ideas, 🏗️ Organize them logically, ✍️ Write your first draft, ✏️ Revise for content and clarity, ✅ Proofread for errors. Which step would you like help with?",
           "Great writing starts with clear thinking! Let's work on developing your ideas: 💡 What's your main point or thesis? 📊 What evidence supports your argument? 🔗 How do your ideas connect? 🎯 What's your purpose and audience? Tell me about your writing assignment!"
       ];
       return responses[Math.floor(Math.random() * responses.length)];

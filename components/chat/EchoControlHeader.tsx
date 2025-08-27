@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useEcho, EchoTokenPurchase } from '@zdql/echo-react-sdk';
+import { useEcho, EchoTokenPurchase } from '@merit-systems/echo-react-sdk';
 import { CreditCard, ExternalLink, RefreshCw, Coins, Globe, Settings, Languages, ChevronDown } from 'lucide-react';
 import { useLanguage } from './language-context';
 
@@ -30,8 +30,8 @@ const EchoControlHeader: React.FC = () => {
   }, [user, balance, error]);
 
   // Check if credits are low (less than 10)
-  const isLowCredits = (balance?.credits ?? 0) < 10;
-  const isCriticalCredits = (balance?.credits ?? 0) < 5;
+  const isLowCredits = (balance?.balance ?? 0) < 10;
+  const isCriticalCredits = (balance?.balance ?? 0) < 5;
 
   // Close credit info when clicking outside
   useEffect(() => {
@@ -404,7 +404,7 @@ const EchoControlHeader: React.FC = () => {
                   'text-yellow-300'
                 }`} />
                 <span className="text-sm font-medium">
-                  {balance?.credits || 0} {balance?.currency || 'credits'}
+                  {balance?.balance || 0} credits
                 </span>
                 {(isLowCredits || isCriticalCredits) && (
                   <span className="text-xs text-red-200">
@@ -551,8 +551,8 @@ const EchoControlHeader: React.FC = () => {
               <p><strong>Account ID:</strong> {user?.id || 'Authenticating...'}</p>
             </div>
             <div className="border-t pt-2">
-              <p><strong>Current Balance:</strong> {balance?.credits ?? 0} credits</p>
-              <p><strong>Currency:</strong> {balance?.currency || 'USD'}</p>
+                              <p><strong>Current Balance:</strong> {balance?.balance ?? 0} credits</p>
+              <p><strong>Currency:</strong> USD</p>
             </div>
             <div className="border-t pt-2">
               <p><strong>Credit Usage:</strong></p>
@@ -620,7 +620,7 @@ const EchoControlHeader: React.FC = () => {
               <div className="flex items-center space-x-2">
                 <Coins className="w-4 h-4 text-yellow-600" />
                 <div>
-                  <p className="font-medium text-gray-900">{balance?.credits || 0} Credits</p>
+                  <p className="font-medium text-gray-900">{balance?.balance || 0} Credits</p>
                   <p className="text-xs text-gray-500">Current balance</p>
                 </div>
               </div>
@@ -690,8 +690,8 @@ const EchoControlHeader: React.FC = () => {
                       <div className="space-y-4">
             <div className="text-sm text-gray-600 bg-blue-50 p-3 rounded-lg">
               <p><strong>Echo Account:</strong> {user?.id && user.id !== 'unknown' ? `${user.id.slice(0, 8)}...` : 'Authenticating...'}</p>
-              <p><strong>Current balance:</strong> {balance?.credits ?? 0} credits</p>
-              <p><strong>Currency:</strong> {balance?.currency || 'USD'}</p>
+                              <p><strong>Current balance:</strong> {balance?.balance ?? 0} credits</p>
+              <p><strong>Currency:</strong> USD</p>
             </div>
 
             {/* Primary Option - Echo Credits Page */}

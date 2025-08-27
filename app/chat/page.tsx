@@ -4,7 +4,7 @@ import * as React from 'react';
 import { LogIn, MessageSquare, Bot, Sparkles, BookOpen, Users, Award, Globe, Brain, Code, Database, Zap, Target, Lightbulb, Shield, TrendingUp, Palette, Music, Eye, Heart, Star, GraduationCap, FileText, Languages, CheckCircle, AlertTriangle, Upload, Send, RefreshCw, ChevronDown, ChevronUp, Globe as GlobeIcon, User, CreditCard, LogOut } from 'lucide-react';
 import { useLanguage } from '@/components/chat/language-context';
 import { LanguageProvider } from '@/components/chat/language-context';
-import { EchoProvider, useEcho, EchoSignIn, EchoTokenPurchase } from '@zdql/echo-react-sdk';
+import { EchoProvider, useEcho, EchoSignIn, EchoTokenPurchase } from '@merit-systems/echo-react-sdk';
 import ELATutorChatbot from '@/components/chat/ELATutorChatbot';
 
 // Famous author last names for random selection
@@ -451,7 +451,7 @@ function ChatPageContent() {
                         {balance ? (
                           typeof balance === 'number' ? 
                             `${balance} credits` : 
-                            `${balance.credits || 0} credits`
+                            `${balance.balance || 0} credits`
                         ) : (
                           '0 credits'
                         )}

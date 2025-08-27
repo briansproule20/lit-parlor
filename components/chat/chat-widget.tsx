@@ -3,7 +3,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { MessageSquare, X, Send, Bot, User, ExternalLink } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { EchoProvider, useEcho, useEchoOpenAI, EchoSignIn } from '@zdql/echo-react-sdk';
+import { EchoProvider, useEcho, useEchoModelProviders, EchoSignIn } from '@merit-systems/echo-react-sdk';
+import { streamText } from 'ai';
 
 interface Message {
   id: number;
@@ -15,7 +16,7 @@ interface Message {
 const ChatWidgetContent: React.FC = () => {
   const router = useRouter();
   const { isAuthenticated } = useEcho();
-  const { openai } = useEchoOpenAI();
+  const { openai } = useEchoModelProviders();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -53,9 +54,9 @@ const ChatWidgetContent: React.FC = () => {
     setIsLoading(true);
 
     try {
-      // Use Echo SDK for AI response
-      const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+      // Use AI SDK with Echo models
+      const { textStream } = await streamText({
+        model: await openai('gpt-4o-mini'),
         messages: [
           {
             role: 'system',
@@ -69,15 +70,18 @@ const ChatWidgetContent: React.FC = () => {
             role: 'user',
             content: currentInput
           }
-        ],
-        max_tokens: 500,
-        temperature: 0.7
+        ]
       });
+
+      let fullResponse = '';
+      for await (const chunk of textStream) {
+        fullResponse += chunk;
+      }
 
       const botResponse: Message = {
         id: Date.now() + 1,
         type: 'bot',
-        content: response.choices[0]?.message?.content || 'I apologize, but I couldn\'t generate a response at the moment.',
+        content: fullResponse || 'I apologize, but I couldn\'t generate a response at the moment.',
         timestamp: new Date()
       };
 

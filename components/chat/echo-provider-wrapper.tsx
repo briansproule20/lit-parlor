@@ -1,6 +1,6 @@
 "use client";
 
-import { EchoProvider } from "@zdql/echo-react-sdk";
+import { EchoProvider } from "@merit-systems/echo-react-sdk";
 import { useEffect, useState } from "react";
 
 interface EchoProviderWrapperProps {
@@ -16,9 +16,6 @@ export default function EchoProviderWrapper({ children }: EchoProviderWrapperPro
 
   const echoConfig = {
     appId: process.env.NEXT_PUBLIC_ECHO_APP_ID || '',
-    clientId: process.env.NEXT_PUBLIC_ECHO_APP_ID || '', // Add client_id for OAuth
-    apiUrl: "https://echo.merit.systems",
-    // Omit redirectUri to default to application root
   };
 
   if (!mounted) {

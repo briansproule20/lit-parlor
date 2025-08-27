@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { EchoSignIn, useEcho } from '@zdql/echo-react-sdk';
+import { EchoSignIn, useEcho } from '@merit-systems/echo-react-sdk';
 import EchoControlHeader from './EchoControlHeader';
 import ELATutorChatbot from './ELATutorChatbot';
 import ErrorBoundary from './ErrorBoundary';
