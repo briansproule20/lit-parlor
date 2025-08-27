@@ -9,6 +9,7 @@ import { EchoProvider, useEcho, EchoSignIn, EchoTokenPurchase } from '@merit-sys
 import ELATutorChatbot from '@/components/chat/ELATutorChatbot';
 import { ChatDotBackground } from '@/components/ui/chat-dot-background';
 import { BackgroundBeams } from '@/components/ui/background-beams';
+import { CompactFileUpload } from '@/components/ui/compact-file-upload';
 
 
 // Famous author last names for random selection
@@ -804,7 +805,17 @@ function ChatPageContent() {
             <div className="text-center">
               <Brain className="w-8 h-8 text-pink-400 mx-auto mb-2" />
               <h4 className="text-white font-semibold mb-1">Smart Suggestions</h4>
-              <p className="text-purple-200 text-sm">{languageText.smartSuggestionsDesc}</p>
+              <p className="text-purple-200 text-sm mb-3">{languageText.smartSuggestionsDesc}</p>
+              
+              {/* File Upload Component */}
+              <div className="w-full max-w-xs mx-auto">
+                <CompactFileUpload 
+                  onChange={(files: File[]) => {
+                    console.log('Files uploaded:', files);
+                    // Handle file upload logic here
+                  }}
+                />
+              </div>
             </div>
             <div className="text-center">
               <CheckCircle className="w-8 h-8 text-yellow-400 mx-auto mb-2" />
@@ -1244,7 +1255,8 @@ export default function ChatPage() {
     appId: process.env.NEXT_PUBLIC_ECHO_APP_ID || '',
     clientId: process.env.NEXT_PUBLIC_ECHO_APP_ID || '', // Add client_id for OAuth
     apiUrl: 'https://echo.merit.systems',
-    redirectUri: "https://narrative-exploration.vercel.app/chat",
+    redirectUri: process.env.NEXT_PUBLIC_ECHO_REDIRECT_URI || 
+      (typeof window !== 'undefined' ? `${window.location.origin}/chat` : 'https://narrative-exploration.vercel.app/chat'),
   };
 
   return (
