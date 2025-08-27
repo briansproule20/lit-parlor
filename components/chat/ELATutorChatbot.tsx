@@ -3,6 +3,7 @@ import { useEcho, useEchoModelProviders } from '@merit-systems/echo-react-sdk';
 import { useLanguage } from './language-context';
 import { generateText } from 'ai';
 import { FileUpload } from '@/components/ui/file-upload';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { 
   BookOpen, 
   Users, 
@@ -29,6 +30,7 @@ interface Message {
   type: 'bot' | 'user';
   content: string;
   timestamp: Date;
+  attachments?: UploadedDocument[]; // New field for file attachments
 }
 
 interface Topic {
@@ -341,7 +343,7 @@ const ELATutorChatbot: React.FC = () => {
 
   // Call Echo LLM using Echo SDK OpenAI adapter
   const { openai } = useEchoModelProviders();
-  const callEchoLLM = async (userMessage: string): Promise<string> => {
+  const callEchoLLM = async (userMessage: string, files?: UploadedDocument[]): Promise<string> => {
     const uiText = getUIText();
     if (!isAuthenticated) return uiText.authRequired;
     if (balance && balance.balance <= 0) return uiText.creditsLow;
@@ -362,10 +364,16 @@ const ELATutorChatbot: React.FC = () => {
         ? 'The student has asked a simple question. Provide a concise, helpful answer in 1-2 sentences.'
         : 'The student has asked a detailed question. Provide a comprehensive explanation in 2-3 paragraphs with examples and context.';
 
+      // Build file context if files are provided
+      let fileContext = '';
+      if (files && files.length > 0) {
+        fileContext = `\n\n📎 **UPLOADED FILES CONTEXT**: The student has uploaded ${files.length} file(s) that you can reference and analyze:\n${files.map(f => `- ${f.name}: ${f.content.substring(0, 500)}${f.content.length > 500 ? '...' : ''}`).join('\n')}\n\nWhen responding, you can reference these files, analyze their content, and provide feedback based on what the student has shared.`;
+      }
+
       const { text } = await generateText({
         model: await openai('gpt-4o'),
         messages: [
-          { role: 'system', content: `${getLanguageInstructions()}\nYou are a helpful ELA tutor. Remember the conversation context and refer back to previous topics when relevant. ${complexityInstruction}` },
+          { role: 'system', content: `${getLanguageInstructions()}\nYou are a helpful ELA tutor. Remember the conversation context and refer back to previous topics when relevant. ${complexityInstruction}${fileContext}` },
           ...conversationHistory,
           { role: 'user', content: userMessage }
         ]
@@ -591,7 +599,8 @@ Please respond with exactly 6 helpful suggestions, one per line, without numberi
       id: messages.length + 1,
       type: 'user',
       content: inputValue,
-      timestamp: new Date()
+      timestamp: new Date(),
+      attachments: uploadedDocuments.length > 0 ? uploadedDocuments : undefined
     };
 
     console.log('📝 Adding user message:', userMessage);
@@ -601,7 +610,7 @@ Please respond with exactly 6 helpful suggestions, one per line, without numberi
 
     try {
       console.log('🔮 Calling Echo LLM...');
-      const botResponse = await callEchoLLM(inputValue);
+      const botResponse = await callEchoLLM(inputValue, uploadedDocuments.length > 0 ? uploadedDocuments : undefined);
       console.log('📨 Got bot response:', botResponse);
 
       const botMessage: Message = {
@@ -709,6 +718,11 @@ Please respond with exactly 6 helpful suggestions, one per line, without numberi
       
       setUploadedDocuments(prev => [...prev, ...newDocuments]);
       
+      // Add files to chat context automatically
+      if (newDocuments.length > 0) {
+        await addFilesToChatContext(newDocuments);
+      }
+      
       // Auto-generate revision feedback for the first document
       if (newDocuments.length > 0) {
         await generateRevisionFeedback(newDocuments[0]);
@@ -731,6 +745,20 @@ Please respond with exactly 6 helpful suggestions, one per line, without numberi
       reader.onerror = () => reject(new Error('Failed to read file'));
       reader.readAsText(file);
     });
+  };
+
+  // Add uploaded files to chat context
+  const addFilesToChatContext = async (files: UploadedDocument[]): Promise<void> => {
+    const fileList = files.map(f => f.name).join(', ');
+    const contextMessage: Message = {
+      id: messages.length + 1,
+      type: 'bot',
+      content: `📎 **Files Added to Context**: I've added ${files.length} file(s) to our conversation: ${fileList}\n\nYou can now reference these files in your questions, and I'll be able to analyze and discuss their content with you.`,
+      timestamp: new Date(),
+      attachments: files
+    };
+    
+    setMessages(prev => [...prev, contextMessage]);
   };
 
   const generateRevisionFeedback = async (document: UploadedDocument): Promise<void> => {
@@ -760,7 +788,7 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
     // Process the feedback request
     setIsTyping(true);
     try {
-      const response = await callEchoLLM(feedbackPrompt);
+      const response = await callEchoLLM(feedbackPrompt, [document]);
       const botMessage: Message = {
         id: messages.length + 2,
         type: 'bot',
@@ -1062,6 +1090,27 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
               onContextMenu={message.type === 'bot' ? (e) => e.preventDefault() : undefined}
             >
               <p className="whitespace-pre-wrap text-left">{message.content}</p>
+              
+              {/* Show file attachments as avatars */}
+              {message.attachments && message.attachments.length > 0 && (
+                <div className="mt-2 flex items-center gap-2">
+                  {message.attachments.map((file) => (
+                    <div key={file.id} className="group relative">
+                      <Avatar className="h-8 w-8 cursor-pointer hover:ring-2 hover:ring-blue-400 transition-all">
+                        <AvatarFallback className="bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 text-xs font-medium">
+                          {file.name.split('.').pop()?.toUpperCase() || 'DOC'}
+                        </AvatarFallback>
+                      </Avatar>
+                      {/* Hover tooltip */}
+                      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10">
+                        {file.name}
+                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+              
               <p className="text-xs mt-1 opacity-70 text-right">
                 {message.timestamp.toLocaleTimeString()}
               </p>
@@ -1157,19 +1206,66 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
               <h4 className="text-sm font-semibold text-white">Document Upload</h4>
             </div>
             <div className="bg-white/5 border border-white/10 rounded-lg p-3">
-              <FileUpload onChange={(files: File[]) => {
-                // Convert File[] to FileList-like structure for existing handler
-                const fileList = {
-                  length: files.length,
-                  item: (index: number) => files[index],
-                  [Symbol.iterator]: function* () {
+              <FileUpload 
+                onChange={(files: File[]) => {
+                  // Just store files locally, don't process them yet
+                  console.log('Files uploaded:', files.length);
+                }}
+                onFileRemove={(fileIndex: number) => {
+                  // Handle file removal if needed
+                  console.log('File removed at index:', fileIndex);
+                }}
+                onAddToChat={async (files: File[]) => {
+                  // Process files and add them to prompt box
+                  if (files.length === 0) return;
+                  
+                  setIsUploading(true);
+                  setUploadError('');
+                  
+                  try {
+                    const newDocuments: UploadedDocument[] = [];
+                    
                     for (let i = 0; i < files.length; i++) {
-                      yield files[i];
+                      const file = files[i];
+                      
+                      // Check file type
+                      if (!file.type.includes('text') && !file.name.endsWith('.txt') && !file.name.endsWith('.doc') && !file.name.endsWith('.docx')) {
+                        throw new Error(`Unsupported file type: ${file.name}. Please upload text files (.txt, .doc, .docx) only.`);
+                      }
+                    
+                      // Check file size (max 5MB)
+                      if (file.size > 5 * 1024 * 1024) {
+                        throw new Error(`File too large: ${file.name}. Maximum size is 5MB.`);
+                      }
+                      
+                      const content = await readFileContent(file);
+                      const document: UploadedDocument = {
+                        id: Date.now().toString() + i,
+                        name: file.name,
+                        content: content,
+                        size: file.size,
+                        type: file.type,
+                        uploadedAt: new Date()
+                      };
+                      
+                      newDocuments.push(document);
                     }
+                    
+                    setUploadedDocuments(prev => [...prev, ...newDocuments]);
+                    
+                    // Add files to prompt box instead of sending automatically
+                    const fileList = newDocuments.map(f => f.name).join(', ');
+                    const promptText = `I've uploaded ${files.length} document(s) for analysis: ${fileList}. Please analyze these documents and provide feedback.`;
+                    
+                    setInputValue(promptText);
+                    
+                  } catch (error) {
+                    setUploadError(error instanceof Error ? error.message : 'Failed to process files');
+                  } finally {
+                    setIsUploading(false);
                   }
-                } as FileList;
-                handleFileUpload(fileList);
-              }} />
+                }}
+              />
             </div>
           </div>
         </div>

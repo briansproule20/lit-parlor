@@ -27,8 +27,12 @@ const secondaryVariant = {
 
 export const FileUpload = ({
   onChange,
+  onFileRemove,
+  onAddToChat,
 }: {
   onChange?: (files: File[]) => void;
+  onFileRemove?: (fileIndex: number) => void;
+  onAddToChat?: (files: File[]) => void;
 }) => {
   const [files, setFiles] = useState<File[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -36,6 +40,13 @@ export const FileUpload = ({
   const handleFileChange = (newFiles: File[]) => {
     setFiles((prevFiles) => [...prevFiles, ...newFiles]);
     onChange && onChange(newFiles);
+  };
+
+  const handleFileRemove = (fileIndex: number) => {
+    const updatedFiles = files.filter((_, index) => index !== fileIndex);
+    setFiles(updatedFiles);
+    onChange && onChange(updatedFiles);
+    onFileRemove && onFileRemove(fileIndex);
   };
 
   const handleClick = () => {
@@ -73,56 +84,60 @@ export const FileUpload = ({
             Upload file
           </p>
           <div className="relative w-full mt-3 max-w-md mx-auto">
-            {files.length > 0 &&
-              files.map((file, idx) => (
-                <motion.div
-                  key={"file" + idx}
-                  layoutId={idx === 0 ? "file-upload" : "file-upload-" + idx}
-                                  className={cn(
-                  "relative overflow-hidden z-40 bg-white dark:bg-neutral-900 flex flex-col items-start justify-start md:h-16 p-2 mt-2 w-full mx-auto rounded-md",
-                  "shadow-sm"
-                )}
-                >
-                  <div className="flex justify-between w-full items-center gap-4">
-                    <motion.p
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      layout
-                      className="text-base text-neutral-700 dark:text-neutral-300 truncate max-w-xs"
+                        {files.length > 0 && (
+              <div className="mt-3">
+                <div className="text-center mb-2">
+                  <p className="text-xs text-neutral-500 dark:text-neutral-400">
+                    {files.length} file(s) ready to add to chat
+                  </p>
+                </div>
+                <div className="flex flex-wrap items-center gap-2 justify-center">
+                  {files.map((file, idx) => (
+                    <motion.div
+                      key={"file" + idx}
+                      layoutId={idx === 0 ? "file-upload" : "file-upload-" + idx}
+                      className="group relative"
                     >
-                      {file.name}
-                    </motion.p>
-                    <motion.p
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      layout
-                      className="rounded-lg px-2 py-1 w-fit shrink-0 text-sm text-neutral-600 dark:bg-neutral-800 dark:text-white shadow-input"
-                    >
-                      {(file.size / (1024 * 1024)).toFixed(2)} MB
-                    </motion.p>
-                  </div>
-
-                  <div className="flex text-sm md:flex-row flex-col items-start md:items-center w-full mt-2 justify-between text-neutral-600 dark:text-neutral-400">
-                    <motion.p
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      layout
-                      className="px-1 py-0.5 rounded-md bg-gray-100 dark:bg-neutral-800 "
-                    >
-                      {file.type}
-                    </motion.p>
-
-                    <motion.p
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      layout
-                    >
-                      modified{" "}
-                      {new Date(file.lastModified).toLocaleDateString()}
-                    </motion.p>
-                  </div>
-                </motion.div>
-              ))}
+                      <div className="h-10 w-10 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center cursor-pointer hover:ring-2 hover:ring-blue-400 transition-all shadow-sm relative">
+                        <span className="text-blue-600 dark:text-blue-300 text-xs font-medium">
+                          {file.name.split('.').pop()?.toUpperCase() || 'DOC'}
+                        </span>
+                        
+                                              {/* Delete button - only visible on hover */}
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleFileRemove(idx);
+                        }}
+                        className="absolute -top-1 -right-1 h-5 w-5 bg-red-500 hover:bg-red-600 text-white rounded-full flex items-center justify-center text-xs font-bold transition-colors shadow-sm z-20 opacity-0 group-hover:opacity-100 transition-opacity"
+                        title="Remove file"
+                      >
+                        ×
+                      </button>
+                      </div>
+                      
+                      {/* Hover tooltip with higher z-index */}
+                      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-50">
+                        {file.name}
+                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+                <div className="mt-3 text-center">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      e.preventDefault();
+                      onAddToChat && onAddToChat(files);
+                    }}
+                    className="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs rounded-md transition-colors"
+                  >
+                    Add to Prompt
+                  </button>
+                </div>
+              </div>
+            )}
             {!files.length && (
               <motion.div
                 layoutId="file-upload"
