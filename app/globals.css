@@ -98,9 +98,35 @@ div[style*="position: fixed"] {
   border-radius: 50%;
   background: #f59e0b;
   cursor: pointer;
-  border: 2px solid #92400e;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  transition: all 0.2s ease;
+}
+
+/* Custom textarea scrollbar styling */
+.chat-textarea::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-textarea::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat-textarea::-webkit-scrollbar-thumb {
+  background: rgba(168, 85, 247, 0.3);
+  border-radius: 3px;
+}
+
+.chat-textarea::-webkit-scrollbar-thumb:hover {
+  background: rgba(168, 85, 247, 0.5);
+}
+
+/* Textarea focus animations */
+.chat-textarea:focus {
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.3), 0 4px 12px rgba(168, 85, 247, 0.1);
+}
+
+.chat-textarea:hover {
+  border-color: rgba(168, 85, 247, 0.4);
+  transition: border-color 0.2s ease-in-out;
 }
 
 .slider::-webkit-slider-thumb:hover {

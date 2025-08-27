@@ -4,6 +4,7 @@ import { useLanguage } from './language-context';
 import { generateText } from 'ai';
 import { FileUpload } from '@/components/ui/file-upload';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Textarea } from '@/components/ui/textarea';
 import { 
   BookOpen, 
   Users, 
@@ -664,9 +665,30 @@ Please respond with exactly 6 helpful suggestions, one per line, without numberi
     }
   };
 
-  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>): void => {
-    if (e.key === 'Enter') {
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLTextAreaElement>): void => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
       handleSend();
+    }
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
+    setInputValue(e.target.value);
+    
+    // Auto-resize textarea
+    const textarea = e.target;
+    textarea.style.height = 'auto';
+    textarea.style.height = Math.min(textarea.scrollHeight, 120) + 'px';
+  };
+
+  const handlePaste = (e: React.ClipboardEvent<HTMLTextAreaElement>): void => {
+    // Handle paste events if needed
+    const pastedText = e.clipboardData.getData('text');
+    if (pastedText.length > 1000) {
+      // If pasting a very long text, truncate it
+      e.preventDefault();
+      const truncatedText = pastedText.substring(0, 1000) + '...\n\n[Text truncated for readability]';
+      setInputValue(truncatedText);
     }
   };
 
@@ -857,7 +879,7 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
         },
         helpIntegrity: 'I help you learn and develop your own ideas - I don\'t write assignments for you!',
         quickTopics: 'Quick Topics',
-        inputPlaceholder: 'Ask me about reading, writing, grammar, vocabulary, or literature...',
+        inputPlaceholder: 'Ask me about reading, writing, grammar, vocabulary, or literature...\nYou can write longer questions here!',
         smartSuggestions: '💡 Smart Suggestions',
         clickToExplore: '💬 Click any question to explore',
         startConversation: 'Start a conversation to see helpful suggestions!',
@@ -911,7 +933,7 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
         },
         helpIntegrity: 'Te ayudo a aprender y desarrollar tus propias ideas - ¡no escribo tareas por ti!',
         quickTopics: 'Temas Rápidos',
-        inputPlaceholder: 'Pregúntame sobre lectura, escritura, gramática, vocabulario o literatura...',
+        inputPlaceholder: 'Pregúntame sobre lectura, escritura, gramática, vocabulario o literatura...\n¡Puedes escribir preguntas más largas aquí!',
         smartSuggestions: '💡 Sugerencias Inteligentes',
         clickToExplore: '💬 Haz clic en cualquier pregunta para explorar',
         startConversation: '¡Inicia una conversación para ver sugerencias útiles!',
@@ -965,7 +987,7 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
         },
         helpIntegrity: 'Mwen ede w aprann ak devlope pwòp ide w yo - mwen pa ekri devwa pou ou!',
         quickTopics: 'Sijè Rapid',
-        inputPlaceholder: 'Mande m sou lekti, ekriti, gramè, vokabilè, oswa literati...',
+        inputPlaceholder: 'Mande m sou lekti, ekriti, gramè, vokabilè, oswa literati...\nOu ka ekri kesyon pi long isit la!',
         smartSuggestions: '💡 Sijesyon Entèlijan',
         clickToExplore: '💬 Klike sou nenpòt kesyon pou eksplore',
         startConversation: 'Kòmanse yon konvèsasyon pou wè sijesyon itil yo!',
@@ -1136,18 +1158,49 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
           {/* Input Area */}
           <div className="bg-black/20 backdrop-blur-md border-t border-white/10 p-4">
             <div className="flex space-x-2">
-              <input
-                type="text"
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                onKeyPress={handleKeyPress}
-                placeholder={uiText.inputPlaceholder}
-                className="flex-1 bg-white/10 border border-white/20 rounded-md px-4 py-2 text-white text-left placeholder-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-              />
+              <div className="flex-1 flex flex-col">
+                <div className="relative">
+                  <Textarea
+                    value={inputValue}
+                    onChange={handleInputChange}
+                    onKeyPress={handleKeyPress}
+                    onPaste={handlePaste}
+                    placeholder={uiText.inputPlaceholder}
+                    className="flex-1 bg-white/10 border border-white/20 rounded-md px-4 py-2 text-white text-left placeholder-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none min-h-[60px] max-h-[120px] text-sm leading-relaxed chat-textarea relative z-10"
+                    rows={2}
+                    style={{
+                      scrollbarWidth: 'thin',
+                      scrollbarColor: 'rgba(168, 85, 247, 0.3) transparent'
+                    }}
+                  />
+                  {inputValue.length > 0 && (
+                    <div className="absolute inset-0 rounded-md bg-gradient-to-r from-purple-500/10 to-pink-500/10 pointer-events-none z-0"></div>
+                  )}
+                </div>
+                {inputValue.length > 0 && (
+                  <div className="flex justify-between items-center mt-1 px-1">
+                    <span className="text-xs text-purple-300">
+                      {inputValue.length} characters
+                    </span>
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={() => setInputValue('')}
+                        className="text-xs text-purple-300 hover:text-purple-100 transition-colors px-2 py-1 rounded hover:bg-purple-600/20"
+                        title="Clear input"
+                      >
+                        Clear
+                      </button>
+                      <span className="text-xs text-purple-300">
+                        Press Enter to send, Shift+Enter for new line
+                      </span>
+                    </div>
+                  </div>
+                )}
+              </div>
               <button
                 onClick={handleSend}
                 disabled={!inputValue.trim() || isTyping}
-                className="bg-purple-600 hover:bg-purple-700 disabled:bg-purple-800 disabled:opacity-50 text-white p-2 rounded-md transition-colors"
+                className="bg-purple-600 hover:bg-purple-700 disabled:bg-purple-800 disabled:opacity-50 text-white p-2 rounded-md transition-colors self-end"
               >
                 <Send className="w-5 h-5" />
               </button>
