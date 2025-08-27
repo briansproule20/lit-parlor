@@ -177,7 +177,7 @@ function ChatPageContent() {
               ) : isAuthenticated ? (
                 <div className="flex items-center space-x-3">
                   {/* User Info */}
-                  <div className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-3 py-2 rounded-lg">
+                  <div className="bg-white/20 backdrop-blur-md border border-white/20 text-white px-3 py-2 rounded-lg">
                     <div className="flex items-center space-x-2">
                       <User className="w-4 h-4" />
                       <span className="text-sm font-medium">{user?.name || user?.email || 'User'}</span>
@@ -185,7 +185,7 @@ function ChatPageContent() {
                   </div>
                   
                   {/* Balance */}
-                  <div className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-3 py-2 rounded-lg">
+                  <div className="bg-white/20 backdrop-blur-md border border-white/20 text-white px-3 py-2 rounded-lg">
                     <div className="flex items-center space-x-2">
                       <CreditCard className="w-4 h-4" />
                       <span className="text-sm font-medium">
@@ -201,19 +201,17 @@ function ChatPageContent() {
                   </div>
                   
                   {/* Token Purchase */}
-                  <EchoTokenPurchase 
-                    amount={100}
-                    onPurchaseComplete={(result) => console.log('Purchase completed:', result)}
-                    onError={(error) => console.error('Purchase error:', error)}
-                    className="bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-lg transition-colors text-sm font-medium"
+                  <button 
+                    onClick={() => window.open('https://echo.merit.systems', '_blank')}
+                    className="bg-white/20 backdrop-blur-md border border-white/20 text-white px-3 py-2 rounded-lg transition-colors text-sm font-medium"
                   >
-                    Buy Credits
-                  </EchoTokenPurchase>
+                    Echo Base
+                  </button>
                   
                   {/* Sign Out */}
                   <button
                     onClick={signOut}
-                    className="bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded-lg transition-colors flex items-center space-x-2 text-sm font-medium"
+                    className="bg-white/20 backdrop-blur-md border border-white/20 text-white px-3 py-2 rounded-lg transition-colors flex items-center space-x-2 text-sm font-medium"
                   >
                     <LogOut className="w-4 h-4" />
                     <span>Sign Out</span>
