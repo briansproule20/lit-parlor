@@ -201,7 +201,12 @@ function ChatPageContent() {
                   </div>
                   
                   {/* Token Purchase */}
-                  <EchoTokenPurchase className="bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-lg transition-colors text-sm font-medium">
+                  <EchoTokenPurchase 
+                    amount={100}
+                    onPurchaseComplete={(result) => console.log('Purchase completed:', result)}
+                    onError={(error) => console.error('Purchase error:', error)}
+                    className="bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-lg transition-colors text-sm font-medium"
+                  >
                     Buy Credits
                   </EchoTokenPurchase>
                   
@@ -311,6 +316,16 @@ export default function ChatPage() {
     redirectUri: process.env.NEXT_PUBLIC_ECHO_REDIRECT_URI || 
       (typeof window !== 'undefined' ? `${window.location.origin}/chat` : 'https://narrative-exploration.vercel.app/chat'),
   };
+
+  // Debug Echo configuration
+  console.log('Echo Config:', {
+    appId: echoConfig.appId,
+    clientId: echoConfig.clientId,
+    apiUrl: echoConfig.apiUrl,
+    redirectUri: echoConfig.redirectUri,
+    hasAppId: !!echoConfig.appId,
+    hasClientId: !!echoConfig.clientId
+  });
 
   return (
     <EchoProvider config={echoConfig}>
