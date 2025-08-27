@@ -17,9 +17,10 @@ export default function LitParlorNavbar() {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
   const isQuizPage = pathname.includes("/quiz");
+  const isChatPage = pathname === "/chat";
 
-  // Don't render navbar on quiz pages
-  if (isQuizPage) {
+  // Don't render navbar on quiz pages or chat page
+  if (isQuizPage || isChatPage) {
     return null;
   }
 

@@ -983,7 +983,7 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
           <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
             <BookOpen className="w-5 h-5 text-white" />
           </div>
-                      <div>
+                      <div className="pt-2">
               <h1 className="text-xl font-bold text-white">ELA Tutor Chatbot</h1>
             </div>
         </div>

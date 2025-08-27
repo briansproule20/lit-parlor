@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from 'react';
+import Link from 'next/link';
 import { LogIn, MessageSquare, Bot, Sparkles, BookOpen, Users, Award, Globe, Brain, Code, Database, Zap, Target, Lightbulb, Shield, TrendingUp, Palette, Music, Eye, Heart, Star, GraduationCap, FileText, Languages, CheckCircle, AlertTriangle, Upload, Send, RefreshCw, ChevronDown, ChevronUp, Globe as GlobeIcon, User, CreditCard, LogOut } from 'lucide-react';
 import { useLanguage } from '@/components/chat/language-context';
 import { LanguageProvider } from '@/components/chat/language-context';
@@ -395,26 +396,34 @@ function ChatPageContent() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 overflow-visible">
       {/* Header */}
-      <div className="bg-purple-900/20 backdrop-blur-md border-b border-white/10 pt-12">
+      <div className="bg-purple-900/20 backdrop-blur-md border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                <Bot className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h1 className="text-2xl font-bold text-white">{languageText.title}</h1>
-                <p className="text-purple-200 text-sm">{languageText.subtitle}</p>
-              </div>
+              <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+                <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                  <img
+                    src="/images/litparlorfavicon.png"
+                    alt="LitParlor"
+                    width={24}
+                    height={24}
+                    className="w-6 h-6"
+                  />
+                </div>
+                <div>
+                  <h1 className="text-2xl font-bold text-white">LitParlor</h1>
+                  <p className="text-purple-200 text-sm">AI-Powered ELA Tutor & Literary Assistant</p>
+                </div>
+              </Link>
             </div>
             
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-3">
               {/* Language Selector */}
               <div className="relative">
                 <select
                   value={currentLanguage}
                   onChange={(e) => setCurrentLanguage(e.target.value)}
-                  className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-4 py-2 rounded-lg appearance-none cursor-pointer hover:bg-white/20 transition-colors"
+                  className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-3 py-2 rounded-lg appearance-none cursor-pointer hover:bg-white/20 transition-colors text-sm"
                   style={{ paddingRight: '2.5rem' }}
                 >
                   {languageOptions.map((lang) => (
@@ -427,27 +436,48 @@ function ChatPageContent() {
                   <ChevronDown className="w-4 h-4 text-white" />
                 </div>
               </div>
-              
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="max-w-7xl mx-auto px-4 py-4">
+        
+        {/* Pricing Info Section */}
+        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 mb-6">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                <CreditCard className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-white">Echo Credits</h3>
+                <p className="text-purple-200 text-sm">Manage your account and credits</p>
+              </div>
+            </div>
+            
+            <div className="flex items-center space-x-3">
               {/* Echo Authentication */}
               {isLoading ? (
-                <div className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-6 py-3 rounded-lg">
-                  <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                <div className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-4 py-2 rounded-lg">
+                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
                 </div>
               ) : isAuthenticated ? (
-                <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-3">
                   {/* User Info */}
-                  <div className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-4 py-2 rounded-lg">
+                  <div className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-3 py-2 rounded-lg">
                     <div className="flex items-center space-x-2">
                       <User className="w-4 h-4" />
-                      <span className="text-sm">{user?.name || user?.email || 'User'}</span>
+                      <span className="text-sm font-medium">{user?.name || user?.email || 'User'}</span>
                     </div>
                   </div>
                   
                   {/* Balance */}
-                  <div className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-4 py-2 rounded-lg">
+                  <div className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-3 py-2 rounded-lg">
                     <div className="flex items-center space-x-2">
                       <CreditCard className="w-4 h-4" />
-                      <span className="text-sm">
+                      <span className="text-sm font-medium">
                         {balance ? (
                           typeof balance === 'number' ? 
                             `${balance} credits` : 
@@ -460,36 +490,32 @@ function ChatPageContent() {
                   </div>
                   
                   {/* Token Purchase */}
-                  <EchoTokenPurchase className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors text-sm">
+                  <EchoTokenPurchase className="bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-lg transition-colors text-sm font-medium">
                     Buy Credits
                   </EchoTokenPurchase>
                   
                   {/* Sign Out */}
                   <button
                     onClick={signOut}
-                    className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition-colors flex items-center space-x-2"
+                    className="bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded-lg transition-colors flex items-center space-x-2 text-sm font-medium"
                   >
                     <LogOut className="w-4 h-4" />
-                    <span className="text-sm">Sign Out</span>
+                    <span>Sign Out</span>
                   </button>
                 </div>
               ) : (
                 <EchoSignIn 
                   onSuccess={(user) => console.log('Signed in:', user)}
                   onError={(error) => console.error('Sign in failed:', error)}
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 hover:scale-105 flex items-center space-x-2"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center space-x-2 text-sm"
                 >
-                  <LogIn className="w-5 h-5" />
+                  <LogIn className="w-4 h-4" />
                   <span>Sign In to Echo</span>
                 </EchoSignIn>
               )}
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 py-4">
         
         {/* Hero Section */}
         <div className="text-center py-6">

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { MessageSquare, X, Send, Bot, User, ExternalLink } from 'lucide-react';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { EchoProvider, useEcho, useEchoModelProviders, EchoSignIn } from '@merit-systems/echo-react-sdk';
 import { streamText } from 'ai';
 
@@ -231,6 +231,15 @@ const ChatWidgetContent: React.FC = () => {
 
 
 const ChatWidget: React.FC = () => {
+  'use client'
+  const pathname = usePathname();
+  const isChatPage = pathname === '/chat';
+  
+  // Don't render on chat page
+  if (isChatPage) {
+    return null;
+  }
+
   const echoConfig = {
     appId: process.env.NEXT_PUBLIC_ECHO_APP_ID || '',
     clientId: process.env.NEXT_PUBLIC_ECHO_APP_ID || '', // Add client_id for OAuth
