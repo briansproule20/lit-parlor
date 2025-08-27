@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useEcho, useEchoModelProviders } from '@merit-systems/echo-react-sdk';
 import { useLanguage } from './language-context';
 import { generateText } from 'ai';
+import { FileUpload } from '@/components/ui/file-upload';
 import { 
   BookOpen, 
   Users, 
@@ -1033,29 +1034,7 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
         </div>
       )}
 
-      {/* Topic Selection */}
-      <div className="bg-black/10 backdrop-blur-md border-b border-white/10 p-4">
-        <h3 className="text-sm font-medium text-white mb-3">{uiText.quickTopics}</h3>
-        <div className="flex flex-wrap gap-2">
-          {getTopics().map((topic) => {
-            const IconComponent = topic.icon;
-            return (
-              <button
-                key={topic.id}
-                onClick={() => handleTopicClick(topic.id)}
-                className={`flex items-center space-x-2 px-3 py-2 rounded-md text-sm transition-colors ${
-                  selectedTopic === topic.id
-                    ? 'bg-purple-600 text-white'
-                    : 'bg-white/10 text-purple-200 hover:bg-white/20'
-                }`}
-              >
-                <IconComponent className="w-4 h-4" />
-                <span>{topic.name}</span>
-              </button>
-            );
-          })}
-        </div>
-      </div>
+
 
       {/* Main Content Area - Split Layout */}
       <div className="flex flex-1 min-h-0">
@@ -1127,7 +1106,7 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
           </div>
         </div>
 
-        {/* Right Sidebar - Quick Tips */}
+        {/* Right Sidebar - Quick Tips & File Upload */}
         <div className="w-80 lg:w-80 md:w-64 hidden md:flex bg-black/30 backdrop-blur-md border-l border-white/10 flex-col overflow-hidden min-h-0">
           <div className="p-4 border-b border-white/10">
             <div className="flex items-center gap-2">
@@ -1170,109 +1149,33 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
               </div>
             </div>
           )}
+
+          {/* File Upload Section */}
+          <div className="border-t border-white/10 p-4">
+            <div className="flex items-center gap-2 mb-3">
+              <FileText className="w-4 h-4 text-purple-400" />
+              <h4 className="text-sm font-semibold text-white">Document Upload</h4>
+            </div>
+            <div className="bg-white/5 border border-white/10 rounded-lg p-3">
+              <FileUpload onChange={(files: File[]) => {
+                // Convert File[] to FileList-like structure for existing handler
+                const fileList = {
+                  length: files.length,
+                  item: (index: number) => files[index],
+                  [Symbol.iterator]: function* () {
+                    for (let i = 0; i < files.length; i++) {
+                      yield files[i];
+                    }
+                  }
+                } as FileList;
+                handleFileUpload(fileList);
+              }} />
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Document Upload Section */}
-      <div className="bg-black/20 backdrop-blur-md border-t border-white/10 p-3">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-2 mb-2">
-            <FileText className="w-4 h-4 text-purple-400" />
-            <h3 className="text-base font-semibold text-white">{uiText.documentUpload.title}</h3>
-          </div>
-          <p className="text-xs text-purple-200 mb-3">{uiText.documentUpload.subtitle}</p>
-          
-          {/* Upload Area */}
-          <div
-            className={`border-2 border-dashed rounded-lg p-4 text-center transition-all duration-200 ${
-              isDragOver
-                ? 'border-purple-400 bg-purple-900/20'
-                : 'border-white/20 hover:border-purple-400/50'
-            }`}
-            onDragOver={handleDragOver}
-            onDragLeave={handleDragLeave}
-            onDrop={handleDrop}
-            onClick={() => fileInputRef.current?.click()}
-          >
-            <input
-              ref={fileInputRef}
-              type="file"
-              multiple
-              accept=".txt,.doc,.docx"
-              onChange={(e) => handleFileUpload(e.target.files)}
-              className="hidden"
-            />
-            
-            {isUploading ? (
-              <div className="flex flex-col items-center">
-                <Loader2 className="w-6 h-6 text-purple-400 animate-spin mb-1" />
-                <p className="text-purple-200 text-sm">{uiText.documentUpload.uploading}</p>
-              </div>
-            ) : (
-              <div className="flex flex-col items-center">
-                <Upload className="w-6 h-6 text-purple-400 mb-1" />
-                <p className="text-white font-medium mb-1 text-sm">{uiText.documentUpload.dragDropText}</p>
-                <p className="text-xs text-purple-300">{uiText.documentUpload.supportedFormats}</p>
-              </div>
-            )}
-          </div>
 
-          {/* Error Message */}
-          {uploadError && (
-            <div className="mt-3 p-3 bg-red-900/20 border border-red-400/30 rounded-lg flex items-center gap-2">
-              <AlertCircle className="w-4 h-4 text-red-400" />
-              <p className="text-red-200 text-sm">{uploadError}</p>
-            </div>
-          )}
-
-          {/* Uploaded Documents */}
-          {uploadedDocuments.length > 0 && (
-            <div className="mt-4">
-              <h4 className="text-sm font-medium text-white mb-2">Uploaded Documents:</h4>
-              <div className="space-y-2">
-                {uploadedDocuments.map((doc) => (
-                  <div
-                    key={doc.id}
-                    className="flex items-center justify-between p-3 bg-white/5 border border-white/10 rounded-lg"
-                  >
-                    <div className="flex items-center gap-3">
-                      <FileText className="w-4 h-4 text-purple-400" />
-                      <div>
-                        <p className="text-white text-sm font-medium">{doc.name}</p>
-                        <p className="text-xs text-purple-300">
-                          {(doc.size / 1024).toFixed(1)} KB • {doc.uploadedAt.toLocaleTimeString()}
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <button
-                        onClick={() => generateRevisionFeedback(doc)}
-                        className="px-3 py-1 bg-purple-600 hover:bg-purple-700 text-white text-xs rounded-md transition-colors"
-                      >
-                        {uiText.documentUpload.analyzeDocument}
-                      </button>
-                      <button
-                        onClick={() => removeDocument(doc.id)}
-                        className="p-1 text-red-400 hover:text-red-300 transition-colors"
-                      >
-                        <X className="w-4 h-4" />
-                      </button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* No Documents Message */}
-          {uploadedDocuments.length === 0 && !isUploading && (
-            <div className="mt-4 text-center text-purple-300 text-sm">
-              <FileText className="w-6 h-6 mx-auto mb-2 opacity-50" />
-              <p>{uiText.documentUpload.noDocuments}</p>
-            </div>
-          )}
-        </div>
-      </div>
 
       {/* Academic Dishonesty Modal */}
       {showDishonestyModal && (
