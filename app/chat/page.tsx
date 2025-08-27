@@ -7,6 +7,9 @@ import { useLanguage } from '@/components/chat/language-context';
 import { LanguageProvider } from '@/components/chat/language-context';
 import { EchoProvider, useEcho, EchoSignIn, EchoTokenPurchase } from '@merit-systems/echo-react-sdk';
 import ELATutorChatbot from '@/components/chat/ELATutorChatbot';
+import { ChatDotBackground } from '@/components/ui/chat-dot-background';
+import { BackgroundBeams } from '@/components/ui/background-beams';
+
 
 // Famous author last names for random selection
 const famousAuthors: string[] = [
@@ -394,14 +397,17 @@ function ChatPageContent() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 overflow-visible">
+    <div className="min-h-screen overflow-visible relative">
+      {/* Custom Chat Dot Background */}
+      <ChatDotBackground />
+      
       {/* Header */}
-      <div className="bg-purple-900/20 backdrop-blur-md border-b border-white/10">
+      <div className="bg-amber-800/20 backdrop-blur-md border-b border-amber-700/30 relative z-10">
         <div className="max-w-7xl mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
-                <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                <div className="w-10 h-10 bg-gradient-to-r from-amber-600 to-orange-600 rounded-lg flex items-center justify-center">
                   <img
                     src="/images/litparlorfavicon.png"
                     alt="LitParlor"
@@ -411,8 +417,8 @@ function ChatPageContent() {
                   />
                 </div>
                 <div>
-                  <h1 className="text-2xl font-bold text-white">LitParlor</h1>
-                  <p className="text-purple-200 text-sm">AI-Powered ELA Tutor & Literary Assistant</p>
+                  <h1 className="text-2xl font-bold text-amber-900">LitParlor</h1>
+                  <p className="text-amber-700 text-sm">AI-Powered ELA Tutor & Literary Assistant</p>
                 </div>
               </Link>
             </div>
@@ -423,17 +429,17 @@ function ChatPageContent() {
                 <select
                   value={currentLanguage}
                   onChange={(e) => setCurrentLanguage(e.target.value)}
-                  className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-3 py-2 rounded-lg appearance-none cursor-pointer hover:bg-white/20 transition-colors text-sm"
+                  className="bg-amber-800/20 backdrop-blur-md border border-amber-700/30 text-amber-900 px-3 py-2 rounded-lg appearance-none cursor-pointer hover:bg-amber-800/30 transition-colors text-sm"
                   style={{ paddingRight: '2.5rem' }}
                 >
                   {languageOptions.map((lang) => (
-                    <option key={lang.code} value={lang.code} className="bg-gray-800 text-white">
+                    <option key={lang.code} value={lang.code} className="bg-amber-50 text-amber-900">
                       {lang.flag} {lang.name}
                     </option>
                   ))}
                 </select>
                 <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
-                  <ChevronDown className="w-4 h-4 text-white" />
+                  <ChevronDown className="w-4 h-4 text-amber-700" />
                 </div>
               </div>
             </div>
@@ -442,18 +448,18 @@ function ChatPageContent() {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 py-4">
+      <div className="max-w-7xl mx-auto px-4 py-4 relative z-10">
         
         {/* Pricing Info Section */}
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 mb-6">
+        <div className="bg-amber-800/10 backdrop-blur-md border border-amber-700/20 rounded-xl p-6 mb-6 opacity-90 relative z-20">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-gradient-to-r from-amber-600 to-orange-600 rounded-lg flex items-center justify-center">
                 <CreditCard className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-white">Echo Credits</h3>
-                <p className="text-purple-200 text-sm">Manage your account and credits</p>
+                <h3 className="text-xl font-bold text-amber-900">Echo Credits</h3>
+                <p className="text-amber-700 text-sm">Manage your account and credits</p>
               </div>
             </div>
             
@@ -517,39 +523,15 @@ function ChatPageContent() {
           </div>
         </div>
         
-        {/* Hero Section */}
-        <div className="text-center py-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="w-24 h-24 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
-              <BookOpen className="w-12 h-12 text-white" />
-            </div>
-            
-            <h2 className="text-5xl font-bold text-white mb-6 font-serif">
-              {languageText.title}
-            </h2>
-            <p className="text-purple-200 mb-8 text-xl font-serif leading-relaxed">
-              {languageText.heroDescription}
-            </p>
-            
-            <div className="flex items-center justify-center space-x-4 text-purple-200 mb-8">
-              <div className="flex items-center space-x-2">
-                <Brain className="w-5 h-5 text-blue-400" />
-                <span>{languageText.aiLearning}</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Languages className="w-5 h-5 text-green-400" />
-                <span>{languageText.multiLanguage}</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Shield className="w-5 h-5 text-purple-400" />
-                <span>{languageText.academicIntegrity}</span>
-              </div>
-            </div>
+        {/* ELA Tutor Chatbot */}
+        <div className="mb-6 relative z-20">
+          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-2xl h-[90vh] min-h-[800px] w-full overflow-hidden">
+            <ELATutorChatbot />
           </div>
         </div>
 
         {/* Mission Statement */}
-        <div className="bg-white/5 border border-white/20 rounded-xl p-6 mb-6">
+        <div className="bg-white/5 border border-white/20 rounded-xl p-6 mb-6 opacity-90 relative z-20">
           <h3 className="text-2xl font-bold text-white mb-4 font-serif text-center">🎯 {languageText.missionTitle}</h3>
           <p className="text-purple-200 text-lg text-center font-serif leading-relaxed">
             {languageText.mission}
@@ -560,7 +542,7 @@ function ChatPageContent() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
           
           {/* Reading & Comprehension */}
-          <div className="bg-gradient-to-br from-blue-900/50 to-blue-700/50 border border-blue-400 rounded-xl p-6">
+          <div className="bg-gradient-to-br from-blue-900/50 to-blue-700/50 border border-blue-400 rounded-xl p-6 opacity-90 relative z-20">
             <div className="text-center mb-4">
               <BookOpen className="w-12 h-12 text-blue-400 mx-auto mb-3" />
               <h3 className="text-xl font-bold text-white font-serif">{languageText.readingComprehension}</h3>
@@ -590,7 +572,7 @@ function ChatPageContent() {
           </div>
 
           {/* Writing & Grammar */}
-          <div className="bg-gradient-to-br from-purple-900/50 to-purple-700/50 border border-purple-400 rounded-xl p-6">
+          <div className="bg-gradient-to-br from-purple-900/50 to-purple-700/50 border border-purple-400 rounded-xl p-6 opacity-90 relative z-20">
             <div className="text-center mb-4">
               <GraduationCap className="w-12 h-12 text-purple-400 mx-auto mb-3" />
               <h3 className="text-xl font-bold text-white font-serif">{languageText.writingGrammar}</h3>
@@ -620,7 +602,7 @@ function ChatPageContent() {
           </div>
 
           {/* Literature & Analysis */}
-          <div className="bg-gradient-to-br from-pink-900/50 to-pink-700/50 border border-pink-400 rounded-xl p-6">
+          <div className="bg-gradient-to-br from-pink-900/50 to-pink-700/50 border border-pink-400 rounded-xl p-6 opacity-90 relative z-20">
             <div className="text-center mb-4">
               <MessageSquare className="w-12 h-12 text-pink-400 mx-auto mb-3" />
               <h3 className="text-xl font-bold text-white font-serif">{languageText.literatureAnalysis}</h3>
@@ -650,7 +632,7 @@ function ChatPageContent() {
           </div>
 
           {/* Test Prep */}
-          <div className="bg-gradient-to-br from-green-900/50 to-green-700/50 border border-green-400 rounded-xl p-6">
+          <div className="bg-gradient-to-br from-green-900/50 to-green-700/50 border border-green-400 rounded-xl p-6 opacity-90 relative z-20">
             <div className="text-center mb-4">
               <Target className="w-12 h-12 text-green-400 mx-auto mb-3" />
               <h3 className="text-xl font-bold text-white font-serif">{languageText.testPrep}</h3>
@@ -680,7 +662,7 @@ function ChatPageContent() {
           </div>
 
           {/* Public Speaking */}
-          <div className="bg-gradient-to-br from-orange-900/50 to-orange-700/50 border border-orange-400 rounded-xl p-6">
+          <div className="bg-gradient-to-br from-orange-900/50 to-orange-700/50 border border-orange-400 rounded-xl p-6 opacity-90 relative z-20">
             <div className="text-center mb-4">
               <Users className="w-12 h-12 text-orange-400 mx-auto mb-3" />
               <h3 className="text-xl font-bold text-white font-serif">{languageText.publicSpeaking}</h3>
@@ -710,7 +692,7 @@ function ChatPageContent() {
           </div>
 
           {/* ELL Support */}
-          <div className="bg-gradient-to-br from-teal-900/50 to-teal-700/50 border border-teal-400 rounded-xl p-6">
+          <div className="bg-gradient-to-br from-teal-900/50 to-teal-700/50 border border-teal-400 rounded-xl p-6 opacity-90 relative z-20">
             <div className="text-center mb-4">
               <Languages className="w-12 h-12 text-teal-400 mx-auto mb-3" />
               <h3 className="text-xl font-bold text-white font-serif">{languageText.ellSupport}</h3>
@@ -740,7 +722,7 @@ function ChatPageContent() {
           </div>
 
           {/* Vocabulary Building */}
-          <div className="bg-gradient-to-br from-indigo-900/50 to-indigo-700/50 border border-indigo-400 rounded-xl p-6">
+          <div className="bg-gradient-to-br from-indigo-900/50 to-indigo-700/50 border border-indigo-400 rounded-xl p-6 opacity-90 relative z-20">
             <div className="text-center mb-4">
               <Sparkles className="w-12 h-12 text-indigo-400 mx-auto mb-3" />
               <h3 className="text-xl font-bold text-white font-serif">{languageText.vocabularyBuilding}</h3>
@@ -770,7 +752,7 @@ function ChatPageContent() {
           </div>
 
           {/* Research Skills */}
-          <div className="bg-gradient-to-br from-red-900/50 to-red-700/50 border border-red-400 rounded-xl p-6">
+          <div className="bg-gradient-to-br from-red-900/50 to-red-700/50 border border-red-400 rounded-xl p-6 opacity-90 relative z-20">
             <div className="text-center mb-4">
               <ChevronDown className="w-12 h-12 text-red-400 mx-auto mb-3" />
               <h3 className="text-xl font-bold text-white font-serif">{languageText.researchSkills}</h3>
@@ -1235,47 +1217,21 @@ function ChatPageContent() {
           </div>
         </div>
 
-        {/* Call to Action */}
-        <div className="text-center py-12">
-          <div className="bg-gradient-to-r from-blue-900/50 to-purple-800/50 border border-blue-400 rounded-xl p-8">
-            <h3 className="text-2xl font-bold text-white mb-4 font-serif">
-              {languageText.cta}
-            </h3>
-            <p className="text-blue-200 text-lg mb-6 font-serif">
-              {languageText.ctaSubtitle}
-            </p>
-            {isAuthenticated ? (
-              <div className="w-full max-w-7xl mx-auto px-4">
-                <div className="text-green-200 text-lg font-serif mb-6">
-                  ✓ You're signed in and ready to learn!
-                </div>
-                
-                {/* Large Chatbot Window */}
-                <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-2xl h-[90vh] min-h-[1200px] w-full overflow-hidden">
-                  <ELATutorChatbot />
-                </div>
-              </div>
-            ) : (
-              <EchoSignIn 
-                onSuccess={(user) => console.log('Signed in:', user)}
-                onError={(error) => console.error('Sign in failed:', error)}
-                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-lg font-medium text-lg transition-all duration-200 hover:scale-105 flex items-center space-x-3 mx-auto"
-              >
-                <Sparkles className="w-6 h-6" />
-                <span>{languageText.startButton}</span>
-              </EchoSignIn>
-            )}
-          </div>
-        </div>
+
 
         {/* Footer Quote */}
-        <div className="text-center mt-12">
-          <p className="text-purple-200 text-xl font-serif italic mb-2">
-            {languageText.footerQuote}
-          </p>
-          <p className="text-purple-300 text-sm font-serif">
-            {languageText.footerAuthor}
-          </p>
+        <div className="flex justify-center mt-12 z-20">
+          <div className="relative bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 border border-amber-200 rounded-xl p-8 shadow-xl inline-block">
+            <BackgroundBeams className="absolute inset-0 opacity-60" />
+            <div className="relative z-10 text-center">
+              <p className="text-amber-900 text-xl font-serif italic mb-2">
+                {languageText.footerQuote}
+              </p>
+              <p className="text-amber-800 text-sm font-serif">
+                {languageText.footerAuthor}
+              </p>
+            </div>
+          </div>
         </div>
 
       </div>
