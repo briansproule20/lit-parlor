@@ -444,6 +444,7 @@ Based on this recent ELA tutoring conversation, generate exactly 6 helpful follo
 6. Copy the language and grammar of the student's messages
 7. Use message history to generate suggestions that are relevant to the conversation
 8. The suggestion should be phrased as if the student is asking the question/tutor for help... not as if the tutor is offering the suggestion.
+9. Avoid using the second person in the suggestions, these are suggested questions for the student to ask the tutor bot.
 
 Recent conversation:
 ${conversationContext}
