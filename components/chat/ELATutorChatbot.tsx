@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useEcho, useEchoModelProviders } from '@merit-systems/echo-react-sdk';
 import { useLanguage } from './language-context';
-import { generateText } from 'ai';
+import { generateText, streamText } from 'ai';
 import ReactMarkdown from 'react-markdown';
 import { FileUpload } from '@/components/ui/file-upload';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -125,10 +125,9 @@ const ELATutorChatbot: React.FC = () => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const [showHelp, setShowHelp] = useState<boolean>(false);
   
-  // Suggestion management state
-
+  // Suggestion management state - contextual but not continuously updating
   const [availableSuggestions, setAvailableSuggestions] = useState<string[]>([]);
-  const [lastUpdateTime, setLastUpdateTime] = useState<number>(Date.now());
+  const [isGeneratingSuggestions, setIsGeneratingSuggestions] = useState<boolean>(false);
 
   // Expanded list of academic dishonesty phrases
   const writingRequestPatterns: string[] = [
@@ -240,21 +239,77 @@ const ELATutorChatbot: React.FC = () => {
     setMessages(initialMessage(selectedAuthor));
   }, [currentLanguage, selectedAuthor]);
 
-  // Update available suggestions when conversation or language changes
+  // Initialize suggestions on component mount
   useEffect(() => {
-    const updateSuggestions = async () => {
-      const newSuggestions = await generateContextualSuggestions();
-      setAvailableSuggestions(newSuggestions);
-      setLastUpdateTime(Date.now());
+    const initializeSuggestions = () => {
+      const defaultSuggestions = getDefaultSuggestions();
+      setAvailableSuggestions(defaultSuggestions);
     };
-    updateSuggestions();
-  }, [messages, currentLanguage]);
+    initializeSuggestions();
+  }, [currentLanguage]);
 
-  // No auto-scroll - suggestions only change when conversation progresses
+  // Get default suggestions based on current language
+  const getDefaultSuggestions = (): string[] => {
+    const lang = getCurrentLanguage();
+    
+    switch (lang.code) {
+      case 'es':
+        return [
+          "¿Qué hace que una historia sea atractiva de leer?",
+          "¿Cómo puedo expresar mis ideas con más claridad?",
+          "¿Cuál es la diferencia entre escritura formal e informal?",
+          "¿Cómo encuentro mi voz única de escritura?",
+          "¿Cuáles son algunas técnicas para el pensamiento creativo?",
+          "¿Cómo puede la lectura mejorar mis habilidades de escritura?"
+        ];
+      case 'ht':
+        return [
+          "Ki sa ki fè yon istwa atiran pou li?",
+          "Kijan m ka eksprime ide m yo pi klè?",
+          "Ki diferans ki genyen ant ekri fòmèl ak ekri enfòmèl?",
+          "Kjan m ka jwenn vwa ekriti inik mwen an?",
+          "Ki kèk teknik yo pou reflechi ak kreyativite?",
+          "Kijan lekti ka amelyore kapasite ekriti m yo?"
+        ];
+      default:
+        return [
+          "What makes a story compelling to read?",
+          "How can I express my ideas more clearly?",
+          "What's the difference between formal and informal writing?",
+          "How do I find my unique writing voice?",
+          "What are some techniques for creative thinking?",
+          "How can reading improve my writing skills?"
+        ];
+    }
+  };
 
-  // Get all 6 suggestions to display
+  // Get current suggestions to display
   const getCurrentSuggestions = (): string[] => {
-    return availableSuggestions.slice(0, 6);
+    const current = availableSuggestions.slice(0, 6);
+    console.log('📋 getCurrentSuggestions returning:', current.length, 'suggestions:', current);
+    return current;
+  };
+
+  // Update suggestions based on conversation context (called only after user sends message)
+  const updateSuggestionsAfterMessage = async (updatedMessages?: Message[]) => {
+    console.log('🔄 updateSuggestionsAfterMessage called, isGeneratingSuggestions:', isGeneratingSuggestions);
+    console.log('🔄 Current messages length:', messages.length);
+    if (isGeneratingSuggestions) return; // Prevent multiple simultaneous generations
+    
+    setIsGeneratingSuggestions(true);
+    try {
+      console.log('🔄 Generating new contextual suggestions...');
+      console.log('🔄 Current availableSuggestions before update:', availableSuggestions);
+      const newSuggestions = await generateContextualSuggestions(updatedMessages);
+      console.log('✅ New suggestions generated:', newSuggestions);
+      console.log('🔄 Are suggestions different?', JSON.stringify(newSuggestions) !== JSON.stringify(availableSuggestions));
+      setAvailableSuggestions(newSuggestions);
+    } catch (error) {
+      console.error('❌ Error updating suggestions:', error);
+      // Keep existing suggestions on error
+    } finally {
+      setIsGeneratingSuggestions(false);
+    }
   };
 
   const getTopics = (): Topic[] => {
@@ -343,9 +398,13 @@ const ELATutorChatbot: React.FC = () => {
     return message.length > 50 ? 'complex' : 'simple';
   };
 
-  // Call Echo LLM using Echo SDK OpenAI adapter
+  // Call Echo LLM using Echo SDK OpenAI adapter with streaming
   const { openai } = useEchoModelProviders();
-  const callEchoLLM = async (userMessage: string, files?: UploadedDocument[]): Promise<string> => {
+  const callEchoLLMStream = async (
+    userMessage: string, 
+    onChunk: (chunk: string) => void,
+    files?: UploadedDocument[]
+  ): Promise<string> => {
     const uiText = getUIText();
     if (!isAuthenticated) return uiText.authRequired;
     if (balance && balance.balance <= 0) return uiText.creditsLow;
@@ -372,6 +431,56 @@ const ELATutorChatbot: React.FC = () => {
         fileContext = `\n\n📎 **UPLOADED FILES CONTEXT**: The student has uploaded ${files.length} file(s) that you can reference and analyze:\n${files.map(f => `- ${f.name}: ${f.content.substring(0, 500)}${f.content.length > 500 ? '...' : ''}`).join('\n')}\n\nWhen responding, you can reference these files, analyze their content, and provide feedback based on what the student has shared.`;
       }
 
+      const { textStream } = await streamText({
+        model: await openai('gpt-4o'),
+        messages: [
+          { role: 'system', content: `${getLanguageInstructions()}\nYou are a helpful ELA tutor. Remember the conversation context and refer back to previous topics when relevant. ${complexityInstruction}${fileContext}` },
+          ...conversationHistory,
+          { role: 'user', content: userMessage }
+        ]
+      });
+
+      let fullResponse = '';
+      for await (const chunk of textStream) {
+        fullResponse += chunk;
+        onChunk(fullResponse);
+      }
+
+      return fullResponse || uiText.connectionError;
+    } catch (error) {
+      console.error('Echo LLM Error:', error);
+      return uiText.connectionError;
+    }
+  };
+
+  // Keep the original function for suggestions (non-streaming)
+  const callEchoLLM = async (userMessage: string, files?: UploadedDocument[]): Promise<string> => {
+    const uiText = getUIText();
+    if (!isAuthenticated) return uiText.authRequired;
+    if (balance && balance.balance <= 0) return uiText.creditsLow;
+    if (!openai) return uiText.connectionError;
+
+    try {
+      // Detect question complexity
+      const complexity = detectQuestionComplexity(userMessage);
+      
+      // Build conversation history for context
+      const conversationHistory = messages.map(msg => ({
+        role: msg.type === 'user' ? 'user' as const : 'assistant' as const,
+        content: msg.content
+      }));
+
+      // Adjust system prompt based on complexity
+      const complexityInstruction = complexity === 'simple' 
+        ? 'The student has asked a simple question. Provide a concise, helpful answer in 1-2 sentences.'
+        : 'The student has asked a detailed question. Provide a comprehensive explanation in 2-3 paragraphs with examples and context.';
+
+      // Build file context if files are provided
+      let fileContext = '';
+      if (files && files.length > 0) {
+        fileContext = `\n\n📎 **UPLOADED FILES CONTEXT**: The student has uploaded ${files.length} file(s) that you can reference and analyze:\n${files.map(f => `- ${f.name}: ${f.content.substring(0, 500)}${f.content.length > 500 ? '..' : ''}`).join('\n')}\n\nWhen responding, you can reference these files, analyze their content, and provide feedback based on what the student has shared.`;
+      }
+
       const { text } = await generateText({
         model: await openai('gpt-4o'),
         messages: [
@@ -387,11 +496,12 @@ const ELATutorChatbot: React.FC = () => {
     }
   };
 
-  const generateContextualSuggestions = async (): Promise<string[]> => {
+  const generateContextualSuggestions = async (messagesOverride?: Message[]): Promise<string[]> => {
     const lang = getCurrentLanguage();
+    const currentMessages = messagesOverride || messages;
     
     // If no conversation yet, return foundational questions in the current language
-    if (messages.length <= 1) {
+    if (currentMessages.length <= 1) {
       switch (lang.code) {
         case 'es':
           return [
@@ -425,7 +535,7 @@ const ELATutorChatbot: React.FC = () => {
 
     try {
       // Get recent conversation context
-      const recentMessages = messages.slice(-4);
+      const recentMessages = currentMessages.slice(-4);
       const conversationContext = recentMessages.map(m => 
         `${m.type === 'user' ? 'Student' : 'Tutor'}: ${m.content}`
       ).join('\n');
@@ -610,24 +720,46 @@ Please respond with exactly 6 helpful suggestions, one per line, without numberi
     };
 
     console.log('📝 Adding user message:', userMessage);
-    setMessages(prev => [...prev, userMessage]);
+    const updatedMessages = [...messages, userMessage];
+    setMessages(updatedMessages);
     setInputValue('');
     setIsTyping(true);
+    
+    // Update suggestions immediately when user sends message - pass updated messages directly
+    console.log('🚀 Triggering suggestion update after user message');
+    updateSuggestionsAfterMessage(updatedMessages);
 
     try {
-      console.log('🔮 Calling Echo LLM...');
-      const botResponse = await callEchoLLM(inputValue, uploadedDocuments.length > 0 ? uploadedDocuments : undefined);
-      console.log('📨 Got bot response:', botResponse);
-
-      const botMessage: Message = {
-        id: messages.length + 2,
+      console.log('🔮 Calling Echo LLM with streaming...');
+      
+      // Create initial bot message for streaming
+      const botMessageId = messages.length + 2;
+      const initialBotMessage: Message = {
+        id: botMessageId,
         type: 'bot',
-        content: botResponse,
+        content: '',
         timestamp: new Date()
       };
 
-      console.log('💬 Adding bot message:', botMessage);
-      setMessages(prev => [...prev, botMessage]);
+      // Add the initial empty bot message
+      setMessages(prev => [...prev, initialBotMessage]);
+
+      // Stream the response
+      const botResponse = await callEchoLLMStream(
+        inputValue, 
+        (streamedContent: string) => {
+          // Update the bot message with streamed content
+          setMessages(prev => prev.map(msg => 
+            msg.id === botMessageId 
+              ? { ...msg, content: streamedContent }
+              : msg
+          ));
+        },
+        uploadedDocuments.length > 0 ? uploadedDocuments : undefined
+      );
+
+      console.log('📨 Streaming complete, final response:', botResponse);
+
     } catch (error) {
       console.error('💥 Error in handleSend:', error);
       const errorMessage: Message = {
@@ -1028,8 +1160,10 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
     return uiTexts[lang.code as keyof typeof uiTexts] || uiTexts.en;
   };
 
-  const currentSuggestions = getCurrentSuggestions();
   const uiText = getUIText();
+  
+  // Get current suggestions - this will re-render when availableSuggestions changes
+  const currentSuggestions = getCurrentSuggestions();
 
   return (
     <div className="flex flex-col h-full bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 rounded-xl">
@@ -1246,7 +1380,7 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
               <div className="space-y-2">
                                   {currentSuggestions.map((suggestion: string, index: number) => (
                     <button
-                      key={`${suggestion}-${index}`}
+                      key={`${suggestion}-${index}-${availableSuggestions.length}`}
                     onClick={() => handleSuggestionClick(suggestion)}
                     className="w-full flex items-start gap-2 p-3 bg-white/5 hover:bg-white/15 border border-white/10 hover:border-purple-400/50 text-purple-100 hover:text-white text-sm rounded-lg transition-all duration-500 text-left group animate-in fade-in slide-in-from-right-2"
                     style={{ animationDelay: `${index * 100}ms` }}
