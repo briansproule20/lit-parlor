@@ -2,12 +2,13 @@
 
 import * as React from 'react';
 import Link from 'next/link';
-import { LogIn, ChevronDown, User, CreditCard, LogOut, BookOpen, Users, Trophy, MessageCircle } from 'lucide-react';
+import { LogIn, ChevronDown, User, CreditCard, LogOut, BookOpen, Users, Trophy, MessageCircle, Sun, Moon } from 'lucide-react';
 import { useLanguage } from '@/components/chat/language-context';
 import { LanguageProvider } from '@/components/chat/language-context';
+import { useDarkMode, DarkModeProvider } from '@/components/chat/dark-mode-context';
 import { EchoProvider, useEcho, EchoSignIn, EchoTokenPurchase } from '@merit-systems/echo-react-sdk';
 import ELATutorChatbot from '@/components/chat/ELATutorChatbot';
-import { ChatDotBackground } from '@/components/ui/chat-dot-background';
+import { DarkDotBackground } from '@/components/ui/dark-dot-background';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -30,6 +31,7 @@ const famousAuthors: string[] = [
 function ChatPageContent() {
   const { currentLanguage, setCurrentLanguage, languageOptions } = useLanguage();
   const { isAuthenticated, isLoading, user, balance, signOut } = useEcho();
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
   
   // Use state to track if component has mounted
   const [mounted, setMounted] = React.useState(false);
@@ -110,12 +112,20 @@ function ChatPageContent() {
   }
 
   return (
-    <div className="min-h-screen overflow-visible relative">
-      {/* Custom Chat Dot Background */}
-      <ChatDotBackground />
+    <div className={`min-h-screen overflow-visible relative ${
+      isDarkMode 
+        ? 'bg-gradient-to-br from-slate-900 via-gray-900 to-zinc-900'
+        : 'bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900'
+    }`}>
+      {/* Custom Dark-Mode Aware Dot Background */}
+      <DarkDotBackground isDarkMode={isDarkMode} />
       
       {/* Header */}
-      <div className="bg-amber-800/20 backdrop-blur-md border-b border-amber-700/30 relative z-10">
+      <div className={`backdrop-blur-md border-b relative z-10 ${
+        isDarkMode
+          ? 'bg-slate-800/30 border-slate-600/30'
+          : 'bg-amber-800/20 border-amber-700/30'
+      }`}>
         <div className="max-w-7xl mx-auto px-4 pt-6 pb-0">
           <div className="flex items-start justify-between">
             <div className="flex flex-col space-y-4">
@@ -130,8 +140,12 @@ function ChatPageContent() {
                   />
                 </div>
                 <div>
-                  <h1 className="text-2xl font-bold text-amber-900">LitParlor</h1>
-                  <p className="text-amber-700 text-sm">AI-Powered ELA Tutor & Literary Assistant</p>
+                  <h1 className={`text-2xl font-bold ${
+                    isDarkMode ? 'text-slate-100' : 'text-amber-900'
+                  }`}>LitParlor</h1>
+                  <p className={`text-sm ${
+                    isDarkMode ? 'text-slate-300' : 'text-amber-700'
+                  }`}>AI-Powered ELA Tutor & Literary Assistant</p>
                 </div>
               </Link>
               
@@ -139,28 +153,44 @@ function ChatPageContent() {
               <div className="flex items-center space-x-4 ml-13">
                 <Link
                   href="/"
-                  className="text-amber-900 hover:text-amber-700 transition-colors px-3 py-1 rounded-lg hover:bg-amber-800/10 text-sm font-medium"
+                  className={`transition-colors px-3 py-1 rounded-lg text-sm font-medium ${
+                    isDarkMode
+                      ? 'text-slate-200 hover:text-slate-100 hover:bg-slate-700/20'
+                      : 'text-amber-900 hover:text-amber-700 hover:bg-amber-800/10'
+                  }`}
                 >
                   Home
                 </Link>
                 
                 <Link
                   href="/student-dashboard"
-                  className="text-amber-900 hover:text-amber-700 transition-colors px-3 py-1 rounded-lg hover:bg-amber-800/10 text-sm font-medium"
+                  className={`transition-colors px-3 py-1 rounded-lg text-sm font-medium ${
+                    isDarkMode
+                      ? 'text-slate-200 hover:text-slate-100 hover:bg-slate-700/20'
+                      : 'text-amber-900 hover:text-amber-700 hover:bg-amber-800/10'
+                  }`}
                 >
                   Students
                 </Link>
                 
                 <Link
                   href="/teacher-dashboard"
-                  className="text-amber-900 hover:text-amber-700 transition-colors px-3 py-1 rounded-lg hover:bg-amber-800/10 text-sm font-medium"
+                  className={`transition-colors px-3 py-1 rounded-lg text-sm font-medium ${
+                    isDarkMode
+                      ? 'text-slate-200 hover:text-slate-100 hover:bg-slate-700/20'
+                      : 'text-amber-900 hover:text-amber-700 hover:bg-amber-800/10'
+                  }`}
                 >
                   Teachers
                 </Link>
                 
                 <Link
                   href="/pedagogy"
-                  className="text-amber-900 hover:text-amber-700 transition-colors px-3 py-1 rounded-lg hover:bg-amber-800/10 text-sm font-medium"
+                  className={`transition-colors px-3 py-1 rounded-lg text-sm font-medium ${
+                    isDarkMode
+                      ? 'text-slate-200 hover:text-slate-100 hover:bg-slate-700/20'
+                      : 'text-amber-900 hover:text-amber-700 hover:bg-amber-800/10'
+                  }`}
                 >
                   Parents
                 </Link>
@@ -168,34 +198,68 @@ function ChatPageContent() {
             </div>
             
             <div className="flex flex-col items-end space-y-3">
-              {/* Language Selector */}
-              <div className="relative">
-                <select
-                  value={currentLanguage}
-                  onChange={(e) => setCurrentLanguage(e.target.value)}
-                  className="bg-amber-800/20 backdrop-blur-md border border-amber-700/30 text-amber-900 px-3 py-2 rounded-lg appearance-none cursor-pointer hover:bg-amber-800/30 transition-colors text-sm"
-                  style={{ paddingRight: '2.5rem' }}
+              {/* Top Row: Dark Mode Toggle + Language Selector */}
+              <div className="flex items-center space-x-3">
+                {/* Dark Mode Toggle */}
+                <button
+                  onClick={toggleDarkMode}
+                  className={`backdrop-blur-md p-2 rounded-lg transition-colors ${
+                    isDarkMode 
+                      ? 'bg-slate-700/50 border border-slate-600/30 text-slate-200 hover:bg-slate-600/50 hover:text-slate-100'
+                      : 'bg-amber-800/20 border border-amber-700/30 text-amber-900 hover:bg-amber-800/30 hover:text-amber-800'
+                  }`}
+                  aria-label="Toggle dark mode"
                 >
-                  {languageOptions.map((lang) => (
-                    <option key={lang.code} value={lang.code} className="bg-amber-50 text-amber-900">
-                      {lang.flag} {lang.name}
-                    </option>
-                  ))}
-                </select>
-                <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
-                  <ChevronDown className="w-4 h-4 text-amber-700" />
+                  {isDarkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+                </button>
+                
+                {/* Language Selector */}
+                <div className="relative">
+                  <select
+                    value={currentLanguage}
+                    onChange={(e) => setCurrentLanguage(e.target.value)}
+                    className={`backdrop-blur-md px-3 py-2 rounded-lg appearance-none cursor-pointer transition-colors text-sm ${
+                      isDarkMode
+                        ? 'bg-slate-700/50 border border-slate-600/30 text-slate-200 hover:bg-slate-600/50'
+                        : 'bg-amber-800/20 border border-amber-700/30 text-amber-900 hover:bg-amber-800/30'
+                    }`}
+                    style={{ paddingRight: '2.5rem' }}
+                  >
+                    {languageOptions.map((lang) => (
+                      <option key={lang.code} value={lang.code} className={
+                        isDarkMode ? 'bg-slate-800 text-slate-200' : 'bg-amber-50 text-amber-900'
+                      }>
+                        {lang.name}
+                      </option>
+                    ))}
+                  </select>
+                  <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                    <ChevronDown className={`w-4 h-4 ${
+                      isDarkMode ? 'text-slate-400' : 'text-amber-700'
+                    }`} />
+                  </div>
                 </div>
               </div>
               
               {/* Echo Authentication */}
               {isLoading ? (
-                <div className="bg-amber-50/80 backdrop-blur-md border border-amber-200/50 text-amber-800 px-4 py-2 rounded-lg">
-                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-amber-800"></div>
+                <div className={`backdrop-blur-md px-4 py-2 rounded-lg ${
+                  isDarkMode
+                    ? 'bg-slate-700/50 border border-slate-600/30 text-slate-200'
+                    : 'bg-amber-50/80 border border-amber-200/50 text-amber-800'
+                }`}>
+                  <div className={`animate-spin rounded-full h-4 w-4 border-b-2 ${
+                    isDarkMode ? 'border-slate-200' : 'border-amber-800'
+                  }`}></div>
                 </div>
               ) : isAuthenticated ? (
                 <div className="flex items-center space-x-3">
                   {/* User Info */}
-                  <div className="bg-amber-50/80 backdrop-blur-md border border-amber-200/50 text-amber-800 px-3 py-2 rounded-lg">
+                  <div className={`backdrop-blur-md px-3 py-2 rounded-lg ${
+                    isDarkMode
+                      ? 'bg-slate-700/50 border border-slate-600/30 text-slate-200'
+                      : 'bg-amber-50/80 border border-amber-200/50 text-amber-800'
+                  }`}>
                     <div className="flex items-center space-x-2">
                       <User className="w-4 h-4" />
                       <span className="text-sm font-medium">{user?.name || user?.email || 'User'}</span>
@@ -203,7 +267,11 @@ function ChatPageContent() {
                   </div>
                   
                   {/* Balance */}
-                  <div className="bg-amber-50/80 backdrop-blur-md border border-amber-200/50 text-amber-800 px-3 py-2 rounded-lg">
+                  <div className={`backdrop-blur-md px-3 py-2 rounded-lg ${
+                    isDarkMode
+                      ? 'bg-slate-700/50 border border-slate-600/30 text-slate-200'
+                      : 'bg-amber-50/80 border border-amber-200/50 text-amber-800'
+                  }`}>
                     <div className="flex items-center space-x-2">
                       <CreditCard className="w-4 h-4" />
                       <span className="text-sm font-medium">
@@ -221,7 +289,11 @@ function ChatPageContent() {
                   {/* Echo Base */}
                   <button 
                     onClick={() => window.open('https://echo.merit.systems', '_blank')}
-                    className="bg-amber-50/80 backdrop-blur-md border border-amber-200/50 text-amber-800 hover:bg-amber-100/80 hover:text-amber-900 px-3 py-2 rounded-lg transition-colors text-sm font-medium"
+                    className={`backdrop-blur-md px-3 py-2 rounded-lg transition-colors text-sm font-medium ${
+                      isDarkMode
+                        ? 'bg-slate-700/50 border border-slate-600/30 text-slate-200 hover:bg-slate-600/50 hover:text-slate-100'
+                        : 'bg-amber-50/80 border border-amber-200/50 text-amber-800 hover:bg-amber-100/80 hover:text-amber-900'
+                    }`}
                   >
                     Echo Base
                   </button>
@@ -229,7 +301,11 @@ function ChatPageContent() {
                   {/* Sign Out */}
                   <button
                     onClick={signOut}
-                    className="bg-amber-50/80 backdrop-blur-md border border-amber-200/50 text-amber-800 hover:bg-amber-100/80 hover:text-amber-900 px-3 py-2 rounded-lg transition-colors flex items-center space-x-2 text-sm font-medium"
+                    className={`backdrop-blur-md px-3 py-2 rounded-lg transition-colors flex items-center space-x-2 text-sm font-medium ${
+                      isDarkMode
+                        ? 'bg-slate-700/50 border border-slate-600/30 text-slate-200 hover:bg-slate-600/50 hover:text-slate-100'
+                        : 'bg-amber-50/80 border border-amber-200/50 text-amber-800 hover:bg-amber-100/80 hover:text-amber-900'
+                    }`}
                   >
                     <LogOut className="w-4 h-4" />
                     <span>Sign Out</span>
@@ -239,10 +315,13 @@ function ChatPageContent() {
                 <EchoSignIn 
                   onSuccess={(user) => console.log('Signed in:', user)}
                   onError={(error) => console.error('Sign in failed:', error)}
-                  className="bg-amber-50/80 backdrop-blur-md border border-amber-200/50 text-amber-800 hover:bg-amber-100/80 hover:text-amber-900 px-4 py-2 rounded-lg font-medium transition-colors flex items-center space-x-2 text-sm"
+                  className={`backdrop-blur-md px-3 py-2 rounded-lg font-medium transition-colors text-sm ${
+                    isDarkMode
+                      ? 'bg-slate-700/50 border border-slate-600/30 text-slate-200 hover:bg-slate-600/50 hover:text-slate-100'
+                      : 'bg-amber-50/80 border border-amber-200/50 text-amber-800 hover:bg-amber-100/80 hover:text-amber-900'
+                  }`}
                 >
-                  <LogIn className="w-4 h-4" />
-                  <span>Sign In to Echo</span>
+                  Sign In to Echo
                 </EchoSignIn>
               )}
             </div>
@@ -352,7 +431,9 @@ export default function ChatPage() {
   return (
     <EchoProvider config={echoConfig}>
       <LanguageProvider>
-        <ChatPageContent />
+        <DarkModeProvider>
+          <ChatPageContent />
+        </DarkModeProvider>
       </LanguageProvider>
     </EchoProvider>
   );

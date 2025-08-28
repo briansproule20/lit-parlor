@@ -21,9 +21,9 @@ export const useLanguage = () => {
 };
 
 const languageOptions = [
-  { code: 'en', name: 'English', flag: '🇺🇸' },
-  { code: 'es', name: 'Español', flag: '🇪🇸' },
-  { code: 'ht', name: 'Kreyòl Ayisyen', flag: '🇭🇹' }
+  { code: 'en', name: 'English', flag: '' },
+  { code: 'es', name: 'Español', flag: '' },
+  { code: 'ht', name: 'Kreyòl Ayisyen', flag: '' }
 ];
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
