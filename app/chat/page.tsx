@@ -167,7 +167,7 @@ function ChatPageContent() {
               </div>
             </div>
             
-            <div className="flex items-center space-x-3">
+            <div className="flex flex-col items-end space-y-3">
               {/* Language Selector */}
               <div className="relative">
                 <select
@@ -186,37 +186,16 @@ function ChatPageContent() {
                   <ChevronDown className="w-4 h-4 text-amber-700" />
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 py-4 relative z-10">
-        
-        {/* Pricing Info Section */}
-        <div className="bg-amber-800/10 backdrop-blur-md border border-amber-700/20 rounded-xl p-6 mb-6 opacity-90 relative z-20">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-r from-amber-600 to-orange-600 rounded-lg flex items-center justify-center">
-                <CreditCard className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-amber-900">Echo Credits</h3>
-                <p className="text-amber-700 text-sm">Manage your account and credits</p>
-              </div>
-            </div>
-            
-            <div className="flex items-center space-x-3">
+              
               {/* Echo Authentication */}
               {isLoading ? (
-                <div className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-4 py-2 rounded-lg">
-                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                <div className="bg-amber-50/80 backdrop-blur-md border border-amber-200/50 text-amber-800 px-4 py-2 rounded-lg">
+                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-amber-800"></div>
                 </div>
               ) : isAuthenticated ? (
                 <div className="flex items-center space-x-3">
                   {/* User Info */}
-                  <div className="bg-white/20 backdrop-blur-md border border-white/20 text-white px-3 py-2 rounded-lg">
+                  <div className="bg-amber-50/80 backdrop-blur-md border border-amber-200/50 text-amber-800 px-3 py-2 rounded-lg">
                     <div className="flex items-center space-x-2">
                       <User className="w-4 h-4" />
                       <span className="text-sm font-medium">{user?.name || user?.email || 'User'}</span>
@@ -224,7 +203,7 @@ function ChatPageContent() {
                   </div>
                   
                   {/* Balance */}
-                  <div className="bg-white/20 backdrop-blur-md border border-white/20 text-white px-3 py-2 rounded-lg">
+                  <div className="bg-amber-50/80 backdrop-blur-md border border-amber-200/50 text-amber-800 px-3 py-2 rounded-lg">
                     <div className="flex items-center space-x-2">
                       <CreditCard className="w-4 h-4" />
                       <span className="text-sm font-medium">
@@ -239,10 +218,10 @@ function ChatPageContent() {
                     </div>
                   </div>
                   
-                  {/* Token Purchase */}
+                  {/* Echo Base */}
                   <button 
                     onClick={() => window.open('https://echo.merit.systems', '_blank')}
-                    className="bg-white/20 backdrop-blur-md border border-white/20 text-white px-3 py-2 rounded-lg transition-colors text-sm font-medium"
+                    className="bg-amber-50/80 backdrop-blur-md border border-amber-200/50 text-amber-800 hover:bg-amber-100/80 hover:text-amber-900 px-3 py-2 rounded-lg transition-colors text-sm font-medium"
                   >
                     Echo Base
                   </button>
@@ -250,7 +229,7 @@ function ChatPageContent() {
                   {/* Sign Out */}
                   <button
                     onClick={signOut}
-                    className="bg-white/20 backdrop-blur-md border border-white/20 text-white px-3 py-2 rounded-lg transition-colors flex items-center space-x-2 text-sm font-medium"
+                    className="bg-amber-50/80 backdrop-blur-md border border-amber-200/50 text-amber-800 hover:bg-amber-100/80 hover:text-amber-900 px-3 py-2 rounded-lg transition-colors flex items-center space-x-2 text-sm font-medium"
                   >
                     <LogOut className="w-4 h-4" />
                     <span>Sign Out</span>
@@ -260,7 +239,7 @@ function ChatPageContent() {
                 <EchoSignIn 
                   onSuccess={(user) => console.log('Signed in:', user)}
                   onError={(error) => console.error('Sign in failed:', error)}
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center space-x-2 text-sm"
+                  className="bg-amber-50/80 backdrop-blur-md border border-amber-200/50 text-amber-800 hover:bg-amber-100/80 hover:text-amber-900 px-4 py-2 rounded-lg font-medium transition-colors flex items-center space-x-2 text-sm"
                 >
                   <LogIn className="w-4 h-4" />
                   <span>Sign In to Echo</span>
@@ -269,6 +248,12 @@ function ChatPageContent() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="max-w-7xl mx-auto px-4 py-4 relative z-10">
+        
+
         
         {/* ELA Tutor Chatbot */}
         <div className="mb-6 relative z-20">
