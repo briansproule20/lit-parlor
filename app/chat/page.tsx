@@ -2,12 +2,20 @@
 
 import * as React from 'react';
 import Link from 'next/link';
-import { LogIn, ChevronDown, User, CreditCard, LogOut } from 'lucide-react';
+import { LogIn, ChevronDown, User, CreditCard, LogOut, BookOpen, Users, Trophy, MessageCircle } from 'lucide-react';
 import { useLanguage } from '@/components/chat/language-context';
 import { LanguageProvider } from '@/components/chat/language-context';
 import { EchoProvider, useEcho, EchoSignIn, EchoTokenPurchase } from '@merit-systems/echo-react-sdk';
 import ELATutorChatbot from '@/components/chat/ELATutorChatbot';
 import { ChatDotBackground } from '@/components/ui/chat-dot-background';
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 
 
 // Famous author last names for random selection
@@ -108,9 +116,9 @@ function ChatPageContent() {
       
       {/* Header */}
       <div className="bg-amber-800/20 backdrop-blur-md border-b border-amber-700/30 relative z-10">
-        <div className="max-w-7xl mx-auto px-4 py-6">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
+        <div className="max-w-7xl mx-auto px-4 pt-6 pb-0">
+          <div className="flex items-start justify-between">
+            <div className="flex flex-col space-y-4">
               <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
                 <div className="w-10 h-10 bg-gradient-to-r from-amber-600 to-orange-600 rounded-lg flex items-center justify-center">
                   <img
@@ -126,6 +134,37 @@ function ChatPageContent() {
                   <p className="text-amber-700 text-sm">AI-Powered ELA Tutor & Literary Assistant</p>
                 </div>
               </Link>
+              
+              {/* Navigation Buttons */}
+              <div className="flex items-center space-x-4 ml-13">
+                <Link
+                  href="/"
+                  className="text-amber-900 hover:text-amber-700 transition-colors px-3 py-1 rounded-lg hover:bg-amber-800/10 text-sm font-medium"
+                >
+                  Home
+                </Link>
+                
+                <Link
+                  href="/student-dashboard"
+                  className="text-amber-900 hover:text-amber-700 transition-colors px-3 py-1 rounded-lg hover:bg-amber-800/10 text-sm font-medium"
+                >
+                  Students
+                </Link>
+                
+                <Link
+                  href="/teacher-dashboard"
+                  className="text-amber-900 hover:text-amber-700 transition-colors px-3 py-1 rounded-lg hover:bg-amber-800/10 text-sm font-medium"
+                >
+                  Teachers
+                </Link>
+                
+                <Link
+                  href="/pedagogy"
+                  className="text-amber-900 hover:text-amber-700 transition-colors px-3 py-1 rounded-lg hover:bg-amber-800/10 text-sm font-medium"
+                >
+                  Parents
+                </Link>
+              </div>
             </div>
             
             <div className="flex items-center space-x-3">
