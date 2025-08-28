@@ -22,7 +22,7 @@ const ChatWidgetContent: React.FC = () => {
     {
       id: 1,
       type: 'bot',
-      content: 'Hello! 👋 I\'m your ELA tutor. How can I help you today?',
+      content: 'Hello! I\'m your ELA tutor and guide. How can I help you today?',
       timestamp: new Date()
     }
   ]);

@@ -94,11 +94,11 @@ const ELATutorChatbot: React.FC = () => {
     const lang = getCurrentLanguage();
     switch (lang.code) {
       case 'es':
-        return '¡Hola! 👋 Soy tu tutor de inglés como lengua extranjera (ELA). Estoy aquí para ayudarte con:\n\n• Comprensión de lectura\n• Escritura y gramática\n• Vocabulario\n• Análisis literario\n• Preparación para exámenes\n\n¿En qué puedo ayudarte hoy? (Puedes preguntarme en español o inglés)';
+        return '¡Hola! Soy tu tutor de inglés como lengua extranjera (ELA). Estoy aquí para ayudarte con:\n\n• Comprensión de lectura\n• Escritura y gramática\n• Vocabulario\n• Análisis literario\n• Preparación para exámenes\n\n¿En qué puedo ayudarte hoy? (Puedes preguntarme en español o inglés)';
       case 'ht':
-        return 'Bonjou! 👋 Mwen se pwofesè ELA (English Language Arts) ou an. Mwen la pou ede w ak:\n\n• Konprann lekti\n• Ekriti ak gramè\n• Vokabilè\n• Analiz literè\n• Preparasyon egzamen\n\nKisa mwen ka ede w ak jodi a? (Ou ka mande m nan Kreyòl oswa nan anglè)';
+        return 'Bonjou! Mwen se pwofesè ELA (English Language Arts) ou an. Mwen la pou ede w ak:\n\n• Konprann lekti\n• Ekriti ak gramè\n• Vokabilè\n• Analiz literè\n• Preparasyon egzamen\n\nKisa mwen ka ede w ak jodi a? (Ou ka mande m nan Kreyòl oswa nan anglè)';
       default:
-        return 'Hello! 👋 I\'m your ELA (English Language Arts) tutor. I\'m here to help you with:\n\n• Reading comprehension\n• Writing and grammar\n• Vocabulary building\n• Literary analysis\n• Test preparation\n\nWhat can I help you with today?';
+        return 'Hello! I\'m your ELA (English Language Arts) tutor. I\'m here to help you with:\n\n• Reading comprehension\n• Writing and grammar\n• Vocabulary building\n• Literary analysis\n• Test preparation\n\nWhat can I help you with today?';
     }
   };
 
