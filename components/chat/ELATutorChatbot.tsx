@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useEcho, useEchoModelProviders } from '@merit-systems/echo-react-sdk';
 import { useLanguage } from './language-context';
 import { generateText } from 'ai';
+import ReactMarkdown from 'react-markdown';
 import { FileUpload } from '@/components/ui/file-upload';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Textarea } from '@/components/ui/textarea';
@@ -1115,7 +1116,26 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
               }}
               onContextMenu={message.type === 'bot' ? (e) => e.preventDefault() : undefined}
             >
-              <p className="whitespace-pre-wrap text-left">{message.content}</p>
+              <div className="text-left">
+                <ReactMarkdown 
+                  components={{
+                    // Custom styling for markdown elements that preserve text color
+                    p: ({children}) => <p className="mb-2 last:mb-0 text-current">{children}</p>,
+                    strong: ({children}) => <strong className="font-semibold text-current">{children}</strong>,
+                    em: ({children}) => <em className="italic text-current">{children}</em>,
+                    ul: ({children}) => <ul className="list-disc list-outside ml-4 mb-2 space-y-1 text-current">{children}</ul>,
+                    ol: ({children}) => <ol className="list-decimal list-outside ml-4 mb-2 space-y-1 text-current">{children}</ol>,
+                    li: ({children}) => <li className="text-current">{children}</li>,
+                    h1: ({children}) => <h1 className="text-lg font-bold mb-2 text-current">{children}</h1>,
+                    h2: ({children}) => <h2 className="text-base font-bold mb-2 text-current">{children}</h2>,
+                    h3: ({children}) => <h3 className="text-sm font-bold mb-1 text-current">{children}</h3>,
+                    code: ({children}) => <code className="bg-gray-100 px-1 py-0.5 rounded text-sm font-mono text-gray-800">{children}</code>,
+                    blockquote: ({children}) => <blockquote className="border-l-4 border-gray-300 pl-4 italic my-2 text-current">{children}</blockquote>,
+                  }}
+                >
+                  {message.content}
+                </ReactMarkdown>
+              </div>
               
               {/* Show file attachments as avatars */}
               {message.attachments && message.attachments.length > 0 && (
