@@ -441,6 +441,9 @@ Based on this recent ELA tutoring conversation, generate exactly 6 helpful follo
 3. Suggest practical next steps for learning
 4. Be encouraging and actionable
 5. Help guide the student's learning journey
+6. Copy the language and grammar of the student's messages
+7. Use message history to generate suggestions that are relevant to the conversation
+8. The suggestion should be phrased as if the student is asking the question/tutor for help... not as if the tutor is offering the suggestion.
 
 Recent conversation:
 ${conversationContext}
