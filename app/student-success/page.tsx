@@ -142,7 +142,7 @@ export default function StudentSuccessPage() {
         </div>
 
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 mt-20">
           <div className="inline-block p-8 rounded-xl shadow-2xl relative" style={{
             background: `
               radial-gradient(circle at 25% 20%, rgba(252, 248, 227, 0.95) 0%, transparent 60%),
@@ -162,11 +162,11 @@ export default function StudentSuccessPage() {
               Student Success Gallery
             </h1>
             <p className="text-xl text-amber-800 max-w-4xl mx-auto leading-relaxed font-serif">
-              AI-powered visual showcases of exceptional student work. Create vision boards 
+              Educator curated, AI powered visual showcases of exceptional student work. Create vision boards 
               and generate comprehensive, print-ready displays that celebrate student achievements.
             </p>
             <div className="mt-4 text-amber-700 font-serif italic">
-              "Think Long Term. Execute Short Term. Experience Now."
+              Think Long Term. Execute Short Term. Experience Now.
             </div>
           </div>
         </div>
