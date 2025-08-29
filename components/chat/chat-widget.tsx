@@ -6,6 +6,7 @@ import { useRouter, usePathname } from 'next/navigation';
 import { EchoProvider, useEcho, useEchoModelProviders, EchoSignIn } from '@merit-systems/echo-react-sdk';
 import { streamText } from 'ai';
 import ReactMarkdown from 'react-markdown';
+import { buildSystemPrompt } from './chat-context';
 
 interface Message {
   id: number;
@@ -16,7 +17,7 @@ interface Message {
 
 const ChatWidgetContent: React.FC = () => {
   const router = useRouter();
-  const { isAuthenticated } = useEcho();
+  const { isAuthenticated, balance } = useEcho();
   const { openai } = useEchoModelProviders();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
@@ -43,6 +44,29 @@ const ChatWidgetContent: React.FC = () => {
   const handleSend = async () => {
     if (!inputValue.trim() || isLoading) return;
 
+    // Check authentication and credits before proceeding
+    if (!isAuthenticated) {
+      const errorMessage: Message = {
+        id: Date.now() + 1,
+        type: 'bot',
+        content: 'Please sign in to use the ELA Tutor.',
+        timestamp: new Date()
+      };
+      setMessages(prev => [...prev, errorMessage]);
+      return;
+    }
+
+    if (balance && balance.balance <= 0) {
+      const errorMessage: Message = {
+        id: Date.now() + 1,
+        type: 'bot',
+        content: 'You have no credits remaining. Please purchase more credits to continue using the ELA Tutor.',
+        timestamp: new Date()
+      };
+      setMessages(prev => [...prev, errorMessage]);
+      return;
+    }
+
     const userMessage: Message = {
       id: Date.now(),
       type: 'user',
@@ -63,7 +87,7 @@ const ChatWidgetContent: React.FC = () => {
         messages: [
           {
             role: 'system',
-            content: 'You are an ELA (English Language Arts) tutor. Help students with reading comprehension, writing, grammar, and literary analysis. Be encouraging, educational, and engaging. Keep responses concise and focused for the widget format. Use markdown formatting for better readability.'
+            content: buildSystemPrompt('en', 'complex', true) // English, complex, with widget instructions
           },
           ...messages.map(msg => ({
             role: msg.type === 'user' ? 'user' as const : 'assistant' as const,
@@ -139,6 +163,12 @@ const ChatWidgetContent: React.FC = () => {
               <span className="font-semibold">ELA Tutor</span>
             </div>
             <div className="flex items-center space-x-2">
+              {/* Credit Display */}
+              {isAuthenticated && balance && (
+                <div className="text-xs bg-white/20 px-2 py-1 rounded">
+                  Credits: {balance.balance}
+                </div>
+              )}
               <button
                 onClick={handleLaunchFullChat}
                 className="text-white hover:text-gray-200 transition-colors p-1 rounded hover:bg-white/10"
