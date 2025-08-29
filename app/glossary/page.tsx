@@ -2106,7 +2106,7 @@ export default function GlossaryPage() {
       
       <div className="max-w-6xl mx-auto relative">
         
-        <div className="text-center mb-8">
+        <div className="text-center mb-8 mt-20">
           <div className="inline-block p-8 rounded-xl shadow-2xl relative" style={{
             background: `
               radial-gradient(circle at 25% 20%, rgba(255, 140, 0, 0.2) 0%, transparent 60%),
@@ -2151,7 +2151,7 @@ export default function GlossaryPage() {
               {letters.map(letter => (
                 <button
                   key={letter}
-                  onClick={() => setSelectedLetter(letter)}
+                  onClick={() => setSelectedLetter(selectedLetter === letter ? 'All' : letter)}
                   className={`px-3 py-2 rounded-lg font-bold transition-all ${
                     selectedLetter === letter
                       ? 'bg-orange-500 text-white shadow-lg'
