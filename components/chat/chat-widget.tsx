@@ -5,6 +5,7 @@ import { MessageSquare, X, Send, Bot, User, ExternalLink } from 'lucide-react';
 import { useRouter, usePathname } from 'next/navigation';
 import { EchoProvider, useEcho, useEchoModelProviders, EchoSignIn } from '@merit-systems/echo-react-sdk';
 import { streamText } from 'ai';
+import ReactMarkdown from 'react-markdown';
 
 interface Message {
   id: number;
@@ -28,6 +29,7 @@ const ChatWidgetContent: React.FC = () => {
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [streamingMessage, setStreamingMessage] = useState<string>('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
@@ -36,7 +38,7 @@ const ChatWidgetContent: React.FC = () => {
 
   useEffect(() => {
     scrollToBottom();
-  }, [messages, isLoading]);
+  }, [messages, isLoading, streamingMessage]);
 
   const handleSend = async () => {
     if (!inputValue.trim() || isLoading) return;
@@ -52,15 +54,16 @@ const ChatWidgetContent: React.FC = () => {
     const currentInput = inputValue;
     setInputValue('');
     setIsLoading(true);
+    setStreamingMessage('');
 
     try {
-      // Use AI SDK with Echo models
+      // Use AI SDK with Echo models and stream text - same pattern as main chat
       const { textStream } = await streamText({
         model: await openai('gpt-4o-mini'),
         messages: [
           {
             role: 'system',
-            content: 'You are an ELA (English Language Arts) tutor. Help students with reading comprehension, writing, grammar, and literary analysis. Be encouraging, educational, and engaging.'
+            content: 'You are an ELA (English Language Arts) tutor. Help students with reading comprehension, writing, grammar, and literary analysis. Be encouraging, educational, and engaging. Keep responses concise and focused for the widget format. Use markdown formatting for better readability.'
           },
           ...messages.map(msg => ({
             role: msg.type === 'user' ? 'user' as const : 'assistant' as const,
@@ -76,6 +79,7 @@ const ChatWidgetContent: React.FC = () => {
       let fullResponse = '';
       for await (const chunk of textStream) {
         fullResponse += chunk;
+        setStreamingMessage(fullResponse);
       }
 
       const botResponse: Message = {
@@ -86,6 +90,7 @@ const ChatWidgetContent: React.FC = () => {
       };
 
       setMessages(prev => [...prev, botResponse]);
+      setStreamingMessage('');
     } catch (error) {
       console.error('Error sending message:', error);
       const errorMessage: Message = {
@@ -95,6 +100,7 @@ const ChatWidgetContent: React.FC = () => {
         timestamp: new Date()
       };
       setMessages(prev => [...prev, errorMessage]);
+      setStreamingMessage('');
     } finally {
       setIsLoading(false);
     }
@@ -179,14 +185,61 @@ const ChatWidgetContent: React.FC = () => {
                           : 'bg-gray-100 text-gray-800'
                       }`}
                     >
-                      <p className="text-sm">{message.content}</p>
+                      <div className="text-sm">
+                        <ReactMarkdown 
+                          components={{
+                            // Custom styling for markdown elements
+                            p: ({children}) => <p className="mb-2 last:mb-0 text-current">{children}</p>,
+                            strong: ({children}) => <strong className="font-semibold text-current">{children}</strong>,
+                            em: ({children}) => <em className="italic text-current">{children}</em>,
+                            ul: ({children}) => <ul className="list-disc list-outside ml-4 mb-2 space-y-1 text-current">{children}</ul>,
+                            ol: ({children}) => <ol className="list-decimal list-outside ml-4 mb-2 space-y-1 text-current">{children}</ol>,
+                            li: ({children}) => <li className="text-current">{children}</li>,
+                            h1: ({children}) => <h1 className="text-lg font-bold mb-2 text-current">{children}</h1>,
+                            h2: ({children}) => <h2 className="text-base font-bold mb-2 text-current">{children}</h2>,
+                            h3: ({children}) => <h3 className="text-sm font-bold mb-1 text-current">{children}</h3>,
+                            code: ({children}) => <code className="bg-gray-200 px-1 py-0.5 rounded text-sm font-mono text-gray-800">{children}</code>,
+                            blockquote: ({children}) => <blockquote className="border-l-4 border-gray-300 pl-4 italic my-2 text-current">{children}</blockquote>,
+                          }}
+                        >
+                          {message.content}
+                        </ReactMarkdown>
+                      </div>
                       <p className="text-xs opacity-70 mt-1 text-right">
                         {message.timestamp.toLocaleTimeString()}
                       </p>
                     </div>
                   </div>
                 ))}
-                {isLoading && (
+                
+                {/* Streaming message */}
+                {streamingMessage && (
+                  <div className="flex justify-start">
+                    <div className="bg-gray-100 text-gray-800 px-3 py-2 rounded-lg max-w-xs lg:max-w-md">
+                      <div className="text-sm">
+                        <ReactMarkdown 
+                          components={{
+                            p: ({children}) => <p className="mb-2 last:mb-0 text-current">{children}</p>,
+                            strong: ({children}) => <strong className="font-semibold text-current">{children}</strong>,
+                            em: ({children}) => <em className="italic text-current">{children}</em>,
+                            ul: ({children}) => <ul className="list-disc list-outside ml-4 mb-2 space-y-1 text-current">{children}</ul>,
+                            ol: ({children}) => <ol className="list-decimal list-outside ml-4 mb-2 space-y-1 text-current">{children}</ol>,
+                            li: ({children}) => <li className="text-current">{children}</li>,
+                            h1: ({children}) => <h1 className="text-lg font-bold mb-2 text-current">{children}</h1>,
+                            h2: ({children}) => <h2 className="text-base font-bold mb-2 text-current">{children}</h2>,
+                            h3: ({children}) => <h3 className="text-sm font-bold mb-1 text-current">{children}</h3>,
+                            code: ({children}) => <code className="bg-gray-200 px-1 py-0.5 rounded text-sm font-mono text-gray-800">{children}</code>,
+                            blockquote: ({children}) => <blockquote className="border-l-4 border-gray-300 pl-4 italic my-2 text-current">{children}</blockquote>,
+                          }}
+                        >
+                          {streamingMessage}
+                        </ReactMarkdown>
+                      </div>
+                    </div>
+                  </div>
+                )}
+                
+                {isLoading && !streamingMessage && (
                   <div className="flex justify-start">
                     <div className="bg-gray-100 text-gray-800 px-3 py-2 rounded-lg">
                       <div className="flex items-center space-x-2">
