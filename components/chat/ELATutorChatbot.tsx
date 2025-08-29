@@ -977,19 +977,19 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
         helpButton: '?',
         helpTitle: 'How I Can Help You',
         helpReading: {
-          title: '📖 Reading Comprehension',
+          title: 'Reading Comprehension',
           description: 'Strategies for understanding texts, identifying main ideas, and analyzing content'
         },
         helpWriting: {
-          title: '✍️ Writing Process',
+          title: 'Writing Process',
           description: 'Brainstorming, outlining, drafting, revising, and editing your work'
         },
         helpGrammar: {
-          title: '📝 Grammar & Mechanics',
+          title: 'Grammar & Mechanics',
           description: 'Sentence structure, punctuation, spelling, and language conventions'
         },
         helpLiterature: {
-          title: '💭 Literature Analysis',
+          title: 'Literature Analysis',
           description: 'Understanding themes, literary devices, character development, and more'
         },
         helpIntegrity: 'I help you learn and develop your own ideas - I don\'t write assignments for you!',
@@ -1031,19 +1031,19 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
         helpButton: '?',
         helpTitle: 'Cómo Puedo Ayudarte',
         helpReading: {
-          title: '📖 Comprensión de Lectura',
+          title: 'Comprensión de Lectura',
           description: 'Estrategias para entender textos, identificar ideas principales y analizar contenido'
         },
         helpWriting: {
-          title: '✍️ Proceso de Escritura',
+          title: 'Proceso de Escritura',
           description: 'Lluvia de ideas, esquemas, borradores, revisión y edición de tu trabajo'
         },
         helpGrammar: {
-          title: '📝 Gramática y Mecánica',
+          title: 'Gramática y Mecánica',
           description: 'Estructura de oraciones, puntuación, ortografía y convenciones del idioma'
         },
         helpLiterature: {
-          title: '💭 Análisis Literario',
+          title: 'Análisis Literario',
           description: 'Comprensión de temas, recursos literarios, desarrollo de personajes y más'
         },
         helpIntegrity: 'Te ayudo a aprender y desarrollar tus propias ideas - ¡no escribo tareas por ti!',
@@ -1085,19 +1085,19 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
         helpButton: '?',
         helpTitle: 'Kijan Mwen Ka Ede W',
         helpReading: {
-          title: '📖 Konprann Lekti',
+          title: 'Konprann Lekti',
           description: 'Estrateji pou konprann tèks yo, idantifye ide prensipal yo ak analize kontni an'
         },
         helpWriting: {
-          title: '✍️ Pwosesis Ekriti',
+          title: 'Pwosesis Ekriti',
           description: 'Brainstorming, fè plan, ekri bouyon, revize ak korije travay ou'
         },
         helpGrammar: {
-          title: '📝 Gramè ak Mekanik',
+          title: 'Gramè ak Mekanik',
           description: 'Estrikti fraz, ponktiyasyon, òtograf ak konvansyon lang lan'
         },
         helpLiterature: {
-          title: '💭 Analiz Literè',
+          title: 'Analiz Literè',
           description: 'Konprann tèm yo, teknik literè, devlopman karaktè ak plis ankò'
         },
         helpIntegrity: 'Mwen ede w aprann ak devlope pwòp ide w yo - mwen pa ekri devwa pou ou!',
@@ -1144,29 +1144,29 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
   const currentSuggestions = getCurrentSuggestions();
 
   return (
-    <div className="flex flex-col h-full bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 rounded-xl">
+    <div className="flex flex-col h-full bg-gradient-to-br from-stone-50 via-neutral-50 to-gray-100 rounded-xl">
       {/* Header */}
-      <div className="bg-black/20 backdrop-blur-md border-b border-white/10 p-4 flex justify-between items-center">
+      <div className="bg-gray-200/30 backdrop-blur-md border-b border-gray-300/20 p-4 flex justify-between items-center">
         <div className="flex items-center space-x-3">
-          <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+          <div className="w-10 h-10 bg-gradient-to-r from-amber-600 to-orange-600 rounded-full flex items-center justify-center">
             <BookOpen className="w-5 h-5 text-white" />
           </div>
                       <div className="pt-2">
-              <h1 className="text-xl font-bold text-white">ELA Tutor Chatbot</h1>
+              <h1 className="text-xl font-bold text-black">ELA Tutor Chatbot</h1>
             </div>
         </div>
         
         <div className="flex items-center space-x-4">
           <button
             onClick={handleNewChat}
-            className="px-3 py-1 bg-purple-600 hover:bg-purple-700 text-white text-sm rounded-md transition-colors"
+            className="px-3 py-1 bg-amber-600 hover:bg-amber-700 text-white text-sm rounded-md transition-colors"
           >
             {uiText.newChat}
           </button>
           
           <button
             onClick={() => setShowHelp(!showHelp)}
-            className="p-2 bg-purple-600 hover:bg-purple-700 text-white rounded-md transition-colors"
+            className="p-2 bg-amber-600 hover:bg-amber-700 text-white rounded-md transition-colors"
           >
             {uiText.helpButton}
           </button>
@@ -1175,23 +1175,23 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
 
       {/* Help Panel */}
       {showHelp && (
-        <div className="bg-purple-800/50 backdrop-blur-md border-b border-white/10 p-4">
-          <h3 className="text-lg font-semibold text-white mb-2">{uiText.helpTitle}</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-purple-200">
+        <div className="bg-blue-100/50 backdrop-blur-md border-b border-gray-300/20 p-4">
+          <h3 className="text-lg font-semibold text-black mb-2">{uiText.helpTitle}</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-black">
             <div>
-              <h4 className="font-medium text-white">{uiText.helpReading.title}</h4>
+              <h4 className="font-medium text-black">{uiText.helpReading.title}</h4>
               <p>{uiText.helpReading.description}</p>
             </div>
             <div>
-              <h4 className="font-medium text-white">{uiText.helpWriting.title}</h4>
+              <h4 className="font-medium text-black">{uiText.helpWriting.title}</h4>
               <p>{uiText.helpWriting.description}</p>
             </div>
             <div>
-              <h4 className="font-medium text-white">{uiText.helpGrammar.title}</h4>
+              <h4 className="font-medium text-black">{uiText.helpGrammar.title}</h4>
               <p>{uiText.helpGrammar.description}</p>
             </div>
             <div>
-              <h4 className="font-medium text-white">{uiText.helpLiterature.title}</h4>
+              <h4 className="font-medium text-black">{uiText.helpLiterature.title}</h4>
               <p>{uiText.helpLiterature.description}</p>
             </div>
           </div>
@@ -1217,8 +1217,8 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
             <div
               className={`max-w-xs lg:max-w-md px-4 py-2 rounded-lg ${
                 message.type === 'user'
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-white/10 backdrop-blur-md text-white select-none'
+                  ? 'bg-amber-600 text-white'
+                  : 'bg-stone-100/90 backdrop-blur-md text-black select-none'
               }`}
               style={{
                 userSelect: message.type === 'bot' ? 'none' : 'auto',
@@ -1278,11 +1278,11 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
         
         {isTyping && (
           <div className="flex justify-start">
-            <div className="bg-white/10 backdrop-blur-md text-white px-4 py-2 rounded-lg">
+            <div className="bg-stone-100/90 backdrop-blur-md text-black px-4 py-2 rounded-lg">
               <div className="flex space-x-1">
-                <div className="w-2 h-2 bg-purple-400 rounded-full animate-bounce"></div>
-                <div className="w-2 h-2 bg-purple-400 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
-                <div className="w-2 h-2 bg-purple-400 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                <div className="w-2 h-2 bg-amber-600 rounded-full animate-bounce"></div>
+                <div className="w-2 h-2 bg-amber-600 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
+                <div className="w-2 h-2 bg-amber-600 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
               </div>
             </div>
           </div>
@@ -1292,7 +1292,7 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
           </div>
 
           {/* Input Area */}
-          <div className="bg-black/20 backdrop-blur-md border-t border-white/10 p-4">
+          <div className="bg-gray-200/30 backdrop-blur-md border-t border-gray-300/20 p-4">
             <div className="flex space-x-2 items-end">
               <div className="flex-1 flex flex-col">
                 <div className="relative">
@@ -1302,11 +1302,11 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
                     onKeyPress={handleKeyPress}
                     onPaste={handlePaste}
                     placeholder={uiText.inputPlaceholder}
-                    className="flex-1 bg-white/10 border border-white/20 rounded-md px-4 py-2 text-white text-left placeholder-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none min-h-[60px] max-h-[120px] text-sm leading-relaxed chat-textarea relative z-10"
+                    className="flex-1 bg-white/80 border border-gray-300/50 rounded-md px-4 py-2 text-black text-left placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent resize-none min-h-[60px] max-h-[120px] text-sm leading-relaxed chat-textarea relative z-10"
                     rows={2}
                     style={{
                       scrollbarWidth: 'thin',
-                      scrollbarColor: 'rgba(168, 85, 247, 0.3) transparent'
+                      scrollbarColor: 'rgba(217, 119, 6, 0.3) transparent'
                     }}
                   />
                   {inputValue.length > 0 && (
@@ -1315,18 +1315,18 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
                 </div>
                 {inputValue.length > 0 && (
                   <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mt-1 px-1 gap-1 sm:gap-0">
-                    <span className="text-xs text-purple-300 order-2 sm:order-1">
+                    <span className="text-xs text-gray-600 order-2 sm:order-1">
                       {inputValue.length} characters
                     </span>
                     <div className="flex items-center justify-end gap-2 order-1 sm:order-2">
                       <button
                         onClick={() => setInputValue('')}
-                        className="text-xs text-purple-300 hover:text-purple-100 transition-colors px-2 py-1 rounded hover:bg-purple-600/20"
+                        className="text-xs text-gray-600 hover:text-gray-800 transition-colors px-2 py-1 rounded hover:bg-gray-200/50"
                         title="Clear input"
                       >
                         Clear
                       </button>
-                      <span className="text-xs text-purple-300 hidden sm:inline">
+                      <span className="text-xs text-gray-600 hidden sm:inline">
                         Press Enter to send, Shift+Enter for new line
                       </span>
                     </div>
@@ -1336,7 +1336,7 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
               <button
                 onClick={handleSend}
                 disabled={!inputValue.trim() || isTyping}
-                className="bg-purple-600 hover:bg-purple-700 disabled:bg-purple-800 disabled:opacity-50 text-white p-2 rounded-md transition-colors self-end"
+                className="bg-amber-600 hover:bg-amber-700 disabled:bg-amber-800 disabled:opacity-50 text-white p-2 rounded-md transition-colors self-end"
               >
                 <Send className="w-5 h-5" />
               </button>
@@ -1345,11 +1345,11 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
         </div>
 
         {/* Right Sidebar - Quick Tips & File Upload */}
-        <div className="w-80 lg:w-80 md:w-64 hidden md:flex bg-black/30 backdrop-blur-md border-l border-white/10 flex-col overflow-hidden min-h-0">
-          <div className="p-4 border-b border-white/10">
+        <div className="w-80 lg:w-80 md:w-64 hidden md:flex bg-gray-200/30 backdrop-blur-md border-l border-gray-300/20 flex-col overflow-hidden min-h-0">
+          <div className="p-4 border-b border-gray-300/20">
             <div className="flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-yellow-400" />
-              <h4 className="text-sm font-semibold text-white">{uiText.smartSuggestions}</h4>
+              <Sparkles className="w-4 h-4 text-amber-600" />
+              <h4 className="text-sm font-semibold text-black">{uiText.smartSuggestions}</h4>
             </div>
           </div>
           
@@ -1360,13 +1360,13 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
                     <button
                       key={`${suggestion}-${index}-${availableSuggestions.length}`}
                     onClick={() => handleSuggestionClick(suggestion)}
-                    className="w-full flex items-start gap-2 p-3 bg-white/5 hover:bg-white/15 border border-white/10 hover:border-purple-400/50 text-purple-100 hover:text-white text-sm rounded-lg transition-all duration-500 text-left group animate-in fade-in slide-in-from-right-2"
+                    className="w-full flex items-start gap-2 p-3 bg-white/60 hover:bg-white/80 border border-gray-300/30 hover:border-amber-500/50 text-black hover:text-black text-sm rounded-lg transition-all duration-500 text-left group animate-in fade-in slide-in-from-right-2"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
-                    <div className="w-1.5 h-1.5 bg-purple-400 rounded-full group-hover:bg-yellow-400 transition-colors mt-2 flex-shrink-0"></div>
+                    <div className="w-1.5 h-1.5 bg-amber-600 rounded-full group-hover:bg-amber-800 transition-colors mt-2 flex-shrink-0"></div>
                     <span className="flex-1 leading-relaxed">{suggestion}</span>
                     <div className="opacity-0 group-hover:opacity-100 transition-opacity">
-                      <MessageSquare className="w-3 h-3 text-purple-300 mt-1" />
+                      <MessageSquare className="w-3 h-3 text-black mt-1" />
                     </div>
                   </button>
                 ))}
@@ -1377,7 +1377,7 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
           
           {currentSuggestions.length === 0 && (
             <div className="flex-1 flex items-center justify-center p-4 min-h-0">
-              <div className="text-center text-purple-300 text-sm">
+              <div className="text-center text-black text-sm">
                 <Sparkles className="w-8 h-8 mx-auto mb-2 opacity-50" />
                 <p>{uiText.startConversation}</p>
               </div>
@@ -1385,12 +1385,12 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
           )}
 
           {/* File Upload Section */}
-          <div className="border-t border-white/10 p-4">
+          <div className="border-t border-gray-300/20 p-4">
             <div className="flex items-center gap-2 mb-3">
-              <FileText className="w-4 h-4 text-purple-400" />
-              <h4 className="text-sm font-semibold text-white">Document Upload</h4>
+              <FileText className="w-4 h-4 text-amber-600" />
+              <h4 className="text-sm font-semibold text-black">Document Upload</h4>
             </div>
-            <div className="bg-white/5 border border-white/10 rounded-lg p-3">
+            <div className="bg-white/60 border border-gray-300/30 rounded-lg p-3">
               <FileUpload 
                 onChange={(files: File[]) => {
                   // Just store files locally, don't process them yet
@@ -1477,7 +1477,7 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
             <div className="flex justify-end space-x-2">
               <button
                 onClick={() => setShowDishonestyModal(false)}
-                className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors"
+                className="px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-md transition-colors"
               >
                 {uiText.understand}
               </button>

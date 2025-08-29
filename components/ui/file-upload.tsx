@@ -80,14 +80,14 @@ export const FileUpload = ({
           <GridPattern />
         </div>
         <div className="flex flex-col items-center justify-center">
-          <p className="relative z-20 font-sans font-bold text-neutral-700 dark:text-neutral-300 text-xs">
+          <p className="relative z-20 font-sans font-bold text-white text-xs">
             Upload file
           </p>
           <div className="relative w-full mt-3 max-w-md mx-auto">
                         {files.length > 0 && (
               <div className="mt-3">
                 <div className="text-center mb-2">
-                  <p className="text-xs text-neutral-500 dark:text-neutral-400">
+                  <p className="text-xs text-white">
                     {files.length} file(s) ready to add to chat
                   </p>
                 </div>
@@ -98,8 +98,8 @@ export const FileUpload = ({
                       layoutId={idx === 0 ? "file-upload" : "file-upload-" + idx}
                       className="group relative"
                     >
-                      <div className="h-10 w-10 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center cursor-pointer hover:ring-2 hover:ring-blue-400 transition-all shadow-sm relative">
-                        <span className="text-blue-600 dark:text-blue-300 text-xs font-medium">
+                      <div className="h-10 w-10 rounded-full bg-amber-100 flex items-center justify-center cursor-pointer hover:ring-2 hover:ring-amber-400 transition-all shadow-sm relative">
+                        <span className="text-amber-600 text-xs font-medium">
                           {file.name.split('.').pop()?.toUpperCase() || 'DOC'}
                         </span>
                         
@@ -131,7 +131,7 @@ export const FileUpload = ({
                       e.preventDefault();
                       onAddToChat && onAddToChat(files);
                     }}
-                    className="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs rounded-md transition-colors"
+                    className="px-3 py-1.5 bg-amber-600 hover:bg-amber-700 text-white text-xs rounded-md transition-colors"
                   >
                     Add to Prompt
                   </button>
@@ -148,7 +148,7 @@ export const FileUpload = ({
                   damping: 20,
                 }}
                 className={cn(
-                  "relative group-hover/file:shadow-2xl z-40 bg-white dark:bg-neutral-900 flex items-center justify-center h-6 mt-2 w-full max-w-[1.5rem] mx-auto rounded-md",
+                  "relative group-hover/file:shadow-2xl z-40 bg-white flex items-center justify-center h-6 mt-2 w-full max-w-[1.5rem] mx-auto rounded-md",
                   "shadow-[0px_10px_50px_rgba(0,0,0,0.1)]"
                 )}
               >
@@ -156,13 +156,13 @@ export const FileUpload = ({
                   <motion.p
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="text-neutral-600 flex flex-col items-center"
+                    className="text-amber-600 flex flex-col items-center"
                   >
                     Drop it
-                    <IconUpload className="h-3 w-3 text-neutral-600 dark:text-neutral-400" />
+                    <IconUpload className="h-3 w-3 text-amber-600" />
                   </motion.p>
                 ) : (
-                  <IconUpload className="h-3 w-3 text-neutral-600 dark:text-neutral-300" />
+                  <IconUpload className="h-3 w-3 text-amber-600" />
                 )}
               </motion.div>
             )}
@@ -170,7 +170,7 @@ export const FileUpload = ({
             {!files.length && (
               <motion.div
                 variants={secondaryVariant}
-                className="absolute opacity-0 border border-dashed border-sky-400 inset-0 z-30 bg-transparent flex items-center justify-center h-6 mt-2 w-full max-w-[1.5rem] mx-auto rounded-md"
+                className="absolute opacity-0 border border-dashed border-amber-400 inset-0 z-30 bg-transparent flex items-center justify-center h-6 mt-2 w-full max-w-[1.5rem] mx-auto rounded-md"
               ></motion.div>
             )}
           </div>
