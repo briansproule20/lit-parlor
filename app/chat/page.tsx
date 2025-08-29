@@ -116,8 +116,8 @@ function ChatPageContent() {
           ? 'bg-slate-800/30 border-slate-600/30'
           : 'bg-amber-800/20 border-amber-700/30'
       }`}>
-        <div className="max-w-7xl mx-auto px-4 pt-6 pb-0">
-          <div className="flex items-start justify-between">
+        <div className="max-w-7xl mx-auto px-4 pt-4 sm:pt-6 pb-0">
+          <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 lg:gap-0">
             <div className="flex flex-col space-y-4">
               <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
                 <div className="w-10 h-10 bg-gradient-to-r from-amber-600 to-orange-600 rounded-lg flex items-center justify-center">
@@ -140,10 +140,10 @@ function ChatPageContent() {
               </Link>
               
               {/* Navigation Buttons */}
-              <div className="flex items-center space-x-4 ml-13">
+              <div className="flex flex-wrap items-center gap-2 sm:gap-4 ml-0 sm:ml-13">
                 <Link
                   href="/"
-                  className={`transition-colors px-3 py-1 rounded-lg text-sm font-medium ${
+                  className={`transition-colors px-2 sm:px-3 py-1 rounded-lg text-xs sm:text-sm font-medium ${
                     isDarkMode
                       ? 'text-slate-200 hover:text-slate-100 hover:bg-slate-700/20'
                       : 'text-amber-900 hover:text-amber-700 hover:bg-amber-800/10'
@@ -154,7 +154,7 @@ function ChatPageContent() {
                 
                 <Link
                   href="/student-dashboard"
-                  className={`transition-colors px-3 py-1 rounded-lg text-sm font-medium ${
+                  className={`transition-colors px-2 sm:px-3 py-1 rounded-lg text-xs sm:text-sm font-medium ${
                     isDarkMode
                       ? 'text-slate-200 hover:text-slate-100 hover:bg-slate-700/20'
                       : 'text-amber-900 hover:text-amber-700 hover:bg-amber-800/10'
@@ -165,7 +165,7 @@ function ChatPageContent() {
                 
                 <Link
                   href="/teacher-dashboard"
-                  className={`transition-colors px-3 py-1 rounded-lg text-sm font-medium ${
+                  className={`transition-colors px-2 sm:px-3 py-1 rounded-lg text-xs sm:text-sm font-medium ${
                     isDarkMode
                       ? 'text-slate-200 hover:text-slate-100 hover:bg-slate-700/20'
                       : 'text-amber-900 hover:text-amber-700 hover:bg-amber-800/10'
@@ -176,7 +176,7 @@ function ChatPageContent() {
                 
                 <Link
                   href="/pedagogy"
-                  className={`transition-colors px-3 py-1 rounded-lg text-sm font-medium ${
+                  className={`transition-colors px-2 sm:px-3 py-1 rounded-lg text-xs sm:text-sm font-medium ${
                     isDarkMode
                       ? 'text-slate-200 hover:text-slate-100 hover:bg-slate-700/20'
                       : 'text-amber-900 hover:text-amber-700 hover:bg-amber-800/10'
@@ -187,7 +187,7 @@ function ChatPageContent() {
               </div>
             </div>
             
-            <div className="flex flex-col items-end space-y-3">
+            <div className="flex flex-col items-end lg:items-end space-y-3">
               {/* Top Row: Dark Mode Toggle + Language Selector */}
               <div className="flex items-center space-x-3">
                 {/* Dark Mode Toggle */}
@@ -243,63 +243,69 @@ function ChatPageContent() {
                   }`}></div>
                 </div>
               ) : isAuthenticated ? (
-                <div className="flex items-center space-x-3">
-                  {/* User Info */}
-                  <div className={`backdrop-blur-md px-3 py-2 rounded-lg ${
-                    isDarkMode
-                      ? 'bg-slate-700/50 border border-slate-600/30 text-slate-200'
-                      : 'bg-amber-50/80 border border-amber-200/50 text-amber-800'
-                  }`}>
-                    <div className="flex items-center space-x-2">
-                      <User className="w-4 h-4" />
-                      <span className="text-sm font-medium">{user?.name || user?.email || 'User'}</span>
+                <div className="flex flex-col sm:flex-row items-end sm:items-center gap-2 sm:space-x-3">
+                  {/* First Row: User Info + Balance */}
+                  <div className="flex items-center space-x-2 sm:space-x-3">
+                    {/* User Info */}
+                    <div className={`backdrop-blur-md px-2 sm:px-3 py-2 rounded-lg ${
+                      isDarkMode
+                        ? 'bg-slate-700/50 border border-slate-600/30 text-slate-200'
+                        : 'bg-amber-50/80 border border-amber-200/50 text-amber-800'
+                    }`}>
+                      <div className="flex items-center space-x-2">
+                        <User className="w-4 h-4" />
+                        <span className="text-xs sm:text-sm font-medium truncate max-w-[100px] sm:max-w-none">{user?.name || user?.email || 'User'}</span>
+                      </div>
+                    </div>
+                    
+                    {/* Balance */}
+                    <div className={`backdrop-blur-md px-2 sm:px-3 py-2 rounded-lg ${
+                      isDarkMode
+                        ? 'bg-slate-700/50 border border-slate-600/30 text-slate-200'
+                        : 'bg-amber-50/80 border border-amber-200/50 text-amber-800'
+                    }`}>
+                      <div className="flex items-center space-x-2">
+                        <CreditCard className="w-4 h-4" />
+                        <span className="text-xs sm:text-sm font-medium">
+                          {balance ? (
+                            typeof balance === 'number' ? 
+                              `${balance} credits` : 
+                              `${balance.balance || 0} credits`
+                          ) : (
+                            '0 credits'
+                          )}
+                        </span>
+                      </div>
                     </div>
                   </div>
                   
-                  {/* Balance */}
-                  <div className={`backdrop-blur-md px-3 py-2 rounded-lg ${
-                    isDarkMode
-                      ? 'bg-slate-700/50 border border-slate-600/30 text-slate-200'
-                      : 'bg-amber-50/80 border border-amber-200/50 text-amber-800'
-                  }`}>
-                    <div className="flex items-center space-x-2">
-                      <CreditCard className="w-4 h-4" />
-                      <span className="text-sm font-medium">
-                        {balance ? (
-                          typeof balance === 'number' ? 
-                            `${balance} credits` : 
-                            `${balance.balance || 0} credits`
-                        ) : (
-                          '0 credits'
-                        )}
-                      </span>
-                    </div>
+                  {/* Second Row: Echo Base + Sign Out */}
+                  <div className="flex items-center space-x-2 sm:space-x-3">
+                    {/* Echo Base */}
+                    <button 
+                      onClick={() => window.open('https://echo.merit.systems', '_blank')}
+                      className={`backdrop-blur-md px-2 sm:px-3 py-2 rounded-lg transition-colors text-xs sm:text-sm font-medium ${
+                        isDarkMode
+                          ? 'bg-slate-700/50 border border-slate-600/30 text-slate-200 hover:bg-slate-600/50 hover:text-slate-100'
+                          : 'bg-amber-50/80 border border-amber-200/50 text-amber-800 hover:bg-amber-100/80 hover:text-amber-900'
+                      }`}
+                    >
+                      Echo Base
+                    </button>
+                    
+                    {/* Sign Out */}
+                    <button
+                      onClick={signOut}
+                      className={`backdrop-blur-md px-2 sm:px-3 py-2 rounded-lg transition-colors flex items-center space-x-2 text-xs sm:text-sm font-medium ${
+                        isDarkMode
+                          ? 'bg-slate-700/50 border border-slate-600/30 text-slate-200 hover:bg-slate-600/50 hover:text-slate-100'
+                          : 'bg-amber-50/80 border border-amber-200/50 text-amber-800 hover:bg-amber-100/80 hover:text-amber-900'
+                      }`}
+                    >
+                      <LogOut className="w-4 h-4" />
+                      <span className="hidden sm:inline">Sign Out</span>
+                    </button>
                   </div>
-                  
-                  {/* Echo Base */}
-                  <button 
-                    onClick={() => window.open('https://echo.merit.systems', '_blank')}
-                    className={`backdrop-blur-md px-3 py-2 rounded-lg transition-colors text-sm font-medium ${
-                      isDarkMode
-                        ? 'bg-slate-700/50 border border-slate-600/30 text-slate-200 hover:bg-slate-600/50 hover:text-slate-100'
-                        : 'bg-amber-50/80 border border-amber-200/50 text-amber-800 hover:bg-amber-100/80 hover:text-amber-900'
-                    }`}
-                  >
-                    Echo Base
-                  </button>
-                  
-                  {/* Sign Out */}
-                  <button
-                    onClick={signOut}
-                    className={`backdrop-blur-md px-3 py-2 rounded-lg transition-colors flex items-center space-x-2 text-sm font-medium ${
-                      isDarkMode
-                        ? 'bg-slate-700/50 border border-slate-600/30 text-slate-200 hover:bg-slate-600/50 hover:text-slate-100'
-                        : 'bg-amber-50/80 border border-amber-200/50 text-amber-800 hover:bg-amber-100/80 hover:text-amber-900'
-                    }`}
-                  >
-                    <LogOut className="w-4 h-4" />
-                    <span>Sign Out</span>
-                  </button>
                 </div>
               ) : (
                 <EchoSignIn 

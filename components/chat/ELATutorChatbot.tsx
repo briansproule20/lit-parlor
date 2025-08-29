@@ -1293,7 +1293,7 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
 
           {/* Input Area */}
           <div className="bg-black/20 backdrop-blur-md border-t border-white/10 p-4">
-            <div className="flex space-x-2">
+            <div className="flex space-x-2 items-end">
               <div className="flex-1 flex flex-col">
                 <div className="relative">
                   <Textarea
@@ -1314,11 +1314,11 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
                   )}
                 </div>
                 {inputValue.length > 0 && (
-                  <div className="flex justify-between items-center mt-1 px-1">
-                    <span className="text-xs text-purple-300">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mt-1 px-1 gap-1 sm:gap-0">
+                    <span className="text-xs text-purple-300 order-2 sm:order-1">
                       {inputValue.length} characters
                     </span>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center justify-end gap-2 order-1 sm:order-2">
                       <button
                         onClick={() => setInputValue('')}
                         className="text-xs text-purple-300 hover:text-purple-100 transition-colors px-2 py-1 rounded hover:bg-purple-600/20"
@@ -1326,7 +1326,7 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
                       >
                         Clear
                       </button>
-                      <span className="text-xs text-purple-300">
+                      <span className="text-xs text-purple-300 hidden sm:inline">
                         Press Enter to send, Shift+Enter for new line
                       </span>
                     </div>
