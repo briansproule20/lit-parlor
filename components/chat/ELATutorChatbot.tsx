@@ -1380,11 +1380,7 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
                   </button>
                 ))}
               </div>
-              <div className="mt-4 p-3 bg-purple-600/20 border border-purple-400/30 rounded-lg">
-                <div className="text-xs text-purple-300 text-center">
-                  💬 {uiText.clickToExplore}
-                </div>
-              </div>
+
             </div>
           )}
           
