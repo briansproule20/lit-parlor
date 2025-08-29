@@ -118,7 +118,7 @@ export default function Home() {
               />
             </div>
             <p className="text-xl text-amber-800 max-w-3xl mx-auto leading-relaxed font-serif">
-              Where great stories meet modern formats.<br />
+              Where the classics meet modern, short-form mediums.<br />
               Educational projects in development by Brian Sproule.
             </p>
             <div className="mt-4 text-amber-700 font-serif italic">
