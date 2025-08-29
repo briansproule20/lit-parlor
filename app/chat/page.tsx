@@ -19,14 +19,7 @@ import {
 } from "@/components/ui/navigation-menu";
 
 
-// Famous author last names for random selection
-const famousAuthors: string[] = [
-  'Hemingway', 'Fitzgerald', 'Dickens', 'Austen', 'Tolstoy', 'Dostoevsky', 
-  'Shakespeare', 'Poe', 'Twain', 'Steinbeck', 'Faulkner', 'Joyce', 
-  'Woolf', 'Orwell', 'Bradbury', 'Vonnegut', 'Salinger', 'Kerouac',
-  'Ginsberg', 'Plath', 'Angelou', 'Morrison', 'King', 'Rowling',
-  'Tolkien', 'Lewis', 'Wilde', 'Bronte', 'Eliot', 'Yeats'
-];
+
 
 function ChatPageContent() {
   const { currentLanguage, setCurrentLanguage, languageOptions } = useLanguage();
@@ -35,12 +28,9 @@ function ChatPageContent() {
   
   // Use state to track if component has mounted
   const [mounted, setMounted] = React.useState(false);
-  const [selectedAuthor, setSelectedAuthor] = React.useState<string>('Hemingway'); // Default fallback
   
-  // Set author after component mounts to avoid hydration mismatch
+  // Set mounted state after component mounts to avoid hydration mismatch
   React.useEffect(() => {
-    const randomIndex = Math.floor(Math.random() * famousAuthors.length);
-    setSelectedAuthor(famousAuthors[randomIndex]);
     setMounted(true);
   }, []);
 
@@ -105,7 +95,7 @@ function ChatPageContent() {
       <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 flex items-start justify-center py-8">
         <div className="text-center w-full">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white mx-auto mb-4"></div>
-          <p className="text-white text-lg">Loading Claude Hemingway...</p>
+          <p className="text-white text-lg">Loading...</p>
         </div>
       </div>
     );

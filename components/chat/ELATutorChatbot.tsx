@@ -50,14 +50,7 @@ interface UploadedDocument {
   uploadedAt: Date;
 }
 
-// Famous author last names for random selection
-const famousAuthors: string[] = [
-  'Hemingway', 'Fitzgerald', 'Dickens', 'Austen', 'Tolstoy', 'Dostoevsky', 
-  'Shakespeare', 'Poe', 'Twain', 'Steinbeck', 'Faulkner', 'Joyce', 
-  'Woolf', 'Orwell', 'Bradbury', 'Vonnegut', 'Salinger', 'Kerouac',
-  'Ginsberg', 'Plath', 'Angelou', 'Morrison', 'King', 'Rowling',
-  'Tolkien', 'Lewis', 'Wilde', 'Bronte', 'Eliot', 'Yeats'
-];
+
 
 const ELATutorChatbot: React.FC = () => {
   console.log('🚀 ELATutorChatbot: Component is loading...');
@@ -103,7 +96,7 @@ const ELATutorChatbot: React.FC = () => {
     }
   };
 
-  const initialMessage = (author: string): Message[] => ([
+  const initialMessage = (): Message[] => ([
     {
       id: 1,
       type: 'bot',
@@ -112,13 +105,7 @@ const ELATutorChatbot: React.FC = () => {
     }
   ]);
 
-  // Randomly select an author name on component mount
-  const [selectedAuthor] = useState<string>(() => {
-    const randomIndex = Math.floor(Math.random() * famousAuthors.length);
-    return famousAuthors[randomIndex];
-  });
-
-  const [messages, setMessages] = useState<Message[]>(initialMessage(selectedAuthor));
+  const [messages, setMessages] = useState<Message[]>(initialMessage());
   const [inputValue, setInputValue] = useState<string>('');
   const [isTyping, setIsTyping] = useState<boolean>(false);
   const [selectedTopic, setSelectedTopic] = useState<string>('');
@@ -236,8 +223,8 @@ const ELATutorChatbot: React.FC = () => {
 
   // Update initial message when language changes
   useEffect(() => {
-    setMessages(initialMessage(selectedAuthor));
-  }, [currentLanguage, selectedAuthor]);
+    setMessages(initialMessage());
+  }, [currentLanguage]);
 
   // Initialize suggestions on component mount
   useEffect(() => {
@@ -830,7 +817,7 @@ Please respond with exactly 6 helpful suggestions, one per line, without numberi
   };
 
   const handleNewChat = (): void => {
-    setMessages(initialMessage(selectedAuthor));
+    setMessages(initialMessage());
     setInputValue('');
     setSelectedTopic('');
     setDishonestyCount(0);
