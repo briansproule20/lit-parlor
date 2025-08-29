@@ -27,24 +27,24 @@ export default function LitParlorNavbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const studentItems = [
+    { name: "ELA Tutor Chat", link: "/chat" },
+    { name: "Full Collection", link: "/fullcollection" },
+    { name: "Glossary", link: "/glossary" },
     { name: "Quests", link: "/quests" },
     { name: "Socratic Forum", link: "/socratic-forum" },
+    { name: "Storyworlds", link: "/storyworlds" },
     { name: "Student Dashboard", link: "/student-dashboard" },
     { name: "The Arena", link: "/the-arena" },
     { name: "Your Character", link: "/character" },
-    { name: "Full Collection", link: "/fullcollection" },
-    { name: "Storyworlds", link: "/storyworlds" },
-    { name: "ELA Tutor Chat", link: "/chat" },
-    { name: "Glossary", link: "/glossary" },
   ];
 
   const teacherItems = [
-    { name: "Teacher Dashboard", link: "/teacher-dashboard" },
-    { name: "Classes", link: "/classes" },
-    { name: "Assignments", link: "/assignments" },
     { name: "Analytics Dashboard", link: "/analytics-dashboard" },
-    { name: "Student Success", link: "/student-success" },
+    { name: "Assignments", link: "/assignments" },
+    { name: "Classes", link: "/classes" },
     { name: "Pedagogy", link: "/pedagogy" },
+    { name: "Student Success", link: "/student-success" },
+    { name: "Teacher Dashboard", link: "/teacher-dashboard" },
   ];
 
   const mainNavItems = [
