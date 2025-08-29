@@ -18,7 +18,7 @@ export default function FullCollectionPage() {
         </div>
 
         {/* Page Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 mt-20">
           <div className="inline-block p-8 rounded-xl shadow-2xl relative" style={{
             background: `
               radial-gradient(circle at 25% 20%, rgba(205, 133, 63, 0.2) 0%, transparent 60%),
