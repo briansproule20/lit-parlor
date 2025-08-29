@@ -1152,7 +1152,7 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
             <BookOpen className="w-5 h-5 text-white" />
           </div>
                       <div className="pt-2">
-              <h1 className="text-xl font-bold text-black">ELA Tutor Chatbot</h1>
+              <h1 className="text-xl font-bold text-amber-900">ELA Tutor Chatbot</h1>
             </div>
         </div>
         
@@ -1218,7 +1218,7 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
               className={`max-w-xs lg:max-w-md px-4 py-2 rounded-lg ${
                 message.type === 'user'
                   ? 'bg-amber-600 text-white'
-                  : 'bg-stone-100/90 backdrop-blur-md text-black select-none'
+                  : 'bg-stone-200/90 backdrop-blur-md text-black select-none'
               }`}
               style={{
                 userSelect: message.type === 'bot' ? 'none' : 'auto',
@@ -1278,7 +1278,7 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
         
         {isTyping && (
           <div className="flex justify-start">
-            <div className="bg-stone-100/90 backdrop-blur-md text-black px-4 py-2 rounded-lg">
+            <div className="bg-stone-200/90 backdrop-blur-md text-black px-4 py-2 rounded-lg">
               <div className="flex space-x-1">
                 <div className="w-2 h-2 bg-amber-600 rounded-full animate-bounce"></div>
                 <div className="w-2 h-2 bg-amber-600 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
