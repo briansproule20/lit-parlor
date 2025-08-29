@@ -24,7 +24,7 @@ export default function Pedagogy() {
         </div>
 
         {/* Header */}
-        <div className="mb-12">
+        <div className="mb-12 mt-20">
           <div className="bg-gradient-to-br from-amber-50 via-orange-50 to-amber-100 rounded-2xl shadow-2xl border-2 border-amber-300 p-8 relative overflow-hidden">
             {/* Decorative background elements */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-amber-200/30 rounded-full -translate-y-16 translate-x-16"></div>
