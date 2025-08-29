@@ -35,6 +35,7 @@ export default function LitParlorNavbar() {
     { name: "Full Collection", link: "/fullcollection" },
     { name: "Storyworlds", link: "/storyworlds" },
     { name: "ELA Tutor Chat", link: "/chat" },
+    { name: "Glossary", link: "/glossary" },
   ];
 
   const teacherItems = [

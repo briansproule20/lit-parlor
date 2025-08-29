@@ -80,7 +80,7 @@ export default function Home() {
         <div className="text-center mb-12 relative">
           
 
-          <div className="inline-block p-8 rounded-xl shadow-2xl relative bg-white" style={{
+          <div className="inline-block p-8 rounded-xl shadow-2xl relative bg-white max-w-2xl" style={{
             background: `
               radial-gradient(circle at 25% 20%, rgba(252, 248, 227, 0.95) 0%, transparent 60%),
               radial-gradient(circle at 75% 80%, rgba(245, 222, 179, 0.9) 0%, transparent 60%),
@@ -118,10 +118,11 @@ export default function Home() {
               />
             </div>
             <p className="text-xl text-amber-800 max-w-3xl mx-auto leading-relaxed font-serif">
-              A cozy corner where great stories come alive. Making long form narratives available in contemporary short forms. We are a project still in development. An umbrella site for learning tools and education projects undertaken by Brian Sproule.
+              Where great stories meet modern formats.<br />
+              Educational projects in development by Brian Sproule.
             </p>
             <div className="mt-4 text-amber-700 font-serif italic">
-              "A home without books is like a body without a soul" — Cicero
+              "A home without books is like a body without a soul." — Cicero
             </div>
           </div>
         </div>
