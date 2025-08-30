@@ -845,60 +845,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* AI Tutor Section */}
-        <div className="text-center mb-12">
-          <div className="inline-block p-8 bg-gradient-to-r from-emerald-900/90 to-teal-800/90 border-4 border-emerald-400 rounded-2xl shadow-2xl relative overflow-hidden h-[400px] bg-white">
-            {/* Background Beams Effect */}
-            <BackgroundBeams className="opacity-90" />
-            <div className="relative z-10 h-full flex flex-col justify-center">
-              <h2 className="text-3xl font-bold text-white mb-4 font-serif">
-                Need Help with Literary Analysis, Writing, or Test Prep?
-              </h2>
-              <p className="text-emerald-200 text-lg mb-6 font-serif">
-                Meet your AI Literary Tutor - Claude Hemingway - powered by famous authors and designed for educational excellence
-              </p>
-            <div className="flex flex-wrap justify-center gap-4 mb-6">
-              <div className="flex items-center gap-2 text-emerald-200">
-                <span className="text-green-400">✓</span>
-                <span>Reading Comprehension</span>
-              </div>
-              <div className="flex items-center gap-2 text-emerald-200">
-                <span className="text-green-400">✓</span>
-                <span>Writing Skills</span>
-              </div>
-              <div className="flex items-center gap-2 text-emerald-200">
-                <span className="text-green-400">✓</span>
-                <span>Grammar & Vocabulary</span>
-              </div>
-              <div className="flex items-center gap-2 text-emerald-200">
-                <span className="text-green-400">✓</span>
-                <span>Literary Analysis</span>
-              </div>
-            </div>
-            <div className="space-y-4">
-              <a 
-                href="https://github.com/briansproule20/claude_hemingway" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 inline-block text-lg"
-              >
-                See Project on GitHub
-              </a>
-              <div className="mt-4">
-                <Link 
-                  href="/chat" 
-                  className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 inline-block text-lg font-serif"
-                >
-                  Checkout Our ELA Tutor Chat Page for a Sneakpeak of things to come
-                </Link>
-              </div>
-            </div>
-            <p className="text-emerald-300 text-sm mt-3 font-serif italic">
-              Integration coming soon.
-            </p>
-            </div>
-          </div>
-        </div>
+
 
         {/* Credit */}
         <div className="text-center mt-8">

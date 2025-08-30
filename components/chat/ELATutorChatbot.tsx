@@ -1144,7 +1144,7 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
   const currentSuggestions = getCurrentSuggestions();
 
   return (
-    <div className="flex flex-col h-full bg-gradient-to-br from-stone-50 via-neutral-50 to-gray-100 rounded-xl">
+    <div className="flex flex-col h-full bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 rounded-xl">
       {/* Header */}
       <div className="bg-gray-200/30 backdrop-blur-md border-b border-gray-300/20 p-4 flex justify-between items-center">
         <div className="flex items-center space-x-3">
