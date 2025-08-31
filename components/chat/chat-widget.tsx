@@ -83,7 +83,7 @@ const ChatWidgetContent: React.FC = () => {
     try {
       // Use AI SDK with Echo models and stream text - same pattern as main chat
       const { textStream } = await streamText({
-        model: await openai('gpt-4o-mini'),
+        model: await openai('gpt-5'),
         messages: [
           {
             role: 'system',
