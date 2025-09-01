@@ -132,15 +132,18 @@ export default function Home() {
         {/* Mission Statement */}
         <div className="text-center mb-12">
           <div className="max-w-4xl mx-auto">
-            <div className="inline-block p-8 bg-gradient-to-r from-blue-900/90 to-blue-700/90 border-4 border-blue-400 rounded-2xl shadow-2xl relative overflow-hidden h-[300px] bg-white">
+            <div className="inline-block p-8 bg-gradient-to-r from-blue-900/90 to-blue-700/90 border-4 border-blue-400 rounded-2xl shadow-2xl relative overflow-hidden h-[350px] bg-white">
               {/* Background Beams Effect */}
               <BackgroundBeams className="opacity-90" />
               
               <div className="relative z-10 h-full flex flex-col justify-center">
-                <h2 className="text-3xl font-bold text-white mb-6 font-serif">
+                <h2 className="text-3xl font-bold text-white mb-2 font-serif">
                   Our Mission
                 </h2>
-                <p className="text-blue-200 text-lg leading-relaxed font-serif max-w-3xl mx-auto mb-6">
+                <p className="text-blue-300 text-lg font-serif italic mb-6">
+                  Educator curated, AI powered learning
+                </p>
+                <p className="text-blue-200 text-base leading-relaxed font-serif max-w-3xl mx-auto mb-4">
                   We're revolutionizing literary education by combining gamification, multi-modal learning, and intelligent teaching tools to transform how students experience classic works - building critical thinking and cultural literacy while providing teachers with powerful tools that streamline lesson planning, classroom management, and student analytics.
                 </p>
                 <div className="text-center">
