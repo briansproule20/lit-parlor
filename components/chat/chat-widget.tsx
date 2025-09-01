@@ -228,7 +228,7 @@ const ChatWidgetContent: React.FC = () => {
                             h1: ({children}) => <h1 className="text-lg font-bold mb-2 text-current">{children}</h1>,
                             h2: ({children}) => <h2 className="text-base font-bold mb-2 text-current">{children}</h2>,
                             h3: ({children}) => <h3 className="text-sm font-bold mb-1 text-current">{children}</h3>,
-                            code: ({children}) => <code className="bg-gray-200 px-1 py-0.5 rounded text-sm font-mono text-gray-800">{children}</code>,
+                            code: ({children}) => <code className="bg-gray-200 px-1 py-0.5 rounded text-sm font-mono text-gray-800 whitespace-pre-wrap break-words">{children}</code>,
                             blockquote: ({children}) => <blockquote className="border-l-4 border-gray-300 pl-4 italic my-2 text-current">{children}</blockquote>,
                           }}
                         >
@@ -258,7 +258,7 @@ const ChatWidgetContent: React.FC = () => {
                             h1: ({children}) => <h1 className="text-lg font-bold mb-2 text-current">{children}</h1>,
                             h2: ({children}) => <h2 className="text-base font-bold mb-2 text-current">{children}</h2>,
                             h3: ({children}) => <h3 className="text-sm font-bold mb-1 text-current">{children}</h3>,
-                            code: ({children}) => <code className="bg-gray-200 px-1 py-0.5 rounded text-sm font-mono text-gray-800">{children}</code>,
+                            code: ({children}) => <code className="bg-gray-200 px-1 py-0.5 rounded text-sm font-mono text-gray-800 whitespace-pre-wrap break-words">{children}</code>,
                             blockquote: ({children}) => <blockquote className="border-l-4 border-gray-300 pl-4 italic my-2 text-current">{children}</blockquote>,
                           }}
                         >
