@@ -675,7 +675,7 @@ export default function Home() {
                   <p className="text-indigo-100 font-serif leading-relaxed">
                     It's our goal to harness the power of visual, auditory, kinesthetic, and interactive learning modalities 
                     and make them accessible to the next generation of learners. By combining literature with technology, 
-                    traditional analysis with modern engagement, we create pathways for every mind to discover the joy of learning.
+                    traditional analysis with modern engagement, we create pathways for every mind to discover the joys of life long learning.
                   </p>
                 </div>
                 <div className="flex flex-wrap justify-center gap-6 text-indigo-200">
