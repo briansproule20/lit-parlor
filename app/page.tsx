@@ -132,28 +132,20 @@ export default function Home() {
         {/* Mission Statement */}
         <div className="text-center mb-12">
           <div className="max-w-4xl mx-auto">
-            <div className="inline-block p-8 bg-gradient-to-r from-blue-900/90 to-blue-700/90 border-4 border-blue-400 rounded-2xl shadow-2xl relative overflow-hidden h-[350px] bg-white">
+            <div className="inline-block p-6 bg-gradient-to-r from-blue-900/90 to-blue-700/90 border-4 border-blue-400 rounded-2xl shadow-2xl relative overflow-hidden h-[300px] bg-white">
               {/* Background Beams Effect */}
               <BackgroundBeams className="opacity-90" />
-              
+
               <div className="relative z-10 h-full flex flex-col justify-center">
-                <h2 className="text-3xl font-bold text-white mb-2 font-serif">
-                  Our Mission
+                <h2 className="text-3xl font-bold text-white mb-3 font-serif">
+                  LitParlor's Mission
                 </h2>
-                <p className="text-blue-300 text-lg font-serif italic mb-6">
-                  Educator curated, AI powered learning
+                <p className="text-blue-300 text-lg font-serif italic mb-4">
+                  An educator built and curated platform, powered by modern LLMs and open source tools
                 </p>
-                <p className="text-blue-200 text-base leading-relaxed font-serif max-w-3xl mx-auto mb-4">
-                  We're revolutionizing literary education by combining gamification, multi-modal learning, and intelligent teaching tools to transform how students experience classic works - building critical thinking and cultural literacy while providing teachers with powerful tools that streamline lesson planning, classroom management, and student analytics.
+                <p className="text-blue-200 text-base leading-relaxed font-serif max-w-3xl mx-auto">
+                  We're revolutionizing literary education by combining gamification, multi-modal learning, and intelligent teaching tools to transform how students experience classic works - building critical thinking and cultural literacy while providing teachers with powerful tools that streamline lesson planning, classroom management, and student data analytics.
                 </p>
-                <div className="text-center">
-                  <p className="text-blue-100 text-xl font-serif italic mb-2">
-                    "The unexamined life is not worth living"
-                  </p>
-                  <p className="text-blue-200 text-sm font-serif">
-                    — Socrates
-                  </p>
-                </div>
               </div>
             </div>
           </div>
@@ -546,13 +538,19 @@ export default function Home() {
 
 
 
-        {/* Credit */}
-        <div className="text-center mt-8">
-          <p className="text-amber-200/80 text-xs font-serif">
+        {/* Footer */}
+        <div className="text-center mt-12 border-t border-amber-600/30 pt-8">
+          <p className="text-amber-100 text-lg font-serif italic mb-2">
+            "The unexamined life is not worth living"
+          </p>
+          <p className="text-amber-200 text-sm font-serif mb-4">
+            — Socrates
+          </p>
+          <p className="text-amber-200/80 text-sm font-serif">
             Ideas, Layout, and Build by Brian Sproule
           </p>
-          <p className="text-amber-200/70 text-xs font-serif mt-1">
-            Please reach out if you are interested in making use of our resources in your classroom.
+          <p className="text-amber-200/70 text-sm font-serif mt-1">
+            Please <a href="mailto:briansproule20@gmail.com" className="text-amber-100 hover:text-amber-50 underline transition-colors">reach out</a> if you are interested in making use of our resources in your classroom, have any questions, feedback, or suggestions, or are interested in partnering with us.
           </p>
         </div>
 
