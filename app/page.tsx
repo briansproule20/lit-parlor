@@ -14,51 +14,51 @@ export default function Home() {
 
   const modalData = {
     welcome: {
-      title: "Welcome to Your Literary Journey",
-      content: `Each book in our collection offers an immersive, interactive experience. 
-      Discover characters, themes, symbols, and structures through engaging visual guides 
+      title: "Your Literary Journey",
+      content: `Each book in our collection offers an immersive, interactive experience.
+      Discover characters, themes, symbols, and structures through engaging visual guides
       designed to deepen your appreciation of these timeless works.
 
-      Whether you're just beginning your reading journey or you're a seasoned 
+      Whether you're just beginning your reading journey or you're a seasoned
       literary enthusiast, we offer meaningful learning experiences for every level.`,
       tagline: "Happy reading!",
       color: "amber"
     },
     gamification: {
-      title: "Gamification in Education",
-      content: `Our gamified approach transforms classic literature (and all learning!) 
-      into an engaging, personalized adventure. By incorporating familiar game mechanics, 
+      title: "Gamification",
+      content: `Our gamified approach transforms classic literature (and all learning!)
+      into an engaging, personalized adventure. By incorporating familiar game mechanics,
       we strive to make learning both enjoyable and effective.
 
-      This familiar framework empowers learners to take ownership of their educational 
-      journey while building valuable skills and knowledge that contribute to their 
+      This familiar framework empowers learners to take ownership of their educational
+      journey while building valuable skills and knowledge that contribute to their
       personal and professional growth.`,
       tagline: "Education meets adventure!",
-      color: "cyan"
+      color: "amber"
     },
     education: {
-      title: "Education & Human Capital",
-      content: `Quality education builds the foundation of human progress. 
-      By investing in developing independent voices, critical thinking, 
-      and cultural understanding, we develop the intellectual capital 
+      title: "Human Capital",
+      content: `Quality education builds the foundation of human progress.
+      By investing in developing independent voices, critical thinking,
+      and cultural understanding, we develop the intellectual capital
       that drives responsible innovation and societal advancement.
 
-      Literature serves as a powerful catalyst in this process, exposing students 
-      to diverse perspectives, complex moral questions, and the full spectrum 
+      Literature serves as a powerful catalyst in this process, exposing students
+      to diverse perspectives, complex moral questions, and the full spectrum
       of human experience across cultures and centuries.`,
       tagline: "Knowledge is power!",
-      color: "red"
+      color: "amber"
     },
     teachers: {
-      title: "Tools for Teachers",
-      content: `As a former teacher, I understand that educators juggle multiple demanding roles: 
-      subject matter expert, curriculum designer, assessment specialist, data analyst, 
+      title: "Supporting Teachers",
+      content: `As a former teacher, I understand that educators juggle multiple demanding roles:
+      subject matter expert, curriculum designer, assessment specialist, data analyst,
       and classroom manager—all while inspiring young minds.
 
-      Our mission is to empower teachers with intelligent tools that streamline these 
+      Our mission is to empower teachers with intelligent tools that streamline these
       essential responsibilities and plug effortlessly into existing workflows, allowing you to focus on what matters most: teaching.`,
       tagline: "Empowering educators!",
-      color: "green"
+      color: "amber"
     }
   }
   return (
@@ -151,26 +151,38 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Our 4 Pillars Title */}
+        <div className="mb-12">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-amber-100 mb-2 font-serif" style={{
+              textShadow: '2px 2px 4px rgba(0,0,0,0.6)'
+            }}>
+              Our Four Pillars
+            </h2>
+            <div className="w-32 h-1 bg-amber-600 mx-auto rounded"></div>
+          </div>
+        </div>
+
         {/* Information Boxes */}
         <div className="mb-16">
           <div className="grid xl:grid-cols-4 lg:grid-cols-2 md:grid-cols-2 gap-6">
             
-            {/* Welcome Box */}
+            {/* Your Literary Journey Box */}
             <div className="text-center">
               <div className="w-full rounded-xl overflow-hidden" style={{ border: '3px solid #8B4513' }}>
                 <EvervaultCardEnhanced
                   onClick={() => setOpenModal('welcome')}
                   className="w-full h-full"
-                  gradientColors="from-amber-500 to-orange-600"
+                  gradientColors="from-amber-600 to-orange-600"
                 >
-                  <button 
-                    className="w-full p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer group-hover/card:bg-opacity-70" 
+                  <button
+                    className="w-full p-6 h-32 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer group-hover/card:bg-opacity-70 flex flex-col justify-center"
                     style={{
                       background: 'rgba(254, 251, 240, 0.95)'
                     }}
                   >
                     <h3 className="text-xl font-bold text-amber-900 font-serif leading-tight">
-                      Welcome to Your Literary Journey
+                      Your Literary Journey
                     </h3>
                     <p className="text-amber-700 text-sm font-serif mt-2">
                       Click to learn more
@@ -182,22 +194,22 @@ export default function Home() {
 
             {/* Gamification Box */}
             <div className="text-center">
-              <div className="w-full rounded-xl overflow-hidden" style={{ border: '3px solid #0891b2' }}>
+              <div className="w-full rounded-xl overflow-hidden" style={{ border: '3px solid #8B4513' }}>
                 <EvervaultCardEnhanced
                   onClick={() => setOpenModal('gamification')}
                   className="w-full h-full"
-                  gradientColors="from-cyan-500 to-blue-600"
+                  gradientColors="from-amber-700 to-orange-700"
                 >
-                  <button 
-                    className="w-full p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer group-hover/card:bg-opacity-70" 
+                  <button
+                    className="w-full p-6 h-32 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer group-hover/card:bg-opacity-70 flex flex-col justify-center"
                     style={{
-                      background: 'rgba(236, 254, 255, 0.95)'
+                      background: 'rgba(254, 251, 240, 0.95)'
                     }}
                   >
-                    <h3 className="text-xl font-bold text-cyan-900 font-serif leading-tight">
-                      Gamification in Education
+                    <h3 className="text-xl font-bold text-amber-900 font-serif leading-tight">
+                      Gamification
                     </h3>
-                    <p className="text-cyan-700 text-sm font-serif mt-2">
+                    <p className="text-amber-700 text-sm font-serif mt-2">
                       Click to learn more
                     </p>
                   </button>
@@ -207,22 +219,22 @@ export default function Home() {
 
             {/* Education & Human Capital Box */}
             <div className="text-center">
-              <div className="w-full rounded-xl overflow-hidden" style={{ border: '3px solid #dc2626' }}>
+              <div className="w-full rounded-xl overflow-hidden" style={{ border: '3px solid #8B4513' }}>
                 <EvervaultCardEnhanced
                   onClick={() => setOpenModal('education')}
                   className="w-full h-full"
-                  gradientColors="from-red-500 to-pink-600"
+                  gradientColors="from-orange-600 to-amber-800"
                 >
-                  <button 
-                    className="w-full p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer group-hover/card:bg-opacity-70" 
+                  <button
+                    className="w-full p-6 h-32 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer group-hover/card:bg-opacity-70 flex flex-col justify-center"
                     style={{
-                      background: 'rgba(254, 242, 242, 0.95)'
+                      background: 'rgba(254, 251, 240, 0.95)'
                     }}
                   >
-                    <h3 className="text-xl font-bold text-red-900 font-serif leading-tight">
-                      Education & Human Capital
+                    <h3 className="text-xl font-bold text-amber-900 font-serif leading-tight">
+                      Human Capital
                     </h3>
-                    <p className="text-red-700 text-sm font-serif mt-2">
+                    <p className="text-amber-700 text-sm font-serif mt-2">
                       Click to learn more
                     </p>
                   </button>
@@ -232,22 +244,22 @@ export default function Home() {
 
             {/* Tools for Teachers Box */}
             <div className="text-center">
-              <div className="w-full rounded-xl overflow-hidden" style={{ border: '3px solid #16a34a' }}>
+              <div className="w-full rounded-xl overflow-hidden" style={{ border: '3px solid #8B4513' }}>
                 <EvervaultCardEnhanced
                   onClick={() => setOpenModal('teachers')}
                   className="w-full h-full"
-                  gradientColors="from-green-500 to-emerald-600"
+                  gradientColors="from-amber-800 to-orange-800"
                 >
-                  <button 
-                    className="w-full p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer group-hover/card:bg-opacity-70" 
+                  <button
+                    className="w-full p-6 h-32 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer group-hover/card:bg-opacity-70 flex flex-col justify-center"
                     style={{
-                      background: 'rgba(240, 253, 244, 0.95)'
+                      background: 'rgba(254, 251, 240, 0.95)'
                     }}
                   >
-                    <h3 className="text-xl font-bold text-green-900 font-serif leading-tight">
-                      Tools for<br />Teachers
+                    <h3 className="text-xl font-bold text-amber-900 font-serif leading-tight">
+                      Supporting Teachers
                     </h3>
-                    <p className="text-green-700 text-sm font-serif mt-2">
+                    <p className="text-amber-700 text-sm font-serif mt-2">
                       Click to learn more
                     </p>
                   </button>
@@ -556,43 +568,34 @@ export default function Home() {
 
         {/* Modal */}
         {openModal && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-            <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto">
+          <div
+            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+            onClick={() => setOpenModal(null)}
+          >
+            <div
+              className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl shadow-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto border-4 border-amber-600"
+              onClick={(e) => e.stopPropagation()}
+            >
               <div className="p-8">
                 <div className="flex justify-between items-start mb-6">
-                  <h2 className={`text-3xl font-bold font-serif ${
-                    modalData[openModal as keyof typeof modalData].color === 'amber' ? 'text-amber-900' :
-                    modalData[openModal as keyof typeof modalData].color === 'cyan' ? 'text-cyan-900' :
-                    modalData[openModal as keyof typeof modalData].color === 'red' ? 'text-red-900' :
-                    'text-green-900'
-                  }`}>
+                  <h2 className="text-3xl font-bold font-serif text-amber-900">
                     {modalData[openModal as keyof typeof modalData].title}
                   </h2>
-                  <button 
+                  <button
                     onClick={() => setOpenModal(null)}
-                    className="text-gray-500 hover:text-gray-700 text-2xl font-bold"
+                    className="text-amber-600 hover:text-amber-800 text-2xl font-bold transition-colors"
                   >
                     ×
                   </button>
                 </div>
-                <div className={`prose max-w-none ${
-                  modalData[openModal as keyof typeof modalData].color === 'amber' ? 'text-amber-800' :
-                  modalData[openModal as keyof typeof modalData].color === 'cyan' ? 'text-cyan-800' :
-                  modalData[openModal as keyof typeof modalData].color === 'red' ? 'text-red-800' :
-                  'text-green-800'
-                } font-serif leading-relaxed text-base`}>
+                <div className="prose max-w-none text-amber-800 font-serif leading-relaxed text-base">
                   {modalData[openModal as keyof typeof modalData].content.split('\n\n').map((paragraph, index) => (
                     <p key={index} className="mb-4">
                       {paragraph}
                     </p>
                   ))}
                 </div>
-                <div className={`mt-8 text-center font-serif italic text-lg ${
-                  modalData[openModal as keyof typeof modalData].color === 'amber' ? 'text-amber-700' :
-                  modalData[openModal as keyof typeof modalData].color === 'cyan' ? 'text-cyan-700' :
-                  modalData[openModal as keyof typeof modalData].color === 'red' ? 'text-red-700' :
-                  'text-green-700'
-                }`}>
+                <div className="mt-8 text-center font-serif italic text-lg text-amber-700">
                   {modalData[openModal as keyof typeof modalData].tagline}
                 </div>
               </div>
