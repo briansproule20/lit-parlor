@@ -417,7 +417,6 @@ export default function ChatPage() {
     appId: echoConfig.appId,
     clientId: echoConfig.clientId,
     apiUrl: echoConfig.apiUrl,
-    redirectUri: echoConfig.redirectUri,
     hasAppId: !!echoConfig.appId,
     hasClientId: !!echoConfig.clientId
   });
