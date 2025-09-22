@@ -333,7 +333,6 @@ export default function Home() {
           <div className="p-8 overflow-hidden">
             <div className="relative bg-black/10 backdrop-blur-md rounded-2xl p-4 overflow-hidden max-w-full">
               <ThreeDMarquee
-                className="overflow-hidden"
                 books={[
                 // Column 1: Coming Soon cards (5 cards)
                 {
@@ -500,7 +499,7 @@ export default function Home() {
                   coverImage: '/images/wood-texture.jpg'
                 }
               ]}
-              className="h-[600px]"
+              className="h-[600px] overflow-hidden"
               transform="rotateX(55deg) rotateY(0deg) rotateZ(-45deg)"
               containerPosition="top-8 left-[5%]"
               columnMovement="animate={{ y: colIndex % 2 === 0 ? 100 : -100 }} duration={{ colIndex % 2 === 0 ? 10 : 15 }}"
