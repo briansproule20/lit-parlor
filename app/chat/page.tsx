@@ -408,10 +408,8 @@ function ChatPageContent() {
 export default function ChatPage() {
   const echoConfig = {
     appId: process.env.NEXT_PUBLIC_ECHO_APP_ID || '',
-    clientId: process.env.NEXT_PUBLIC_ECHO_APP_ID || '', // Add client_id for OAuth
+    clientId: process.env.NEXT_PUBLIC_ECHO_CLIENT_ID || process.env.NEXT_PUBLIC_ECHO_APP_ID || '',
     apiUrl: 'https://echo.merit.systems',
-    redirectUri: process.env.NEXT_PUBLIC_ECHO_REDIRECT_URI || 
-      (typeof window !== 'undefined' ? `${window.location.origin}/chat` : 'https://narrative-exploration.vercel.app/chat'),
   };
 
   // Debug Echo configuration

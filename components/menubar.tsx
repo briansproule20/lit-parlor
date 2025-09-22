@@ -104,11 +104,11 @@ export default function Menubar() {
       }`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}>
-        <div className={`max-w-7xl mx-auto px-4 py-2 flex items-center ${isHomePage ? 'justify-center' : 'justify-between'}`}>
-          
+        <div className={`max-w-7xl mx-auto px-4 py-2 ${isHomePage ? 'flex items-center justify-center' : 'grid grid-cols-3 items-center'}`}>
+
           {/* Return to Parlor Button - Far Left (only show when not on home page) */}
           {!isHomePage && (
-            <div className="flex-shrink-0">
+            <div className="flex justify-start">
               <Link href="/" className="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white font-bold py-2 px-4 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 font-serif flex items-center space-x-2">
                 <span>🏠</span>
                 <span>Return to Parlor</span>
@@ -117,7 +117,7 @@ export default function Menubar() {
           )}
 
           {/* Center Navigation Menu */}
-          <div className="flex justify-center space-x-8">
+          <div className="flex justify-center items-center space-x-8">
             
             {/* Students Dropdown */}
             <div className="group relative">
@@ -266,14 +266,12 @@ export default function Menubar() {
 
           </div>
 
-          {/* Spacer for right side balance */}
-          <div className="flex-shrink-0 w-[140px]"></div>
-
-          {/* Level Info - Far Right (only show on specific pages with levels) */}
+          {/* Sign In - Far Right (only show when not on home page) */}
           {!isHomePage && (
-            <div className="flex-shrink-0 text-right">
-              <div className="text-amber-100 font-bold text-sm">📚 Literary Scholar</div>
-              <div className="text-amber-200 text-xs">Level 8</div>
+            <div className="flex justify-end">
+              <Link href="/chat" className="text-amber-100 hover:text-amber-50 font-bold text-sm transition-colors cursor-pointer hover:bg-amber-800/20 px-3 py-1 rounded-lg">
+                Sign In
+              </Link>
             </div>
           )}
 

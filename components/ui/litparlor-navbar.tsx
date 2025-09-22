@@ -111,12 +111,9 @@ export default function LitParlorNavbar() {
           {/* Right side buttons */}
           <div className="flex items-center gap-4">
             <div className="text-right">
-              <div className="text-green-800 font-bold text-sm">
-                📚 Literary Scholar
-              </div>
-              <div className="text-green-700 text-xs">
-                Level 8
-              </div>
+              <Link href="/chat" className="text-green-800 hover:text-green-700 font-bold text-sm transition-colors cursor-pointer hover:bg-green-100/20 px-3 py-1 rounded-lg">
+                Sign In
+              </Link>
             </div>
           </div>
         </NavBody>
