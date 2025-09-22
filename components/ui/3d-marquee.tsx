@@ -45,6 +45,12 @@ export const ThreeDMarquee = ({
         "mx-auto block h-[600px] overflow-x-visible overflow-y-hidden rounded-2xl max-sm:h-100",
         className,
       )}
+      style={{
+        overflowX: 'hidden',
+        touchAction: 'pan-y',
+        msOverflowStyle: 'none',
+        scrollbarWidth: 'none'
+      }}
     >
       <div className="flex size-full items-center justify-center">
         <div className="size-[1720px] shrink-0 scale-50 sm:scale-70 lg:scale-90">

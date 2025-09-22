@@ -319,7 +319,7 @@ export default function Home() {
         </div>
 
         {/* Featured Collection */}
-        <div className="mb-12">
+        <div className="mb-12 overflow-hidden">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-amber-100 mb-2 font-serif" style={{
               textShadow: '2px 2px 4px rgba(0,0,0,0.6)'
@@ -330,9 +330,10 @@ export default function Home() {
           </div>
 
           {/* 3D Marquee */}
-          <div className="p-8">
-            <div className="relative bg-black/10 backdrop-blur-md rounded-2xl p-4">
-              <ThreeDMarquee 
+          <div className="p-8 overflow-hidden">
+            <div className="relative bg-black/10 backdrop-blur-md rounded-2xl p-4 overflow-hidden max-w-full">
+              <ThreeDMarquee
+                className="overflow-hidden"
                 books={[
                 // Column 1: Coming Soon cards (5 cards)
                 {
