@@ -132,18 +132,30 @@ export default function Home() {
         {/* Mission Statement */}
         <div className="text-center mb-12">
           <div className="max-w-4xl mx-auto">
-            <div className="inline-block p-6 bg-gradient-to-r from-blue-900/90 to-blue-700/90 border-4 border-blue-400 rounded-2xl shadow-2xl relative overflow-hidden h-[300px] bg-white">
+            <div className="inline-block p-6 rounded-2xl shadow-2xl relative overflow-hidden h-[300px]" style={{
+              background: `
+                radial-gradient(circle at 25% 20%, rgba(252, 248, 227, 0.95) 0%, transparent 60%),
+                radial-gradient(circle at 75% 80%, rgba(245, 222, 179, 0.9) 0%, transparent 60%),
+                linear-gradient(135deg, #FEFBF0 0%, #F5DEB3 20%, #DEB887 40%, #F5DEB3 60%, #E6D8B5 80%, #FEFBF0 100%)
+              `,
+              border: '4px solid #8B4513',
+              boxShadow: `
+                0 8px 32px rgba(139, 69, 19, 0.4),
+                inset 0 2px 8px rgba(255, 255, 255, 0.7),
+                inset 0 -2px 4px rgba(139, 69, 19, 0.2)
+              `
+            }}>
               {/* Background Beams Effect */}
               <BackgroundBeams className="opacity-90" />
 
               <div className="relative z-10 h-full flex flex-col justify-center">
-                <h2 className="text-3xl font-bold text-white mb-3 font-serif">
+                <h2 className="text-3xl font-bold text-amber-900 mb-3 font-serif">
                   LitParlor's Mission
                 </h2>
-                <p className="text-blue-300 text-lg font-serif italic mb-4">
+                <p className="text-amber-800 text-lg font-serif italic mb-4">
                   An educator built and curated platform, powered by modern LLMs and open source tools
                 </p>
-                <p className="text-blue-200 text-base leading-relaxed font-serif max-w-3xl mx-auto">
+                <p className="text-amber-800 text-base leading-relaxed font-serif max-w-3xl mx-auto">
                   We're revolutionizing literary education by combining gamification, multi-modal learning, and intelligent teaching tools to transform how students experience classic works - building critical thinking and cultural literacy while providing teachers with powerful tools that streamline lesson planning, classroom management, and student data analytics.
                 </p>
               </div>
@@ -178,7 +190,16 @@ export default function Home() {
                   <button
                     className="w-full p-6 h-32 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer group-hover/card:bg-opacity-70 flex flex-col justify-center"
                     style={{
-                      background: 'rgba(254, 251, 240, 0.95)'
+                      background: `
+                        radial-gradient(circle at 25% 20%, rgba(252, 248, 227, 0.95) 0%, transparent 60%),
+                        radial-gradient(circle at 75% 80%, rgba(245, 222, 179, 0.9) 0%, transparent 60%),
+                        linear-gradient(135deg, #FEFBF0 0%, #F5DEB3 20%, #DEB887 40%, #F5DEB3 60%, #E6D8B5 80%, #FEFBF0 100%)
+                      `,
+                      boxShadow: `
+                        0 4px 16px rgba(139, 69, 19, 0.3),
+                        inset 0 1px 4px rgba(255, 255, 255, 0.7),
+                        inset 0 -1px 2px rgba(139, 69, 19, 0.2)
+                      `
                     }}
                   >
                     <h3 className="text-xl font-bold text-amber-900 font-serif leading-tight">
@@ -203,7 +224,16 @@ export default function Home() {
                   <button
                     className="w-full p-6 h-32 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer group-hover/card:bg-opacity-70 flex flex-col justify-center"
                     style={{
-                      background: 'rgba(254, 251, 240, 0.95)'
+                      background: `
+                        radial-gradient(circle at 25% 20%, rgba(252, 248, 227, 0.95) 0%, transparent 60%),
+                        radial-gradient(circle at 75% 80%, rgba(245, 222, 179, 0.9) 0%, transparent 60%),
+                        linear-gradient(135deg, #FEFBF0 0%, #F5DEB3 20%, #DEB887 40%, #F5DEB3 60%, #E6D8B5 80%, #FEFBF0 100%)
+                      `,
+                      boxShadow: `
+                        0 4px 16px rgba(139, 69, 19, 0.3),
+                        inset 0 1px 4px rgba(255, 255, 255, 0.7),
+                        inset 0 -1px 2px rgba(139, 69, 19, 0.2)
+                      `
                     }}
                   >
                     <h3 className="text-xl font-bold text-amber-900 font-serif leading-tight">
@@ -228,7 +258,16 @@ export default function Home() {
                   <button
                     className="w-full p-6 h-32 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer group-hover/card:bg-opacity-70 flex flex-col justify-center"
                     style={{
-                      background: 'rgba(254, 251, 240, 0.95)'
+                      background: `
+                        radial-gradient(circle at 25% 20%, rgba(252, 248, 227, 0.95) 0%, transparent 60%),
+                        radial-gradient(circle at 75% 80%, rgba(245, 222, 179, 0.9) 0%, transparent 60%),
+                        linear-gradient(135deg, #FEFBF0 0%, #F5DEB3 20%, #DEB887 40%, #F5DEB3 60%, #E6D8B5 80%, #FEFBF0 100%)
+                      `,
+                      boxShadow: `
+                        0 4px 16px rgba(139, 69, 19, 0.3),
+                        inset 0 1px 4px rgba(255, 255, 255, 0.7),
+                        inset 0 -1px 2px rgba(139, 69, 19, 0.2)
+                      `
                     }}
                   >
                     <h3 className="text-xl font-bold text-amber-900 font-serif leading-tight">
@@ -253,7 +292,16 @@ export default function Home() {
                   <button
                     className="w-full p-6 h-32 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer group-hover/card:bg-opacity-70 flex flex-col justify-center"
                     style={{
-                      background: 'rgba(254, 251, 240, 0.95)'
+                      background: `
+                        radial-gradient(circle at 25% 20%, rgba(252, 248, 227, 0.95) 0%, transparent 60%),
+                        radial-gradient(circle at 75% 80%, rgba(245, 222, 179, 0.9) 0%, transparent 60%),
+                        linear-gradient(135deg, #FEFBF0 0%, #F5DEB3 20%, #DEB887 40%, #F5DEB3 60%, #E6D8B5 80%, #FEFBF0 100%)
+                      `,
+                      boxShadow: `
+                        0 4px 16px rgba(139, 69, 19, 0.3),
+                        inset 0 1px 4px rgba(255, 255, 255, 0.7),
+                        inset 0 -1px 2px rgba(139, 69, 19, 0.2)
+                      `
                     }}
                   >
                     <h3 className="text-xl font-bold text-amber-900 font-serif leading-tight">
@@ -477,42 +525,54 @@ export default function Home() {
         {/* Learning Modalities Mission Card */}
         <div className="text-center mb-12">
           <div className="max-w-4xl mx-auto">
-            <div className="inline-block p-8 bg-gradient-to-r from-indigo-900/90 to-purple-800/90 border-4 border-indigo-400 rounded-2xl shadow-2xl relative overflow-hidden h-[500px] bg-white">
+            <div className="inline-block p-8 rounded-2xl shadow-2xl relative overflow-hidden h-[500px]" style={{
+              background: `
+                radial-gradient(circle at 25% 20%, rgba(252, 248, 227, 0.95) 0%, transparent 60%),
+                radial-gradient(circle at 75% 80%, rgba(245, 222, 179, 0.9) 0%, transparent 60%),
+                linear-gradient(135deg, #FEFBF0 0%, #F5DEB3 20%, #DEB887 40%, #F5DEB3 60%, #E6D8B5 80%, #FEFBF0 100%)
+              `,
+              border: '4px solid #92400e',
+              boxShadow: `
+                0 8px 32px rgba(139, 69, 19, 0.4),
+                inset 0 2px 8px rgba(255, 255, 255, 0.7),
+                inset 0 -2px 4px rgba(139, 69, 19, 0.2)
+              `
+            }}>
               {/* Background Beams Effect */}
               <BackgroundBeams className="opacity-90" />
-              
+
               <div className="relative z-10 h-full flex flex-col justify-center">
-                <h2 className="text-3xl font-bold text-white mb-6 font-serif">
+                <h2 className="text-3xl font-bold text-amber-900 mb-6 font-serif">
                   The Power of Different Modalities & Mediums
                 </h2>
-                <p className="text-indigo-200 text-lg leading-relaxed font-serif mb-6 max-w-3xl mx-auto">
-                  Every learner is unique. Some grasp concepts through visual storytelling, others through interactive experiences, 
-                  and many through a combination of multiple approaches. Traditional education often limits itself to a single medium, 
+                <p className="text-amber-800 text-lg leading-relaxed font-serif mb-6 max-w-3xl mx-auto">
+                  Every learner is unique. Some grasp concepts through visual storytelling, others through interactive experiences,
+                  and many through a combination of multiple approaches. Traditional education often limits itself to a single medium,
                   but true understanding flourishes when knowledge is presented through diverse channels.
                 </p>
-                <div className="bg-indigo-800/50 rounded-lg p-6 mb-6 backdrop-blur-sm">
-                  <h3 className="text-xl font-semibold text-indigo-200 mb-4 font-serif">Our Goals</h3>
-                  <p className="text-indigo-100 font-serif leading-relaxed">
-                    It's our goal to harness the power of visual, auditory, kinesthetic, and interactive learning modalities 
-                    and make them accessible to the next generation of learners. By combining literature with technology, 
+                <div className="bg-amber-100/70 rounded-lg p-6 mb-6 backdrop-blur-sm border border-amber-300">
+                  <h3 className="text-xl font-semibold text-amber-900 mb-4 font-serif">Our Goals</h3>
+                  <p className="text-amber-800 font-serif leading-relaxed">
+                    It's our goal to harness the power of visual, auditory, kinesthetic, and interactive learning modalities
+                    and make them accessible to the next generation of learners. By combining literature with technology,
                     traditional analysis with modern engagement, we create pathways for every mind to discover the joys of life long learning.
                   </p>
                 </div>
-                <div className="flex flex-wrap justify-center gap-6 text-indigo-200">
+                <div className="flex flex-wrap justify-center gap-6 text-amber-800">
                   <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 bg-indigo-300 rounded-full"></div>
+                    <div className="w-3 h-3 bg-amber-600 rounded-full"></div>
                     <span className="font-serif">Visual Learning</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 bg-purple-300 rounded-full"></div>
+                    <div className="w-3 h-3 bg-orange-600 rounded-full"></div>
                     <span className="font-serif">Auditory Learning</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 bg-indigo-400 rounded-full"></div>
+                    <div className="w-3 h-3 bg-amber-700 rounded-full"></div>
                     <span className="font-serif">Kinesthetic Learning</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 bg-purple-400 rounded-full"></div>
+                    <div className="w-3 h-3 bg-orange-700 rounded-full"></div>
                     <span className="font-serif">Interactive Learning</span>
                   </div>
                 </div>
@@ -524,21 +584,33 @@ export default function Home() {
         {/* Resources Section */}
         <div className="text-center mb-12">
           <div className="max-w-4xl mx-auto">
-            <div className="inline-block p-8 bg-gradient-to-r from-orange-900/90 to-red-800/90 border-4 border-orange-400 rounded-2xl shadow-2xl relative overflow-hidden h-[300px] bg-white">
+            <div className="inline-block p-8 rounded-2xl shadow-2xl relative overflow-hidden h-[300px]" style={{
+              background: `
+                radial-gradient(circle at 25% 20%, rgba(252, 248, 227, 0.95) 0%, transparent 60%),
+                radial-gradient(circle at 75% 80%, rgba(245, 222, 179, 0.9) 0%, transparent 60%),
+                linear-gradient(135deg, #FEFBF0 0%, #F5DEB3 20%, #DEB887 40%, #F5DEB3 60%, #E6D8B5 80%, #FEFBF0 100%)
+              `,
+              border: '4px solid #92400e',
+              boxShadow: `
+                0 8px 32px rgba(139, 69, 19, 0.4),
+                inset 0 2px 8px rgba(255, 255, 255, 0.7),
+                inset 0 -2px 4px rgba(139, 69, 19, 0.2)
+              `
+            }}>
               {/* Background Beams Effect */}
               <BackgroundBeams className="opacity-90" />
-              
+
               <div className="relative z-10 h-full flex flex-col justify-center">
-                <h2 className="text-3xl font-bold text-white mb-6 font-serif">
+                <h2 className="text-3xl font-bold text-amber-900 mb-6 font-serif">
                   Resources
                 </h2>
-                <p className="text-orange-200 text-lg leading-relaxed font-serif mb-6 max-w-3xl mx-auto">
-                  Essential tools and references to enhance your literary journey. Access comprehensive guides, 
+                <p className="text-amber-800 text-lg leading-relaxed font-serif mb-6 max-w-3xl mx-auto">
+                  Essential tools and references to enhance your literary journey. Access comprehensive guides,
                   terminology, and supplementary materials designed to deepen your understanding of literature.
                 </p>
-                <Link 
-                  href="/glossary" 
-                  className="inline-flex items-center gap-3 bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 text-lg font-serif border-2 border-orange-400"
+                <Link
+                  href="/glossary"
+                  className="inline-flex items-center gap-3 bg-amber-700 hover:bg-amber-800 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 text-lg font-serif border-2 border-amber-600"
                 >
                   📖 Glossary of Terms
                 </Link>
