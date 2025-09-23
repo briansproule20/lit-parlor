@@ -92,7 +92,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
       const newAccount = {
         echo_id: echoUser.id,
-        echo_username: echoUser.preferred_username || echoUser.name || null,
+        echo_username: echoUser.name || null,
         echo_email: echoUser.email || null,
         echo_name: echoUser.name || null,
         preferences: {},
