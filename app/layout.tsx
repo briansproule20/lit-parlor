@@ -4,6 +4,8 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import LitParlorNavbar from '@/components/ui/litparlor-navbar'
 import ChatWidget from '@/components/chat/chat-widget'
+import EchoProviderWrapper from '@/components/chat/echo-provider-wrapper'
+import { AuthProvider } from '@/contexts/auth-context'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,9 +25,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <LitParlorNavbar />
-        {children}
-        <ChatWidget />
+        <EchoProviderWrapper>
+          <AuthProvider>
+            <LitParlorNavbar />
+            {children}
+            <ChatWidget />
+          </AuthProvider>
+        </EchoProviderWrapper>
       </body>
     </html>
   )

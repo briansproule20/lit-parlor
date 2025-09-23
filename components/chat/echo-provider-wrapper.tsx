@@ -19,7 +19,11 @@ export default function EchoProviderWrapper({ children }: EchoProviderWrapperPro
   };
 
   if (!mounted) {
-    return <div style={{ visibility: 'hidden' }}>{children}</div>;
+    return (
+      <EchoProvider config={echoConfig}>
+        <div style={{ visibility: 'hidden' }}>{children}</div>
+      </EchoProvider>
+    );
   }
 
   return (
