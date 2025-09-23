@@ -119,7 +119,6 @@ export default function LitParlorNavbar() {
               hasLitParlorAccount ? (
                 <div className="group relative">
                   <button className="flex items-center space-x-2 text-green-800 hover:text-green-700 font-bold text-sm transition-colors cursor-pointer hover:bg-green-100/20 px-3 py-1 rounded-lg">
-                    <span>👋</span>
                     <span>{litParlorAccount?.echo_username || litParlorAccount?.echo_name || 'User'}</span>
                     <span className="text-xs">▼</span>
                   </button>
@@ -244,7 +243,7 @@ export default function LitParlorNavbar() {
                   <div>
                     <div className="px-4 py-2 border-b border-green-200 mb-2">
                       <p className="font-bold text-green-900 text-sm">
-                        👋 {litParlorAccount?.echo_username || litParlorAccount?.echo_name || 'User'}
+                        {litParlorAccount?.echo_username || litParlorAccount?.echo_name || 'User'}
                       </p>
                       <p className="text-green-700 text-xs">
                         {litParlorAccount?.echo_email || 'No email'}
