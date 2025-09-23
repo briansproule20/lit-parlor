@@ -38,9 +38,9 @@ Take long-form narrative, distill it into important quotes, visuals, structural 
 - **Styling**: Tailwind CSS with custom components
 - **3D Graphics**: Three.js with React Three Fiber
 - **Animations**: Framer Motion
-- **AI Integration**: OpenAI API with AI SDK
-- **UI Components**: Custom built with shadcn/ui patterns
-- **Audio**: Echo SDK for immersive sound experiences
+- **AI Integration**: Echo SDK
+- **UI Components**: Custom built with shadcn/aceternity patterns
+
 
 ## 🚀 Getting Started
 
