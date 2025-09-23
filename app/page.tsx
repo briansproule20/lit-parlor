@@ -8,9 +8,11 @@ import { TypewriterEffect } from '@/components/ui/typewriter-effect'
 import { BackgroundBeams } from '@/components/ui/background-beams'
 import { DotBackground } from '@/components/ui/dot-background'
 import { EvervaultCardEnhanced } from '@/components/ui/evervault-card-enhanced'
+import { useAuth } from '@/contexts/auth-context'
 
 export default function Home() {
   const [openModal, setOpenModal] = useState<string | null>(null)
+  const { isAuthenticated, isLoading } = useAuth()
 
   const modalData = {
     welcome: {
@@ -330,8 +332,10 @@ export default function Home() {
           </div>
 
           {/* 3D Marquee */}
-          <div className="p-8 overflow-hidden">
-            <div className="relative bg-black/10 backdrop-blur-md rounded-2xl p-4 overflow-hidden max-w-full">
+          <div className="p-8 overflow-hidden relative">
+            <div className={`relative bg-black/10 backdrop-blur-md rounded-2xl p-4 overflow-hidden max-w-full transition-all duration-300 ${
+              !isLoading && !isAuthenticated ? 'opacity-30 pointer-events-none' : ''
+            }`}>
               <ThreeDMarquee
                 books={[
                 // Column 1: Coming Soon cards (5 cards)
@@ -505,6 +509,29 @@ export default function Home() {
               columnMovement="animate={{ y: colIndex % 2 === 0 ? 100 : -100 }} duration={{ colIndex % 2 === 0 ? 10 : 15 }}"
             />
             </div>
+
+            {/* Sign In Overlay */}
+            {!isLoading && !isAuthenticated && (
+              <div className="absolute inset-0 flex items-center justify-center bg-black/20 backdrop-blur-sm rounded-2xl">
+                <div className="bg-white rounded-xl shadow-2xl p-8 max-w-md mx-4 text-center border-4 border-amber-600">
+                  <div className="mb-4">
+                    <span className="text-4xl">🔒</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-amber-900 mb-2 font-serif">
+                    Sign In to Explore
+                  </h3>
+                  <p className="text-amber-800 mb-6">
+                    Access our complete collection of interactive literary experiences and start your reading journey.
+                  </p>
+                  <Link
+                    href="/chat"
+                    className="inline-block bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 font-serif"
+                  >
+                    Sign In with Echo
+                  </Link>
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
