@@ -3,45 +3,29 @@ import Link from 'next/link'
 
 export default function PrideAndPrejudice() {
   return (
-    <main className="min-h-screen py-8 px-4 relative" style={{
-      backgroundImage: 'linear-gradient(135deg, #8B4513 0%, #A0522D 25%, #CD853F 50%, #D2691E 75%, #8B4513 100%)',
-      backgroundAttachment: 'fixed'
+    <main className="min-h-screen pt-24 pb-8 px-4 relative" style={{
+      background: 'linear-gradient(135deg, #fdf2f8 0%, #fce7f3 30%, #fbcfe8 60%, #f9a8d4 100%)'
     }}>
-      
-      {/* Cozy lighting overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-rose-50/20 via-transparent to-rose-900/30 pointer-events-none"></div>
+
+      {/* Dotted overlay similar to home page */}
+      <div
+        className="absolute inset-0 opacity-40"
+        style={{
+          backgroundImage: 'radial-gradient(#f8d7da 2px, transparent 2px)',
+          backgroundSize: '25px 25px'
+        }}
+      ></div>
       
       <div className="max-w-6xl mx-auto relative">
         
-        {/* Navigation */}
-        <div className="flex justify-between items-start mb-8">
-          <Link 
-            href="/prideandprejudicemodule" 
-            className="inline-flex items-center gap-2 text-rose-800 hover:text-rose-900 font-bold text-lg px-6 py-3 bg-rose-50/90 rounded-lg border-2 border-rose-600 shadow-md hover:shadow-lg transition-all"
-          >
-            💕 Enter Drawing Room
-          </Link>
-        </div>
 
         {/* Book Cover Display */}
         <div className="text-center mb-12">
-          <div className="inline-block p-8 rounded-xl shadow-2xl relative transform transition-all duration-300 hover:scale-105" style={{
-            background: `
-              radial-gradient(circle at 25% 20%, rgba(252, 248, 227, 0.95) 0%, transparent 60%),
-              radial-gradient(circle at 75% 80%, rgba(245, 222, 179, 0.9) 0%, transparent 60%),
-              linear-gradient(135deg, #FEFBF0 0%, #F5DEB3 20%, #DEB887 40%, #F5DEB3 60%, #E6D8B5 80%, #FEFBF0 100%)
-            `,
-            border: '3px solid #8B4513',
-            boxShadow: `
-              0 8px 32px rgba(139, 69, 19, 0.4),
-              inset 0 2px 8px rgba(255, 255, 255, 0.7),
-              inset 0 -2px 4px rgba(139, 69, 19, 0.2)
-            `
-          }}>
+          <div className="inline-block bg-rose-50/95 border-4 border-rose-600 rounded-xl p-8 shadow-2xl relative transform transition-all duration-300 hover:scale-105">
             <h1 className="text-5xl font-bold text-rose-900 mb-4 font-serif" style={{
               textShadow: '3px 3px 6px rgba(0,0,0,0.3)'
             }}>
-              📚 Pride and Prejudice
+              Pride and Prejudice
             </h1>
             <p className="text-xl text-rose-800 font-serif italic mb-3">
               A Novel
@@ -66,16 +50,17 @@ export default function PrideAndPrejudice() {
             </h2>
             <div className="space-y-4 text-rose-800 font-serif">
               <p className="leading-relaxed">
-                Published in 1813, <em>Pride and Prejudice</em> is Jane Austen's most beloved novel, 
+                Published in 1813, <em>Pride and Prejudice</em> is Jane Austen's most beloved novel,
                 a masterpiece of social comedy that explores love, marriage, and class in Georgian England.
               </p>
               <p className="leading-relaxed">
-                Through the witty and independent Elizabeth Bennet and the proud Mr. Darcy, 
-                Austen creates a timeless story of first impressions, personal growth, and the triumph of true love.
+                Through the witty Elizabeth Bennet and the proud Mr. Darcy, Austen creates a timeless story
+                of first impressions, personal growth, and true love that continues to captivate readers
+                over two centuries later.
               </p>
               <p className="leading-relaxed">
-                The novel's sharp social satire and unforgettable characters have made it one of the most 
-                influential works in English literature, continuing to captivate readers over two centuries later.
+                Set in rural England during the Regency era, the novel's sharp social satire and unforgettable
+                characters have made it one of the most influential works in English literature.
               </p>
             </div>
           </div>
@@ -115,28 +100,6 @@ export default function PrideAndPrejudice() {
 
         </div>
 
-        {/* Interactive Features */}
-        <div className="text-center mb-12">
-          <div className="inline-block p-8 bg-gradient-to-r from-rose-900/90 to-pink-800/90 border-4 border-rose-400 rounded-2xl shadow-2xl">
-            <h2 className="text-3xl font-bold text-white mb-4 font-serif">
-              Explore the Drawing Room
-            </h2>
-            <p className="text-rose-200 text-lg mb-6 font-serif">
-              Navigate the social complexities of Georgian England through our interactive features
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/prideandprejudicemodule/journey" className="bg-rose-600 hover:bg-rose-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 inline-block">
-                🧭 Character Journey
-              </Link>
-              <Link href="/prideandprejudicemodule/study-guide" className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 inline-block">
-                📚 Study Guide
-              </Link>
-              <Link href="/prideandprejudicemodule/quiz" className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 inline-block">
-                🎯 Quick Quiz
-              </Link>
-            </div>
-          </div>
-        </div>
 
         {/* Historical Context */}
         <div className="bg-rose-50/95 border-4 border-rose-600 rounded-xl p-6 shadow-2xl mb-12">
@@ -186,10 +149,10 @@ export default function PrideAndPrejudice() {
               Begin Your Literary Courtship
             </h3>
             <p className="text-rose-200 text-lg mb-6 font-serif">
-              Will you succumb to first impressions, or discover the truth beneath?
+              Explore Austen's wit, social commentary, and timeless characters
             </p>
             <Link href="/prideandprejudicemodule" className="bg-rose-600 hover:bg-rose-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 inline-block text-lg">
-              💕 Enter the Drawing Room
+              Enter the Drawing Room
             </Link>
           </div>
         </div>
