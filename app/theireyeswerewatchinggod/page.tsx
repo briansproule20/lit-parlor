@@ -3,76 +3,160 @@ import Link from 'next/link'
 
 export default function TheirEyesWereWatchingGodPage() {
   return (
-    <main className="min-h-screen py-8 px-4 relative" style={{
-      backgroundImage: 'linear-gradient(135deg, #8B4513 0%, #A0522D 25%, #CD853F 50%, #D2691E 75%, #8B4513 100%)',
-      backgroundAttachment: 'fixed'
+    <main className="min-h-screen pt-24 pb-8 px-4 relative" style={{
+      background: 'linear-gradient(135deg, #e0f2fe 0%, #b3e5fc 30%, #81d4fa 60%, #4fc3f7 100%)'
     }}>
-      {/* Cozy lighting overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-amber-50/20 via-transparent to-amber-900/30 pointer-events-none"></div>
-      
-      <div className="max-w-4xl mx-auto relative">
-        
-        {/* Navigation */}
-        <div className="flex justify-between items-start mb-8">
-          <Link 
-            href="/theireyeswerewatchinggodmodule" 
-            className="inline-flex items-center gap-2 text-amber-800 hover:text-amber-900 font-bold text-lg px-6 py-3 bg-amber-50/90 rounded-lg border-2 border-amber-600 shadow-md hover:shadow-lg transition-all"
-          >
-            🌊 Enter Everglades
-          </Link>
-        </div>
 
-        {/* Book Header */}
+      {/* Dotted overlay similar to home page */}
+      <div
+        className="absolute inset-0 opacity-40"
+        style={{
+          backgroundImage: 'radial-gradient(#29b6f6 1px, transparent 1px)',
+          backgroundSize: '20px 20px'
+        }}
+      ></div>
+      
+      <div className="max-w-6xl mx-auto relative">
+        
+
+        {/* Book Cover Display */}
         <div className="text-center mb-12">
-          <div className="inline-block p-8 rounded-xl shadow-2xl relative" style={{
-            background: `
-              radial-gradient(circle at 25% 20%, rgba(45, 212, 191, 0.2) 0%, transparent 60%),
-              radial-gradient(circle at 75% 80%, rgba(20, 184, 166, 0.3) 0%, transparent 60%),
-              linear-gradient(135deg, #134E4A 0%, #0F766E 20%, #0D9488 40%, #14B8A6 60%, #0F766E 80%, #134E4A 100%)
-            `,
-            border: '3px solid #14B8A6',
-            boxShadow: `
-              0 8px 32px rgba(20, 184, 166, 0.4),
-              inset 0 2px 8px rgba(255, 255, 255, 0.1),
-              inset 0 -2px 4px rgba(15, 118, 110, 0.3)
-            `
-          }}>
-            <h1 className="text-4xl font-bold text-amber-100 mb-4 font-serif">
+          <div className="inline-block bg-cyan-50/95 border-4 border-cyan-600 rounded-xl p-8 shadow-2xl relative transform transition-all duration-300 hover:scale-105">
+            <h1 className="text-5xl font-bold text-cyan-900 mb-4 font-serif" style={{
+              textShadow: '3px 3px 6px rgba(0,0,0,0.3)'
+            }}>
               Their Eyes Were Watching God
             </h1>
-            <p className="text-teal-200 text-lg mb-2 font-serif italic">
-              by Zora Neale Hurston
+            <p className="text-xl text-cyan-800 font-serif italic mb-3">
+              A Novel
             </p>
-            <div className="text-teal-300 font-serif">
+            <div className="text-lg text-cyan-700 font-serif mb-4">
+              by Zora Neale Hurston
+            </div>
+            <div className="w-32 h-1 bg-cyan-600 mx-auto mb-4"></div>
+            <p className="text-lg text-cyan-800 font-serif leading-relaxed max-w-2xl mx-auto text-center">
               "She was stretched on her back beneath the pear tree soaking in the alto chant of the visiting bees."
+            </p>
+          </div>
+        </div>
+
+        {/* Book Information Grid */}
+        <div className="grid lg:grid-cols-2 gap-8 mb-12">
+          
+          {/* About the Book */}
+          <div className="bg-cyan-50/95 border-4 border-cyan-600 rounded-xl p-6 shadow-2xl">
+            <h2 className="text-3xl font-bold text-cyan-900 mb-4 font-serif text-center">
+              About This Masterpiece
+            </h2>
+            <div className="space-y-4 text-cyan-800 font-serif">
+              <p className="leading-relaxed">
+                Published in 1937, <em>Their Eyes Were Watching God</em> is Zora Neale Hurston's most celebrated novel,
+                a masterpiece of the Harlem Renaissance that explores love, identity, and self-discovery in the American South.
+              </p>
+              <p className="leading-relaxed">
+                Through the resilient Janie Crawford and her journey through three marriages, Hurston creates a powerful story
+                of a woman's quest for independence and authentic love that continues to inspire readers today.
+              </p>
+              <p className="leading-relaxed">
+                Set in central and southern Florida in the early 20th century, the novel's rich use of African American Vernacular English
+                and vivid portrayal of Black Southern culture make it both linguistically innovative and culturally significant.
+              </p>
+            </div>
+          </div>
+
+          {/* Key Themes */}
+          <div className="bg-cyan-50/95 border-4 border-cyan-600 rounded-xl p-6 shadow-2xl">
+            <h2 className="text-3xl font-bold text-cyan-900 mb-4 font-serif text-center">
+              Key Themes
+            </h2>
+            <div className="space-y-4 text-cyan-800 font-serif">
+              <div className="p-3 bg-white/70 rounded border border-cyan-300">
+                <div className="font-bold flex items-center gap-2">
+                  <span>🌺</span> Self-Discovery
+                </div>
+                <div className="text-sm mt-1">Janie's journey to find her authentic voice and identity</div>
+              </div>
+              <div className="p-3 bg-white/70 rounded border border-cyan-300">
+                <div className="font-bold flex items-center gap-2">
+                  <span>💕</span> Love & Marriage
+                </div>
+                <div className="text-sm mt-1">The difference between romantic love and practical partnership</div>
+              </div>
+              <div className="p-3 bg-white/70 rounded border border-cyan-300">
+                <div className="font-bold flex items-center gap-2">
+                  <span>🗣️</span> Voice & Language
+                </div>
+                <div className="text-sm mt-1">The power of African American Vernacular English as literary language</div>
+              </div>
+              <div className="p-3 bg-white/70 rounded border border-cyan-300">
+                <div className="font-bold flex items-center gap-2">
+                  <span>🌿</span> Nature & Spirituality
+                </div>
+                <div className="text-sm mt-1">The connection between the natural world and spiritual awakening</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+        {/* Historical Context */}
+        <div className="bg-cyan-50/95 border-4 border-cyan-600 rounded-xl p-6 shadow-2xl mb-12">
+          <h2 className="text-3xl font-bold text-cyan-900 mb-4 font-serif text-center">
+            The Harlem Renaissance: Hurston's World
+          </h2>
+          <div className="grid md:grid-cols-2 gap-6 text-cyan-800 font-serif">
+            <div>
+              <h3 className="text-xl font-bold mb-3">Cultural Movement</h3>
+              <p className="leading-relaxed">
+                The Harlem Renaissance was a flowering of African American culture in the 1920s and 1930s. 
+                Hurston was a central figure, celebrating Black folk culture and vernacular language as 
+                legitimate artistic expression rather than something to be ashamed of.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold mb-3">Anthropological Perspective</h3>
+              <p className="leading-relaxed">
+                As an anthropologist, Hurston brought scientific rigor to her study of Black Southern culture. 
+                Her fieldwork in Florida and the Caribbean informed her fiction, creating authentic portrayals 
+                of African American life that challenged stereotypes.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold mb-3">Feminist Pioneer</h3>
+              <p className="leading-relaxed">
+                Hurston's portrayal of Janie as a woman seeking independence and authentic love was revolutionary 
+                for its time. The novel explores themes of female agency and self-determination that would 
+                become central to later feminist literature.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold mb-3">Literary Innovation</h3>
+              <p className="leading-relaxed">
+                Hurston's use of African American Vernacular English as the primary narrative voice was groundbreaking. 
+                She demonstrated that Black dialect could be sophisticated literary language, challenging 
+                prevailing notions about "proper" English in literature.
+              </p>
             </div>
           </div>
         </div>
 
-
-
-
-
-        {/* Book Summary */}
-        <div className="bg-gradient-to-r from-teal-900/50 to-cyan-900/50 p-8 rounded-xl shadow-xl border border-teal-600 backdrop-blur-sm">
-          <h2 className="text-2xl font-bold text-amber-100 mb-4 font-serif">About This Novel</h2>
-          <p className="text-teal-100 leading-relaxed font-serif mb-4">
-            <em>Their Eyes Were Watching God</em> is a 1937 novel by African-American writer Zora Neale Hurston. 
-            It is considered a classic of the Harlem Renaissance and is frequently studied in American literature courses. 
-            The story follows Janie Crawford, a resilient and independent woman, through her journey of self-discovery.
-          </p>
-          <p className="text-teal-100 leading-relaxed font-serif mb-4">
-            Set in central and southern Florida in the early 20th century, the novel explores themes of love, 
-            personal growth, and the search for identity. Hurston's use of African American Vernacular English 
-            and her vivid portrayal of Black Southern culture make this work both linguistically rich and culturally significant.
-          </p>
-          <p className="text-teal-100 leading-relaxed font-serif">
-            Through Janie's three marriages and her ultimate quest for independence, Hurston crafts a powerful narrative 
-            about a woman's right to define herself and pursue her dreams, making it a pioneering work of feminist literature.
-          </p>
+        {/* Call to Action */}
+        <div className="text-center">
+          <div className="inline-block p-6 bg-gradient-to-r from-cyan-900/90 to-blue-800/90 border-4 border-cyan-400 rounded-2xl shadow-2xl">
+            <h3 className="text-2xl font-bold text-white mb-4 font-serif">
+              Begin Your Literary Journey
+            </h3>
+            <p className="text-cyan-200 text-lg mb-6 font-serif">
+              Explore Hurston's powerful prose, cultural insights, and unforgettable characters
+            </p>
+            <Link href="/theireyeswerewatchinggodmodule" className="bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 inline-block text-lg">
+              Enter the Everglades
+            </Link>
+          </div>
         </div>
 
       </div>
     </main>
   )
-} 
+}

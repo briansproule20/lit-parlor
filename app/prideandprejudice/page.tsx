@@ -11,8 +11,8 @@ export default function PrideAndPrejudice() {
       <div
         className="absolute inset-0 opacity-40"
         style={{
-          backgroundImage: 'radial-gradient(#f8d7da 2px, transparent 2px)',
-          backgroundSize: '25px 25px'
+          backgroundImage: 'radial-gradient(#f8d7da 1px, transparent 1px)',
+          backgroundSize: '20px 20px'
         }}
       ></div>
       
