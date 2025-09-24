@@ -44,19 +44,19 @@ const literaryMovementsContent = [
             quote: "In the middle of the journey of our life, I came to myself, in a dark wood, where the straight way was lost. Abandon all hope, ye who enter here.",
             name: "Dante Alighieri",
             designation: "Italian Poet • The Divine Comedy",
-            src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            src: "https://upload.wikimedia.org/wikipedia/commons/6/6f/Portrait_de_Dante.jpg"
           },
           {
             quote: "When that April with his showers sweet, the drought of March has pierced unto the root. Then people long to go on pilgrimage, and palmers to go seeking out strange strands.",
             name: "Geoffrey Chaucer",
             designation: "English Poet • The Canterbury Tales",
-            src: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            src: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRl5CeRpMtS336t8NneuK3uLY5uNTRdUhudeQnziBk9BhpusbvQ7ox9d8a4JLb34R3oP-OFtqxf5nhMjOeBRSTOFUchcGyaspMueU-KNhw"
           },
           {
-            quote: "My heart is ever at your service. For God's love, let us go softly. A knight there was, and that a worthy man, that from the time that he first began to ride out, he loved chivalry.",
-            name: "Anonymous",
-            designation: "Medieval Scribe • Arthurian Romance",
-            src: "https://images.unsplash.com/photo-1459664018906-085c36f472af?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            quote: "And so it befell that Arthur and Mordred were both slain, and the most part of the noble knights of the Round Table were destroyed forever. Then was King Arthur's sword, Excalibur, returned unto the Lady of the Lake.",
+            name: "Sir Thomas Malory",
+            designation: "English Knight • Le Morte d'Arthur",
+            src: "https://cdn.britannica.com/79/147179-050-14CCB8B7/King-Arthur-illustration-NC-title-page-Wyeth.jpg"
           }
         ]}
         autoplay={false}
