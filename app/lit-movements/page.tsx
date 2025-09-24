@@ -70,22 +70,22 @@ const literaryMovementsContent = [
       <AnimatedTestimonials
         testimonials={[
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "To be, or not to be, that is the question: Whether 'tis nobler in the mind to suffer the slings and arrows of outrageous fortune, or to take arms against a sea of troubles.",
+            name: "William Shakespeare",
+            designation: "English Playwright • Hamlet",
+            src: "https://upload.wikimedia.org/wikipedia/commons/2/21/William_Shakespeare_by_John_Taylor%2C_edited.jpg"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "Love is the crowning grace of humanity, the holiest right of the soul, the golden link which binds us to duty and truth, the redeeming principle that chiefly reconciles the heart to life.",
+            name: "Francesco Petrarch",
+            designation: "Italian Poet • Father of Humanism",
+            src: "https://cdn.britannica.com/62/19062-050-68244DBF/Petrarch-engraving.jpg"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "It is better to be feared than loved, if you cannot be both. A prince never lacks legitimate reasons to break his promise.",
+            name: "Niccolò Machiavelli",
+            designation: "Italian Political Philosopher • The Prince",
+            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Portrait_of_Niccol%C3%B2_Machiavelli_by_Santi_di_Tito.jpg/250px-Portrait_of_Niccol%C3%B2_Machiavelli_by_Santi_di_Tito.jpg"
           }
         ]}
         autoplay={false}
