@@ -5,7 +5,8 @@
       "WebFetch(domain:raw.githubusercontent.com)",
       "WebFetch(domain:github.com)",
       "WebSearch",
-      "Bash(pnpm dlx shadcn@latest add:*)"
+      "Bash(pnpm dlx shadcn@latest add:*)",
+      "Read(//Users/briansproule/**)"
     ],
     "deny": [],
     "ask": []

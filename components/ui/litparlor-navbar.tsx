@@ -33,6 +33,7 @@ export default function LitParlorNavbar() {
     { name: "ELA Tutor Chat", link: "/chat" },
     { name: "Full Collection", link: "/fullcollection" },
     { name: "Glossary", link: "/glossary" },
+    { name: "Literary Movements", link: "/lit-movements" },
     { name: "Quests", link: "/quests" },
     { name: "Socratic Forum", link: "/socratic-forum" },
     { name: "Storyworlds", link: "/storyworlds" },
