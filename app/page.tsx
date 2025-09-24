@@ -640,13 +640,13 @@ export default function Home() {
                     href="/glossary"
                     className="inline-flex items-center gap-3 bg-amber-700 hover:bg-amber-800 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 text-lg font-serif border-2 border-amber-600"
                   >
-                    📖 Glossary of Terms
+                    Glossary of Terms
                   </Link>
                   <Link
                     href="/lit-movements"
                     className="inline-flex items-center gap-3 bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 text-lg font-serif border-2 border-amber-500"
                   >
-                    📚 Literary Movements
+                    Literary Movements
                   </Link>
                 </div>
               </div>
