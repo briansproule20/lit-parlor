@@ -4,27 +4,26 @@ import Link from 'next/link'
 export default function ThingsFallApartModule() {
   return (
     <main className="min-h-screen py-8 px-4 relative" style={{
-        backgroundImage: 'url(/images/wood-texture.jpg)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundAttachment: 'fixed'
-      }}>
-      
-      {/* Navigation */}
-      <div className="flex justify-between items-start mb-8">
-        <Link 
-          href="/thingsfallapart" 
-          className="inline-flex items-center gap-2 text-orange-800 hover:text-orange-900 font-bold text-lg px-6 py-3 bg-orange-50/90 rounded-lg border-2 border-orange-600 shadow-md hover:shadow-lg transition-all"
-        >
-          🌍 Return to Village
-        </Link>
-        
+      backgroundImage: 'linear-gradient(135deg, #8B4513 0%, #A0522D 25%, #CD853F 50%, #D2691E 75%, #8B4513 100%)',
+      backgroundAttachment: 'fixed'
+    }}>
 
+      {/* Dot Background */}
+      <div className="opacity-30 absolute inset-0 pointer-events-none">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundSize: '20px 20px',
+            backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)'
+          }}
+        ></div>
       </div>
 
-      <div className="max-w-6xl mx-auto">
-        
+      {/* Cozy lighting overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-amber-50/20 via-transparent to-amber-900/30 pointer-events-none"></div>
+      
+      <div className="max-w-6xl mx-auto pt-24">
+
         {/* Elder's Notice Header */}
         <div className="text-center mb-12">
           <div className="inline-block p-8 shadow-2xl transform relative overflow-visible transition-all duration-300 hover:scale-105 hover:shadow-3xl cursor-pointer" style={{
@@ -257,20 +256,6 @@ export default function ThingsFallApartModule() {
 
         </div>
 
-        {/* Call to Action */}
-        <div className="text-center mt-12">
-          <div className="inline-block p-6 bg-gradient-to-r from-orange-900/90 to-red-800/90 border-4 border-orange-400 rounded-2xl shadow-2xl">
-            <h3 className="text-2xl font-bold text-white mb-4 font-serif">
-              Begin Your Cultural Journey
-            </h3>
-            <p className="text-orange-200 text-lg mb-6 font-serif">
-              Will you witness the fall, or understand the forces that caused it?
-            </p>
-            <Link href="/thingsfallapartmodule/journey" className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 inline-block text-lg">
-              🌍 Enter the Village
-            </Link>
-          </div>
-        </div>
 
       </div>
     </main>

@@ -7,41 +7,30 @@ export default function ThingsFallApart() {
       backgroundImage: 'linear-gradient(135deg, #8B4513 0%, #A0522D 25%, #CD853F 50%, #D2691E 75%, #8B4513 100%)',
       backgroundAttachment: 'fixed'
     }}>
-      
+
+      {/* Dot Background */}
+      <div className="opacity-30 absolute inset-0 pointer-events-none">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundSize: '20px 20px',
+            backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)'
+          }}
+        ></div>
+      </div>
+
       {/* Cozy lighting overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-orange-50/20 via-transparent to-orange-900/30 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-amber-50/20 via-transparent to-amber-900/30 pointer-events-none"></div>
       
       <div className="max-w-6xl mx-auto relative">
         
-        {/* Navigation */}
-        <div className="flex justify-between items-start mb-8">
-          <Link 
-            href="/thingsfallapartmodule" 
-            className="inline-flex items-center gap-2 text-orange-800 hover:text-orange-900 font-bold text-lg px-6 py-3 bg-orange-50/90 rounded-lg border-2 border-orange-600 shadow-md hover:shadow-lg transition-all"
-          >
-            🌍 Enter Village
-          </Link>
-        </div>
-
         {/* Book Cover Display */}
-        <div className="text-center mb-12">
-          <div className="inline-block p-8 rounded-xl shadow-2xl relative transform transition-all duration-300 hover:scale-105" style={{
-            background: `
-              radial-gradient(circle at 25% 20%, rgba(252, 248, 227, 0.95) 0%, transparent 60%),
-              radial-gradient(circle at 75% 80%, rgba(245, 222, 179, 0.9) 0%, transparent 60%),
-              linear-gradient(135deg, #FEFBF0 0%, #F5DEB3 20%, #DEB887 40%, #F5DEB3 60%, #E6D8B5 80%, #FEFBF0 100%)
-            `,
-            border: '3px solid #8B4513',
-            boxShadow: `
-              0 8px 32px rgba(139, 69, 19, 0.4),
-              inset 0 2px 8px rgba(255, 255, 255, 0.7),
-              inset 0 -2px 4px rgba(139, 69, 19, 0.2)
-            `
-          }}>
+        <div className="text-center mb-12 pt-16">
+          <div className="inline-block bg-orange-50/95 border-4 border-orange-600 rounded-xl p-8 shadow-2xl relative transform transition-all duration-300 hover:scale-105">
             <h1 className="text-5xl font-bold text-orange-900 mb-4 font-serif" style={{
               textShadow: '3px 3px 6px rgba(0,0,0,0.3)'
             }}>
-              📚 Things Fall Apart
+              Things Fall Apart
             </h1>
             <p className="text-xl text-orange-800 font-serif italic mb-3">
               A Novel
@@ -118,28 +107,6 @@ export default function ThingsFallApart() {
 
         </div>
 
-        {/* Interactive Features */}
-        <div className="text-center mb-12">
-          <div className="inline-block p-8 bg-gradient-to-r from-orange-900/90 to-red-800/90 border-4 border-orange-400 rounded-2xl shadow-2xl">
-            <h2 className="text-3xl font-bold text-white mb-4 font-serif">
-              Explore the Village
-            </h2>
-            <p className="text-orange-200 text-lg mb-6 font-serif">
-              Navigate the cultural complexities of pre-colonial Nigeria through our interactive features
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/thingsfallapartmodule/journey" className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 inline-block">
-                🧭 Character Journey
-              </Link>
-              <Link href="/thingsfallapartmodule/study-guide" className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 inline-block">
-                📚 Study Guide
-              </Link>
-              <Link href="/thingsfallapartmodule/quiz" className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 inline-block">
-                🎯 Quick Quiz
-              </Link>
-            </div>
-          </div>
-        </div>
 
         {/* Historical Context */}
         <div className="bg-orange-50/95 border-4 border-orange-600 rounded-xl p-6 shadow-2xl mb-12">
@@ -196,7 +163,7 @@ export default function ThingsFallApart() {
               Will you witness the fall, or understand the forces that caused it?
             </p>
             <Link href="/thingsfallapartmodule" className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 inline-block text-lg">
-              🌍 Enter the Village
+              Enter the Village
             </Link>
           </div>
         </div>
