@@ -9,6 +9,8 @@ import { useDarkMode, DarkModeProvider } from '@/components/chat/dark-mode-conte
 import { EchoProvider, useEcho, EchoSignIn, EchoTokenPurchase } from '@merit-systems/echo-react-sdk';
 import ELATutorChatbot from '@/components/chat/ELATutorChatbot';
 import { DarkDotBackground } from '@/components/ui/dark-dot-background';
+import { Button } from '@/components/ui/button';
+import { EchoAccountButton } from '@/components/echo-account';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -23,7 +25,8 @@ import {
 
 function ChatPageContent() {
   const { currentLanguage, setCurrentLanguage, languageOptions } = useLanguage();
-  const { isAuthenticated, isLoading, user, balance, signOut } = useEcho();
+  const echo = useEcho();
+  const { isAuthenticated, isLoading, user, balance, signOut } = echo;
   const { isDarkMode, toggleDarkMode } = useDarkMode();
   
   // Use state to track if component has mounted
@@ -151,7 +154,7 @@ function ChatPageContent() {
                 >
                   Home
                 </Link>
-                
+
                 <Link
                   href="/student-dashboard"
                   className={`transition-colors px-2 sm:px-3 py-1 rounded-lg text-xs sm:text-sm font-medium ${
@@ -162,7 +165,7 @@ function ChatPageContent() {
                 >
                   Students
                 </Link>
-                
+
                 <Link
                   href="/teacher-dashboard"
                   className={`transition-colors px-2 sm:px-3 py-1 rounded-lg text-xs sm:text-sm font-medium ${
@@ -173,7 +176,7 @@ function ChatPageContent() {
                 >
                   Teachers
                 </Link>
-                
+
                 <Link
                   href="/pedagogy"
                   className={`transition-colors px-2 sm:px-3 py-1 rounded-lg text-xs sm:text-sm font-medium ${
@@ -231,95 +234,8 @@ function ChatPageContent() {
                 </div>
               </div>
               
-              {/* Echo Authentication */}
-              {isLoading ? (
-                <div className={`backdrop-blur-md px-4 py-2 rounded-lg ${
-                  isDarkMode
-                    ? 'bg-slate-700/50 border border-slate-600/30 text-slate-200'
-                    : 'bg-amber-50/80 border border-amber-200/50 text-amber-800'
-                }`}>
-                  <div className={`animate-spin rounded-full h-4 w-4 border-b-2 ${
-                    isDarkMode ? 'border-slate-200' : 'border-amber-800'
-                  }`}></div>
-                </div>
-              ) : isAuthenticated ? (
-                <div className="flex flex-col sm:flex-row items-end sm:items-center gap-2 sm:space-x-3">
-                  {/* First Row: User Info + Balance */}
-                  <div className="flex items-center space-x-2 sm:space-x-3">
-                    {/* User Info */}
-                    <div className={`backdrop-blur-md px-2 sm:px-3 py-2 rounded-lg ${
-                      isDarkMode
-                        ? 'bg-slate-700/50 border border-slate-600/30 text-slate-200'
-                        : 'bg-amber-50/80 border border-amber-200/50 text-amber-800'
-                    }`}>
-                      <div className="flex items-center space-x-2">
-                        <User className="w-4 h-4" />
-                        <span className="text-xs sm:text-sm font-medium truncate max-w-[100px] sm:max-w-none">{user?.name || user?.email || 'User'}</span>
-                      </div>
-                    </div>
-                    
-                    {/* Balance */}
-                    <div className={`backdrop-blur-md px-2 sm:px-3 py-2 rounded-lg ${
-                      isDarkMode
-                        ? 'bg-slate-700/50 border border-slate-600/30 text-slate-200'
-                        : 'bg-amber-50/80 border border-amber-200/50 text-amber-800'
-                    }`}>
-                      <div className="flex items-center space-x-2">
-                        <CreditCard className="w-4 h-4" />
-                        <span className="text-xs sm:text-sm font-medium">
-                          {balance ? (
-                            typeof balance === 'number' ? 
-                              `${balance} credits` : 
-                              `${balance.balance || 0} credits`
-                          ) : (
-                            '0 credits'
-                          )}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Second Row: Echo Base + Sign Out */}
-                  <div className="flex items-center space-x-2 sm:space-x-3">
-                    {/* Echo Base */}
-                    <button 
-                      onClick={() => window.open('https://echo.merit.systems', '_blank')}
-                      className={`backdrop-blur-md px-2 sm:px-3 py-2 rounded-lg transition-colors text-xs sm:text-sm font-medium ${
-                        isDarkMode
-                          ? 'bg-slate-700/50 border border-slate-600/30 text-slate-200 hover:bg-slate-600/50 hover:text-slate-100'
-                          : 'bg-amber-50/80 border border-amber-200/50 text-amber-800 hover:bg-amber-100/80 hover:text-amber-900'
-                      }`}
-                    >
-                      Echo Base
-                    </button>
-                    
-                    {/* Sign Out */}
-                    <button
-                      onClick={signOut}
-                      className={`backdrop-blur-md px-2 sm:px-3 py-2 rounded-lg transition-colors flex items-center space-x-2 text-xs sm:text-sm font-medium ${
-                        isDarkMode
-                          ? 'bg-slate-700/50 border border-slate-600/30 text-slate-200 hover:bg-slate-600/50 hover:text-slate-100'
-                          : 'bg-amber-50/80 border border-amber-200/50 text-amber-800 hover:bg-amber-100/80 hover:text-amber-900'
-                      }`}
-                    >
-                      <LogOut className="w-4 h-4" />
-                      <span className="hidden sm:inline">Sign Out</span>
-                    </button>
-                  </div>
-                </div>
-              ) : (
-                <EchoSignIn 
-                  onSuccess={(user) => console.log('Signed in:', user)}
-                  onError={(error) => console.error('Sign in failed:', error)}
-                  className={`backdrop-blur-md px-3 py-2 rounded-lg font-medium transition-colors text-sm ${
-                    isDarkMode
-                      ? 'bg-slate-700/50 border border-slate-600/30 text-slate-200 hover:bg-slate-600/50 hover:text-slate-100'
-                      : 'bg-amber-50/80 border border-amber-200/50 text-amber-800 hover:bg-amber-100/80 hover:text-amber-900'
-                  }`}
-                >
-                  Sign In to Echo
-                </EchoSignIn>
-              )}
+              {/* Echo Account Button */}
+              <EchoAccountButton echo={echo} />
             </div>
           </div>
         </div>
@@ -406,28 +322,11 @@ function ChatPageContent() {
 }
 
 export default function ChatPage() {
-  const echoConfig = {
-    appId: process.env.NEXT_PUBLIC_ECHO_APP_ID || '',
-    clientId: process.env.NEXT_PUBLIC_ECHO_CLIENT_ID || process.env.NEXT_PUBLIC_ECHO_APP_ID || '',
-    apiUrl: 'https://echo.merit.systems',
-  };
-
-  // Debug Echo configuration
-  console.log('Echo Config:', {
-    appId: echoConfig.appId,
-    clientId: echoConfig.clientId,
-    apiUrl: echoConfig.apiUrl,
-    hasAppId: !!echoConfig.appId,
-    hasClientId: !!echoConfig.clientId
-  });
-
   return (
-    <EchoProvider config={echoConfig}>
-      <LanguageProvider>
-        <DarkModeProvider>
-          <ChatPageContent />
-        </DarkModeProvider>
-      </LanguageProvider>
-    </EchoProvider>
+    <LanguageProvider>
+      <DarkModeProvider>
+        <ChatPageContent />
+      </DarkModeProvider>
+    </LanguageProvider>
   );
 } 
