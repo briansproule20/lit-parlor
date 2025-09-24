@@ -99,22 +99,22 @@ const literaryMovementsContent = [
       <AnimatedTestimonials
         testimonials={[
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "Better to reign in Hell than serve in Heaven. The mind is its own place, and in itself can make a Heaven of Hell, a Hell of Heaven.",
+            name: "John Milton",
+            designation: "English Poet • Paradise Lost",
+            src: "https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcSs6A4tDdev1zATCkS49xZ2h_EfdVsxM3piI6CTOfRcyXzLmbMdNErbSILuORTGNaT3VjyC_1NyBthGg8U"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "Finally, from so little sleeping and so much reading, his brain dried up and he went completely out of his mind. Too much sanity may be madness — and maddest of all: to see life as it is, and not as it should be!",
+            name: "Miguel de Cervantes",
+            designation: "Spanish Novelist • Don Quixote",
+            src: "https://www.meisterdrucke.us/kunstwerke/1260px/Unknown_artist_-_Miguel_de_Cervantes_Saavedra_1547-1616_-_engraving_-_19th_century_-_%28MeisterDrucke-1024954%29.jpg"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "It is not only what we do, but also what we do not do, for which we are accountable. We are all made of the same clay, but not from the same mold.",
+            name: "Molière",
+            designation: "French Playwright • Tartuffe",
+            src: "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcQksL12WRICX3CJv_pDRsdDk2wdSlhwNG6_rYuMHcskBOtq_ADg0FwblL6UL14lxKqzz161_TdwYCD8C-4"
           }
         ]}
         autoplay={false}
