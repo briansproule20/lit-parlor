@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useEcho, useEchoModelProviders } from '@merit-systems/echo-react-sdk';
 import { useLanguage } from './language-context';
+import { useTypography } from '@/components/typography-controls';
 import { generateText, streamText } from 'ai';
 import ReactMarkdown from 'react-markdown';
-import { FileUpload } from '@/components/ui/file-upload';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Textarea } from '@/components/ui/textarea';
 import { buildSystemPrompt } from './chat-context';
@@ -20,8 +20,6 @@ import {
   ChevronDown,
   ChevronUp,
   RefreshCw,
-  Upload,
-  FileText,
   X,
   CheckCircle,
   AlertCircle
@@ -33,7 +31,6 @@ interface Message {
   type: 'bot' | 'user';
   content: string;
   timestamp: Date;
-  attachments?: UploadedDocument[]; // New field for file attachments
 }
 
 interface Topic {
@@ -42,14 +39,6 @@ interface Topic {
   icon: React.ComponentType<{ className?: string }>;
 }
 
-interface UploadedDocument {
-  id: string;
-  name: string;
-  content: string;
-  size: number;
-  type: string;
-  uploadedAt: Date;
-}
 
 
 
@@ -59,6 +48,7 @@ const ELATutorChatbot: React.FC = () => {
   // Get Echo SDK context for authentication and billing
   const { isAuthenticated, balance, token, refreshBalance } = useEcho() as any;
   const { currentLanguage, languageOptions } = useLanguage();
+  const { fontSize, fontFamily } = useTypography();
   
   console.log('🔑 Environment check on mount:', {
     echoAppId: process.env.NEXT_PUBLIC_ECHO_APP_ID ? 'Present' : 'Missing',
@@ -71,6 +61,33 @@ const ELATutorChatbot: React.FC = () => {
   // Get current language details
   const getCurrentLanguage = () => {
     return languageOptions.find(lang => lang.code === currentLanguage) || languageOptions[0];
+  };
+
+  // Typography helper functions
+  const getFontSizeClass = () => {
+    switch (fontSize) {
+      case 'small':
+        return 'text-sm';
+      case 'medium':
+        return 'text-base';
+      case 'large':
+        return 'text-lg';
+      default:
+        return 'text-base';
+    }
+  };
+
+  const getFontFamilyClass = () => {
+    switch (fontFamily) {
+      case 'garamond':
+        return 'font-garamond';
+      case 'sans-serif':
+        return 'font-sans';
+      case 'dyslexic':
+        return 'font-dyslexic';
+      default:
+        return 'font-sans';
+    }
   };
 
 
@@ -191,12 +208,6 @@ const ELATutorChatbot: React.FC = () => {
   const [dishonestyCount, setDishonestyCount] = useState<number>(0);
   const [showDishonestyModal, setShowDishonestyModal] = useState<boolean>(false);
   
-  // Document upload state
-  const [uploadedDocuments, setUploadedDocuments] = useState<UploadedDocument[]>([]);
-  const [isDragOver, setIsDragOver] = useState<boolean>(false);
-  const [isUploading, setIsUploading] = useState<boolean>(false);
-  const [uploadError, setUploadError] = useState<string>('');
-  const fileInputRef = useRef<HTMLInputElement>(null);
   
 
 
@@ -381,7 +392,6 @@ const ELATutorChatbot: React.FC = () => {
   const callEchoLLMStream = async (
     userMessage: string, 
     onChunk: (chunk: string) => void,
-    files?: UploadedDocument[]
   ): Promise<string> => {
     const uiText = getUIText();
     if (!isAuthenticated) return uiText.authRequired;
@@ -403,16 +413,11 @@ const ELATutorChatbot: React.FC = () => {
         ? 'The student has asked a simple question. Provide a concise, helpful answer in 1-2 sentences.'
         : 'The student has asked a detailed question. Provide a comprehensive explanation in 2-3 paragraphs with examples and context.';
 
-      // Build file context if files are provided
-      let fileContext = '';
-      if (files && files.length > 0) {
-        fileContext = `\n\n📎 **UPLOADED FILES CONTEXT**: The student has uploaded ${files.length} file(s) that you can reference and analyze:\n${files.map(f => `- ${f.name}: ${f.content.substring(0, 500)}${f.content.length > 500 ? '...' : ''}`).join('\n')}\n\nWhen responding, you can reference these files, analyze their content, and provide feedback based on what the student has shared.`;
-      }
 
       const { textStream } = await streamText({
         model: await openai('gpt-4o'),
         messages: [
-          { role: 'system', content: buildSystemPrompt(getCurrentLanguage().code, complexity, false, fileContext) },
+          { role: 'system', content: buildSystemPrompt(getCurrentLanguage().code, complexity, false, '') },
           ...conversationHistory,
           { role: 'user', content: userMessage }
         ]
@@ -432,7 +437,7 @@ const ELATutorChatbot: React.FC = () => {
   };
 
   // Keep the original function for suggestions (non-streaming)
-  const callEchoLLM = async (userMessage: string, files?: UploadedDocument[]): Promise<string> => {
+  const callEchoLLM = async (userMessage: string): Promise<string> => {
     const uiText = getUIText();
     if (!isAuthenticated) return uiText.authRequired;
     if (balance && balance.balance <= 0) return uiText.creditsLow;
@@ -453,16 +458,11 @@ const ELATutorChatbot: React.FC = () => {
         ? 'The student has asked a simple question. Provide a concise, helpful answer in 1-2 sentences.'
         : 'The student has asked a detailed question. Provide a comprehensive explanation in 2-3 paragraphs with examples and context.';
 
-      // Build file context if files are provided
-      let fileContext = '';
-      if (files && files.length > 0) {
-        fileContext = `\n\n📎 **UPLOADED FILES CONTEXT**: The student has uploaded ${files.length} file(s) that you can reference and analyze:\n${files.map(f => `- ${f.name}: ${f.content.substring(0, 500)}${f.content.length > 500 ? '..' : ''}`).join('\n')}\n\nWhen responding, you can reference these files, analyze their content, and provide feedback based on what the student has shared.`;
-      }
 
       const { text } = await generateText({
         model: await openai('gpt-4o'),
         messages: [
-          { role: 'system', content: buildSystemPrompt(getCurrentLanguage().code, complexity, false, fileContext) },
+          { role: 'system', content: buildSystemPrompt(getCurrentLanguage().code, complexity, false, '') },
           ...conversationHistory,
           { role: 'user', content: userMessage }
         ]
@@ -694,7 +694,6 @@ Please respond with exactly 6 helpful suggestions, one per line, without numberi
       type: 'user',
       content: inputValue,
       timestamp: new Date(),
-      attachments: uploadedDocuments.length > 0 ? uploadedDocuments : undefined
     };
 
     console.log('📝 Adding user message:', userMessage);
@@ -732,8 +731,7 @@ Please respond with exactly 6 helpful suggestions, one per line, without numberi
               ? { ...msg, content: streamedContent }
               : msg
           ));
-        },
-        uploadedDocuments.length > 0 ? uploadedDocuments : undefined
+        }
       );
 
       console.log('📨 Streaming complete, final response:', botResponse);
@@ -813,159 +811,12 @@ Please respond with exactly 6 helpful suggestions, one per line, without numberi
     setSelectedTopic('');
     setDishonestyCount(0);
     setShowDishonestyModal(false);
-    setUploadedDocuments([]);
-    setUploadError('');
   };
 
-  // Document upload functions
-  const handleFileUpload = async (files: FileList | null): Promise<void> => {
-    if (!files || files.length === 0) return;
-    
-    setIsUploading(true);
-    setUploadError('');
-    
-    try {
-      const newDocuments: UploadedDocument[] = [];
-      
-      for (let i = 0; i < files.length; i++) {
-        const file = files[i];
-        
-        // Check file type
-        if (!file.type.includes('text') && !file.name.endsWith('.txt') && !file.name.endsWith('.doc') && !file.name.endsWith('.docx')) {
-          throw new Error(`Unsupported file type: ${file.name}. Please upload text files (.txt, .doc, .docx) only.`);
-        }
-        
-        // Check file size (max 5MB)
-        if (file.size > 5 * 1024 * 1024) {
-          throw new Error(`File too large: ${file.name}. Maximum size is 5MB.`);
-        }
-        
-        const content = await readFileContent(file);
-        const document: UploadedDocument = {
-          id: Date.now().toString() + i,
-          name: file.name,
-          content: content,
-          size: file.size,
-          type: file.type,
-          uploadedAt: new Date()
-        };
-        
-        newDocuments.push(document);
-      }
-      
-      setUploadedDocuments(prev => [...prev, ...newDocuments]);
-      
-      // Add files to chat context automatically
-      if (newDocuments.length > 0) {
-        await addFilesToChatContext(newDocuments);
-      }
-      
-      // Auto-generate revision feedback for the first document
-      if (newDocuments.length > 0) {
-        await generateRevisionFeedback(newDocuments[0]);
-      }
-      
-    } catch (error) {
-      setUploadError(error instanceof Error ? error.message : 'Failed to upload file');
-    } finally {
-      setIsUploading(false);
-    }
-  };
 
-  const readFileContent = (file: File): Promise<string> => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        const content = e.target?.result as string;
-        resolve(content);
-      };
-      reader.onerror = () => reject(new Error('Failed to read file'));
-      reader.readAsText(file);
-    });
-  };
 
-  // Add uploaded files to chat context
-  const addFilesToChatContext = async (files: UploadedDocument[]): Promise<void> => {
-    const fileList = files.map(f => f.name).join(', ');
-    const contextMessage: Message = {
-      id: messages.length + 1,
-      type: 'bot',
-      content: `📎 **Files Added to Context**: I've added ${files.length} file(s) to our conversation: ${fileList}\n\nYou can now reference these files in your questions, and I'll be able to analyze and discuss their content with you.`,
-      timestamp: new Date(),
-      attachments: files
-    };
-    
-    setMessages(prev => [...prev, contextMessage]);
-  };
 
-  const generateRevisionFeedback = async (document: UploadedDocument): Promise<void> => {
-    const feedbackPrompt = `I've uploaded a document titled "${document.name}" for revision feedback. Please analyze this writing and provide constructive feedback focusing on AREAS FOR REVISION rather than individual mistakes. Consider:
 
-1. **Structure & Organization**: How well is the piece organized? Are there logical flow issues?
-2. **Content Development**: Are ideas fully developed and supported?
-3. **Clarity & Coherence**: Is the writing clear and easy to follow?
-4. **Style & Voice**: Does the writing style match the intended audience and purpose?
-5. **Overall Impact**: How effective is the piece in achieving its goals?
-
-Please provide specific, actionable suggestions for improvement. Here's the document content:
-
-${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' : ''}`;
-
-    // Add the feedback request to the chat
-    const userMessage: Message = {
-      id: messages.length + 1,
-      type: 'user',
-      content: feedbackPrompt,
-      timestamp: new Date()
-    };
-    
-    setMessages(prev => [...prev, userMessage]);
-    setInputValue('');
-    
-    // Process the feedback request
-    setIsTyping(true);
-    try {
-      const response = await callEchoLLM(feedbackPrompt, [document]);
-      const botMessage: Message = {
-        id: messages.length + 2,
-        type: 'bot',
-        content: response,
-        timestamp: new Date()
-      };
-      setMessages(prev => [...prev, botMessage]);
-    } catch (error) {
-      const errorMessage: Message = {
-        id: messages.length + 2,
-        type: 'bot',
-        content: 'I apologize, but I encountered an error while analyzing your document. Please try again or ask me a specific question about your writing.',
-        timestamp: new Date()
-      };
-      setMessages(prev => [...prev, errorMessage]);
-    } finally {
-      setIsTyping(false);
-      scrollToBottom();
-    }
-  };
-
-  const removeDocument = (documentId: string): void => {
-    setUploadedDocuments(prev => prev.filter(doc => doc.id !== documentId));
-  };
-
-  const handleDragOver = (e: React.DragEvent): void => {
-    e.preventDefault();
-    setIsDragOver(true);
-  };
-
-  const handleDragLeave = (e: React.DragEvent): void => {
-    e.preventDefault();
-    setIsDragOver(false);
-  };
-
-  const handleDrop = (e: React.DragEvent): void => {
-    e.preventDefault();
-    setIsDragOver(false);
-    handleFileUpload(e.dataTransfer.files);
-  };
 
   const getUIText = () => {
     const lang = getCurrentLanguage();
@@ -1011,19 +862,6 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
         paymentRequired: '💳 **Payment Required**: You\'re out of Echo credits! Please purchase more credits to continue using AI features.',
         rateLimited: '⏰ **Rate Limited**: You\'re making requests too quickly. Please wait a moment and try again.',
         connectionError: '🚨 **Connection Error**: Failed to connect to Echo AI. Please check your internet connection and try again.',
-        documentUpload: {
-          title: '📄 Document Upload',
-          subtitle: 'Upload your writing for revision feedback',
-          dragDropText: 'Drag and drop your document here, or click to browse',
-          uploadButton: 'Upload Document',
-          supportedFormats: 'Supported formats: .txt, .doc, .docx (max 5MB)',
-          uploading: 'Uploading...',
-          uploadSuccess: 'Document uploaded successfully!',
-          uploadError: 'Upload failed',
-          removeDocument: 'Remove',
-          analyzeDocument: 'Analyze for Revision',
-          noDocuments: 'No documents uploaded yet'
-        }
       },
       es: {
         tutorSubtitle: 'Tutor de ELA',
@@ -1065,19 +903,6 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
         paymentRequired: '💳 **Pago Requerido**: ¡Se te acabaron los créditos de Echo! Por favor compra más créditos para continuar usando las funciones de IA.',
         rateLimited: '⏰ **Límite de Velocidad**: Estás haciendo solicitudes muy rápido. Por favor espera un momento y vuelve a intentar.',
         connectionError: '🚨 **Error de Conexión**: Falló la conexión con Echo AI. Por favor verifica tu conexión a internet y vuelve a intentar.',
-        documentUpload: {
-          title: '📄 Subir Documento',
-          subtitle: 'Sube tu escritura para recibir retroalimentación de revisión',
-          dragDropText: 'Arrastra y suelta tu documento aquí, o haz clic para explorar',
-          uploadButton: 'Subir Documento',
-          supportedFormats: 'Formatos soportados: .txt, .doc, .docx (máx 5MB)',
-          uploading: 'Subiendo...',
-          uploadSuccess: '¡Documento subido exitosamente!',
-          uploadError: 'Error al subir',
-          removeDocument: 'Eliminar',
-          analyzeDocument: 'Analizar para Revisión',
-          noDocuments: 'Aún no se han subido documentos'
-        }
       },
       ht: {
         tutorSubtitle: 'Pwofesè ELA',
@@ -1119,19 +944,6 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
         paymentRequired: '💳 **Peman Obligatwa**: Ou pa gen kredi Echo ankò! Tanpri achte plis kredi pou kontinye itilize fonksyon AI yo.',
         rateLimited: '⏰ **Limit Vitès**: W ap fè demann yo twò vit. Tanpri tann yon moman ak eseye ankò.',
         connectionError: '🚨 **Erè Koneksyon**: Echèk koneksyon ak Echo AI. Tanpri verifye koneksyon entènèt ou ak eseye ankò.',
-        documentUpload: {
-          title: '📄 Telechaje Dokiman',
-          subtitle: 'Telechaje ekriti w pou resevwa fidbak pou revizyon',
-          dragDropText: 'Trennen ak lage dokiman w isit la, oswa klike pou navige',
-          uploadButton: 'Telechaje Dokiman',
-          supportedFormats: 'Fòma sipòte: .txt, .doc, .docx (maks 5MB)',
-          uploading: 'Ap telechaje...',
-          uploadSuccess: 'Dokiman telechaje avèk siksè!',
-          uploadError: 'Echèk telechaj',
-          removeDocument: 'Retire',
-          analyzeDocument: 'Analize pou Revizyon',
-          noDocuments: 'Pa gen dokiman telechaje ankò'
-        }
       }
     };
 
@@ -1175,28 +987,28 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
 
       {/* Help Panel */}
       {showHelp && (
-        <div className="bg-blue-100/50 backdrop-blur-md border-b border-gray-300/20 p-4">
-          <h3 className="text-lg font-semibold text-black mb-2">{uiText.helpTitle}</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-black">
+        <div className="bg-white/95 backdrop-blur-md border-b border-gray-200 p-4">
+          <h3 className="text-lg font-semibold text-gray-900 mb-3">{uiText.helpTitle}</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
             <div>
-              <h4 className="font-medium text-black">{uiText.helpReading.title}</h4>
-              <p>{uiText.helpReading.description}</p>
+              <h4 className="font-medium text-gray-900 mb-1">{uiText.helpReading.title}</h4>
+              <p className="text-gray-600">{uiText.helpReading.description}</p>
             </div>
             <div>
-              <h4 className="font-medium text-black">{uiText.helpWriting.title}</h4>
-              <p>{uiText.helpWriting.description}</p>
+              <h4 className="font-medium text-gray-900 mb-1">{uiText.helpWriting.title}</h4>
+              <p className="text-gray-600">{uiText.helpWriting.description}</p>
             </div>
             <div>
-              <h4 className="font-medium text-black">{uiText.helpGrammar.title}</h4>
-              <p>{uiText.helpGrammar.description}</p>
+              <h4 className="font-medium text-gray-900 mb-1">{uiText.helpGrammar.title}</h4>
+              <p className="text-gray-600">{uiText.helpGrammar.description}</p>
             </div>
             <div>
-              <h4 className="font-medium text-black">{uiText.helpLiterature.title}</h4>
-              <p>{uiText.helpLiterature.description}</p>
+              <h4 className="font-medium text-gray-900 mb-1">{uiText.helpLiterature.title}</h4>
+              <p className="text-gray-600">{uiText.helpLiterature.description}</p>
             </div>
           </div>
-          <p className="text-xs text-purple-300 mt-3">
-            <strong>{uiText.academicIntegrity}</strong> {uiText.helpIntegrity}
+          <p className="text-xs text-gray-500 mt-3 italic">
+            {uiText.academicIntegrity} {uiText.helpIntegrity}
           </p>
         </div>
       )}
@@ -1249,25 +1061,6 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
                 </ReactMarkdown>
               </div>
               
-              {/* Show file attachments as avatars */}
-              {message.attachments && message.attachments.length > 0 && (
-                <div className="mt-2 flex items-center gap-2">
-                  {message.attachments.map((file) => (
-                    <div key={file.id} className="group relative">
-                      <Avatar className="h-8 w-8 cursor-pointer hover:ring-2 hover:ring-blue-400 transition-all">
-                        <AvatarFallback className="bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 text-xs font-medium">
-                          {file.name.split('.').pop()?.toUpperCase() || 'DOC'}
-                        </AvatarFallback>
-                      </Avatar>
-                      {/* Hover tooltip */}
-                      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10">
-                        {file.name}
-                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
               
               <p className="text-xs mt-1 opacity-70 text-right">
                 {message.timestamp.toLocaleTimeString()}
@@ -1302,7 +1095,7 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
                     onKeyPress={handleKeyPress}
                     onPaste={handlePaste}
                     placeholder={uiText.inputPlaceholder}
-                    className="flex-1 bg-white/80 border border-gray-300/50 rounded-md px-4 py-2 text-black text-left placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent resize-none min-h-[60px] max-h-[120px] text-sm leading-relaxed chat-textarea relative z-10"
+                    className={`flex-1 bg-white/80 border border-gray-300/50 rounded-md px-4 py-2 text-black text-left placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent resize-none min-h-[60px] max-h-[120px] leading-relaxed chat-textarea relative z-10 ${getFontSizeClass()} ${getFontFamilyClass()}`}
                     rows={2}
                     style={{
                       scrollbarWidth: 'thin',
@@ -1315,7 +1108,7 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
                 </div>
                 {inputValue.length > 0 && (
                   <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mt-1 px-1 gap-1 sm:gap-0">
-                    <span className="text-xs text-gray-600 order-2 sm:order-1">
+                    <span className={`text-gray-600 order-2 sm:order-1 ${getFontSizeClass()} ${getFontFamilyClass()}`} style={{ fontSize: '0.75rem' }}>
                       {inputValue.length} characters
                     </span>
                     <div className="flex items-center justify-end gap-2 order-1 sm:order-2">
@@ -1344,12 +1137,12 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
           </div>
         </div>
 
-        {/* Right Sidebar - Quick Tips & File Upload */}
+        {/* Right Sidebar - Quick Tips */}
         <div className="w-80 lg:w-80 md:w-64 hidden md:flex bg-gray-200/30 backdrop-blur-md border-l border-gray-300/20 flex-col overflow-hidden min-h-0">
           <div className="p-4 border-b border-gray-300/20">
             <div className="flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-amber-600" />
-              <h4 className="text-sm font-semibold text-black">{uiText.smartSuggestions}</h4>
+              <h4 className={`font-semibold text-black ${getFontSizeClass()} ${getFontFamilyClass()}`}>{uiText.smartSuggestions}</h4>
             </div>
           </div>
           
@@ -1360,7 +1153,7 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
                     <button
                       key={`${suggestion}-${index}-${availableSuggestions.length}`}
                     onClick={() => handleSuggestionClick(suggestion)}
-                    className="w-full flex items-start gap-2 p-3 bg-white/60 hover:bg-white/80 border border-gray-300/30 hover:border-amber-500/50 text-black hover:text-black text-sm rounded-lg transition-all duration-500 text-left group animate-in fade-in slide-in-from-right-2"
+                    className={`w-full flex items-start gap-2 p-3 bg-white/60 hover:bg-white/80 border border-gray-300/30 hover:border-amber-500/50 text-black hover:text-black rounded-lg transition-all duration-500 text-left group animate-in fade-in slide-in-from-right-2 ${getFontSizeClass()} ${getFontFamilyClass()}`}
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
                     <div className="w-1.5 h-1.5 bg-amber-600 rounded-full group-hover:bg-amber-800 transition-colors mt-2 flex-shrink-0"></div>
@@ -1384,75 +1177,6 @@ ${document.content.substring(0, 3000)}${document.content.length > 3000 ? '...' :
             </div>
           )}
 
-          {/* File Upload Section */}
-          <div className="border-t border-gray-300/20 p-4">
-            <div className="flex items-center gap-2 mb-3">
-              <FileText className="w-4 h-4 text-amber-600" />
-              <h4 className="text-sm font-semibold text-black">Document Upload</h4>
-            </div>
-            <div className="bg-white/60 border border-gray-300/30 rounded-lg p-3">
-              <FileUpload 
-                onChange={(files: File[]) => {
-                  // Just store files locally, don't process them yet
-                  console.log('Files uploaded:', files.length);
-                }}
-                onFileRemove={(fileIndex: number) => {
-                  // Handle file removal if needed
-                  console.log('File removed at index:', fileIndex);
-                }}
-                onAddToChat={async (files: File[]) => {
-                  // Process files and add them to prompt box
-                  if (files.length === 0) return;
-                  
-                  setIsUploading(true);
-                  setUploadError('');
-                  
-                  try {
-                    const newDocuments: UploadedDocument[] = [];
-                    
-                    for (let i = 0; i < files.length; i++) {
-                      const file = files[i];
-                      
-                      // Check file type
-                      if (!file.type.includes('text') && !file.name.endsWith('.txt') && !file.name.endsWith('.doc') && !file.name.endsWith('.docx')) {
-                        throw new Error(`Unsupported file type: ${file.name}. Please upload text files (.txt, .doc, .docx) only.`);
-                      }
-                    
-                      // Check file size (max 5MB)
-                      if (file.size > 5 * 1024 * 1024) {
-                        throw new Error(`File too large: ${file.name}. Maximum size is 5MB.`);
-                      }
-                      
-                      const content = await readFileContent(file);
-                      const document: UploadedDocument = {
-                        id: Date.now().toString() + i,
-                        name: file.name,
-                        content: content,
-                        size: file.size,
-                        type: file.type,
-                        uploadedAt: new Date()
-                      };
-                      
-                      newDocuments.push(document);
-                    }
-                    
-                    setUploadedDocuments(prev => [...prev, ...newDocuments]);
-                    
-                    // Add files to prompt box instead of sending automatically
-                    const fileList = newDocuments.map(f => f.name).join(', ');
-                    const promptText = `I've uploaded ${files.length} document(s) for analysis: ${fileList}. Please analyze these documents and provide feedback.`;
-                    
-                    setInputValue(promptText);
-                    
-                  } catch (error) {
-                    setUploadError(error instanceof Error ? error.message : 'Failed to process files');
-                  } finally {
-                    setIsUploading(false);
-                  }
-                }}
-              />
-            </div>
-          </div>
         </div>
       </div>
 

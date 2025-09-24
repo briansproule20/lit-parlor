@@ -6,6 +6,7 @@ import { LogIn, ChevronDown, User, CreditCard, LogOut, BookOpen, Users, Trophy, 
 import { useLanguage } from '@/components/chat/language-context';
 import { LanguageProvider } from '@/components/chat/language-context';
 import { useDarkMode, DarkModeProvider } from '@/components/chat/dark-mode-context';
+import { TypographyProvider, TypographyWrapper, useTypography } from '@/components/typography-controls';
 import { EchoProvider, useEcho, EchoSignIn, EchoTokenPurchase } from '@merit-systems/echo-react-sdk';
 import ELATutorChatbot from '@/components/chat/ELATutorChatbot';
 import { DarkDotBackground } from '@/components/ui/dark-dot-background';
@@ -28,6 +29,7 @@ function ChatPageContent() {
   const echo = useEcho();
   const { isAuthenticated, isLoading, user, balance, signOut } = echo;
   const { isDarkMode, toggleDarkMode } = useDarkMode();
+  const { fontSize, fontFamily, setFontSize, setFontFamily } = useTypography();
   
   // Use state to track if component has mounted
   const [mounted, setMounted] = React.useState(false);
@@ -191,7 +193,7 @@ function ChatPageContent() {
             </div>
             
             <div className="flex flex-col items-end lg:items-end space-y-3">
-              {/* Top Row: Dark Mode Toggle + Language Selector */}
+              {/* Top Row: Dark Mode Toggle + Language Selector + Typography Controls */}
               <div className="flex items-center space-x-3">
                 {/* Dark Mode Toggle */}
                 <button
@@ -205,6 +207,55 @@ function ChatPageContent() {
                 >
                   {isDarkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
                 </button>
+                
+                {/* Typography Controls */}
+                <div className="flex items-center space-x-2">
+                  {/* Font Size Selector */}
+                  <div className="relative">
+                    <select
+                      value={fontSize}
+                      onChange={(e) => setFontSize(e.target.value as 'small' | 'medium' | 'large')}
+                      className={`backdrop-blur-md px-2 py-2 rounded text-sm appearance-none cursor-pointer transition-colors ${
+                        isDarkMode
+                          ? 'bg-slate-700/50 border border-slate-600/30 text-slate-200 hover:bg-slate-600/50'
+                          : 'bg-amber-800/20 border border-amber-700/30 text-amber-900 hover:bg-amber-800/30'
+                      }`}
+                      style={{ paddingRight: '2rem' }}
+                    >
+                      <option value="small" className={isDarkMode ? 'bg-slate-800 text-slate-200' : 'bg-amber-50 text-amber-900'}>Small</option>
+                      <option value="medium" className={isDarkMode ? 'bg-slate-800 text-slate-200' : 'bg-amber-50 text-amber-900'}>Medium</option>
+                      <option value="large" className={isDarkMode ? 'bg-slate-800 text-slate-200' : 'bg-amber-50 text-amber-900'}>Large</option>
+                    </select>
+                    <div className="absolute right-2 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                      <ChevronDown className={`w-3 h-3 ${
+                        isDarkMode ? 'text-slate-400' : 'text-amber-700'
+                      }`} />
+                    </div>
+                  </div>
+                  
+                  {/* Font Family Selector */}
+                  <div className="relative">
+                    <select
+                      value={fontFamily}
+                      onChange={(e) => setFontFamily(e.target.value as 'garamond' | 'sans-serif' | 'dyslexic')}
+                      className={`backdrop-blur-md px-2 py-2 rounded text-sm appearance-none cursor-pointer transition-colors ${
+                        isDarkMode
+                          ? 'bg-slate-700/50 border border-slate-600/30 text-slate-200 hover:bg-slate-600/50'
+                          : 'bg-amber-800/20 border border-amber-700/30 text-amber-900 hover:bg-amber-800/30'
+                      }`}
+                      style={{ paddingRight: '2rem' }}
+                    >
+                      <option value="garamond" className={isDarkMode ? 'bg-slate-800 text-slate-200' : 'bg-amber-50 text-amber-900'}>Garamond</option>
+                      <option value="sans-serif" className={isDarkMode ? 'bg-slate-800 text-slate-200' : 'bg-amber-50 text-amber-900'}>Sans-serif</option>
+                      <option value="dyslexic" className={isDarkMode ? 'bg-slate-800 text-slate-200' : 'bg-amber-50 text-amber-900'}>Dyslexic</option>
+                    </select>
+                    <div className="absolute right-2 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                      <ChevronDown className={`w-3 h-3 ${
+                        isDarkMode ? 'text-slate-400' : 'text-amber-700'
+                      }`} />
+                    </div>
+                  </div>
+                </div>
                 
                 {/* Language Selector */}
                 <div className="relative">
@@ -243,13 +294,11 @@ function ChatPageContent() {
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 py-4 relative z-10">
-        
-
-        
-        {/* ELA Tutor Chatbot */}
-        <div className="mb-6 relative z-20">
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-2xl h-[90vh] min-h-[800px] w-full overflow-hidden relative">
-            <ELATutorChatbot />
+        <TypographyWrapper>
+          {/* ELA Tutor Chatbot */}
+          <div className="mb-6 relative z-20">
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-2xl h-[90vh] min-h-[800px] w-full overflow-hidden relative">
+              <ELATutorChatbot />
             
             {/* Sign In Modal Overlay */}
             {!isAuthenticated && !isLoading && (
@@ -316,6 +365,7 @@ function ChatPageContent() {
 
 
 
+        </TypographyWrapper>
       </div>
     </div>
   );
@@ -325,7 +375,9 @@ export default function ChatPage() {
   return (
     <LanguageProvider>
       <DarkModeProvider>
-        <ChatPageContent />
+        <TypographyProvider>
+          <ChatPageContent />
+        </TypographyProvider>
       </DarkModeProvider>
     </LanguageProvider>
   );

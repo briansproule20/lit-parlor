@@ -12,6 +12,16 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'garamond': ['Garamond', 'serif'],
+        'sans': ['Inter', 'system-ui', 'sans-serif'],
+        'dyslexic': ['OpenDyslexic', 'sans-serif'],
+      },
+      fontSize: {
+        'small': '14px',
+        'medium': '16px', 
+        'large': '18px',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
