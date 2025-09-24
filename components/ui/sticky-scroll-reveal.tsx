@@ -85,7 +85,7 @@ export const StickyScroll = ({
             <div
               key={item.title + index}
               className="my-16"
-              ref={(el) => itemRefs.current[index] = el}
+              ref={(el) => { itemRefs.current[index] = el; }}
             >
               <motion.h2
                 initial={{
