@@ -646,8 +646,130 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Parlor's Mini Apps Section */}
+        <div className="text-center mb-12">
+          <div className="max-w-5xl mx-auto">
+            <div className="inline-block p-8 rounded-2xl shadow-2xl relative overflow-hidden" style={{
+              background: `
+                radial-gradient(circle at 25% 20%, rgba(252, 248, 227, 0.95) 0%, transparent 60%),
+                radial-gradient(circle at 75% 80%, rgba(245, 222, 179, 0.9) 0%, transparent 60%),
+                linear-gradient(135deg, #FEFBF0 0%, #F5DEB3 20%, #DEB887 40%, #F5DEB3 60%, #E6D8B5 80%, #FEFBF0 100%)
+              `,
+              border: '4px solid #92400e',
+              boxShadow: `
+                0 8px 32px rgba(139, 69, 19, 0.4),
+                inset 0 2px 8px rgba(255, 255, 255, 0.7),
+                inset 0 -2px 4px rgba(139, 69, 19, 0.2)
+              `
+            }}>
+              {/* Background Beams Effect */}
+              <BackgroundBeams className="opacity-90" />
 
+              <div className="relative z-10">
+                <h2 className="text-3xl font-bold text-amber-900 mb-6 font-serif">
+                  LitParlor's Mini Apps
+                </h2>
+                <p className="text-amber-800 text-lg leading-relaxed font-serif mb-8 max-w-4xl mx-auto">
+                  Purpose-built educational tools powered by <a 
+                    href="https://www.merit.systems/blog/echo" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-amber-700 hover:text-amber-600 underline font-semibold"
+                  >
+                    Merit Systems Echo infrastructure
+                  </a>. Each app is designed to excel at one specific task, delivering focused value without the bloat of traditional platforms.
+                </p>
 
+                {/* Mini Apps Grid */}
+                <div className="grid md:grid-cols-2 gap-8 mb-8">
+                  {/* ELA Tutor Chat */}
+                  <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 border-2 border-amber-300 hover:border-amber-400 transition-all duration-300 hover:shadow-lg">
+                    <div className="flex items-center justify-center mb-4">
+                      <img 
+                        src="/images/ela-tutor-chat.png" 
+                        alt="ELA Tutor Chat Logo" 
+                        className="w-16 h-16 object-contain"
+                      />
+                    </div>
+                    <h3 className="text-xl font-bold text-amber-900 mb-2 font-serif">ELA Tutor Chat</h3>
+                    <p className="text-amber-700 text-sm font-serif mb-4">
+                      AI-powered English Language Arts tutoring with personalized feedback, writing assistance, and literary analysis.
+                    </p>
+                    <Link
+                      href="/chat"
+                      className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition-all duration-300 hover:scale-105 text-sm"
+                    >
+                      Try ELA Tutor →
+                    </Link>
+                  </div>
+
+                  {/* History Tutor Chat */}
+                  <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 border-2 border-amber-300 hover:border-amber-400 transition-all duration-300 hover:shadow-lg">
+                    <div className="flex items-center justify-center mb-4">
+                      <img 
+                        src="/images/history-tutor-chat.png" 
+                        alt="History Tutor Chat Logo" 
+                        className="w-16 h-16 object-contain"
+                      />
+                    </div>
+                    <h3 className="text-xl font-bold text-amber-900 mb-2 font-serif">History Tutor Chat</h3>
+                    <p className="text-amber-700 text-sm font-serif mb-4">
+                      Specialized historical education with context analysis, timeline exploration, and critical thinking development.
+                    </p>
+                    <a
+                      href="https://historytutor.litparlor.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition-all duration-300 hover:scale-105 text-sm"
+                    >
+                      Try History Tutor →
+                    </a>
+                  </div>
+                </div>
+
+                {/* Echo Infrastructure Benefits */}
+                <div className="bg-amber-100/70 rounded-lg p-6 backdrop-blur-sm border border-amber-300">
+                  <h3 className="text-xl font-semibold text-amber-900 mb-4 font-serif">The Power of Mini Apps</h3>
+                  <div className="grid md:grid-cols-2 gap-4 text-left">
+                    <div className="space-y-3">
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 bg-amber-600 rounded-full mt-2 flex-shrink-0"></div>
+                        <p className="text-amber-800 font-serif text-sm">
+                          <strong>Purpose-built for one task</strong> - No feature bloat, just focused excellence
+                        </p>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 bg-amber-600 rounded-full mt-2 flex-shrink-0"></div>
+                        <p className="text-amber-800 font-serif text-sm">
+                          <strong>Live in your browser</strong> - No downloads, instant access
+                        </p>
+                      </div>
+                    </div>
+                    <div className="space-y-3">
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 bg-amber-600 rounded-full mt-2 flex-shrink-0"></div>
+                        <p className="text-amber-800 font-serif text-sm">
+                          <strong>Pay as you go</strong> - Only pay for what you use
+                        </p>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 bg-amber-600 rounded-full mt-2 flex-shrink-0"></div>
+                        <p className="text-amber-800 font-serif text-sm">
+                          <strong>No bloated subscription fees</strong> - Transparent, usage-based pricing
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="mt-4 text-center">
+                    <p className="text-amber-700 text-sm font-serif">
+                      Powered by Echo's micro-app infrastructure - The future of focused, efficient applications.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* Footer */}
         <div className="text-center mt-12 border-t border-amber-600/30 pt-8">
