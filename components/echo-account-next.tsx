@@ -1,6 +1,6 @@
 'use client';
 
-import { useEcho } from '@merit-systems/echo-next-sdk/client';
+import { useEcho } from '@merit-systems/echo-react-sdk';
 import { EchoAccountButton } from './echo-account';
 
 export function EchoAccount() {
