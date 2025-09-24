@@ -9,13 +9,13 @@ import { LogOut } from 'lucide-react';
 // Simple balance component placeholder - you can customize this
 const EchoBalance = ({ echo }: { echo: EchoContextValue }) => {
   const { balance, freeTierBalance } = echo;
-  const totalBalance = (balance?.balance || 0) + (freeTierBalance?.userSpendInfo.amountLeft || 0);
+  const totalBalance = (balance?.balance || 0) + (freeTierBalance?.userSpendInfo?.amountLeft || 0);
 
   return (
     <div className="space-y-2">
       <h4 className="font-medium text-sm">Account Balance</h4>
       <div className="text-2xl font-bold">${(totalBalance / 100).toFixed(2)}</div>
-      {freeTierBalance?.userSpendInfo.amountLeft > 0 && (
+      {freeTierBalance?.userSpendInfo?.amountLeft && freeTierBalance.userSpendInfo.amountLeft > 0 && (
         <p className="text-xs text-muted-foreground">
           Includes ${(freeTierBalance.userSpendInfo.amountLeft / 100).toFixed(2)} free credits
         </p>
