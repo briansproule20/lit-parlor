@@ -15,19 +15,19 @@ const literaryMovementsContent = [
             quote: "Sing, goddess, of Achilles' rage, black and murderous, that cost the Greeks incalculable pain, pitched countless souls of heroes into Hades' dark, and left their bodies to rot as feasts for dogs and birds.",
             name: "Homer",
             designation: "Epic Poet • The Iliad",
-            src: "https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            src: "https://upload.wikimedia.org/wikipedia/commons/1/1c/Homer_British_Museum.jpg"
           },
           {
             quote: "There is nothing more wretched than man of all the things that breathe and move on the earth. Call no man happy until he is dead, but only lucky.",
             name: "Sophocles",
             designation: "Tragedian • Oedipus Rex",
-            src: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            src: "https://www.stagemilk.com/wp-content/uploads/2012/03/sophocles.jpg"
           },
           {
             quote: "Fortune favors the bold. Love conquers all things; let us too surrender to Love. The greatest wealth is to live content with little.",
             name: "Virgil",
             designation: "Roman Poet • The Aeneid",
-            src: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Parco_della_Grotta_di_Posillipo5_%28crop%29.jpg/250px-Parco_della_Grotta_di_Posillipo5_%28crop%29.jpg"
           }
         ]}
         autoplay={false}
