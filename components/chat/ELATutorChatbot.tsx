@@ -410,7 +410,7 @@ const ELATutorChatbot: React.FC = () => {
       }
 
       const { textStream } = await streamText({
-        model: await openai('gpt-5'),
+        model: await openai('gpt-4o'),
         messages: [
           { role: 'system', content: buildSystemPrompt(getCurrentLanguage().code, complexity, false, fileContext) },
           ...conversationHistory,
@@ -460,7 +460,7 @@ const ELATutorChatbot: React.FC = () => {
       }
 
       const { text } = await generateText({
-        model: await openai('gpt-5'),
+        model: await openai('gpt-4o'),
         messages: [
           { role: 'system', content: buildSystemPrompt(getCurrentLanguage().code, complexity, false, fileContext) },
           ...conversationHistory,
