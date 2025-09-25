@@ -13,6 +13,8 @@ export const StickyScroll = ({
     title: string;
     description: string;
     content?: React.ReactNode | any;
+    dateRange?: string;
+    countries?: string;
   }[];
   contentClassName?: string;
   onActiveCardChange?: (index: number) => void;
@@ -86,37 +88,56 @@ export const StickyScroll = ({
       ref={ref}
     >
       <div className="div relative flex items-start px-4">
-        <div className="max-w-2xl">
+        <div className="max-w-4xl">
           {content.map((item, index) => (
             <div
               key={item.title + index}
-              className="my-16"
+              className="my-16 flex items-start"
               ref={(el) => {
                 itemRefs.current[index] = el;
               }}
             >
-              <motion.h2
-                initial={{
-                  opacity: 0,
-                }}
+              {/* Date/Country Info */}
+              <motion.div
+                initial={{ opacity: 0 }}
                 animate={{
                   opacity: activeCard === index ? 1 : 0.3,
                 }}
-                className="text-2xl font-bold text-slate-100"
+                className="w-48 flex-shrink-0 mr-8 text-right"
               >
-                {item.title}
-              </motion.h2>
-              <motion.p
-                initial={{
-                  opacity: 0,
-                }}
-                animate={{
-                  opacity: activeCard === index ? 1 : 0.3,
-                }}
-                className="text-kg mt-10 max-w-sm text-slate-300"
-              >
-                {item.description}
-              </motion.p>
+                <div className="text-sm font-semibold text-blue-400 mb-2">
+                  {item.dateRange || "Date Unknown"}
+                </div>
+                <div className="text-xs text-slate-400">
+                  {item.countries || "Location Unknown"}
+                </div>
+              </motion.div>
+
+              {/* Movement Content */}
+              <div className="flex-1">
+                <motion.h2
+                  initial={{
+                    opacity: 0,
+                  }}
+                  animate={{
+                    opacity: activeCard === index ? 1 : 0.3,
+                  }}
+                  className="text-2xl font-bold text-slate-100"
+                >
+                  {item.title}
+                </motion.h2>
+                <motion.p
+                  initial={{
+                    opacity: 0,
+                  }}
+                  animate={{
+                    opacity: activeCard === index ? 1 : 0.3,
+                  }}
+                  className="text-kg mt-10 max-w-sm text-slate-300"
+                >
+                  {item.description}
+                </motion.p>
+              </div>
             </div>
           ))}
           <div className="h-40" />

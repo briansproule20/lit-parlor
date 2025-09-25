@@ -9,6 +9,8 @@ const literaryMovementsContent = [
   {
     title: "Classical Literature",
     description: "Ancient Greek and Roman works including epic poetry, drama, and philosophy. The foundation of Western literature, featuring works like Homer's Iliad and Odyssey, Greek tragedies, and Roman poetry. These works established literary forms and themes that continue to influence writers today.",
+    dateRange: "8th century BC - 5th century AD",
+    countries: "Greece, Rome",
     content: (
       <AnimatedTestimonials
         testimonials={[
@@ -38,6 +40,8 @@ const literaryMovementsContent = [
   {
     title: "Medieval Literature",
     description: "Religious texts, allegories, chivalric romances, and vernacular poetry. This period saw the rise of courtly romance, religious allegory, and the development of vernacular literature. Works like Dante's Divine Comedy and Chaucer's Canterbury Tales defined this era.",
+    dateRange: "5th century - 15th century",
+    countries: "Italy, England, France, Germany",
     content: (
       <AnimatedTestimonials
         testimonials={[
@@ -67,6 +71,8 @@ const literaryMovementsContent = [
   {
     title: "Renaissance",
     description: "Humanism, revival of classical forms, emphasis on individualism. The Renaissance brought a renewed interest in classical learning, human potential, and artistic achievement. Shakespeare, Marlowe, and other writers revolutionized drama and poetry during this period.",
+    dateRange: "14th century - 17th century",
+    countries: "Italy, England, France, Spain",
     content: (
       <AnimatedTestimonials
         testimonials={[
@@ -96,6 +102,8 @@ const literaryMovementsContent = [
   {
     title: "Baroque",
     description: "Ornate, dramatic style with religious and secular themes. Baroque literature emphasized grandeur, emotional intensity, and complex metaphors. Writers like John Milton created epic works that combined classical traditions with Christian themes.",
+    dateRange: "17th century - early 18th century",
+    countries: "England, France, Spain, Italy",
     content: (
       <AnimatedTestimonials
         testimonials={[
@@ -125,6 +133,8 @@ const literaryMovementsContent = [
   {
     title: "Neoclassicism",
     description: "Return to classical ideals of order, reason, and formal structure. Writers like Alexander Pope and Jonathan Swift emphasized wit, satire, and moral instruction, following classical models of proportion and restraint.",
+    dateRange: "1660 - 1798",
+    countries: "England, France",
     content: (
       <AnimatedTestimonials
         testimonials={[
@@ -154,6 +164,8 @@ const literaryMovementsContent = [
   {
     title: "Enlightenment Literature",
     description: "Emphasis on reason, science, and social progress. Writers like Voltaire and Samuel Johnson promoted rational thinking, scientific inquiry, and social reform through literature that challenged traditional authority.",
+    dateRange: "1685 - 1815",
+    countries: "France, England, Germany, Scotland",
     content: (
       <AnimatedTestimonials
         testimonials={[
@@ -195,6 +207,8 @@ const literaryMovementsContent = [
   {
     title: "Romanticism",
     description: "Emotion, nature, imagination, and individualism. Romantic writers like Wordsworth, Coleridge, and Byron rejected the rationalism of the Enlightenment, instead celebrating feeling, intuition, and the sublime power of nature.",
+    dateRange: "1798 - 1837",
+    countries: "England, Germany, France",
     content: (
       <AnimatedTestimonials
         testimonials={[
@@ -236,6 +250,8 @@ const literaryMovementsContent = [
   {
     title: "Gothic Literature",
     description: "Horror, mystery, supernatural elements. Gothic writers like Mary Shelley and Edgar Allan Poe explored the darker aspects of human nature, creating atmospheres of terror and psychological complexity.",
+    dateRange: "1760s - 1840s",
+    countries: "England, Germany, USA",
     content: (
       <AnimatedTestimonials
         testimonials={[
@@ -271,6 +287,8 @@ const literaryMovementsContent = [
   {
     title: "Transcendentalism",
     description: "American philosophical and literary movement emphasizing individualism, nature, and spiritual intuition. Transcendentalist writers like Emerson and Thoreau believed in the inherent goodness of people and nature, advocating for self-reliance and civil disobedience.",
+    dateRange: "1830s - 1860s",
+    countries: "USA (New England)",
     content: (
       <AnimatedTestimonials
         testimonials={[
@@ -300,6 +318,8 @@ const literaryMovementsContent = [
   {
     title: "Dark Transcendentalism",
     description: "American literary movement that challenged optimistic Transcendentalist beliefs, exploring the darker aspects of human nature and society. Writers like Hawthorne and Melville examined sin, guilt, and the complexities of moral ambiguity.",
+    dateRange: "1850s - 1860s",
+    countries: "USA",
     content: (
       <AnimatedTestimonials
         testimonials={[
@@ -329,6 +349,8 @@ const literaryMovementsContent = [
   {
     title: "Realism",
     description: "Accurate depiction of everyday life and social conditions. Realist writers like Charles Dickens and George Eliot portrayed ordinary people and social problems with unprecedented detail and psychological insight.",
+    dateRange: "1848 - 1880s",
+    countries: "France, England, USA, Russia",
     content: (
       <AnimatedTestimonials
         testimonials={[
@@ -406,6 +428,8 @@ const literaryMovementsContent = [
   {
     title: "Naturalism",
     description: "Scientific determinism applied to literature. Naturalist writers like Émile Zola and Theodore Dreiser depicted characters as products of their environment and heredity, applying scientific methods to literary observation.",
+    dateRange: "1880s - 1920s",
+    countries: "France, USA, Germany",
     content: (
       <AnimatedTestimonials
         testimonials={[
@@ -447,6 +471,8 @@ const literaryMovementsContent = [
   {
     title: "Modernism",
     description: "Experimental forms, stream of consciousness, fragmentation. Modernist writers like James Joyce and Virginia Woolf broke traditional narrative structures to reflect the complexity and alienation of modern life.",
+    dateRange: "1890s - 1940s",
+    countries: "England, Ireland, USA, France",
     content: (
       <AnimatedTestimonials
         testimonials={[
@@ -536,6 +562,8 @@ const literaryMovementsContent = [
   {
     title: "Imagism",
     description: "Clear, precise imagery in poetry. Imagist poets like Ezra Pound and H.D. emphasized direct treatment of subjects, economy of language, and the presentation of clear, sharp images.",
+    dateRange: "1909 - 1917",
+    countries: "England, USA",
     content: (
       <AnimatedTestimonials
         testimonials={[
@@ -571,6 +599,8 @@ const literaryMovementsContent = [
   {
     title: "Harlem Renaissance",
     description: "African American cultural and literary flowering. Writers like Langston Hughes and Zora Neale Hurston celebrated Black culture, identity, and experience during this vibrant period of artistic achievement in Harlem.",
+    dateRange: "1918 - 1940",
+    countries: "USA (Harlem, NYC)",
     content: (
       <AnimatedTestimonials
         testimonials={[
@@ -606,6 +636,8 @@ const literaryMovementsContent = [
   {
     title: "Beat Generation",
     description: "Counter-cultural, spontaneous prose and poetry. Beat writers like Jack Kerouac and Allen Ginsberg rejected mainstream American values, experimenting with drugs, Eastern philosophy, and spontaneous creative expression.",
+    dateRange: "1950s - 1960s",
+    countries: "USA",
     content: (
       <AnimatedTestimonials
         testimonials={[
@@ -645,8 +677,53 @@ const literaryMovementsContent = [
     ),
   },
   {
+    title: "Civil Rights Era Literature",
+    description: "Literature addressing racial injustice and the African American experience during the Civil Rights era. Writers like James Baldwin, Ralph Ellison, and Lorraine Hansberry explored themes of identity, racism, and social justice through powerful realist narratives.",
+    dateRange: "1940s - 1970s",
+    countries: "USA",
+    content: (
+      <AnimatedTestimonials
+        testimonials={[
+          {
+            quote: "Not everything that is faced can be changed, but nothing can be changed until it is faced. The most dangerous creation of any society is the man who has nothing to lose.",
+            name: "James Baldwin",
+            designation: "Civil Rights Writer • Go Tell It on the Mountain & The Fire Next Time",
+            src: "https://upload.wikimedia.org/wikipedia/commons/3/37/James_Baldwin_33_Allan_Warren.jpg"
+          },
+          {
+            quote: "I am an invisible man. No, I don't mean a spook like those who haunted Edgar Allan Poe; nor am I one of your Hollywood-movie ectoplasms. I am a man of substance, of flesh and bone, fiber and liquids—and I might even be said to possess a mind.",
+            name: "Ralph Ellison",
+            designation: "Civil Rights Writer • Invisible Man & Shadow and Act",
+            src: "https://www.read.gov/fiction/images/Ellison_1_large.gif"
+          },
+          {
+            quote: "A raisin in the sun. What happens to a dream deferred? Does it dry up like a raisin in the sun? Or fester like a sore—and then run? Never be afraid to sit awhile and think.",
+            name: "Lorraine Hansberry",
+            designation: "Civil Rights Playwright • A Raisin in the Sun & The Sign in Sidney Brustein's Window",
+            src: "https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcQfPMKGx6VbV3LT5uUuEwCabF_RUUsd3RjQj-ikN56cwHjYQlWi1OBxnwUzs8mphfDQBmZUek6YuuYammQ"
+          },
+          {
+            quote: "The artist must bow to the monster of his own imagination. Men can starve from a lack of self-realization as much as they can from a lack of bread.",
+            name: "Richard Wright",
+            designation: "Civil Rights Writer • Native Son & Black Boy",
+            src: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ0opwc5rLd077wbqVp7rqKAYHCZo_BlF3_bOUv6pKSo8-mS2OdfUlg7VjQruxTKG9gUJ1x1NWjgKvoGwWZmjZQqfckiUTT7HMLmtJeXaA"
+          },
+          {
+            quote: "There is no greater agony than bearing an untold story inside you. If you don't like something, change it. If you can't change it, change your attitude.",
+            name: "Maya Angelou",
+            designation: "Civil Rights Writer • I Know Why the Caged Bird Sings & Gather Together in My Name",
+            src: "https://s36500.pcdn.co/wp-content/uploads/2014/05/MayaAngelou.jpg"
+          }
+        ]}
+        autoplay={false}
+      />
+    ),
+  },
+  {
     title: "Postmodernism",
     description: "Meta-fiction, pastiche, questioning of grand narratives. Postmodernist writers like Thomas Pynchon and David Foster Wallace challenged traditional storytelling, blending high and low culture while questioning absolute truths.",
+    dateRange: "1960s - 1990s",
+    countries: "USA, Europe, Global",
     content: (
       <AnimatedTestimonials
         testimonials={[
@@ -688,6 +765,8 @@ const literaryMovementsContent = [
   {
     title: "Magical Realism",
     description: "Fantastical elements in realistic settings. Magic realist writers like Gabriel García Márquez blend magical occurrences with everyday reality, creating works that challenge conventional boundaries between fantasy and realism.",
+    dateRange: "1960s - present",
+    countries: "Latin America, Global",
     content: (
       <AnimatedTestimonials
         testimonials={[
@@ -717,6 +796,8 @@ const literaryMovementsContent = [
   {
     title: "Confessional Poetry",
     description: "Personal, autobiographical verse. Confessional poets like Sylvia Plath and Robert Lowell broke taboos by writing directly about personal trauma, mental illness, and intimate family relationships.",
+    dateRange: "1950s - 1970s",
+    countries: "USA",
     content: (
       <AnimatedTestimonials
         testimonials={[
@@ -746,6 +827,8 @@ const literaryMovementsContent = [
   {
     title: "Postcolonial Literature",
     description: "Works from formerly colonized nations. Postcolonial writers like Chinua Achebe and Salman Rushdie explore themes of cultural identity, displacement, and the legacy of colonialism in newly independent nations.",
+    dateRange: "1950s - present",
+    countries: "Africa, India, Caribbean, Global South",
     content: (
       <AnimatedTestimonials
         testimonials={[
@@ -781,6 +864,8 @@ const literaryMovementsContent = [
   {
     title: "Feminist Literature",
     description: "Women's experiences and gender equality. Feminist writers like Margaret Atwood and Adrienne Rich examine gender roles, women's oppression, and the quest for equality through powerful literary works.",
+    dateRange: "1960s - present",
+    countries: "USA, Canada, UK, France",
     content: (
       <AnimatedTestimonials
         testimonials={[
@@ -813,6 +898,12 @@ const literaryMovementsContent = [
             name: "Ursula K. Le Guin",
             designation: "American Feminist Sci-Fi Writer • The Left Hand of Darkness & The Dispossessed",
             src: "https://media.newyorker.com/photos/5a6a04c099adb40acb9a023d/master/w_2560%2Cc_limit/Phillips-Ursula-K-LeGuin.jpg"
+          },
+          {
+            quote: "The most common way people give up their power is by thinking they don't have any. Womanist is to feminist as purple is to lavender.",
+            name: "Alice Walker",
+            designation: "American Feminist Writer • The Color Purple & In Search of Our Mothers' Gardens",
+            src: "https://english.colostate.edu/wp-content/uploads/sites/56/2017/02/alicewalker.jpg"
           }
         ]}
         autoplay={false}
@@ -822,6 +913,8 @@ const literaryMovementsContent = [
   {
     title: "Cyberpunk",
     description: "Technology, dystopian futures in science fiction. Cyberpunk writers like William Gibson explore the intersection of high technology and low society, creating dystopian visions of digital futures.",
+    dateRange: "1980s - 1990s",
+    countries: "USA, Japan",
     content: (
       <AnimatedTestimonials
         testimonials={[
