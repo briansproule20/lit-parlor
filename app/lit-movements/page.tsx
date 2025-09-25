@@ -574,22 +574,28 @@ const literaryMovementsContent = [
       <AnimatedTestimonials
         testimonials={[
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "Hold fast to dreams, for if dreams die, life is a broken-winged bird that cannot fly. What happens to a dream deferred? Does it dry up like a raisin in the sun?",
+            name: "Langston Hughes",
+            designation: "Harlem Renaissance Poet • The Weary Blues & Montage of a Dream Deferred",
+            src: "https://hips.hearstapps.com/hmg-prod/images/portrait-of-poet-author-playwright-and-harlem-renaissance-news-photo-1705592117.jpg?crop=0.898xw:0.627xh;0.0867xw,0.0273xh&resize=640:*"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "There are years that ask questions and years that answer. I have been in Sorrow's kitchen and licked out all the pots. Then you must tell the tale as it was told to me.",
+            name: "Zora Neale Hurston",
+            designation: "Harlem Renaissance Novelist • Their Eyes Were Watching God",
+            src: "https://cdn.britannica.com/33/227033-050-743B4E1A/Zora-Neale-Hurston.jpg"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "If we must die, let it not be like hogs hunted and penned in an inglorious spot. Like men we'll face the murderous, cowardly pack, pressed to the wall, dying, but fighting back!",
+            name: "Claude McKay",
+            designation: "Harlem Renaissance Poet • Harlem Shadows & If We Must Die",
+            src: "https://upload.wikimedia.org/wikipedia/commons/5/54/Claude_McKay_James_L._Allen_Portrait_Edit.jpg"
+          },
+          {
+            quote: "The problem of the twentieth century is the problem of the color line. One ever feels his twoness—an American, a Negro; two souls, two thoughts, two unreconciled strivings.",
+            name: "W.E.B. Du Bois",
+            designation: "Harlem Renaissance Scholar • The Souls of Black Folk",
+            src: "https://cdn.britannica.com/08/78408-050-4C599E7C/WEB-Du-Bois.jpg"
           }
         ]}
         autoplay={false}
