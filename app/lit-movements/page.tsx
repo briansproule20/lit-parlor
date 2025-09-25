@@ -268,6 +268,64 @@ const literaryMovementsContent = [
     ),
   },
   {
+    title: "Transcendentalism",
+    description: "American philosophical and literary movement emphasizing individualism, nature, and spiritual intuition. Transcendentalist writers like Emerson and Thoreau believed in the inherent goodness of people and nature, advocating for self-reliance and civil disobedience.",
+    content: (
+      <AnimatedTestimonials
+        testimonials={[
+          {
+            quote: "What lies behind us and what lies before us are tiny matters compared to what lies within us. Do not go where the path may lead, go instead where there is no path and leave a trail.",
+            name: "Ralph Waldo Emerson",
+            designation: "Transcendentalist • Self-Reliance & Nature",
+            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Ralph_Waldo_Emerson_ca1857_retouched.jpg/250px-Ralph_Waldo_Emerson_ca1857_retouched.jpg"
+          },
+          {
+            quote: "I went to the woods to live deliberately, to front only the essential facts of life. The mass of men lead lives of quiet desperation. In wildness is the preservation of the world.",
+            name: "Henry David Thoreau",
+            designation: "Transcendentalist • Walden & Civil Disobedience",
+            src: "https://upload.wikimedia.org/wikipedia/commons/f/f0/Benjamin_D._Maxham_-_Henry_David_Thoreau_-_Restored.jpg"
+          },
+          {
+            quote: "The only way to deal with an unfree world is to become so absolutely free that your very existence is an act of rebellion. A foolish consistency is the hobgoblin of little minds.",
+            name: "Margaret Fuller",
+            designation: "Transcendentalist • Woman in the Nineteenth Century",
+            src: "https://hips.hearstapps.com/hmg-prod/images/gettyimages-166443061.jpg"
+          }
+        ]}
+        autoplay={false}
+      />
+    ),
+  },
+  {
+    title: "Dark Transcendentalism",
+    description: "American literary movement that challenged optimistic Transcendentalist beliefs, exploring the darker aspects of human nature and society. Writers like Hawthorne and Melville examined sin, guilt, and the complexities of moral ambiguity.",
+    content: (
+      <AnimatedTestimonials
+        testimonials={[
+          {
+            quote: "Every individual has a place to fill in the world and is important in some respect whether he chooses to be so or not. No man can be perfectly happy till all are happy.",
+            name: "Nathaniel Hawthorne",
+            designation: "Dark Transcendentalist • The Scarlet Letter & Young Goodman Brown",
+            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Nathaniel_Hawthorne_by_Brady%2C_1860-64.jpg/250px-Nathaniel_Hawthorne_by_Brady%2C_1860-64.jpg"
+          },
+          {
+            quote: "It is better to fail in originality than to succeed in imitation. Call me Ishmael. I would prefer not to.",
+            name: "Herman Melville",
+            designation: "Dark Transcendentalist • Moby-Dick & Bartleby, the Scrivener",
+            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Herman_Melville_by_Joseph_O_Eaton.jpg/250px-Herman_Melville_by_Joseph_O_Eaton.jpg"
+          },
+          {
+            quote: "I'm Nobody! Who are you? Because I could not stop for Death, He kindly stopped for me. Hope is the thing with feathers that perches in the soul.",
+            name: "Emily Dickinson",
+            designation: "Dark Transcendentalist • Because I could not stop for Death",
+            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/EmilyDickinsonrestored.jpg/250px-EmilyDickinsonrestored.jpg"
+          }
+        ]}
+        autoplay={false}
+      />
+    ),
+  },
+  {
     title: "Realism",
     description: "Accurate depiction of everyday life and social conditions. Realist writers like Charles Dickens and George Eliot portrayed ordinary people and social problems with unprecedented detail and psychological insight.",
     content: (
@@ -351,51 +409,34 @@ const literaryMovementsContent = [
       <AnimatedTestimonials
         testimonials={[
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "If there is no struggle, there is no progress. Where justice is denied, where poverty is enforced, neither persons nor property will be safe. I would unite with anybody to do right and with nobody to do wrong.",
+            name: "Frederick Douglass",
+            designation: "Abolitionist Writer • Narrative of the Life of Frederick Douglass",
+            src: "https://www.visitmaryland.org/sites/default/files/styles/editorial_hero/public/legacy_images/Att-Frederick-Douglass-915x515.jpg?itok=7g48UbHc"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "The artist is nothing without the gift, but the gift is nothing without work. One forges one's style on the terrible anvil of daily deadlines. I am little concerned with beauty or perfection. I don't care for the great centuries. All I care about is life, struggle, intensity.",
+            name: "Émile Zola",
+            designation: "French Naturalist • Germinal & Nana",
+            src: "https://cdn.britannica.com/30/135430-050-E4E76642/Emile-Zola.jpg"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
-          }
-        ]}
-        autoplay={false}
-      />
-    ),
-  },
-  {
-    title: "Symbolism",
-    description: "Use of symbols to express ideas and emotions. Symbolist writers like Charles Baudelaire and Stéphane Mallarmé used indirect suggestion and musical language to convey meaning beyond literal representation.",
-    content: (
-      <AnimatedTestimonials
-        testimonials={[
-          {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "Our civilization is still in a middle stage, scarcely beast, in that it is no longer wholly guided by instinct; scarcely human, in that it is not yet wholly guided by reason.",
+            name: "Theodore Dreiser",
+            designation: "American Naturalist • Sister Carrie & An American Tragedy",
+            src: "https://cdn.britannica.com/03/79803-050-6C087DDB/Theodore-Dreiser.jpg"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "The proper function of man is to live, not to exist. I would rather be ashes than dust! I would rather that my spark should burn out in a brilliant blaze than it should be stifled by dry-rot.",
+            name: "Jack London",
+            designation: "American Naturalist • The Call of the Wild & White Fang",
+            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jack_London_young.jpg/960px-Jack_London_young.jpg"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "A man said to the universe: 'Sir, I exist!' 'However,' replied the universe, 'the fact has not created in me a sense of obligation.' None of them knew the color of the sky.",
+            name: "Stephen Crane",
+            designation: "American Naturalist • The Red Badge of Courage & Maggie: A Girl of the Streets",
+            src: "https://upload.wikimedia.org/wikipedia/commons/6/6c/SCrane2.JPG"
           }
         ]}
         autoplay={false}
@@ -434,64 +475,6 @@ const literaryMovementsContent = [
   {
     title: "Imagism",
     description: "Clear, precise imagery in poetry. Imagist poets like Ezra Pound and H.D. emphasized direct treatment of subjects, economy of language, and the presentation of clear, sharp images.",
-    content: (
-      <AnimatedTestimonials
-        testimonials={[
-          {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
-          },
-          {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
-          },
-          {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
-          }
-        ]}
-        autoplay={false}
-      />
-    ),
-  },
-  {
-    title: "Dadaism",
-    description: "Anti-art, absurdist movement. Dadaist writers like Tristan Tzara challenged conventional logic and aesthetics, using random techniques and nonsensical juxtapositions to critique bourgeois culture.",
-    content: (
-      <AnimatedTestimonials
-        testimonials={[
-          {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
-          },
-          {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
-          },
-          {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
-          }
-        ]}
-        autoplay={false}
-      />
-    ),
-  },
-  {
-    title: "Surrealism",
-    description: "Dreams, unconscious mind, automatic writing. Surrealist writers like André Breton explored the realm of dreams and the unconscious, using techniques like automatic writing to tap into hidden creative forces.",
     content: (
       <AnimatedTestimonials
         testimonials={[
