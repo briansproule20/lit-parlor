@@ -745,9 +745,9 @@ const literaryMovementsContent = [
   },
   {
     title: "Postmodernism",
+    dateRange: "21st Century",
+    countries: "Global",
     description: "Meta-fiction, pastiche, questioning of grand narratives. Postmodernist writers like Thomas Pynchon and David Foster Wallace challenged traditional storytelling, blending high and low culture while questioning absolute truths.",
-    dateRange: "1960s - 1990s",
-    countries: "USA, Europe, Global",
     content: (
       <AnimatedTestimonials
         testimonials={[
@@ -794,9 +794,9 @@ const literaryMovementsContent = [
   },
   {
     title: "Magical Realism",
+    dateRange: "21st Century",
+    countries: "Global",
     description: "Fantastical elements in realistic settings. Magic realist writers like Gabriel García Márquez blend magical occurrences with everyday reality, creating works that challenge conventional boundaries between fantasy and realism.",
-    dateRange: "1960s - present",
-    countries: "Latin America, Global",
     content: (
       <AnimatedTestimonials
         testimonials={[
@@ -825,9 +825,9 @@ const literaryMovementsContent = [
   },
   {
     title: "Confessional Poetry",
+    dateRange: "21st Century",
+    countries: "Global",
     description: "Personal, autobiographical verse. Confessional poets like Sylvia Plath and Robert Lowell broke taboos by writing directly about personal trauma, mental illness, and intimate family relationships.",
-    dateRange: "1950s - 1970s",
-    countries: "USA",
     content: (
       <AnimatedTestimonials
         testimonials={[
@@ -959,6 +959,8 @@ const literaryMovementsContent = [
   },
   {
     title: "Science Fiction",
+    dateRange: "21st Century",
+    countries: "Global",
     description: "Stories involving futuristic technology, space travel, alternate realities, or scientific speculation. Modern sci-fi explores themes like artificial intelligence, climate change, and biotechnology while maintaining the genre's tradition of examining humanity's relationship with technology.",
     content: (
       <AnimatedTestimonials
@@ -1006,27 +1008,53 @@ const literaryMovementsContent = [
   },
   {
     title: "Fantasy",
+    dateRange: "21st Century",
+    countries: "Global",
     description: "Works featuring magic, mythical creatures, imaginary worlds, or supernatural elements. Contemporary fantasy has expanded beyond traditional medievalism to include urban fantasy, magical realism, and diverse cultural mythologies.",
     content: (
       <AnimatedTestimonials
         testimonials={[
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "Not all those who wander are lost. All we have to decide is what to do with the time that is given us. Even the smallest person can change the course of the future.",
+            name: "J.R.R. Tolkien",
+            designation: "Fantasy Master • The Lord of the Rings & The Hobbit",
+            src: "https://cdn.britannica.com/65/66765-050-63A945A7/JRR-Tolkien.jpg"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "You can never get a cup of tea large enough or a book long enough to suit me. We are what we believe we are. Courage is not simply one of the virtues, but the form of every virtue at the testing point.",
+            name: "C.S. Lewis",
+            designation: "Fantasy Author • The Chronicles of Narnia & The Screwtape Letters",
+            src: "https://cdn.shopify.com/s/files/1/1185/0798/files/CS-Lewis-7.jpg"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "The purpose of a storyteller is not to tell you how to think, but to give you questions to think upon. The most important step a man can take. It's not the first one, is it? It's the next one.",
+            name: "Brandon Sanderson",
+            designation: "Fantasy Writer • Mistborn Series & The Stormlight Archive",
+            src: "https://www.brandonsanderson.com/cdn/shop/files/Screenshot_2024-07-26_at_11.59.47_AM.png?v=1722016793&width=480"
+          },
+          {
+            quote: "Fairy tales are more than true: not because they tell us that dragons exist, but because they tell us that dragons can be beaten. A book is a dream that you hold in your hands.",
+            name: "Neil Gaiman",
+            designation: "Fantasy Author • American Gods & The Sandman",
+            src: "https://supadu-io.imgix.net/harpercollins-mousecircus/mousecircus-site/neil-gaiman-image-full.jpg"
+          },
+          {
+            quote: "When you play the game of thrones, you win or you die. There is no middle ground. The lone wolf dies, but the pack survives. Winter is coming.",
+            name: "George R.R. Martin",
+            designation: "Fantasy Author • A Song of Ice and Fire Series",
+            src: "https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcT1MMHio5Za3P8MFiMMz6swyOXMOqGgRdoLS7x2CdxnILlH9A5hc5JRY3pJXHNAbHDIQfPAZDgaYZb7ZU8"
+          },
+          {
+            quote: "It is our choices, Harry, that show what we truly are, far more than our abilities. Happiness can be found even in the darkest of times, if one only remembers to turn on the light.",
+            name: "J.K. Rowling",
+            designation: "Fantasy Author • Harry Potter Series",
+            src: "https://stories.jkrowling.com/wp-content/uploads/2021/09/Shot-B-105_V2_CROP-e1630873059779.jpg"
+          },
+          {
+            quote: "I have never been able to stomach the violence of indifference. War is hell, but indifference is worse. The only way to survive is to become harder than your enemies.",
+            name: "R.F. Kuang",
+            designation: "Fantasy Author • The Poppy War Trilogy",
+            src: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ_hOAs23yBfOSSk6uyXqlNW5FDrGYubpER4lmQl5O_OcB4nV0OSeMHf34C2HLWwab3cCFp1J19NeYXU29Wc97e2U5hv49Acgf3nf6KUw"
           }
         ]}
         autoplay={false}
@@ -1035,6 +1063,8 @@ const literaryMovementsContent = [
   },
   {
     title: "Mystery/Detective Fiction",
+    dateRange: "21st Century",
+    countries: "Global",
     description: "Stories centered on solving crimes or puzzles, often featuring investigators. Modern mystery fiction includes psychological thrillers, cozy mysteries, and police procedurals that reflect contemporary social issues and forensic advances.",
     content: (
       <AnimatedTestimonials
@@ -1064,6 +1094,8 @@ const literaryMovementsContent = [
   },
   {
     title: "Horror & Thriller",
+    dateRange: "21st Century",
+    countries: "Global",
     description: "Literature designed to frighten, unsettle, or create suspense through supernatural, psychological, or dangerous elements. This combined genre explores social anxieties, psychological trauma, existential dread, and fast-paced narratives involving danger, conspiracy, and modern threats that keep readers on edge.",
     content: (
       <AnimatedTestimonials
@@ -1093,6 +1125,8 @@ const literaryMovementsContent = [
   },
   {
     title: "Romance",
+    dateRange: "21st Century",
+    countries: "Global",
     description: "Stories focused primarily on romantic relationships and emotional connections. Modern romance has diversified to include diverse voices, LGBTQ+ relationships, and subgenres that blend with other genres like fantasy and science fiction.",
     content: (
       <AnimatedTestimonials
@@ -1122,6 +1156,8 @@ const literaryMovementsContent = [
   },
   {
     title: "Historical Fiction",
+    dateRange: "21st Century",
+    countries: "Global",
     description: "Stories set in the past, attempting to recreate the details of earlier time periods. Modern historical fiction often focuses on underrepresented voices and perspectives, bringing marginalized stories to light with rigorous historical research.",
     content: (
       <AnimatedTestimonials
@@ -1151,6 +1187,8 @@ const literaryMovementsContent = [
   },
   {
     title: "Crime Fiction",
+    dateRange: "21st Century",
+    countries: "Global",
     description: "Broader category including detective fiction, noir, and stories about criminal activity. Contemporary crime fiction explores systemic issues, social justice, and the psychology of both criminals and victims in complex moral landscapes.",
     content: (
       <AnimatedTestimonials
