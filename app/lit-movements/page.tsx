@@ -274,22 +274,70 @@ const literaryMovementsContent = [
       <AnimatedTestimonials
         testimonials={[
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "Pain and suffering are always inevitable for a large intelligence and a deep heart. If you want to be happy, be. We sometimes encounter people, even perfect strangers, who begin to interest us at first sight.",
+            name: "Fyodor Dostoevsky",
+            designation: "Psychological Realist • Crime and Punishment & The Brothers Karamazov",
+            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Vasily_Perov_-_Портрет_Ф.М.Достоевского_-_Google_Art_Project.jpg/250px-Vasily_Perov_-_Портрет_Ф.М.Достоевского_-_Google_Art_Project.jpg"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "It was the best of times, it was the worst of times. No one is useless in this world who lightens the burdens of another. Have a heart that never hardens, and a temper that never tires, and a touch that never hurts.",
+            name: "Charles Dickens",
+            designation: "Social Realist • A Tale of Two Cities & Oliver Twist",
+            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Dickens_Gurney_head.jpg/250px-Dickens_Gurney_head.jpg"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "Everyone thinks of changing the world, but no one thinks of changing himself. If you want to be happy, be. The two most powerful warriors are patience and time.",
+            name: "Leo Tolstoy",
+            designation: "Epic Realist • War and Peace & Anna Karenina",
+            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/L.N.Tolstoy_Prokudin-Gorsky.jpg/250px-L.N.Tolstoy_Prokudin-Gorsky.jpg"
+          },
+          {
+            quote: "We work in the dark—we do what we can—we give what we have. Our doubt is our passion, and our passion is our task. The rest is the madness of art.",
+            name: "Henry James",
+            designation: "Psychological Realist • The Portrait of a Lady & The Turn of the Screw",
+            src: "https://upload.wikimedia.org/wikipedia/commons/e/ed/Henry_James_by_John_Singer_Sargent_cleaned.jpg"
+          },
+          {
+            quote: "A month in the country will give you more material than a year in the city. Death is terrible, but still more terrible is the feeling that you might live forever and never die.",
+            name: "Ivan Turgenev",
+            designation: "Russian Realist • Fathers and Sons & A Month in the Country",
+            src: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQj1Vl0GiYrbGY9cSMCu2ic-K1rJvMF16Dlsvt1_l9mzuv2gd-KSHYrTfOSKWF68omjxMrK_TZRTeESW4bLoCyPRKlv0nts1lKy-kHXyg"
+          },
+          {
+            quote: "There is no such thing as a great talent without great will power. Behind every great fortune there is a crime. A mother's happiness is like a beacon, lighting up the future but reflected also on the past.",
+            name: "Honoré de Balzac",
+            designation: "French Realist • La Comédie Humaine & Père Goriot",
+            src: "https://m.media-amazon.com/images/M/MV5BZmIxMGIzZjEtNjhlYi00M2FmLTljNTQtNDgwY2Y5NjQyZGVmXkEyXkFqcGc@._V1_.jpg"
+          },
+          {
+            quote: "The reports of my death are greatly exaggerated. Kindness is the language which the deaf can hear and the blind can see. Always do what is right. It will gratify half of mankind and astound the other.",
+            name: "Mark Twain",
+            designation: "American Realist • The Adventures of Huckleberry Finn",
+            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Mark_Twain_by_AF_Bradley.jpg/250px-Mark_Twain_by_AF_Bradley.jpg"
+          },
+          {
+            quote: "It is never too late to be what you might have been. What do we live for, if it is not to make life less difficult for each other? Our deeds determine us, as much as we determine our deeds.",
+            name: "George Eliot (Mary Ann Evans)",
+            designation: "Victorian Realist • Middlemarch & Silas Marner",
+            src: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQDXH2PLjwsQcGkaiDXad8wcpWcijTOb-gr19cuuTP3gxrA9PDHRnqRsfxS8pShlZIW_OKl"
+          },
+          {
+            quote: "The voice of the sea speaks to the soul. The touch of the sea is sensuous, enfolding the body in its soft, close embrace. She was becoming herself and daily casting aside that fictitious self.",
+            name: "Kate Chopin",
+            designation: "American Realist • The Awakening",
+            src: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRj53UvzW5qYJGg0Mqizgrl1NhVN-_Ba65FDq5I1NE22VKygLoGfTDYp_3KLVXD2iL3TQXgUKIcAphK3U5w1-xP5x5O4GzosLHvkdIJV5k"
+          },
+          {
+            quote: "There are two ways of spreading light: to be the candle or the mirror that reflects it. The real loneliness is living among all these kind people who only ask one to pretend!",
+            name: "Edith Wharton",
+            designation: "American Realist • The House of Mirth & The Age of Innocence",
+            src: "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcTpMlugOJkQkSM4SzO-SiF30_oDi0ViKh-xuYhoLMfh30JcuS9p4VVwAMZQWE1e1AjhflQ1qC28JCfs4iU"
+          },
+          {
+            quote: "The heart of another is a dark forest, always, no matter how close it has been to one's own. The dead might as well try to speak to the living as the old to the young.",
+            name: "Willa Cather",
+            designation: "American Realist • My Ántonia & O Pioneers!",
+            src: "https://www.pbs.org/wnet/americanmasters/files/2015/06/Willa_Cather_ca._1912-338x340.jpg"
           }
         ]}
         autoplay={false}
