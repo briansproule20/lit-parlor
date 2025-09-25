@@ -306,19 +306,19 @@ const literaryMovementsContent = [
             quote: "Every individual has a place to fill in the world and is important in some respect whether he chooses to be so or not. No man can be perfectly happy till all are happy.",
             name: "Nathaniel Hawthorne",
             designation: "Dark Transcendentalist • The Scarlet Letter & Young Goodman Brown",
-            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Nathaniel_Hawthorne_by_Brady%2C_1860-64.jpg/250px-Nathaniel_Hawthorne_by_Brady%2C_1860-64.jpg"
+            src: "https://upload.wikimedia.org/wikipedia/commons/c/c4/Nathaniel_Hawthorne_by_Brady%2C_1860-64.jpg"
           },
           {
             quote: "It is better to fail in originality than to succeed in imitation. Call me Ishmael. I would prefer not to.",
             name: "Herman Melville",
             designation: "Dark Transcendentalist • Moby-Dick & Bartleby, the Scrivener",
-            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Herman_Melville_by_Joseph_O_Eaton.jpg/250px-Herman_Melville_by_Joseph_O_Eaton.jpg"
+            src: "https://upload.wikimedia.org/wikipedia/commons/e/e8/Herman_Melville_by_Joseph_O_Eaton.jpg"
           },
           {
             quote: "I'm Nobody! Who are you? Because I could not stop for Death, He kindly stopped for me. Hope is the thing with feathers that perches in the soul.",
             name: "Emily Dickinson",
             designation: "Dark Transcendentalist • Because I could not stop for Death",
-            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/EmilyDickinsonrestored.jpg/250px-EmilyDickinsonrestored.jpg"
+            src: "https://www.emilydickinsonmuseum.org/wp-content/uploads/Theme-Images/daguerreotype-cropped-corrected-1.jpg"
           }
         ]}
         autoplay={false}
@@ -335,7 +335,7 @@ const literaryMovementsContent = [
             quote: "Pain and suffering are always inevitable for a large intelligence and a deep heart. If you want to be happy, be. We sometimes encounter people, even perfect strangers, who begin to interest us at first sight.",
             name: "Fyodor Dostoevsky",
             designation: "Psychological Realist • Crime and Punishment & The Brothers Karamazov",
-            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Vasily_Perov_-_Портрет_Ф.М.Достоевского_-_Google_Art_Project.jpg/250px-Vasily_Perov_-_Портрет_Ф.М.Достоевского_-_Google_Art_Project.jpg"
+            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Vasily_Perov_-_%D0%9F%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82_%D0%A4.%D0%9C.%D0%94%D0%BE%D1%81%D1%82%D0%BE%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_-_Google_Art_Project.jpg/960px-Vasily_Perov_-_%D0%9F%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82_%D0%A4.%D0%9C.%D0%94%D0%BE%D1%81%D1%82%D0%BE%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_-_Google_Art_Project.jpg"
           },
           {
             quote: "It was the best of times, it was the worst of times. No one is useless in this world who lightens the burdens of another. Have a heart that never hardens, and a temper that never tires, and a touch that never hurts.",
