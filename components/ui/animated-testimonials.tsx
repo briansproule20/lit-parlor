@@ -42,6 +42,11 @@ export const AnimatedTestimonials = ({
   const randomRotateY = () => {
     return Math.floor(Math.random() * 21) - 10;
   };
+  // Safety check to prevent errors
+  if (!testimonials || testimonials.length === 0) {
+    return <div className="mx-auto max-w-sm px-4 py-8">No testimonials available</div>;
+  }
+
   return (
     <div className="mx-auto max-w-sm px-4 py-8 font-sans antialiased md:max-w-4xl md:px-8 lg:px-12">
       <div className="relative grid grid-cols-1 gap-8 md:grid-cols-2">
@@ -113,13 +118,13 @@ export const AnimatedTestimonials = ({
             }}
           >
             <h3 className="text-2xl font-bold text-black dark:text-white">
-              {testimonials[active].name}
+              {testimonials[active]?.name || ""}
             </h3>
             <p className="text-sm text-gray-500 dark:text-neutral-500">
-              {testimonials[active].designation}
+              {testimonials[active]?.designation || ""}
             </p>
             <motion.p className="mt-4 text-lg text-gray-500 dark:text-neutral-300">
-              {testimonials[active].quote.split(" ").map((word, index) => (
+              {(testimonials[active]?.quote || "").split(" ").map((word, index) => (
                 <motion.span
                   key={index}
                   initial={{

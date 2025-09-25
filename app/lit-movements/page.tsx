@@ -198,22 +198,34 @@ const literaryMovementsContent = [
       <AnimatedTestimonials
         testimonials={[
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "Nothing is so painful to the human mind as a great and sudden change. Life, although it may only be an accumulation of anguish, is dear to me, and I will defend it.",
+            name: "Mary Shelley",
+            designation: "Gothic Novelist • Frankenstein",
+            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/RothwellMaryShelley.jpg/250px-RothwellMaryShelley.jpg"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "In Xanadu did Kubla Khan a stately pleasure dome decree. Water, water, everywhere, nor any drop to drink. He prayeth best, who loveth best all things both great and small.",
+            name: "Samuel Taylor Coleridge",
+            designation: "Romantic Poet • The Rime of the Ancient Mariner",
+            src: "https://upload.wikimedia.org/wikipedia/commons/9/91/SamuelTaylorColeridge.jpg"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "She walks in beauty, like the night of cloudless climes and starry skies. The great object of life is sensation - to feel that we exist, even though in pain.",
+            name: "Lord Byron",
+            designation: "Romantic Poet • She Walks in Beauty & Don Juan",
+            src: "https://upload.wikimedia.org/wikipedia/commons/3/3c/Byron_1813_by_Phillips.jpg"
+          },
+          {
+            quote: "The child is father of the man. Come forth into the light of things, let nature be your teacher. That best portion of a man's life: his little, nameless, unremembered acts of kindness and love.",
+            name: "William Wordsworth",
+            designation: "Nature Poet • Lyrical Ballads & The Prelude",
+            src: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Wordsworth_on_Helvellyn_by_Benjamin_Robert_Haydon.jpg"
+          },
+          {
+            quote: "To see a world in a grain of sand and heaven in a wild flower, hold infinity in the palms of your hand and eternity in an hour. How do you know but ev'ry bird that cuts the airy way, is an immense world of delight, clos'd by your senses five?",
+            name: "William Blake",
+            designation: "Visionary Poet & Artist • Songs of Innocence and Experience",
+            src: "https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcTRdWgV7MCgtUnHkvvIDbBhVANiX648rAiWzk8MckDRNNpenoiAG-Yq5KeczwPKJZP29WlMVr9jZvhlF48"
           }
         ]}
         autoplay={false}
