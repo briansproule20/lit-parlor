@@ -609,22 +609,34 @@ const literaryMovementsContent = [
       <AnimatedTestimonials
         testimonials={[
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time. We bend our backs to the fire, we don't straighten them.",
+            name: "Jack Kerouac",
+            designation: "Beat Writer • On the Road & The Dharma Bums",
+            src: "https://blogs.library.columbia.edu/rbml/files/2019/10/4673-JackKerouac.jpg"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "I saw the best minds of my generation destroyed by madness, starving hysterical naked. America I've given you all and now I'm nothing. Holy! Holy! Holy! Holy! Holy! Holy! Holy! Holy! Holy!",
+            name: "Allen Ginsberg",
+            designation: "Beat Poet • Howl & Kaddish",
+            src: "https://www.laphamsquarterly.org/sites/default/files/styles/tall_rectangle_custom_user_small_2x/public/images/contributor/ginsberg_360x450.jpg?itok=wDPhoYrs&timestamp=1421784977"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "Nothing is true, everything is permitted. Language is a virus from outer space. The face of evil is always the face of total need.",
+            name: "William S. Burroughs",
+            designation: "Beat Writer • Naked Lunch & Junky",
+            src: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcS-EmZ5WDvPwowbFS-HC3g1bYHvOjELb10bRfckemPHtRmdGV92e727SHM8zMaNbrPPeXV5jGsYjhurX-xZBQjPYbu0eTi2_V889DHrSSQ"
+          },
+          {
+            quote: "We were just goofing around, you know, being young and wild and free. The road must eventually lead to the whole world. Nothing behind me, everything ahead of me, as is ever so on the road.",
+            name: "Neal Cassady",
+            designation: "Beat Muse • The First Third",
+            src: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSVnT_8i9K0s7xSNiq0FuhZeINITvkXyYh5Y8YihH-X0T4nMAJSRYB38O2LJFSvmd9YdThPaq9PEoFvmGshz6G-ylwZxL2LoUiz6WVWBXE"
+          },
+          {
+            quote: "We lived life as if it were a work of art, crafting beauty from the raw material of experience. The road was not just a path but a way of being in the world.",
+            name: "Carolyn Cassady",
+            designation: "Beat Writer • Off the Road & Heart Beat",
+            src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-hRfTRYnow9vEtr28HKrij8Q5PWG6Olx73rfqHNi2DP-YsNP2OvMJBeOb-Sn4yYIP45Pi63fAL4bw0hpz4TkJ06CNbTx4ahfkxud_g_zGFA"
           }
         ]}
         autoplay={false}
@@ -633,27 +645,39 @@ const literaryMovementsContent = [
   },
   {
     title: "Postmodernism",
-    description: "Meta-fiction, pastiche, questioning of grand narratives. Postmodernist writers like Thomas Pynchon and Donald Barthelme challenged traditional storytelling, blending high and low culture while questioning absolute truths.",
+    description: "Meta-fiction, pastiche, questioning of grand narratives. Postmodernist writers like Thomas Pynchon and David Foster Wallace challenged traditional storytelling, blending high and low culture while questioning absolute truths.",
     content: (
       <AnimatedTestimonials
         testimonials={[
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "If they can get you asking the wrong questions, they don't have to worry about answers. Entropy is inevitable, but paranoia is optional. The crying of lot 49.",
+            name: "Thomas Pynchon",
+            designation: "Postmodernist • Gravity's Rainbow & The Crying of Lot 49",
+            src: "https://upload.wikimedia.org/wikipedia/commons/c/ca/Thomas_Pynchon%2C_high_school_yearbook_editor%2C_1953.jpg"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "The really important kind of freedom involves attention and awareness and discipline. Everything I've ever let go of has claw marks on it.",
+            name: "David Foster Wallace",
+            designation: "Postmodernist • Infinite Jest & Brief Interviews with Hideous Men",
+            src: "https://i.pinimg.com/736x/26/e0/f6/26e0f61cda7b8bd54306127b6b435a6c.jpg"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "The future belongs to crowds. America was and is the immigrant's dream. Every sentence has a truth waiting at the end of it and the writer learns how to know it when he reaches it.",
+            name: "Don DeLillo",
+            designation: "Postmodernist • White Noise & Underworld",
+            src: "https://upload.wikimedia.org/wikipedia/commons/d/de/Don_DeLillo%2C_author.jpg"
+          },
+          {
+            quote: "We often think that when we have completed our study of one we know all about two, because 'two' is 'one and one.' We forget that we still have to make a study of 'and.'",
+            name: "George Saunders",
+            designation: "Postmodernist • CivilWarLand in Bad Decline & Lincoln in the Bardo",
+            src: "https://media.newyorker.com/photos/5f9883532643607f1a1a2354/master/w_2560%2Cc_limit/Treisman-SaundersTWIF.jpg"
+          },
+          {
+            quote: "We are all alone, born alone, die alone, and—in spite of True Romance magazines—we shall all someday look back on our lives and see that, in spite of our company, we were alone the whole way.",
+            name: "Hunter S. Thompson",
+            designation: "Gonzo Journalist • Fear and Loathing in Las Vegas",
+            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Hunter_S._Thompson%2C_Las_Vegas_1971.jpg/917px-Hunter_S._Thompson%2C_Las_Vegas_1971.jpg"
           }
         ]}
         autoplay={false}
