@@ -743,86 +743,34 @@ const literaryMovementsContent = [
     ),
   },
   {
-    title: "Black Arts Movement",
-    description: "African American artistic and literary expression. Writers like Amiri Baraka and Nikki Giovanni created works that celebrated Black identity and promoted social and political consciousness during the Civil Rights era.",
-    content: (
-      <AnimatedTestimonials
-        testimonials={[
-          {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
-          },
-          {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
-          },
-          {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
-          }
-        ]}
-        autoplay={false}
-      />
-    ),
-  },
-  {
     title: "Postcolonial Literature",
     description: "Works from formerly colonized nations. Postcolonial writers like Chinua Achebe and Salman Rushdie explore themes of cultural identity, displacement, and the legacy of colonialism in newly independent nations.",
     content: (
       <AnimatedTestimonials
         testimonials={[
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "Until the lions have their own historians, the history of the hunt will always glorify the hunter. The white man is very clever. He came quietly and peaceably with his religion. We were amused at his foolishness and allowed him to stay.",
+            name: "Chinua Achebe",
+            designation: "Nigerian Postcolonial • Things Fall Apart & Arrow of God",
+            src: "https://africanarguments.org/wp-content/uploads/2013/03/Chinua_Achebe.jpg"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "A poet's work is to name the unnameable, to point at frauds, to take sides, start arguments, shape the world, and stop it going to sleep. To be born again, sang Gibreel Farishta tumbling from the heavens, first you have to die.",
+            name: "Salman Rushdie",
+            designation: "Indian-British Postcolonial • Midnight's Children & The Satanic Verses",
+            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Salman_Rushdie%2C_2024.jpg/960px-Salman_Rushdie%2C_2024.jpg"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
-          }
-        ]}
-        autoplay={false}
-      />
-    ),
-  },
-  {
-    title: "African Diaspora Literature",
-    description: "Literary works by writers of African descent living outside of Africa, exploring themes of displacement, identity, cultural heritage, and the experience of living between worlds. This literature examines the lasting effects of the transatlantic slave trade and colonialism.",
-    content: (
-      <AnimatedTestimonials
-        testimonials={[
-          {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "The thing you have to understand about us is that we are not a people who are afraid of silence. A small place, a small island, the people of Antigua. But we are real, real, real.",
+            name: "Jamaica Kincaid",
+            designation: "Antiguan-American Postcolonial • Annie John & A Small Place",
+            src: "https://www.theparisreview.org/il/ad14b3f518/large/10.stephaniestill.png"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
-          },
-          {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "That's the thing about books. They let you travel without moving your feet. We are all, I suppose, burdened with things we remember: images, scents, sounds.",
+            name: "Jhumpa Lahiri",
+            designation: "Indian-American Postcolonial • Interpreter of Maladies & The Namesake",
+            src: "https://news.brown.edu/sites/default/files/article_images/Jhumpa%20Lahiri%20photo.jpg"
           }
         ]}
         autoplay={false}
