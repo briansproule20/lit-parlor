@@ -198,10 +198,10 @@ const literaryMovementsContent = [
       <AnimatedTestimonials
         testimonials={[
           {
-            quote: "Nothing is so painful to the human mind as a great and sudden change. Life, although it may only be an accumulation of anguish, is dear to me, and I will defend it.",
-            name: "Mary Shelley",
-            designation: "Gothic Novelist • Frankenstein",
-            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/RothwellMaryShelley.jpg/250px-RothwellMaryShelley.jpg"
+            quote: "Poetry is the record of the best and happiest moments of the happiest and best minds. The good want power, but to weep barren tears. Our sweetest songs are those that tell of saddest thought.",
+            name: "Percy Bysshe Shelley",
+            designation: "Romantic Poet • Ozymandias & Prometheus Unbound",
+            src: "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcSHQrH39ba1TM3LTu7tDwlZDGiQ6Xf-2320Wlukk3HJg1f_uRkrnftV4jc-sDhzvFH22C21aSpFEoX7giM"
           },
           {
             quote: "In Xanadu did Kubla Khan a stately pleasure dome decree. Water, water, everywhere, nor any drop to drink. He prayeth best, who loveth best all things both great and small.",
@@ -239,22 +239,28 @@ const literaryMovementsContent = [
       <AnimatedTestimonials
         testimonials={[
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "Nothing is so painful to the human mind as a great and sudden change. Life, although it may only be an accumulation of anguish, is dear to me, and I will defend it.",
+            name: "Mary Shelley",
+            designation: "Gothic Novelist • Frankenstein",
+            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/RothwellMaryShelley.jpg/250px-RothwellMaryShelley.jpg"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "Terror and human nature seemed to her necessary companions. When we read the annals of those dark and superstitious times, reason revolts, yet fancy delights in the terrific.",
+            name: "Ann Radcliffe",
+            designation: "Gothic Novelist • The Mysteries of Udolpho",
+            src: "https://i0.wp.com/apilgriminnarnia.com/wp-content/uploads/2021/03/ann-radcliffe.jpg?resize=157%2C274&ssl=1"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "All that we see or seem is but a dream within a dream. I became insane, with long intervals of horrible sanity. The death of a beautiful woman is, unquestionably, the most poetical topic in the world.",
+            name: "Edgar Allan Poe",
+            designation: "Dark Romantic • The Raven & The Tell-Tale Heart",
+            src: "https://cdn.britannica.com/52/76652-050-F4A6B093/Edgar-Allan-Poe.jpg"
+          },
+          {
+            quote: "There are darknesses in life and there are lights, and you are one of the lights, the light of all lights. The blood is the life! For the blood is the life.",
+            name: "Bram Stoker",
+            designation: "Gothic Novelist • Dracula",
+            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Bram_Stoker_1906.jpg/250px-Bram_Stoker_1906.jpg"
           }
         ]}
         autoplay={false}
