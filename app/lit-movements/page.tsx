@@ -1070,22 +1070,22 @@ const literaryMovementsContent = [
       <AnimatedTestimonials
         testimonials={[
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "When you have eliminated the impossible, whatever remains, however improbable, must be the truth. The game is afoot! It is a capital mistake to theorize before one has data.",
+            name: "Sir Arthur Conan Doyle",
+            designation: "Mystery Author • Sherlock Holmes Series",
+            src: "https://cdn.britannica.com/51/12251-050-D5F09630/Arthur-Conan-Doyle-detail-portrait-HL-Gates-1927.jpg"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "The impossible could not have happened, therefore the impossible must be possible in spite of appearances. One is left with the horrible feeling now that war settles nothing.",
+            name: "Agatha Christie",
+            designation: "Mystery Author • Miss Marple & Hercule Poirot",
+            src: "https://www.novelsuspects.com/wp-content/uploads/2021/05/The-Life-and-Disappearance-of-Agatha-Christie.png"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "Friendship—my definition—is built on two things. Respect and trust. Both elements have to be there. And it has to be mutual. You can have respect for someone, but if you don't have trust, the friendship will crumble.",
+            name: "Stieg Larsson",
+            designation: "Mystery Author • The Girl with the Dragon Tattoo",
+            src: "https://media.vanityfair.com/photos/56cc4e92ae46dea861df143d/master/pass/dam-culture-2011-07-l-stieg-larsson-main.jpg"
           }
         ]}
         autoplay={false}
