@@ -784,22 +784,28 @@ const literaryMovementsContent = [
       <AnimatedTestimonials
         testimonials={[
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "We were the people who were not in the papers. We lived in the blank white spaces at the edges of print. It gave us more freedom. We lived in the gaps between the stories.",
+            name: "Margaret Atwood",
+            designation: "Canadian Feminist • The Handmaid's Tale & The Blind Assassin",
+            src: "https://cdn-test.poetryfoundation.org/cdn-cgi/image/w=2292,h=1528,q=80/content/images/95e9709a9185078ae2c169f0a7ecff9fa6400e1e.jpeg"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "The function, the very serious function of racism is distraction. It keeps you from doing your work. It keeps you explaining, over and over again, your reason for being.",
+            name: "Toni Morrison",
+            designation: "American Feminist • Beloved & Song of Solomon",
+            src: "https://platform.vox.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/18933788/GettyImages_514704088_header.jpg?quality=90&strip=all&crop=16.827956989247%2C0%2C66.344086021505%2C100&w=2400"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "One is not born, but rather becomes, a woman. No biological, psychological, or economic fate determines the figure that the human female presents in society.",
+            name: "Simone de Beauvoir",
+            designation: "French Feminist • The Second Sex & The Ethics of Ambiguity",
+            src: "https://www.theparisreview.org/il/a4e07993ad/medium/simone-de-beauvoir-interview.png"
+          },
+          {
+            quote: "There must be those among whom we can sit down and weep and still be counted as warriors. I make up reasons to hope. The most notable fact that our culture imprints on women is the sense of our limits.",
+            name: "Adrienne Rich",
+            designation: "American Feminist Poet • Diving into the Wreck & Of Woman Born",
+            src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVQy3VyP1gmXxDxjffDXmKxaum3lvCS7O323H2fQ_mB1v59LPnDpKk3s7deFBlJfnvdnFJEbwjLU5rZL9Y1ynLZ1MB4NI59bkucHPA3pE"
           }
         ]}
         autoplay={false}
