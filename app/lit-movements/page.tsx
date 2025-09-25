@@ -3,6 +3,7 @@
 import React from 'react';
 import { StickyScroll } from '@/components/ui/sticky-scroll-reveal';
 import { AnimatedTestimonials } from '@/components/ui/animated-testimonials';
+import { TracingBeam } from '@/components/ui/tracing-beam';
 
 const literaryMovementsContent = [
   {
@@ -1105,13 +1106,19 @@ const literaryMovementsContent = [
 ];
 
 export default function LitMovementsPage() {
+  const [activeSection, setActiveSection] = React.useState(0);
+
   return (
     <main className="min-h-screen relative bg-slate-900">
-      {/* Sticky Scroll Section - Full Height */}
+      {/* TracingBeam positioned fixed on far left - no layout impact */}
+      <TracingBeam currentSection={activeSection} totalSections={literaryMovementsContent.length} />
+
+      {/* Sticky Scroll Section - Full Height - unchanged layout */}
       <div className="pt-16 pb-8">
         <StickyScroll
           content={literaryMovementsContent}
           contentClassName="h-[500px] w-[600px]"
+          onActiveCardChange={setActiveSection}
         />
       </div>
     </main>

@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 export const StickyScroll = ({
   content,
   contentClassName,
+  onActiveCardChange,
 }: {
   content: {
     title: string;
@@ -14,6 +15,7 @@ export const StickyScroll = ({
     content?: React.ReactNode | any;
   }[];
   contentClassName?: string;
+  onActiveCardChange?: (index: number) => void;
 }) => {
   const [activeCard, setActiveCard] = React.useState(0);
   const ref = useRef<any>(null);
@@ -28,13 +30,16 @@ export const StickyScroll = ({
       // If scrolled to very top, always show first item
       if (container.scrollTop <= 50) {
         setActiveCard(0);
+        onActiveCardChange?.(0);
         return;
       }
 
       // If scrolled to very bottom, show last item
       const isAtBottom = container.scrollTop >= (container.scrollHeight - container.clientHeight - 50);
       if (isAtBottom) {
-        setActiveCard(itemRefs.current.length - 1);
+        const lastIndex = itemRefs.current.length - 1;
+        setActiveCard(lastIndex);
+        onActiveCardChange?.(lastIndex);
         return;
       }
 
@@ -58,6 +63,7 @@ export const StickyScroll = ({
       });
 
       setActiveCard(closestIndex);
+      onActiveCardChange?.(closestIndex);
     };
 
     if (container) {
