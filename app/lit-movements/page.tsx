@@ -780,6 +780,12 @@ const literaryMovementsContent = [
             name: "Hunter S. Thompson",
             designation: "Gonzo Journalist • Fear and Loathing in Las Vegas",
             src: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Hunter_S._Thompson%2C_Las_Vegas_1971.jpg/917px-Hunter_S._Thompson%2C_Las_Vegas_1971.jpg"
+          },
+          {
+            quote: "Everything was beautiful and nothing hurt. So it goes. Here we are, trapped in the amber of the moment. There is no why. We are what we pretend to be, so we must be careful about what we pretend to be.",
+            name: "Kurt Vonnegut",
+            designation: "Postmodern Novelist • Slaughterhouse-Five & Cat's Cradle",
+            src: "https://www.science.org/do/10.1126/science.adf7410/abs/_20221110_on_kurt_vonnegut_portrait.jpg"
           }
         ]}
         autoplay={false}
