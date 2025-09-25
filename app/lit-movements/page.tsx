@@ -685,28 +685,28 @@ const literaryMovementsContent = [
     ),
   },
   {
-    title: "Magic Realism",
+    title: "Magical Realism",
     description: "Fantastical elements in realistic settings. Magic realist writers like Gabriel García Márquez blend magical occurrences with everyday reality, creating works that challenge conventional boundaries between fantasy and realism.",
     content: (
       <AnimatedTestimonials
         testimonials={[
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "Many years later, as he faced the firing squad, Colonel Aureliano Buendía was to remember that distant afternoon when his father took him to discover ice.",
+            name: "Gabriel García Márquez",
+            designation: "Colombian Magic Realist • One Hundred Years of Solitude & Love in the Time of Cholera",
+            src: "https://static01.nyt.com/images/2013/08/01/automobiles/Marquez-Gabriel-adv-obit-slide-LP84/Marquez-Gabriel-adv-obit-slide-LP84-superJumbo-v5.jpg"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "If you only read the books that everyone else is reading, you can only think what everyone else is thinking. Pain is inevitable. Suffering is optional.",
+            name: "Haruki Murakami",
+            designation: "Japanese Magic Realist • The Wind-Up Bird Chronicle & Kafka on the Shore",
+            src: "https://i.guim.co.uk/img/media/9d0618336a3d4b7ea3e6cec4bb8e781670c140bc/0_50_1943_2427/master/1943.jpg?width=700&quality=85&auto=format&fit=max&s=a987887882b9fa593733f3a63a4a6569"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "Manuscripts don't burn. Everything will turn out right, the world is built on that. Cowardice is the most terrible of vices. Follow me, reader! Who told you there is no true, faithful, eternal love in this world?",
+            name: "Mikhail Bulgakov",
+            designation: "Russian Magic Realist • The Master and Margarita & Heart of a Dog",
+            src: "https://upload.wikimedia.org/wikipedia/commons/c/c1/%D0%9C%D0%B8%D1%85%D0%B0%D0%B8%D0%BB-%D0%91%D1%83%D0%BB%D0%B3%D0%B0%D0%BA%D0%BE%D0%B2.jpg"
           }
         ]}
         autoplay={false}
@@ -720,22 +720,22 @@ const literaryMovementsContent = [
       <AnimatedTestimonials
         testimonials={[
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "My eyes have seen what my hand did. If we're not supposed to dance, why all this music? The light at the end of the tunnel is just the light of an oncoming train.",
+            name: "Robert Lowell",
+            designation: "Confessional Poet • Life Studies & For the Union Dead",
+            src: "https://upload.wikimedia.org/wikipedia/commons/f/f9/Robert-lowell-by-elsa-dorfman.jpg"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "I am, I am, I am. Out of the ash I rise with my red hair and I eat men like air. Every woman adores a Fascist, the boot in the face, the brute brute heart of a brute like you.",
+            name: "Sylvia Plath",
+            designation: "Confessional Poet • Ariel & The Bell Jar",
+            src: "https://s3-us-east-2.amazonaws.com/cdn-test.poetryfoundation.org/content/images/1e3f27c800fabc4d89607089f91395d77c6ab409.jpeg"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "Put your ear down close to your soul and listen hard. We are all writing God's poem. I was tired of being a woman, tired of the spoons and the pots, tired of my mouth and my breasts.",
+            name: "Anne Sexton",
+            designation: "Confessional Poet • To Bedlam and Part Way Back & Live or Die",
+            src: "https://i.guim.co.uk/img/media/0c875caa664c4666fedfdbf89ef1397231a772ae/0_237_662_397/master/662.jpg?width=465&dpr=1&s=none&crop=none"
           }
         ]}
         autoplay={false}
