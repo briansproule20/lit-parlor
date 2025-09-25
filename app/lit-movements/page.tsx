@@ -241,6 +241,30 @@ const literaryMovementsContent = [
             name: "William Blake",
             designation: "Visionary Poet & Artist • Songs of Innocence and Experience",
             src: "https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcTRdWgV7MCgtUnHkvvIDbBhVANiX648rAiWzk8MckDRNNpenoiAG-Yq5KeczwPKJZP29WlMVr9jZvhlF48"
+          },
+          {
+            quote: "I am no bird; and no net ensnares me: I am a free human being with an independent will. It is in vain to say human beings ought to be satisfied with tranquillity: they must have action; and they will make it if they cannot find it.",
+            name: "Charlotte Brontë",
+            designation: "Romantic Novelist • Jane Eyre & Villette",
+            src: "https://assets.americanliterature.com/al/images/author/charlotte-bronte-coloured-drawing.jpg"
+          },
+          {
+            quote: "I have dreamt in my life, dreams that have stayed with me ever after, and changed my ideas; they have gone through and through me, like wine through water, and altered the color of my mind.",
+            name: "Emily Brontë",
+            designation: "Romantic Novelist • Wuthering Heights",
+            src: "https://cdn2.penguin.com.au/authors/original/34655au.jpg"
+          },
+          {
+            quote: "I avoid looking forward or backward, and try to keep looking upward. A person who has not done one half his day's work by ten o'clock, runs a chance of leaving the other half undone.",
+            name: "Anne Brontë",
+            designation: "Romantic Novelist • The Tenant of Wildfell Hall & Agnes Grey",
+            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Anne_Bront%C3%AB_by_Patrick_Branwell_Bront%C3%AB_restored.jpg/250px-Anne_Bront%C3%AB_by_Patrick_Branwell_Bront%C3%AB_restored.jpg"
+          },
+          {
+            quote: "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife. The person, be it gentleman or lady, who has not pleasure in a good novel, must be intolerably stupid.",
+            name: "Jane Austen",
+            designation: "Romantic Novelist • Pride and Prejudice & Emma",
+            src: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTKvTxf6VJe2M3N2PYOaSs6noTqB8B19TsN6QPP5fl-_fNqyP-55ShcT12Fp0PWSuGlyHLyajnzoPmyH7QB43Z6n_S4OFqITTEheOIpEg"
           }
         ]}
         autoplay={false}
