@@ -911,63 +911,20 @@ const literaryMovementsContent = [
     ),
   },
   {
-    title: "Cyberpunk",
-    description: "Technology, dystopian futures in science fiction. Cyberpunk writers like William Gibson explore the intersection of high technology and low society, creating dystopian visions of digital futures.",
-    dateRange: "1980s - 1990s",
-    countries: "USA, Japan",
+    title: "21st Century Genre Fiction",
+    description: "The elevation of genre fiction to literary respectability. Once dismissed as mere 'pulp,' science fiction, fantasy, and speculative fiction have gained serious critical recognition in the 21st century. Thanks to pioneering efforts by giants like Kurt Vonnegut, J.R.R. Tolkien, and Ursula K. Le Guin, genre fiction is now celebrated for its ability to explore complex themes, social issues, and the human condition through imaginative storytelling. This section celebrates writers who have been influential to their respective genres.",
+    dateRange: "2000 - present",
+    countries: "Global",
     content: (
-      <AnimatedTestimonials
-        testimonials={[
-          {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
-          },
-          {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
-          },
-          {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
-          }
-        ]}
-        autoplay={false}
-      />
-    ),
-  },
-  {
-    title: "Afrofuturism",
-    description: "A cultural aesthetic and literary movement that explores the intersection of African diaspora culture with technology, science fiction, and speculative fiction. Afrofuturist writers reimagine the future through Black perspectives, addressing themes of liberation, technology, and cultural identity.",
-    content: (
-      <AnimatedTestimonials
-        testimonials={[
-          {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
-          },
-          {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
-          },
-          {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
-          }
-        ]}
-        autoplay={false}
-      />
+      <div className="flex items-center justify-center h-full">
+        <div className="text-center p-8">
+          <h3 className="text-xl font-semibold text-blue-400 mb-4">Genre Fiction Renaissance</h3>
+          <p className="text-slate-300 max-w-md">
+            The 21st century has witnessed the transformation of genre fiction from entertainment to art, 
+            with writers using speculative elements to examine our world and imagine new possibilities.
+          </p>
+        </div>
+      </div>
     ),
   },
   {
