@@ -807,6 +807,12 @@ const literaryMovementsContent = [
             name: "Adrienne Rich",
             designation: "American Feminist Poet • Diving into the Wreck & Of Woman Born",
             src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVQy3VyP1gmXxDxjffDXmKxaum3lvCS7O323H2fQ_mB1v59LPnDpKk3s7deFBlJfnvdnFJEbwjLU5rZL9Y1ynLZ1MB4NI59bkucHPA3pE"
+          },
+          {
+            quote: "The creative adult is the child who survived. We are volcanoes. When we women offer our experience as our truth, as human truth, all the maps change.",
+            name: "Ursula K. Le Guin",
+            designation: "American Feminist Sci-Fi Writer • The Left Hand of Darkness & The Dispossessed",
+            src: "https://media.newyorker.com/photos/5a6a04c099adb40acb9a023d/master/w_2560%2Cc_limit/Phillips-Ursula-K-LeGuin.jpg"
           }
         ]}
         autoplay={false}
