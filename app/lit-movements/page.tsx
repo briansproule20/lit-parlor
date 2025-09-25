@@ -128,22 +128,22 @@ const literaryMovementsContent = [
       <AnimatedTestimonials
         testimonials={[
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "A little learning is a dangerous thing; drink deep, or taste not the Pierian spring. True wit is nature to advantage dressed, what oft was thought, but ne'er so well expressed.",
+            name: "Alexander Pope",
+            designation: "Poet • Essay on Criticism & The Rape of the Lock",
+            src: "https://upload.wikimedia.org/wikipedia/commons/5/5d/Alexander_Pope_by_Michael_Dahl.jpg"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "All human things are subject to decay, and when fate summons, monarchs must obey. None but the brave deserves the fair.",
+            name: "John Dryden",
+            designation: "Poet & Critic • Absalom and Achitophel",
+            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/John_Dryden_by_Sir_Godfrey_Kneller%2C_Bt.jpg/250px-John_Dryden_by_Sir_Godfrey_Kneller%2C_Bt.jpg"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "Every man desires to live long, but no man wishes to be old. It is impossible that anything so natural, so necessary, and so universal as death, should ever have been designed by Providence as an evil to mankind.",
+            name: "Jonathan Swift",
+            designation: "Satirist • Gulliver's Travels & A Modest Proposal",
+            src: "https://chroniclesmagazine.org/wp-content/uploads/sites/3/2025/01/Jonathan-Swift-.jpg"
           }
         ]}
         autoplay={false}
@@ -157,10 +157,10 @@ const literaryMovementsContent = [
       <AnimatedTestimonials
         testimonials={[
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "When a man is tired of London, he is tired of life. The true measure of a man is how he treats someone who can do him absolutely no good. Clear your mind of cant.",
+            name: "Samuel Johnson",
+            designation: "Lexicographer & Essayist • A Dictionary of the English Language",
+            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Samuel_Johnson_by_Joshua_Reynolds_2.png/250px-Samuel_Johnson_by_Joshua_Reynolds_2.png"
           },
           {
             quote: "",
