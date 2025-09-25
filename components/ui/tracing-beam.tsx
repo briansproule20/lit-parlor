@@ -16,10 +16,10 @@ export const TracingBeam = ({
   const sectionProgress = totalSections > 0 ? currentSection / (totalSections - 1) : 0;
 
   return (
-    <div className={cn("fixed left-2 w-8 pointer-events-none", className)} style={{ top: '4rem', height: 'calc(100vh - 150px)', zIndex: 1000 }}>
+    <div className={cn("fixed left-2 w-8 pointer-events-none", className)} style={{ top: '10rem', height: 'calc(100vh - 200px)', zIndex: 1000 }}>
 
       {/* Nice clean dot */}
-      <div className="mt-10 ml-1">
+      <div className="mt-4 ml-1">
         <motion.div
           className="w-3 h-3 rounded-full border-2 border-white shadow-lg"
           animate={{
@@ -30,7 +30,7 @@ export const TracingBeam = ({
       </div>
 
       {/* Simple line that stops above chat */}
-      <div className="ml-2 mt-1" style={{ height: 'calc(100vh - 300px)' }}>
+      <div className="ml-2 mt-1" style={{ height: 'calc(100vh - 250px)' }}>
         {/* Background line - always visible */}
         <div
           className="w-1 bg-gray-600 opacity-30"
