@@ -160,19 +160,31 @@ const literaryMovementsContent = [
             quote: "When a man is tired of London, he is tired of life. The true measure of a man is how he treats someone who can do him absolutely no good. Clear your mind of cant.",
             name: "Samuel Johnson",
             designation: "Lexicographer & Essayist • A Dictionary of the English Language",
-            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Samuel_Johnson_by_Joshua_Reynolds_2.png/250px-Samuel_Johnson_by_Joshua_Reynolds_2.png"
+            src: "https://upload.wikimedia.org/wikipedia/commons/2/20/Samuel_Johnson_by_Joshua_Reynolds.jpg"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "I disapprove of what you say, but I will defend to the death your right to say it. Common sense is not so common. Judge a man by his questions rather than by his answers.",
+            name: "Voltaire",
+            designation: "Philosopher & Writer • Candide",
+            src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkcRX5KxrGSZtV7pa31RCUVLhGeohJH9JmKC-qm0QiUH-4-mcCaEvPdOsA9t1DVR2pSR9EAFmCkSxDXtmNxHoW8eygZUlNuQ2sV3L2f0c"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "Man is born free, and everywhere he is in chains. The general will is always right. We are born to work together like feet, hands, and eyes, like the two rows of teeth, upper and lower.",
+            name: "Jean-Jacques Rousseau",
+            designation: "Political Philosopher • The Social Contract & Émile",
+            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Jean-Jacques_Rousseau_%28painted_portrait%29.jpg/250px-Jean-Jacques_Rousseau_%28painted_portrait%29.jpg"
+          },
+          {
+            quote: "Reason is, and ought only to be the slave of the passions. Custom, then, is the great guide of human life. It is not contrary to reason to prefer the destruction of the whole world to the scratching of my finger.",
+            name: "David Hume",
+            designation: "Scottish Philosopher • A Treatise of Human Nature",
+            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Painting_of_David_Hume.jpg/250px-Painting_of_David_Hume.jpg"
+          },
+          {
+            quote: "Government has no other end, but the preservation of property. All mankind... being all equal and independent, no one ought to harm another in his life, health, liberty or possessions.",
+            name: "John Locke",
+            designation: "English Philosopher • Two Treatises of Government",
+            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/JohnLocke.png/250px-JohnLocke.png"
           }
         ]}
         autoplay={false}
