@@ -450,22 +450,82 @@ const literaryMovementsContent = [
       <AnimatedTestimonials
         testimonials={[
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "History, Stephen said, is a nightmare from which I am trying to awake. Every life is many days, day after day. We walk through ourselves, meeting robbers, ghosts, giants, old men, young men, wives, widows, brothers-in-love, but always meeting ourselves.",
+            name: "James Joyce",
+            designation: "Irish Modernist • Ulysses & Finnegans Wake",
+            src: "https://www.go-to-ireland.com/wp-content/uploads/2013/12/james-joyce-2.jpg"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "For the mind of man is the most capricious of insects - flitting, fluttering. Yet obscurity, which is one of the greatest beauties of literature, haunts the very simplest song.",
+            name: "Virginia Woolf",
+            designation: "English Modernist • Mrs. Dalloway & To the Lighthouse",
+            src: "https://upload.wikimedia.org/wikipedia/commons/0/0b/George_Charles_Beresford_-_Virginia_Woolf_in_1902_-_Restoration.jpg"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "There is no there there. The earth is the earth as a peasant sees it, the world is the world as a duchess sees it, and anyway a rose is a rose is a rose.",
+            name: "Gertrude Stein",
+            designation: "American Modernist • Three Lives & The Autobiography of Alice B. Toklas",
+            src: "https://upload.wikimedia.org/wikipedia/commons/2/25/Gertrude_Stein_1935-01-04.jpg"
+          },
+          {
+            quote: "So we beat on, boats against the current, borne back ceaselessly into the past. In his blue gardens men and girls came and went like moths among the whisperings and the champagne and the stars.",
+            name: "F. Scott Fitzgerald",
+            designation: "American Modernist • The Great Gatsby & Tender Is the Night",
+            src: "https://m.media-amazon.com/images/M/MV5BNzhkYTNkNTktN2M5OS00MjU5LWFkMWQtZGEwOWIzZjcyY2NiXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+          },
+          {
+            quote: "I don't want to live. I want to love first, and live incidentally. Nobody has ever measured, not even poets, how much the human heart can hold.",
+            name: "Zelda Fitzgerald",
+            designation: "American Modernist • Save Me the Waltz",
+            src: "https://upload.wikimedia.org/wikipedia/commons/4/40/Zelda_Fitzgerald_circa_1919_Retouched.jpg"
+          },
+          {
+            quote: "All good books are alike in that they are truer than if they had really happened. The world breaks everyone, and afterward, some are strong at the broken places.",
+            name: "Ernest Hemingway",
+            designation: "American Modernist • The Sun Also Rises & A Farewell to Arms",
+            src: "https://i0.wp.com/karsh.org/wp-content/uploads/2016/10/Yousuf-Karsh-Ernest-Hemingway-1957.jpg?fit=960%2C1208&strip=none&ssl=1"
+          },
+          {
+            quote: "The past is never dead. It's not even past. Memory believes before knowing remembers. Believes longer than recollects, longer than knowing even wonders.",
+            name: "William Faulkner",
+            designation: "American Modernist • The Sound and the Fury & As I Lay Dying",
+            src: "https://www.loa.org/wp-content/uploads/2023/08/faulkner_william_WD-1.jpg"
+          },
+          {
+            quote: "I have always imagined that Paradise will be a kind of library. Time forks perpetually toward innumerable futures. In one of them I am your enemy.",
+            name: "Jorge Luis Borges",
+            designation: "Argentine Modernist • Labyrinths & Ficciones",
+            src: "https://upload.wikimedia.org/wikipedia/commons/c/cf/Jorge_Luis_Borges_1951%2C_by_Grete_Stern.jpg"
+          },
+          {
+            quote: "The real voyage of discovery consists not in seeking new landscapes, but in having new eyes. Remembrance of things past is not necessarily the remembrance of things as they were.",
+            name: "Marcel Proust",
+            designation: "French Modernist • In Search of Lost Time",
+            src: "https://media.newyorker.com/photos/63e3d40f4138f62754b70a7c/master/pass/Benton-Proust-Writing.jpg"
+          },
+          {
+            quote: "The horror! The horror! We live as we dream - alone. The belief in a supernatural source of evil is not necessary; men alone are quite capable of every wickedness.",
+            name: "Joseph Conrad",
+            designation: "Polish-British Modernist • Heart of Darkness & Lord Jim",
+            src: "https://upload.wikimedia.org/wikipedia/commons/e/e7/Joseph_Conrad-remastered_to_black_and_white.png"
+          },
+          {
+            quote: "Ever tried. Ever failed. No matter. Try again. Fail again. Fail better. Nothing to be done. I can't go on, I'll go on.",
+            name: "Samuel Beckett",
+            designation: "Irish Modernist • Waiting for Godot & Endgame",
+            src: "https://cdn.britannica.com/72/6372-050-FB63515E/Samuel-Beckett-1965.jpg"
+          },
+          {
+            quote: "Someone must have been telling lies about Josef K., he knew he had done nothing wrong but, one morning, he was arrested. It is not necessary to accept everything as true, one must only accept it as necessary.",
+            name: "Franz Kafka",
+            designation: "Czech Modernist • The Metamorphosis & The Trial",
+            src: "https://upload.wikimedia.org/wikipedia/commons/2/26/Franz_Kafka%2C_1923.jpg"
+          },
+          {
+            quote: "April is the cruellest month. We shall not cease from exploration, and the end of all our exploring will be to arrive where we started and know the place for the first time.",
+            name: "T.S. Eliot",
+            designation: "Anglo-American Modernist • The Waste Land & Four Quartets",
+            src: "https://upload.wikimedia.org/wikipedia/commons/2/26/Thomas_Stearns_Eliot_by_Lady_Ottoline_Morrell_%281934%29.jpg"
           }
         ]}
         autoplay={false}
