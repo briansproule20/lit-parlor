@@ -964,22 +964,40 @@ const literaryMovementsContent = [
       <AnimatedTestimonials
         testimonials={[
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "There is nothing new under the sun, but there are new suns. All that you touch you change. All that you change changes you. The only lasting truth is change. God is change.",
+            name: "Octavia Butler",
+            designation: "Science Fiction Pioneer • Kindred & Parable of the Sower",
+            src: "https://www.womenofthehall.org/wp-content/uploads/2022/10/image001.png"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "The measure of a man is not the fear he sows in his enemies. It is the hope he gives his friends. I would have lived in peace. But my enemies brought me war.",
+            name: "Pierce Brown",
+            designation: "Science Fiction Author • Red Rising Trilogy",
+            src: "https://pbs.twimg.com/profile_images/1125588894668296192/BM4EwZsV_400x400.jpg"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "Fear is the mind-killer. Fear is the little-death that brings total obliteration. I will face my fear. I will permit it to pass over me and through me.",
+            name: "Frank Herbert",
+            designation: "Science Fiction Master • Dune Series",
+            src: "https://www.historylink.org/Content/Media/Photos/Large/Frank-Herbert-September-27-1982.jpg"
+          },
+          {
+            quote: "What if we were able to communicate with aliens, but we couldn't understand what they were saying? The universe is under no obligation to make sense to you.",
+            name: "Ted Chiang",
+            designation: "Science Fiction Writer • Stories of Your Life and Others & Exhalation",
+            src: "https://npr.brightspotcdn.com/dims3/default/strip/false/crop/2100x1460+0+0/resize/2100x1460!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F82%2F5c%2Fab9507f14285b40b5ef69965622b%2Fted-chiang-photo-by-alan-berner.JPG"
+          },
+          {
+            quote: "The basic tool for the manipulation of reality is the manipulation of words. If you can control the meaning of words, you can control the people who must use the words. Reality is that which, when you stop believing in it, doesn't go away.",
+            name: "Philip K. Dick",
+            designation: "Science Fiction Visionary • Do Androids Dream of Electric Sheep? & The Man in the High Castle",
+            src: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTZszLgqnDvhLFXH-fd3_bynT85H40znIIy8ErhamoLZU1S4eg_m7HeDDSp3eR8FV8ir8b-XGrygQVZlB_CXP1EQCJuY7KYLMqU_VUQAw"
+          },
+          {
+            quote: "The saddest aspect of life right now is that science gathers knowledge faster than society gathers wisdom. A robot may not injure a human being or, through inaction, allow a human being to come to harm.",
+            name: "Isaac Asimov",
+            designation: "Science Fiction Master • Foundation Series & I, Robot",
+            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Isaac.Asimov01.jpg/250px-Isaac.Asimov01.jpg"
           }
         ]}
         autoplay={false}
@@ -1045,8 +1063,8 @@ const literaryMovementsContent = [
     ),
   },
   {
-    title: "Horror",
-    description: "Literature intended to frighten, unsettle, or create suspense through supernatural or psychological means. Contemporary horror explores social anxieties, psychological trauma, and existential dread alongside traditional supernatural elements.",
+    title: "Horror & Thriller",
+    description: "Literature designed to frighten, unsettle, or create suspense through supernatural, psychological, or dangerous elements. This combined genre explores social anxieties, psychological trauma, existential dread, and fast-paced narratives involving danger, conspiracy, and modern threats that keep readers on edge.",
     content: (
       <AnimatedTestimonials
         testimonials={[
@@ -1076,35 +1094,6 @@ const literaryMovementsContent = [
   {
     title: "Romance",
     description: "Stories focused primarily on romantic relationships and emotional connections. Modern romance has diversified to include diverse voices, LGBTQ+ relationships, and subgenres that blend with other genres like fantasy and science fiction.",
-    content: (
-      <AnimatedTestimonials
-        testimonials={[
-          {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
-          },
-          {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
-          },
-          {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
-          }
-        ]}
-        autoplay={false}
-      />
-    ),
-  },
-  {
-    title: "Thriller/Suspense",
-    description: "Fast-paced stories designed to keep readers in suspense, often involving danger or conspiracy. Contemporary thrillers incorporate cyber threats, political intrigue, and global conspiracies reflecting modern anxieties.",
     content: (
       <AnimatedTestimonials
         testimonials={[
