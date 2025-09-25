@@ -539,22 +539,28 @@ const literaryMovementsContent = [
       <AnimatedTestimonials
         testimonials={[
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "Make it new. The image is not an idea. It is a radiant node or cluster; it is what I can, and must perforce, call a VORTEX, from which, and through which, and into which, ideas are constantly rushing.",
+            name: "Ezra Pound",
+            designation: "Imagist Founder • In a Station of the Metro & The Cantos",
+            src: "https://upload.wikimedia.org/wikipedia/en/4/43/Ezra_Pound_by_Alvin_Langdon_Coburn%2C_1913.jpg"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "The whole white world is ours. Every peak, every crag, every castle, every sea. The light passes from ridge to ridge, from flower to flower.",
+            name: "H.D. (Hilda Doolittle)",
+            designation: "Imagist Poet • Sea Garden & Helen in Egypt",
+            src: "https://s3-us-east-2.amazonaws.com/cdn-test.poetryfoundation.org/content/images/be92d051b959c7534262df5955afd724c9bdba5e.jpeg"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "All books are either dreams or swords, you can cut, or you can drug, with words. A poet is a nightingale, who sits in darkness and sings to cheer its own solitude with sweet sounds.",
+            name: "Amy Lowell",
+            designation: "Imagist Poet • Sword Blades and Poppy Seed",
+            src: "https://s3-us-east-2.amazonaws.com/cdn-test.poetryfoundation.org/content/images/985ac817d73635836c6ba05069149cb86f409223.jpeg"
+          },
+          {
+            quote: "So much depends upon a red wheel barrow glazed with rain water beside the white chickens. No ideas but in things.",
+            name: "William Carlos Williams",
+            designation: "Imagist Poet • Spring and All & Paterson",
+            src: "https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcQYmVNsed4rbVe4DK7Ke09NgJEmlyh_P3gCfiztfwuEiCmWXXORYwflw2LsWVq2mw7Jw3BmjePmQvIvak0"
           }
         ]}
         autoplay={false}
