@@ -37,9 +37,7 @@ export default function LitParlorNavbar() {
     { name: "Quests", link: "/quests" },
     { name: "Socratic Forum", link: "/socratic-forum" },
     { name: "Storyworlds", link: "/storyworlds" },
-    { name: "Student Dashboard", link: "/student-dashboard" },
     { name: "The Arena", link: "/the-arena" },
-    { name: "Your Character", link: "/character" },
   ];
 
   const teacherItems = [
@@ -140,6 +138,18 @@ export default function LitParlorNavbar() {
                         className="block px-3 py-2 text-amber-700 dark:text-amber-300 hover:bg-amber-50 dark:hover:bg-amber-900/50 font-medium transition-colors text-sm"
                       >
                         Profile Settings
+                      </Link>
+                      <Link
+                        href="/character"
+                        className="block px-3 py-2 text-amber-700 dark:text-amber-300 hover:bg-amber-50 dark:hover:bg-amber-900/50 font-medium transition-colors text-sm"
+                      >
+                        Character Profile
+                      </Link>
+                      <Link
+                        href="/student-dashboard"
+                        className="block px-3 py-2 text-amber-700 dark:text-amber-300 hover:bg-amber-50 dark:hover:bg-amber-900/50 font-medium transition-colors text-sm"
+                      >
+                        Dashboard
                       </Link>
                       <Link
                         href="/chat"
@@ -256,6 +266,20 @@ export default function LitParlorNavbar() {
                       className="block px-4 py-2 text-green-800 hover:bg-green-50 rounded-md transition-colors"
                     >
                       Profile Settings
+                    </Link>
+                    <Link
+                      href="/character"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="block px-4 py-2 text-green-800 hover:bg-green-50 rounded-md transition-colors"
+                    >
+                      Character Profile
+                    </Link>
+                    <Link
+                      href="/student-dashboard"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="block px-4 py-2 text-green-800 hover:bg-green-50 rounded-md transition-colors"
+                    >
+                      Dashboard
                     </Link>
                     <button
                       onClick={() => {
