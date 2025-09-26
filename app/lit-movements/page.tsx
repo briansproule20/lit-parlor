@@ -1221,6 +1221,22 @@ const literaryMovementsContent = [
       />
     ),
   },
+  {
+    title: "",
+    description: "",
+    dateRange: "",
+    countries: "",
+    content: (
+      <div className="w-full px-4">
+        <div className="bg-gradient-to-br from-amber-50/90 to-amber-100/80 backdrop-blur-sm border border-amber-200/50 rounded-xl shadow-lg p-6">
+          <h3 className="text-xl font-bold text-green-900 font-serif mb-3 text-center">A Note on Categorization</h3>
+          <p className="text-sm text-green-800 font-serif leading-relaxed text-center">
+            Both genre studies and literary movement classifications suffer from the same fundamental shortcoming: they attempt to impose order on the inherently messy, interconnected nature of literary creation. Placing visionary authors like Ursula K. Le Guin, Kurt Vonnegut, and Toni Morrison into rigid categories feels deeply reductionist. These writers transcend boundaries, weaving social commentary, speculative elements, and literary artistry into works that defy simple classification. Literary movements, too, are often retroactive constructions—scholars identifying patterns and influences that writers themselves may not have consciously embraced. Nevertheless, for the purposes of this educational timeline, such categorization becomes a necessary pedagogical tool for understanding literary evolution and influence, even as we acknowledge its inherent limitations in capturing the full scope of these authors' contributions to literature.
+          </p>
+        </div>
+      </div>
+    ),
+  },
 ];
 
 export default function LitMovementsPage() {

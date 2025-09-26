@@ -123,57 +123,84 @@ export const StickyScroll = ({
       <div className="div relative flex items-start px-4">
         <div className="max-w-4xl">
           {content.map((item, index) => (
-            <div
-              key={item.title + index}
-              className="my-16 flex items-start"
-              ref={(el) => {
-                itemRefs.current[index] = el;
-              }}
-            >
-              {/* Date/Country Info */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{
-                  opacity: activeCard === index ? 1 : 0.3,
+            item.title ? (
+              <div
+                key={item.title + index}
+                className="my-16 flex items-start"
+                ref={(el) => {
+                  itemRefs.current[index] = el;
                 }}
-                className="w-48 flex-shrink-0 mr-8 text-right"
               >
-                <div className="text-sm font-semibold text-blue-400 mb-2">
-                  {item.dateRange || "Date Unknown"}
-                </div>
-                <div className="text-xs text-slate-400">
-                  {item.countries || "Location Unknown"}
-                </div>
-              </motion.div>
+                {/* Date/Country Info */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{
+                    opacity: activeCard === index ? 1 : 0.3,
+                  }}
+                  className="w-48 flex-shrink-0 mr-8 text-right"
+                >
+                  <div className="text-sm font-semibold text-blue-400 mb-2">
+                    {item.dateRange || "Date Unknown"}
+                  </div>
+                  <div className="text-xs text-slate-400">
+                    {item.countries || "Location Unknown"}
+                  </div>
+                </motion.div>
 
-              {/* Movement Content */}
-              <div className="flex-1">
-                <motion.h2
-                  initial={{
-                    opacity: 0,
-                  }}
-                  animate={{
-                    opacity: activeCard === index ? 1 : 0.3,
-                  }}
-                  className="text-2xl font-bold text-slate-100"
-                >
-                  {item.title}
-                </motion.h2>
-                <motion.p
-                  initial={{
-                    opacity: 0,
-                  }}
-                  animate={{
-                    opacity: activeCard === index ? 1 : 0.3,
-                  }}
-                  className="text-kg mt-10 max-w-sm text-slate-300"
-                >
-                  {item.description}
-                </motion.p>
+                {/* Movement Content */}
+                <div className="flex-1">
+                  <motion.h2
+                    initial={{
+                      opacity: 0,
+                    }}
+                    animate={{
+                      opacity: activeCard === index ? 1 : 0.3,
+                    }}
+                    className="text-2xl font-bold text-slate-100"
+                  >
+                    {item.title}
+                  </motion.h2>
+                  <motion.p
+                    initial={{
+                      opacity: 0,
+                    }}
+                    animate={{
+                      opacity: activeCard === index ? 1 : 0.3,
+                    }}
+                    className="text-kg mt-10 max-w-sm text-slate-300"
+                  >
+                    {item.description}
+                  </motion.p>
+                </div>
               </div>
-            </div>
+            ) : (
+              <div
+                key={index}
+                className="my-16 relative"
+                ref={(el) => {
+                  itemRefs.current[index] = el;
+                }}
+              >
+                {/* Special content for items without title - expands to the right when active */}
+                <motion.div
+                  className="absolute left-0 top-0"
+                  style={{ 
+                    width: activeCard === index ? "calc(100vw - 12rem)" : "32rem",
+                    opacity: activeCard === index ? 1 : 0.9,
+                    scale: activeCard === index ? 1.02 : 1,
+                    transformOrigin: "left center", 
+                    zIndex: 10,
+                    transition: "all 0.7s cubic-bezier(0.4, 0, 0.2, 1)"
+                  }}
+                >
+                  {item.content}
+                </motion.div>
+                {/* Invisible spacer to maintain scroll position */}
+                <div className="w-96 h-16 opacity-0"></div>
+              </div>
+            )
           ))}
-          <div className="h-40" />
+          <div className="h-96" />
         </div>
       </div>
       <div
@@ -182,7 +209,7 @@ export const StickyScroll = ({
           contentClassName,
         )}
       >
-        {content[activeCard].content ?? null}
+        {content[activeCard].title ? (content[activeCard].content ?? null) : null}
       </div>
     </div>
   );
