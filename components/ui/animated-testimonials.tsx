@@ -11,17 +11,20 @@ type Testimonial = {
   designation: string;
   src: string;
 };
+
+interface AnimatedTestimonialsProps {
+  testimonials: Testimonial[];
+  autoplay?: boolean;
+  componentId?: string;
+  activeComponentId?: string | null;
+}
+
 export const AnimatedTestimonials = ({
   testimonials,
   autoplay = false,
   componentId,
   activeComponentId,
-}: {
-  testimonials: Testimonial[];
-  autoplay?: boolean;
-  componentId?: string;
-  activeComponentId?: string | null;
-}) => {
+}: AnimatedTestimonialsProps) => {
   const [active, setActive] = useState(0);
   const isActiveComponent = componentId === activeComponentId;
 

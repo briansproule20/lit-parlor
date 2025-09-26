@@ -1225,7 +1225,7 @@ export default function LitMovementsPage() {
           content={literaryMovementsContent.map((section, index) => ({
             ...section,
             content: React.isValidElement(section.content) && section.content.type === AnimatedTestimonials
-              ? React.cloneElement(section.content, {
+              ? React.cloneElement(section.content as React.ReactElement<any>, {
                   componentId: `section-${index}`,
                   activeComponentId: activeTestimonialComponent
                 })
