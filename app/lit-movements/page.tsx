@@ -17,7 +17,7 @@ const literaryMovementsContent = [
           {
             quote: "Sing, goddess, of Achilles' rage, black and murderous, that cost the Greeks incalculable pain, pitched countless souls of heroes into Hades' dark, and left their bodies to rot as feasts for dogs and birds.",
             name: "Homer",
-            designation: "Epic Poet • The Iliad",
+            designation: "Epic Poet • The Iliad, The Odyssey",
             src: "https://upload.wikimedia.org/wikipedia/commons/1/1c/Homer_British_Museum.jpg"
           },
           {
@@ -186,6 +186,12 @@ const literaryMovementsContent = [
             name: "Jean-Jacques Rousseau",
             designation: "Political Philosopher • The Social Contract & Émile",
             src: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Jean-Jacques_Rousseau_%28painted_portrait%29.jpg/250px-Jean-Jacques_Rousseau_%28painted_portrait%29.jpg"
+          },
+          {
+            quote: "Sapere aude! Have courage to use your own reason! Act only according to that maxim whereby you can at the same time will that it should become a universal law.",
+            name: "Immanuel Kant",
+            designation: "German Philosopher • Critique of Pure Reason & What is Enlightenment?",
+            src: "https://upload.wikimedia.org/wikipedia/commons/a/a2/Immanuel_Kant_portrait_c1790.jpg"
           },
           {
             quote: "Reason is, and ought only to be the slave of the passions. Custom, then, is the great guide of human life. It is not contrary to reason to prefer the destruction of the whole world to the scratching of my finger.",
@@ -934,6 +940,12 @@ const literaryMovementsContent = [
             name: "Alice Walker",
             designation: "American Feminist Writer • The Color Purple & In Search of Our Mothers' Gardens",
             src: "https://english.colostate.edu/wp-content/uploads/sites/56/2017/02/alicewalker.jpg"
+          },
+          {
+            quote: "I am not afraid of storms, for I am learning how to sail my ship. Far away there in the sunshine are my highest aspirations. I may not reach them, but I can look up and see their beauty.",
+            name: "Louisa May Alcott",
+            designation: "American Feminist Writer • Little Women & Work: A Story of Experience",
+            src: "https://cdn.britannica.com/61/13561-050-FF94D7CC/Louisa-May-Alcott-portrait-George-Healy-Concord.jpg"
           }
         ]}
         autoplay={false}
@@ -974,7 +986,7 @@ const literaryMovementsContent = [
           {
             quote: "The measure of a man is not the fear he sows in his enemies. It is the hope he gives his friends. I would have lived in peace. But my enemies brought me war.",
             name: "Pierce Brown",
-            designation: "Science Fiction Author • Red Rising Trilogy",
+            designation: "Science Fiction Author • Red Rising Saga",
             src: "https://pbs.twimg.com/profile_images/1125588894668296192/BM4EwZsV_400x400.jpg"
           },
           {
@@ -1023,7 +1035,7 @@ const literaryMovementsContent = [
           {
             quote: "You can never get a cup of tea large enough or a book long enough to suit me. We are what we believe we are. Courage is not simply one of the virtues, but the form of every virtue at the testing point.",
             name: "C.S. Lewis",
-            designation: "Fantasy Author • The Chronicles of Narnia & The Screwtape Letters",
+            designation: "Fantasy Author • The Chronicles of Narnia & The Space Trilogy",
             src: "https://cdn.shopify.com/s/files/1/1185/0798/files/CS-Lewis-7.jpg"
           },
           {
@@ -1197,6 +1209,12 @@ const literaryMovementsContent = [
             name: "Madeline Miller",
             designation: "Historical Fiction • The Song of Achilles & Circe",
             src: "https://madelinemiller.com/wp-content/uploads/2017/11/madeline-miller.jpg"
+          },
+          {
+            quote: "I have always been aware of the power that lies in stories, in the telling and retelling of them. Stories can change the world, they can change how we see ourselves and others.",
+            name: "Jennifer Saint",
+            designation: "Historical Fiction • Ariadne & Elektra",
+            src: "https://drsw10gc90t0z.cloudfront.net/AcuCustom/Sitename/DAM/589/Jennifer-Saint1.jpg"
           }
         ]}
         autoplay={false}
