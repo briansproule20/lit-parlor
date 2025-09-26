@@ -1203,37 +1203,6 @@ const literaryMovementsContent = [
       />
     ),
   },
-  {
-    title: "Crime Fiction",
-    dateRange: "21st Century",
-    countries: "Global",
-    description: "Broader category including detective fiction, noir, and stories about criminal activity. Contemporary crime fiction explores systemic issues, social justice, and the psychology of both criminals and victims in complex moral landscapes.",
-    content: (
-      <AnimatedTestimonials
-        testimonials={[
-          {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
-          },
-          {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
-          },
-          {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
-          }
-        ]}
-        autoplay={false}
-      />
-    ),
-  },
 ];
 
 export default function LitMovementsPage() {
