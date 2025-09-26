@@ -5,7 +5,7 @@ import { DotBackground } from '@/components/ui/dot-background'
 export default function CharacterPage() {
   // TODO: Replace with actual authentication check
   const isSignedIn = true // This would come from your auth provider
-  const user = { name: "Brian Sproule" } // This would come from your auth provider
+  const user: any = { name: "Brian Sproule" } // This would come from your auth provider
 
   // If user is not signed in, show sign-in prompt
   if (!isSignedIn || !user) {
