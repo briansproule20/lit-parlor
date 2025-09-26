@@ -122,38 +122,45 @@ export const AnimatedTestimonials = ({
                 <h3 className="text-2xl font-bold text-black dark:text-white">
                   {testimonials[active].name}
                 </h3>
-                <p className="text-sm text-gray-500 dark:text-neutral-500">
-                  {testimonials[active].designation}
-                </p>
-                <motion.p className="mt-4 text-lg text-gray-500 dark:text-neutral-300">
-                  {testimonials[active].quote.split(" ").map((word, index) => (
-                <motion.span
-                  key={index}
-                  initial={{
-                    filter: "blur(10px)",
-                    opacity: 0,
-                    y: 5,
-                  }}
-                  animate={{
-                    filter: "blur(0px)",
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  transition={{
-                    duration: 0.2,
-                    ease: "easeInOut",
-                    delay: 0.02 * index,
-                  }}
-                  className="inline-block"
-                >
-                    {word}&nbsp;
-                  </motion.span>
-                ))}
-              </motion.p>
+                <div className="mt-1">
+                  <p className="text-sm text-gray-600 dark:text-neutral-400">
+                    {testimonials[active].designation.split(' • ')[0]}
+                  </p>
+                  <p className="text-base font-semibold text-amber-700 dark:text-amber-400 mt-1">
+                    {testimonials[active].designation.split(' • ')[1]}
+                  </p>
+                </div>
+                <motion.blockquote className="mt-3 relative">
+                  <motion.p className="text-base italic text-gray-700 dark:text-neutral-300 relative leading-relaxed max-w-none">
+                    {testimonials[active].quote.split(" ").map((word, index) => (
+                    <motion.span
+                      key={index}
+                      initial={{
+                        filter: "blur(10px)",
+                        opacity: 0,
+                        y: 5,
+                      }}
+                      animate={{
+                        filter: "blur(0px)",
+                        opacity: 1,
+                        y: 0,
+                      }}
+                      transition={{
+                        duration: 0.2,
+                        ease: "easeInOut",
+                        delay: 0.02 * index,
+                      }}
+                      className="inline-block"
+                    >
+                        {word}&nbsp;
+                      </motion.span>
+                    ))}
+                  </motion.p>
+                </motion.blockquote>
               </>
             )}
           </motion.div>
-          <div className="flex gap-4 pt-12 md:pt-0">
+          <div className="flex gap-4 pt-16 md:pt-4">
             <button
               onClick={handlePrev}
               className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800"
