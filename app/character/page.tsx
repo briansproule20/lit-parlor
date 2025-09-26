@@ -192,13 +192,13 @@ export default function CharacterPage() {
         {/* Navigation Links */}
         <div className="flex justify-center items-center gap-4 mb-8">
           <Link
-            href="/profile"
+            href="/student-dashboard"
             className="bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 font-serif"
           >
-            Profile
+            Dashboard
           </Link>
           <Link
-            href="/character"
+            href="/profile"
             className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 font-serif"
           >
             Profile
