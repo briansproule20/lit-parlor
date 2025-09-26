@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
+import { DotBackground } from '@/components/ui/dot-background';
 
 // Type definitions for detailed term structure
 interface Resource {
@@ -2097,36 +2098,41 @@ export default function GlossaryPage() {
   }, [searchTerm, selectedLetter]);
 
   return (
-    <main className="min-h-screen py-8 px-4 relative" style={{
+    <main className="min-h-screen py-8 px-4 pt-24 relative" style={{
       backgroundImage: 'linear-gradient(135deg, #8B4513 0%, #A0522D 25%, #CD853F 50%, #D2691E 75%, #8B4513 100%)',
       backgroundAttachment: 'fixed'
     }}>
+      {/* Dot Background */}
+      <div className="opacity-30 absolute inset-0 pointer-events-none">
+        <DotBackground />
+      </div>
+
       {/* Cozy lighting overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-amber-50/20 via-transparent to-amber-900/30 pointer-events-none"></div>
       
       <div className="max-w-6xl mx-auto relative">
         
-        <div className="text-center mb-8 mt-20">
-          <div className="inline-block p-8 rounded-xl shadow-2xl relative" style={{
+        <div className="text-center mb-8">
+          <div className="inline-block p-8 rounded-xl shadow-2xl relative bg-white max-w-3xl" style={{
             background: `
-              radial-gradient(circle at 25% 20%, rgba(255, 140, 0, 0.2) 0%, transparent 60%),
-              radial-gradient(circle at 75% 80%, rgba(220, 20, 60, 0.3) 0%, transparent 60%),
-              linear-gradient(135deg, #B8860B 0%, #CD853F 20%, #D2691E 40%, #FF8C00 60%, #CD853F 80%, #B8860B 100%)
+              radial-gradient(circle at 25% 20%, rgba(252, 248, 227, 0.95) 0%, transparent 60%),
+              radial-gradient(circle at 75% 80%, rgba(245, 222, 179, 0.9) 0%, transparent 60%),
+              linear-gradient(135deg, #FEFBF0 0%, #F5DEB3 20%, #DEB887 40%, #F5DEB3 60%, #E6D8B5 80%, #FEFBF0 100%)
             `,
-            border: '3px solid #FF8C00',
+            border: '3px solid #8B4513',
             boxShadow: `
-              0 8px 32px rgba(255, 140, 0, 0.4),
-              inset 0 2px 8px rgba(255, 255, 255, 0.1),
-              inset 0 -2px 4px rgba(184, 134, 11, 0.3)
+              0 8px 32px rgba(139, 69, 19, 0.4),
+              inset 0 2px 8px rgba(255, 255, 255, 0.7),
+              inset 0 -2px 4px rgba(139, 69, 19, 0.2)
             `
           }}>
-            <h1 className="text-5xl font-bold text-amber-100 mb-4 font-serif">
+            <h1 className="text-5xl font-bold text-amber-900 mb-4 font-serif">
               Glossary of Literary Terms
             </h1>
-            <p className="text-orange-200 text-xl mb-2 font-serif italic">
+            <p className="text-amber-800 text-xl mb-2 font-serif italic">
               Essential Vocabulary for Literary Analysis
             </p>
-            <div className="text-orange-300 font-serif">
+            <div className="text-amber-700 font-serif">
               "The limits of my language mean the limits of my world." - Ludwig Wittgenstein
             </div>
           </div>
