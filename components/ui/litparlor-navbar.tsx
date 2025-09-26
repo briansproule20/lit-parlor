@@ -43,7 +43,6 @@ export default function LitParlorNavbar() {
   ];
 
   const teacherItems = [
-    { name: "Analytics Dashboard", link: "/analytics-dashboard" },
     { name: "Assignments", link: "/assignments" },
     { name: "Classes", link: "/classes" },
     { name: "Pedagogy", link: "/pedagogy" },
