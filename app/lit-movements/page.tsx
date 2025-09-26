@@ -1101,22 +1101,22 @@ const literaryMovementsContent = [
       <AnimatedTestimonials
         testimonials={[
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "That is not dead which can eternal lie, and with strange aeons even death may die. The oldest and strongest emotion of mankind is fear, and the oldest and strongest kind of fear is fear of the unknown.",
+            name: "H.P. Lovecraft",
+            designation: "Cosmic Horror Pioneer • The Call of Cthulhu & At the Mountains of Madness",
+            src: "https://upload.wikimedia.org/wikipedia/commons/1/10/H._P._Lovecraft%2C_June_1934.jpg"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "Monsters are real, and ghosts are real too. They live inside us, and sometimes, they win. Get busy living, or get busy dying. We all float down here.",
+            name: "Stephen King",
+            designation: "Master of Horror • It & The Shining",
+            src: "https://upload.wikimedia.org/wikipedia/commons/2/24/Stephen_King_at_the_2024_Toronto_International_Film_Festival_2_%28cropped%29.jpg"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "I was told love should be unconditional. That's the rule, everyone says so. But if love has conditions, one of them should be that the person you're loving should be willing to exist.",
+            name: "Gillian Flynn",
+            designation: "Psychological Thriller Author • Gone Girl & Sharp Objects",
+            src: "https://www.prhspeakers.com/wp-content/uploads/2013/03/Flynn_Gillian_940_529_72-ppi.jpg"
           }
         ]}
         autoplay={false}
