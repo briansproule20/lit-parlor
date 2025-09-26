@@ -1,12 +1,18 @@
 import React from 'react'
 import Link from 'next/link'
+import { DotBackground } from '@/components/ui/dot-background'
 
 export default function FullCollectionPage() {
   return (
-    <main className="min-h-screen py-8 px-4 relative" style={{
+    <main className="min-h-screen py-8 px-4 pt-24 relative" style={{
       backgroundImage: 'linear-gradient(135deg, #8B4513 0%, #A0522D 25%, #CD853F 50%, #D2691E 75%, #8B4513 100%)',
       backgroundAttachment: 'fixed'
     }}>
+      {/* Dot Background */}
+      <div className="opacity-30 absolute inset-0 pointer-events-none">
+        <DotBackground />
+      </div>
+
       {/* Cozy lighting overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-amber-50/20 via-transparent to-amber-900/30 pointer-events-none"></div>
       
@@ -18,27 +24,27 @@ export default function FullCollectionPage() {
         </div>
 
         {/* Page Header */}
-        <div className="text-center mb-12 mt-20">
-          <div className="inline-block p-8 rounded-xl shadow-2xl relative" style={{
+        <div className="text-center mb-12">
+          <div className="inline-block p-8 rounded-xl shadow-2xl relative bg-white max-w-3xl" style={{
             background: `
-              radial-gradient(circle at 25% 20%, rgba(205, 133, 63, 0.2) 0%, transparent 60%),
-              radial-gradient(circle at 75% 80%, rgba(160, 82, 45, 0.3) 0%, transparent 60%),
-              linear-gradient(135deg, #8B4513 0%, #A0522D 20%, #CD853F 40%, #D2691E 60%, #A0522D 80%, #8B4513 100%)
+              radial-gradient(circle at 25% 20%, rgba(252, 248, 227, 0.95) 0%, transparent 60%),
+              radial-gradient(circle at 75% 80%, rgba(245, 222, 179, 0.9) 0%, transparent 60%),
+              linear-gradient(135deg, #FEFBF0 0%, #F5DEB3 20%, #DEB887 40%, #F5DEB3 60%, #E6D8B5 80%, #FEFBF0 100%)
             `,
-            border: '3px solid #CD853F',
+            border: '3px solid #8B4513',
             boxShadow: `
               0 8px 32px rgba(139, 69, 19, 0.4),
-              inset 0 2px 8px rgba(255, 255, 255, 0.1),
-              inset 0 -2px 4px rgba(139, 69, 19, 0.3)
+              inset 0 2px 8px rgba(255, 255, 255, 0.7),
+              inset 0 -2px 4px rgba(139, 69, 19, 0.2)
             `
           }}>
-            <h1 className="text-5xl font-bold text-amber-100 mb-4 font-serif">
+            <h1 className="text-5xl font-bold text-amber-900 mb-4 font-serif">
               The Complete Library
             </h1>
-            <p className="text-amber-200 text-xl mb-2 font-serif italic">
+            <p className="text-amber-800 text-xl mb-2 font-serif italic">
               Browse Our Full Selection
             </p>
-            <div className="text-amber-300 font-serif">
+            <div className="text-amber-700 font-serif">
               "A library is not a luxury but one of the necessities of life." - Henry Ward Beecher
             </div>
           </div>
