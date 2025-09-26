@@ -13,6 +13,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useAuth } from "@/contexts/auth-context";
+import { Toast, useToast } from "@/components/ui/toast";
 
 export default function LitParlorNavbar() {
   const pathname = usePathname();
@@ -28,6 +29,7 @@ export default function LitParlorNavbar() {
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { isAuthenticated, hasLitParlorAccount, litParlorAccount, echoUser, signOut, isLoading } = useAuth();
+  const { toast, showToast, hideToast } = useToast();
 
   const studentItems = [
     { name: "ELA Tutor Chat", link: "/chat" },
@@ -50,9 +52,9 @@ export default function LitParlorNavbar() {
   ];
 
   const mainNavItems = [
-    { name: "For Students", link: "#students", items: studentItems },
-    { name: "For Teachers", link: "#teachers", items: teacherItems },
-    { name: "For Parents", link: "#parents", items: [] },
+    { name: "Students", link: "#students", items: studentItems },
+    { name: "Teachers", link: "#teachers", items: teacherItems },
+    { name: "Parents", link: "#parents", items: [] },
   ];
 
   const LitParlorLogo = () => {
@@ -79,19 +81,31 @@ export default function LitParlorNavbar() {
 
   return (
     <div className="relative w-full">
+      <Toast
+        message={toast.message}
+        isVisible={toast.isVisible}
+        onClose={hideToast}
+      />
       <Navbar className="top-4">
         {/* Desktop Navigation */}
         <NavBody>
           <LitParlorLogo />
           
           {/* Main Navigation Items */}
-          <div className="flex items-center space-x-6">
+          <div className="flex items-center justify-center space-x-6 flex-1">
             {mainNavItems.map((item, idx) => (
               <div key={idx} className="group relative">
-                <div className="px-4 py-2 text-green-900 font-semibold cursor-pointer hover:text-green-700 transition-colors">
+                <div
+                  className="px-4 py-2 text-green-900 font-semibold cursor-pointer hover:text-green-700 transition-colors"
+                  onClick={() => {
+                    if (item.name === "Parents") {
+                      showToast("Coming Soon!");
+                    }
+                  }}
+                >
                   {item.name}
                 </div>
-                
+
                 {/* Dropdown Menu */}
                 {item.items.length > 0 && (
                   <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 bg-white dark:bg-neutral-900 rounded-lg shadow-2xl border border-amber-200 dark:border-amber-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 min-w-[220px]">
@@ -202,7 +216,7 @@ export default function LitParlorNavbar() {
             {/* Students Section */}
             <div className="w-full">
               <h3 className="font-bold text-green-900 mb-2">
-                For Students
+                Students
               </h3>
               {studentItems.map((item, idx) => (
                 <Link
@@ -235,7 +249,10 @@ export default function LitParlorNavbar() {
 
             {/* Parents Section */}
             <div className="w-full">
-              <h3 className="font-bold text-green-900 mb-2">
+              <h3
+                className="font-bold text-green-900 mb-2 cursor-pointer hover:text-green-700 transition-colors"
+                onClick={() => showToast("Coming Soon!")}
+              >
                 For Parents
               </h3>
               <div className="px-4 py-2 text-green-700 text-sm">
