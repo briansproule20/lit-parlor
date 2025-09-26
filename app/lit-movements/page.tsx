@@ -1181,22 +1181,22 @@ const literaryMovementsContent = [
       <AnimatedTestimonials
         testimonials={[
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "To be a good soldier, you must love the army. But to be a good officer, you must be willing to order the death of the thing you love.",
+            name: "Michael Shaara",
+            designation: "Historical Fiction • The Killer Angels",
+            src: "https://upload.wikimedia.org/wikipedia/commons/5/5e/Michael_Shaara.jpg"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "The past is a foreign country; they do things differently there. We must learn to live with our ghosts, or else they will live with us.",
+            name: "Colson Whitehead",
+            designation: "Historical Fiction • The Underground Railroad & The Nickel Boys",
+            src: "https://m.media-amazon.com/images/M/MV5BZmY5MTBjMjUtMzVmOC00ZTVlLThmYjctMmM0MjIyNDBlODgwXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "We are all there, goddess and mortal and the boy who was both. The power to make mortals forget. Only gods have such a thing. The rest of us must find our own way to make peace with our memories.",
+            name: "Madeline Miller",
+            designation: "Historical Fiction • The Song of Achilles & Circe",
+            src: "https://madelinemiller.com/wp-content/uploads/2017/11/madeline-miller.jpg"
           }
         ]}
         autoplay={false}
