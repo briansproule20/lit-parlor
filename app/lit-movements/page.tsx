@@ -1132,22 +1132,40 @@ const literaryMovementsContent = [
       <AnimatedTestimonials
         testimonials={[
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "Sometimes you have to choose between a bunch of wrong choices and no right ones. You just have to choose which wrong choice feels the least wrong.",
+            name: "Taylor Jenkins Reid",
+            designation: "Contemporary Romance • The Seven Husbands of Evelyn Hugo & Daisy Jones & The Six",
+            src: "https://m.media-amazon.com/images/M/MV5BYzYzMzBmNjgtM2EwMC00MTQ5LWE3MGYtODkxNTc1N2JiMGFhXkEyXkFqcGc@._V1_.jpg"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "We need hope, or else we cannot endure. To the stars who listen—and the dreams that are answered.",
+            name: "Sarah J. Maas",
+            designation: "Fantasy Romance • A Court of Thorns and Roses & Throne of Glass",
+            src: "https://static01.nyt.com/images/2022/08/04/books/review/04insidethelist/04insidethelist-superJumbo.jpg"
           },
           {
-            quote: "",
-            name: "",
-            designation: "",
-            src: ""
+            quote: "That's the thing about pain. It demands to be felt. Some infinities are bigger than other infinities.",
+            name: "John Green",
+            designation: "Young Adult Romance • The Fault in Our Stars & Looking for Alaska",
+            src: "https://images.squarespace-cdn.com/content/v1/55db3b44e4b01e5be14cad77/1657894114773-DN766ZER3WBMNKPSAHTD/Screenshot+2022-07-15+at+16.03.18.png?format=1500w"
+          },
+          {
+            quote: "The best love is the kind that awakens the soul and makes us reach for more, that plants a fire in our hearts and brings peace to our minds.",
+            name: "Nicholas Sparks",
+            designation: "Romance Novelist • The Notebook & A Walk to Remember",
+            src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzaxiEtoQV60hA1lL_9F4W_3ep3xX89w_T1_3V8cBe5fjCBCtjuu1YBPhhnmw2uw5jWNiRiUK3u4a5KsSPKet1WQej05g8WYRHAFAz-w"
+          },
+          {
+            quote: "Some people are meant to be loved and others just naked. You can't force chemistry to exist where it doesn't, the same way you can't deny it when it does.",
+            name: "Emily Henry",
+            designation: "Contemporary Romance • Beach Read & People We Meet on Vacation",
+            src: "https://images.squarespace-cdn.com/content/v1/5ee7af80b0e5ab58bc5ee38e/19acbd83-05be-4b72-b295-e0ba0a3c23dd/Emily-feb16v3.jpg"
+          },
+          {
+            quote: "All humans make mistakes. What determines a person's character aren't the mistakes we make. It's how we take those mistakes and turn them into lessons rather than excuses.",
+            name: "Colleen Hoover",
+            designation: "Contemporary Romance • It Ends with Us & Verity",
+            src: "https://texashighways.com/wp-content/uploads/2022/10/colleen-hoover-image-featured.jpg"
           }
         ]}
         autoplay={false}
