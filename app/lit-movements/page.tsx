@@ -7,6 +7,43 @@ import { TracingBeam } from '@/components/ui/tracing-beam';
 
 const literaryMovementsContent = [
   {
+    title: "Oral Storytelling/Folklore",
+    description: "The primordial foundation of human narrative expression. Before the written word, humans were inherently storytelling beings, passing down wisdom, history, and cultural values through oral traditions. This ancient practice reveals our fundamental nature as narrative creatures who make meaning through story, creating the bedrock upon which all literature would later be built.",
+    dateRange: "Prehistoric - Present",
+    countries: "Global",
+    content: (
+      <AnimatedTestimonials
+        testimonials={[
+          {
+            quote: "The human species thinks in metaphors and learns through stories.",
+            name: "All Human Beings",
+            designation: "The Original Storytellers • Oral Tradition Keepers",
+            src: "/images/oral-tradition.png"
+          },
+          {
+            quote: "The human species thinks in metaphors and learns through stories.",
+            name: "All Human Beings",
+            designation: "The Original Storytellers • Oral Tradition Keepers",
+            src: "/images/oral-tradition-2.png"
+          },
+          {
+            quote: "The human species thinks in metaphors and learns through stories.",
+            name: "All Human Beings",
+            designation: "The Original Storytellers • Oral Tradition Keepers",
+            src: "/images/oral-tradition-3.png"
+          },
+          {
+            quote: "The human species thinks in metaphors and learns through stories.",
+            name: "All Human Beings",
+            designation: "The Original Storytellers • Oral Tradition Keepers",
+            src: "/images/oral-tradition-4.png"
+          }
+        ]}
+        autoplay={false}
+      />
+    ),
+  },
+  {
     title: "Classical Literature",
     description: "Ancient Greek and Roman works including epic poetry, drama, and philosophy. The foundation of Western literature, featuring works like Homer's Iliad and Odyssey, Greek tragedies, and Roman poetry. These works established literary forms and themes that continue to influence writers today.",
     dateRange: "8th century BC - 5th century AD",
