@@ -1207,6 +1207,12 @@ const literaryMovementsContent = [
 
 export default function LitMovementsPage() {
   const [activeSection, setActiveSection] = React.useState(0);
+  const [activeTestimonialComponent, setActiveTestimonialComponent] = React.useState<string | null>(null);
+
+  // Set active testimonial component when section changes
+  React.useEffect(() => {
+    setActiveTestimonialComponent(`section-${activeSection}`);
+  }, [activeSection]);
 
   return (
     <main className="min-h-screen relative bg-slate-900">
@@ -1216,7 +1222,15 @@ export default function LitMovementsPage() {
       {/* Sticky Scroll Section - Full Height - unchanged layout */}
       <div className="pt-16 pb-8">
         <StickyScroll
-          content={literaryMovementsContent}
+          content={literaryMovementsContent.map((section, index) => ({
+            ...section,
+            content: React.isValidElement(section.content) && section.content.type === AnimatedTestimonials
+              ? React.cloneElement(section.content, {
+                  componentId: `section-${index}`,
+                  activeComponentId: activeTestimonialComponent
+                })
+              : section.content
+          }))}
           contentClassName="h-[500px] w-[600px]"
           onActiveCardChange={setActiveSection}
         />

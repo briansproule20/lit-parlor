@@ -14,11 +14,16 @@ type Testimonial = {
 export const AnimatedTestimonials = ({
   testimonials,
   autoplay = false,
+  componentId,
+  activeComponentId,
 }: {
   testimonials: Testimonial[];
   autoplay?: boolean;
+  componentId?: string;
+  activeComponentId?: string | null;
 }) => {
   const [active, setActive] = useState(0);
+  const isActiveComponent = componentId === activeComponentId;
 
   const handleNext = () => {
     setActive((prev) => (prev + 1) % testimonials.length);
@@ -27,6 +32,24 @@ export const AnimatedTestimonials = ({
   const handlePrev = () => {
     setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
+
+  // Only add keyboard navigation if this is the active component
+  useEffect(() => {
+    if (!isActiveComponent) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'ArrowLeft') {
+        handlePrev();
+        event.preventDefault();
+      } else if (event.key === 'ArrowRight') {
+        handleNext();
+        event.preventDefault();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isActiveComponent]);
 
   const isActive = (index: number) => {
     return index === active;
@@ -38,6 +61,7 @@ export const AnimatedTestimonials = ({
       return () => clearInterval(interval);
     }
   }, [autoplay]);
+
 
   const randomRotateY = () => {
     return Math.floor(Math.random() * 21) - 10;

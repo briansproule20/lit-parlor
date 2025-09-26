@@ -81,6 +81,39 @@ export const StickyScroll = ({
     };
   }, []);
 
+  // Add keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'ArrowUp' && activeCard > 0) {
+        const newIndex = activeCard - 1;
+        setActiveCard(newIndex);
+        onActiveCardChange?.(newIndex);
+        // Scroll to the item
+        if (itemRefs.current[newIndex]) {
+          itemRefs.current[newIndex]?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+          });
+        }
+        event.preventDefault();
+      } else if (event.key === 'ArrowDown' && activeCard < content.length - 1) {
+        const newIndex = activeCard + 1;
+        setActiveCard(newIndex);
+        onActiveCardChange?.(newIndex);
+        // Scroll to the item
+        if (itemRefs.current[newIndex]) {
+          itemRefs.current[newIndex]?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+          });
+        }
+        event.preventDefault();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [activeCard, content.length]);
 
   return (
     <div
